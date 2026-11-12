@@ -108,6 +108,25 @@ class Scores(unittest.TestCase):
         for other in ("hf138.png", "hf225.png", "statement.jpg", "receipt_photo.jpg"):
             self.assertLess(check.check(EXAMPLE, ROOT / "samples" / other, renderer=self.r)["layout"], check.PASS_RULE["layout"], other)
 
+    def test_score_agrees_with_eye(self):
+        """눈으로 본 순서와 점수: 그대로 > 글자 축소 > 표가 빠짐 > 다른 문서. 표가 빠지면 닮음이 높아도 빠짐으로 탈락한다."""
+        pkg = package.load(ROOT / "examples" / "hf153")
+        other = package.load(ROOT / "examples" / "irs_fw9")
+        css = {"good": "", "smaller": ".page > * { zoom: 0.8; }", "no_table": "table { display: none !important; }"}
+        got = {}
+        with tempfile.TemporaryDirectory() as d:
+            for name, rule in css.items():
+                self.r.render(package.html(pkg, pkg["sample"]).replace("</style>", rule + "</style>", 1), Path(d) / f"{name}.png")
+                got[name] = check.layout(IMAGE.with_name("hf153.png"), Path(d) / f"{name}.png")
+            self.r.render(package.html(other, other["sample"]), Path(d) / "other.png")
+            got["other"] = check.layout(IMAGE.with_name("hf153.png"), Path(d) / "other.png")
+        ok = lambda s, g: s >= check.PASS_RULE["layout"] and g <= check.MAX_MISSING
+        self.assertGreater(got["good"][0], got["smaller"][0])
+        self.assertGreater(got["smaller"][0], got["other"][0])
+        self.assertTrue(ok(*got["good"]) and ok(*got["smaller"]), got)
+        self.assertFalse(ok(*got["no_table"]), got)
+        self.assertFalse(ok(*got["other"]), got)
+
     def test_broken_is_caught(self):
         t = lambda old, new: (lambda n, s: s.replace(old, new) if n == "template.html" else s)
         leak = self.run_check(t("{{ pledgor_name }}", "박찬연"))

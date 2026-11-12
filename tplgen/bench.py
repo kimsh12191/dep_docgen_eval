@@ -40,7 +40,7 @@ def run_model(cfg: dict, m: dict, renderer: Renderer) -> Path:
                 seconds += g.get("seconds") or 0
                 res = g["result"]
                 row = {"image": image.stem, "round": g["round"], "picked": g["round"] == picked, "error": g.get("error"),
-                       **{k: res[k] for k in ("pass", "valid", "layout", "robust", "leak", "fields", "tables", "columns", "assets", "issues")},
+                       **{k: res.get(k) for k in ("pass", "valid", "layout", "missing", "robust", "leak", "fields", "tables", "columns", "assets", "issues")},
                        "broken_tests": [k for k, v in res["tests"].items() if v], "tokens_total": tokens, "seconds_total": round(seconds, 1)}
                 fh.write(json.dumps(row, ensure_ascii=False) + "\n")
                 print(f"{m['name']} [{n + 1}/{len(images)}] {image.stem} round{g['round']}{' *' if row['picked'] else ''} "

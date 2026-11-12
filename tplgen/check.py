@@ -2,6 +2,7 @@
 
   valid    규칙대로이고 예시 값으로 그려지는가
   layout   예시 값으로 그린 그림과 원본 이미지가 위에서 아래로 같은 모양의 줄을 같은 순서로 갖는 정도 (0~1). 글꼴·간격 차이는 봐준다
+  missing  원본에서 통째로 빠진 가장 큰 덩어리 (0~1). 닮음은 평균이라 표 하나가 빠져도 통과할 수 있어 따로 본다
   robust   값을 바꾸고 표 행을 바꿔 그려도 깨지지 않는 시험의 비율 (data.stress 의 시험들)
   leak     예시 값이 틀에 고정 글자로 박혀 있는 수 (값을 비워 그렸는데도 예시 값이 보이면 샌 것)
   fields · tables · columns · assets   개수 (참고)
@@ -18,7 +19,8 @@ from pathlib import Path
 from . import data as D, package as P
 from .render import Renderer
 
-PASS_RULE = {"robust": 1.0, "layout": 0.6}     # 유효 ∧ 샘 0 ∧ 아래 점수 이상 (임시)
+PASS_RULE = {"robust": 1.0, "layout": 0.6}
+MAX_MISSING = 0.12                            # 빠짐이 이보다 크면 탈락 (임시)     # 유효 ∧ 샘 0 ∧ 아래 점수 이상 (임시)
 CELL = 8           # layout: 이 크기(px, 폭 794 기준)의 칸마다 잉크가 있는지만 본다
 
 
@@ -67,23 +69,45 @@ def bands(path, width: int = 794):
     return grid[grid.any(axis=1)]
 
 
-def layout_score(original, rendered) -> float:
-    """두 그림이 위에서 아래로 같은 모양의 줄을 같은 순서로 갖는 정도 (0~1).
-    줄끼리의 닮음(가로로 이웃 칸까지 같은 자리로 봄)을 순서를 지키며 짝지은 합. 글꼴·행 높이·여백이 달라도 되고, 빠지거나 순서가 바뀌면 내려간다.
-    기준점 (hf153 에서 잰 것): 같은 문서 0.8 안팎, 스캔본과는 0.74, 전혀 다른 문서와는 0.4 안팎."""
+def layout(original, rendered) -> tuple[float, float]:
+    """(닮음, 빠짐). 두 그림의 잉크 줄을 위에서 아래로 순서를 지키며 짝짓는다 (줄끼리의 닮음은 가로로 이웃 칸까지 같은 자리로 봄).
+      닮음  짝지은 닮음의 합 (0~1). 글꼴·행 높이·여백이 달라도 되고, 빠지거나 순서가 바뀌면 내려간다.
+      빠짐  원본에서 짝을 못 찾은(닮음 < 0.5) 줄이 연달아 이어진 가장 긴 구간이 원본 잉크의 몇 할인가 (0~1).
+            닮음은 평균이라 큰 덩어리(표 하나)가 빠져도 0.7 이 나올 수 있다 → 따로 잰다.
+    기준점: 같은 문서 닮음 0.7~0.86 · 빠짐 0.07 이하 / 표가 빠짐 빠짐 0.16~0.35 / 다른 문서 닮음 0.3~0.4 (README 의 '점수와 눈' 실험)."""
     import numpy as np
     a, b = bands(original), bands(rendered)
     if not len(a) or not len(b):
-        return 0.0
+        return 0.0, 1.0
     wide = lambda m: (m | np.roll(m, 1, 1) | np.roll(m, -1, 1)).astype(float)
     p = (b.astype(float) @ wide(a).T).T / np.maximum(b.sum(1), 1)[None, :]     # [i, j] = 그림 줄 j 의 잉크 중 원본 줄 i 근처인 비율
     q = (a.astype(float) @ wide(b).T) / np.maximum(a.sum(1), 1)[:, None]       # [i, j] = 원본 줄 i 의 잉크 중 그림 줄 j 근처인 비율
     sim = np.where(p + q > 0, 2 * p * q / np.maximum(p + q, 1e-9), 0)
-    best = np.zeros((len(a) + 1, len(b) + 1))
-    for i in range(1, len(a) + 1):
-        for j in range(1, len(b) + 1):
-            best[i, j] = max(best[i - 1, j], best[i, j - 1], best[i - 1, j - 1] + sim[i - 1, j - 1])
-    return round(float(2 * best[-1, -1] / (len(a) + len(b))), 3)
+    n, m = sim.shape
+    best, move = np.zeros((n + 1, m + 1)), np.zeros((n + 1, m + 1), int)
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            options = (best[i - 1, j], best[i, j - 1], best[i - 1, j - 1] + sim[i - 1, j - 1])
+            move[i, j] = int(np.argmax(options))
+            best[i, j] = options[move[i, j]]
+    found, i, j = np.zeros(n, bool), n, m
+    while i > 0 and j > 0:
+        if move[i, j] == 2:
+            found[i - 1] = sim[i - 1, j - 1] >= 0.5
+            i, j = i - 1, j - 1
+        elif move[i, j] == 0:
+            i -= 1
+        else:
+            j -= 1
+    ink, run, longest = a.sum(1).astype(float), 0.0, 0.0
+    for k in range(n):
+        run = 0.0 if found[k] else run + ink[k]
+        longest = max(longest, run)
+    return round(float(2 * best[-1, -1] / (n + m)), 3), round(float(longest / ink.sum()), 3)
+
+
+def layout_score(original, rendered) -> float:
+    return layout(original, rendered)[0]
 
 
 def fill_assets(png, shot: dict):
@@ -113,7 +137,7 @@ def leak_candidates(pkg: dict) -> set[str]:
 
 def check(folder, image=None, out=None, renderer: Renderer | None = None) -> dict:
     pkg = P.load(folder)
-    result = {"valid": False, "issues": list(pkg["issues"]), "layout": None, "robust": 0.0, "leak": 0, "tests": {},
+    result = {"valid": False, "issues": list(pkg["issues"]), "layout": None, "missing": None, "robust": 0.0, "leak": 0, "tests": {},
               "fields": len(pkg["schema"].get("fields") or []), "tables": len(pkg["schema"].get("tables") or []),
               "columns": sum(len(P.columns(t)) for t in pkg["schema"].get("tables") or [] if isinstance(t, dict)), "assets": 0}
     if pkg["issues"]:
@@ -138,7 +162,7 @@ def check(folder, image=None, out=None, renderer: Renderer | None = None) -> dic
                 if name == "sample":
                     result["assets"] = len(shot["assets"])
                     if image and shot["width"]:
-                        result["layout"] = layout_score(image, fill_assets(png, shot))
+                        result["layout"], result["missing"] = layout(image, fill_assets(png, shot))
                 if name == "empty":   # 값을 비웠는데도 예시 값이 보이면 틀에 박힌 것
                     text = r._page.inner_text("body")
                     result["leak"] = sum(1 for v in leak_candidates(pkg) if v in text)
@@ -149,13 +173,13 @@ def check(folder, image=None, out=None, renderer: Renderer | None = None) -> dic
     result["valid"] = not tests.get("sample") or all(not p.startswith(("render_error", "no_page")) for p in tests["sample"])
     result["robust"] = round(sum(not p for p in tests.values()) / len(tests), 3) if tests else 0.0
     result["pass"] = bool(result["valid"] and result["leak"] == 0 and result["robust"] >= PASS_RULE["robust"]
-                          and (result["layout"] is None or result["layout"] >= PASS_RULE["layout"]))
+                          and (result["layout"] is None or (result["layout"] >= PASS_RULE["layout"] and result["missing"] <= MAX_MISSING)))
     return result
 
 
 def brief(result: dict) -> str:
     bad = {k: v for k, v in result["tests"].items() if v}
-    return (f"쓸 만함={result['pass']} 유효={result['valid']} 닮음={result['layout']} 견딤={result['robust']} 샘={result['leak']} "
+    return (f"쓸 만함={result['pass']} 유효={result['valid']} 닮음={result['layout']} 빠짐={result['missing']} 견딤={result['robust']} 샘={result['leak']} "
             f"항목={result['fields']} 표={result['tables']}(열 {result['columns']}) 그림자리={result['assets']}"
             + ("\n규칙 위반: " + ", ".join(result["issues"]) if result["issues"] else "")
             + "".join(f"\n깨짐[{k}]: " + ", ".join(v[:8]) + (" …" if len(v) > 8 else "") for k, v in bad.items()))
