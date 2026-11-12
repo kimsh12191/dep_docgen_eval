@@ -1,0 +1,342 @@
+[
+ {
+  "id": "account_opening_application",
+  "tier_v1": "상"
+ },
+ {
+  "id": "alien_registration_card",
+  "tier_v1": "하"
+ },
+ {
+  "id": "articles_of_incorporation",
+  "tier_v1": "중"
+ },
+ {
+  "id": "auto_transfer_application",
+  "tier_v1": "중"
+ },
+ {
+  "id": "balance_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "bank_statement",
+  "tier_v1": "중"
+ },
+ {
+  "id": "bankbook_copy",
+  "tier_v1": "중"
+ },
+ {
+  "id": "basic_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "bill_of_lading",
+  "tier_v1": "상"
+ },
+ {
+  "id": "business_registration_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "business_registration_certificate_corp",
+  "tier_v1": "중"
+ },
+ {
+  "id": "business_registration_proof",
+  "tier_v1": "중"
+ },
+ {
+  "id": "card_statement",
+  "tier_v1": "중"
+ },
+ {
+  "id": "career_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "commercial_invoice",
+  "tier_v1": "상"
+ },
+ {
+  "id": "corporate_customer_due_diligence",
+  "tier_v1": "상"
+ },
+ {
+  "id": "corporate_registry",
+  "tier_v1": "중"
+ },
+ {
+  "id": "corporate_seal_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "credit_agreement",
+  "tier_v1": "상"
+ },
+ {
+  "id": "credit_agreement_corp",
+  "tier_v1": "상"
+ },
+ {
+  "id": "customer_due_diligence",
+  "tier_v1": "상"
+ },
+ {
+  "id": "debt_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "driver_license",
+  "tier_v1": "하"
+ },
+ {
+  "id": "employment_contract",
+  "tier_v1": "중"
+ },
+ {
+  "id": "family_relation_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "fatca_crs",
+  "tier_v1": "중"
+ },
+ {
+  "id": "financial_statements",
+  "tier_v1": "상"
+ },
+ {
+  "id": "financial_transaction_purpose",
+  "tier_v1": "중"
+ },
+ {
+  "id": "gov_business_proof",
+  "tier_v1": "하"
+ },
+ {
+  "id": "gov_financial_proof",
+  "tier_v1": "하"
+ },
+ {
+  "id": "gov_foreign_household",
+  "tier_v1": "하"
+ },
+ {
+  "id": "gov_land",
+  "tier_v1": "하"
+ },
+ {
+  "id": "gov_move_in",
+  "tier_v1": "하"
+ },
+ {
+  "id": "gov_national_tax",
+  "tier_v1": "하"
+ },
+ {
+  "id": "gov_pension",
+  "tier_v1": "하"
+ },
+ {
+  "id": "gov_tax_payment_history",
+  "tier_v1": "하"
+ },
+ {
+  "id": "gov_vat_base",
+  "tier_v1": "하"
+ },
+ {
+  "id": "gov_vat_exempt_income",
+  "tier_v1": "하"
+ },
+ {
+  "id": "guarantee_agreement",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_024",
+  "tier_v1": "상"
+ },
+ {
+  "id": "hana_official_028",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_029",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_051",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_060",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_061",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_064",
+  "tier_v1": "하"
+ },
+ {
+  "id": "hana_official_066",
+  "tier_v1": "하"
+ },
+ {
+  "id": "hana_official_067",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_138",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_139",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_157",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_408",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_419",
+  "tier_v1": "중"
+ },
+ {
+  "id": "hana_official_420",
+  "tier_v1": "중"
+ },
+ {
+  "id": "health_insurance_qualification",
+  "tier_v1": "하"
+ },
+ {
+  "id": "income_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "income_tax_return",
+  "tier_v1": "상"
+ },
+ {
+  "id": "land_register",
+  "tier_v1": "중"
+ },
+ {
+  "id": "lease_contract",
+  "tier_v1": "상"
+ },
+ {
+  "id": "local_tax_assessment",
+  "tier_v1": "중"
+ },
+ {
+  "id": "local_tax_payment_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "marriage_relation_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "move_in_household_list",
+  "tier_v1": "중"
+ },
+ {
+  "id": "overseas_remittance_application",
+  "tier_v1": "상"
+ },
+ {
+  "id": "packing_list",
+  "tier_v1": "중"
+ },
+ {
+  "id": "passport",
+  "tier_v1": "중"
+ },
+ {
+  "id": "pay_stub",
+  "tier_v1": "중"
+ },
+ {
+  "id": "pension_enrollment_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "power_of_attorney",
+  "tier_v1": "중"
+ },
+ {
+  "id": "privacy_consent",
+  "tier_v1": "상"
+ },
+ {
+  "id": "real_estate_registry",
+  "tier_v1": "상"
+ },
+ {
+  "id": "resident_id_card",
+  "tier_v1": "하"
+ },
+ {
+  "id": "resident_registration_abstract",
+  "tier_v1": "중"
+ },
+ {
+  "id": "sales_contract",
+  "tier_v1": "상"
+ },
+ {
+  "id": "seal_certificate",
+  "tier_v1": "상"
+ },
+ {
+  "id": "shareholder_registry",
+  "tier_v1": "중"
+ },
+ {
+  "id": "shareholders_meeting_minutes",
+  "tier_v1": "중"
+ },
+ {
+  "id": "signature_confirmation",
+  "tier_v1": "상"
+ },
+ {
+  "id": "standard_financial_statement_proof",
+  "tier_v1": "상"
+ },
+ {
+  "id": "tax_payment_certificate",
+  "tier_v1": "상"
+ },
+ {
+  "id": "tax_payment_certificate_corp",
+  "tier_v1": "상"
+ },
+ {
+  "id": "trade_contract",
+  "tier_v1": "상"
+ },
+ {
+  "id": "tuition_invoice",
+  "tier_v1": "중"
+ },
+ {
+  "id": "vat_tax_base_certificate",
+  "tier_v1": "중"
+ },
+ {
+  "id": "withholding_receipt",
+  "tier_v1": "상"
+ }
+]

@@ -1,0 +1,15 @@
+{"name": "거래내역확인서", "group": "finance", "category": "external", "page": "a4", "origin": "analyzer", "parent": null,
+ "fields": {
+  "holder.name":    {"label": "예금주",     "type": "text",     "source": "profile.person.name"},
+  "account.number": {"label": "계좌번호",   "type": "text",     "source": "rule:account"},
+  "period.start":   {"label": "조회시작일", "type": "date",     "source": "rule:date"},
+  "period.end":     {"label": "조회종료일", "type": "date",     "source": "rule:date"},
+  "purpose":        {"label": "용도",       "type": "checkbox", "source": "rule:choice", "choices": ["대출신청", "기타"]},
+  "issue_date":     {"label": "발급일",     "type": "date",     "source": "rule:date"},
+  "bank.branch":    {"label": "발급점",     "type": "text",     "source": "rule:branch"}},
+ "lists": {
+  "rows": {"min": 5, "max": 30, "fields": {
+    "date": {"label": "거래일", "type": "date",   "source": "rule:date_seq"},
+    "memo": {"label": "적요",   "type": "text",   "source": "rule:free_text"},
+    "out":  {"label": "출금",   "type": "amount", "source": "rule:amount"},
+    "in":   {"label": "입금",   "type": "amount", "source": "rule:amount"}}}}}
