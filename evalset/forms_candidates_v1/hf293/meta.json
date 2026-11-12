@@ -1,0 +1,42 @@
+{
+  "id": "hf293",
+  "group": "hf",
+  "title": "「외국환서식관리프로그램」선적서류 수령증 및 수입화물 대도(T/R)신청서",
+  "category": "외환",
+  "family": "hf293",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf293",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf293/look/original.pdf",
+  "source_pdf_sha256": "09427f019a69856584b2b4a0742819a6df8530bc67a780f5fa9ea3d4a4d9020d",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 98,
+  "row_cell_hints": 90,
+  "check_hints": 4,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "상",
+  "selection_reason": "무역·선적서류 목록과 작은 글씨",
+  "family_members": [
+    "hf293"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 457,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "f5e84deae7e1eec19f471fad4fa45ab4ab2ef512c739ec40696dc7a013fc5aee",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

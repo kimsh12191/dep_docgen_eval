@@ -1,0 +1,140 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.name": {
+   "label": "성명",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "주민등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  },
+  "official.address": {
+   "label": "주소",
+   "type": "text",
+   "source": "profile.person.address.road_short"
+  },
+  "official.company": {
+   "label": "근로소득 발생처",
+   "type": "text",
+   "source": "profile.employment.company.name"
+  },
+  "official.biz_no": {
+   "label": "발생처 사업자등록번호",
+   "type": "text",
+   "source": "profile.employment.company.biz_no"
+  },
+  "official.salary": {
+   "label": "지급받은 총액",
+   "type": "text",
+   "source": "parent.rows.0.amount"
+  },
+  "official.year": {
+   "label": "귀속연도",
+   "type": "text",
+   "source": "parent.rows.0.year",
+   "text": "2025"
+  },
+  "official.tax": {
+   "label": "총결정세액",
+   "type": "text",
+   "source": "parent.rows.0.tax"
+  },
+  "official.number": {
+   "label": "발급번호",
+   "type": "text",
+   "source": "parent.issue_no"
+  },
+  "official.office": {
+   "label": "관할지역",
+   "type": "text",
+   "source": "parent.issuer",
+   "format": "office_prefix"
+  },
+  "official.issue0": {
+   "label": "발급일 년",
+   "type": "text",
+   "source": "profile.issue_date",
+   "part": 0
+  },
+  "official.issue1": {
+   "label": "발급일 월",
+   "type": "text",
+   "source": "profile.issue_date",
+   "part": 1
+  },
+  "official.issue2": {
+   "label": "발급일 일",
+   "type": "text",
+   "source": "profile.issue_date",
+   "part": 2
+  },
+  "official.salary_income": {
+   "label": "근로소득 소득금액",
+   "type": "text",
+   "source": "rule:amount"
+  },
+  "official.period_from": {
+   "label": "납세자가 신청한 증명귀속연도 시작",
+   "type": "text",
+   "source": "parent.period",
+   "part": 0,
+   "format": "number"
+  },
+  "official.period_to": {
+   "label": "납세자가 신청한 증명귀속연도 끝",
+   "type": "text",
+   "source": "parent.period",
+   "part": 1,
+   "format": "number"
+  },
+  "official.receipt_no": {
+   "label": "접수번호",
+   "type": "text",
+   "source": "rule:number"
+  },
+  "official.issuer_department": {
+   "label": "증명발급자 담당부서",
+   "type": "text",
+   "source": "rule:choice",
+   "choices": [
+    "민원봉사실",
+    "소득세과",
+    "부가가치세과"
+   ]
+  },
+  "official.issuer_person": {
+   "label": "증명발급자 담당자",
+   "type": "text",
+   "source": "rule:other_person"
+  },
+  "official.issuer_phone": {
+   "label": "증명발급자 연락처",
+   "type": "text",
+   "source": "rule:office_phone"
+  },
+  "official.tax_officer_department": {
+   "label": "세적담당자 담당부서",
+   "type": "text",
+   "source": "rule:choice",
+   "choices": [
+    "소득세과",
+    "부가가치세과",
+    "재산법인세과"
+   ]
+  },
+  "official.tax_officer_person": {
+   "label": "세적담당자 담당자",
+   "type": "text",
+   "source": "rule:other_person"
+  },
+  "official.tax_officer_phone": {
+   "label": "세적담당자 연락처",
+   "type": "text",
+   "source": "rule:office_phone"
+  }
+ }
+}

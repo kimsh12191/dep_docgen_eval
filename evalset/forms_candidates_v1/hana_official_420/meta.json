@@ -1,0 +1,43 @@
+{
+  "id": "hana_official_420",
+  "group": "hana",
+  "title": "비대면 계좌개설 안심차단 서비스 신청서",
+  "category": "hana",
+  "family": "hf420",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hana_official_420",
+  "source_url": "https://image.kebhana.com/cont/customer/customer07/customer0701/customer070106/__icsFiles/afieldfile/2025/05/09/5-08-0737.pdf",
+  "source_pdf": "docgen/forms/hf420/look/original.pdf",
+  "source_pdf_sha256": "5cf97163e84e2e5f4e4b4b4dd30f717a975751cd9d5fac0ae520349d5d6f6280",
+  "declared_sha256": "5cf97163e84e2e5f4e4b4b4dd30f717a975751cd9d5fac0ae520349d5d6f6280",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 12,
+  "row_cell_hints": 0,
+  "check_hints": 4,
+  "field_hints_inherited_from": "hf420",
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "하",
+  "selection_reason": "신청 종류 체크·고객 기본 정보",
+  "family_members": [
+    "hana_official_420",
+    "hf420"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 1448,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "43e410d257b9d2f8a02a992f3bf5deebb62082c8687b34504a3820c13d0cd992",
+  "tier": "하",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

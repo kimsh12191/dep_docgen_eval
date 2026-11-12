@@ -1,0 +1,21 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.address": {
+   "label": "토지소재",
+   "type": "text",
+   "source": "profile.property.address.jibun_full"
+  },
+  "official.owner": {
+   "label": "소유자",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  }
+ }
+}

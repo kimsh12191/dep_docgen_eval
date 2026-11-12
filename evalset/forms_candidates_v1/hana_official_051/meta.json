@@ -1,0 +1,43 @@
+{
+  "id": "hana_official_051",
+  "group": "hana",
+  "title": "대출계약 철회신청서",
+  "category": "hana",
+  "family": "hf051",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hana_official_051",
+  "source_url": "https://image.kebhana.com/cont/customer/customer07/customer0701/customer070102/__icsFiles/afieldfile/2025/06/30/5-06-0681.pdf",
+  "source_pdf": "docgen/forms/hf051/look/original.pdf",
+  "source_pdf_sha256": "6457e33b9e5bc3fd341938aaaa935516825b10403858c60549526b7478a9aa12",
+  "declared_sha256": "6457e33b9e5bc3fd341938aaaa935516825b10403858c60549526b7478a9aa12",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 11,
+  "row_cell_hints": 0,
+  "check_hints": 2,
+  "field_hints_inherited_from": "hf051",
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "하",
+  "selection_reason": "철회 신청·신청인과 계약 정보",
+  "family_members": [
+    "hana_official_051",
+    "hf051"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 974,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "30f36ee1976d5f813ca01326369f5b1e186f94c07484e141cebe7a7723b8856c",
+  "tier": "하",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

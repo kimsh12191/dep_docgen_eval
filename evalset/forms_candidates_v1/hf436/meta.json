@@ -1,0 +1,42 @@
+{
+  "id": "hf436",
+  "group": "hf",
+  "title": "주주명부(법인 비대면 실명확인 서비스 용)",
+  "category": "기타",
+  "family": "hf436",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf436",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf436/look/original.pdf",
+  "source_pdf_sha256": "26b79fa2d3153cd126967344a61a078c07074bb9eb54ec3b9dd2cfb995ee89ef",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 29,
+  "row_cell_hints": 28,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "중",
+  "selection_reason": "주주명부·금액과 지분 목록",
+  "family_members": [
+    "hf436"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.32,
+  "height_pt": 841.92,
+  "text_char_count": 483,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "0e0f6b2d4481d32afbddbea0cd09f64abb59dafa151040baec1f7a0c2d07d8b3",
+  "tier": "중",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

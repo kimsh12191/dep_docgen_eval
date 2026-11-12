@@ -1,0 +1,42 @@
+{
+  "id": "gov_business_proof",
+  "group": "gov",
+  "title": "사업자등록증명",
+  "category": "business",
+  "family": "gov_business_proof",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_business_proof",
+  "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=155626677&flNm=%5B%EB%B3%84%EC%A7%80+5%5D+%EC%82%AC%EC%97%85%EC%9E%90%EB%93%B1%EB%A1%9D%EC%A6%9D%EB%AA%85%28%EA%B5%AD%EB%AC%B8%29&bylClsCd=200203",
+  "source_pdf": "docgen/forms/official_sources/gov_business_proof.pdf",
+  "source_pdf_sha256": "3186ef6d49a7cab561843034709e7a39296844582fb7e0aff8f171e847e1b523",
+  "declared_sha256": "3186ef6d49a7cab561843034709e7a39296844582fb7e0aff8f171e847e1b523",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 10,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "하",
+  "selection_reason": "사업자 기본 항목·발급 문구",
+  "family_members": [
+    "gov_business_proof"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.0,
+  "height_pt": 841.0,
+  "text_char_count": 413,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "da3f082a7a9ba88c1a2cb9c2e818b7b3feda49e843f074172821f606b532b8da",
+  "tier": "하",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

@@ -1,0 +1,42 @@
+{
+  "id": "gov_income",
+  "group": "gov",
+  "title": "소득금액증명",
+  "category": "income",
+  "family": "gov_income",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_income",
+  "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=155626737&flNm=%5B%EB%B3%84%EC%A7%80+15%5D+%EC%86%8C%EB%93%9D%EA%B8%88%EC%95%A1%EC%A6%9D%EB%AA%85%28%EA%B5%AD%EB%AC%B8%29&bylClsCd=200203",
+  "source_pdf": "docgen/forms/official_sources/gov_income.pdf",
+  "source_pdf_sha256": "54bd2110509b75a070bb2234a40059ce4a774df65cdb690fb9aaa1773f323129",
+  "declared_sha256": "54bd2110509b75a070bb2234a40059ce4a774df65cdb690fb9aaa1773f323129",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 23,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "상",
+  "selection_reason": "소득 구역·복합 표와 작은 글씨",
+  "family_members": [
+    "gov_income"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.0,
+  "height_pt": 841.0,
+  "text_char_count": 901,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "f08825e45b5d65bad5ab544adf79a2220681c87ef44da523ff8632ca4f717ce1",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

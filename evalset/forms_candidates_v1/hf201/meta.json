@@ -1,0 +1,42 @@
+{
+  "id": "hf201",
+  "group": "hf",
+  "title": "거래외국환지정(변경)신청서(영문)",
+  "category": "외환",
+  "family": "hf201",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf201",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf201/look/original.pdf",
+  "source_pdf_sha256": "f0274ccd4a04f7aa54173c166d52ed30e19f2c8c6cd4a82816aa8c212e594fae",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 6,
+  "row_cell_hints": 2,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "하",
+  "selection_reason": "영문 외환 신청·언어 다양성",
+  "family_members": [
+    "hf201"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 4477,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "4537d4caeca0f15c377be812495f2ae8292b5467c4a1719b0eb56a33de23dc6f",
+  "tier": "하",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

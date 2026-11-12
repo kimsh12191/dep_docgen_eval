@@ -1,0 +1,42 @@
+{
+  "id": "hf387",
+  "group": "hf",
+  "title": "HANA FX TRADING SYSTEM 자동결제 이용신청서",
+  "category": "파생상품",
+  "family": "hf387",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf387",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf387/look/original.pdf",
+  "source_pdf_sha256": "62a4c19c111af175cb340d5af928fd9af45fa74d97d8e6d76a5bcacc9164c279",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 36,
+  "row_cell_hints": 24,
+  "check_hints": 9,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "상",
+  "selection_reason": "파생상품·자동결제 표와 체크 혼합",
+  "family_members": [
+    "hf387"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 1009,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "7d7fcfeb8c2a5657ad0bd8c782675946c7c55fb1b12a634e4c1bba7cd22d50f9",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

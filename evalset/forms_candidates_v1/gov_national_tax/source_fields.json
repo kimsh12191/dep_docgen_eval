@@ -1,0 +1,33 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.name": {
+   "label": "성명",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "주민등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  },
+  "official.address": {
+   "label": "주소",
+   "type": "text",
+   "source": "profile.person.address.road_short"
+  },
+  "official.purpose": {
+   "label": "사용목적(기타)",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "금융기관 제출용"
+  },
+  "official.arrears": {
+   "label": "연장·유예 내역",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "해당 없음"
+  }
+ }
+}

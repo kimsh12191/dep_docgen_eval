@@ -1,0 +1,42 @@
+{
+  "id": "hf177",
+  "group": "hf",
+  "title": "퇴직연금 운용상품지정 신청서(DC)",
+  "category": "퇴직연금",
+  "family": "hf177",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf177",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf177/look/original.pdf",
+  "source_pdf_sha256": "435167fb50acefb34f4e4eea047a1042c74c1a7e59fc45942ab34e5afecbb054",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 79,
+  "row_cell_hints": 29,
+  "check_hints": 27,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "상",
+  "selection_reason": "퇴직연금 운용상품·표와 체크 혼합",
+  "family_members": [
+    "hf177"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 1533,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "7a41f1d3ae9ea4856f5eb7c0448f56564847de6cc32c4853c39c71778f4b579c",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

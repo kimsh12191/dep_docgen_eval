@@ -1,0 +1,43 @@
+{
+  "id": "hana_official_028",
+  "group": "hana",
+  "title": "위임장",
+  "category": "hana",
+  "family": "hf028",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hana_official_028",
+  "source_url": "https://image.kebhana.com/cont/customer/customer07/customer0701/customer070101/__icsFiles/afieldfile/2020/05/29/5_08_0041_20200601.pdf",
+  "source_pdf": "docgen/forms/hf028/look/original.pdf",
+  "source_pdf_sha256": "fe598d774cc62523ff44624e9de4fee2efdaa1a734a94590853ea85a49231256",
+  "declared_sha256": "fe598d774cc62523ff44624e9de4fee2efdaa1a734a94590853ea85a49231256",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 20,
+  "row_cell_hints": 0,
+  "check_hints": 4,
+  "field_hints_inherited_from": "hf028",
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "하",
+  "selection_reason": "위임장·위임인과 대리인 구분",
+  "family_members": [
+    "hana_official_028",
+    "hf028"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 722,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "1e6a533e902b523f7e403aed59ca9251e63c9503fee2255b91c001690aa1d973",
+  "tier": "하",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

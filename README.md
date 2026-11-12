@@ -1,5 +1,17 @@
 # docgen_eval (template-html) — 문서 이미지 → 수정 가능한 HTML 템플릿
 
+## gov · hana · hf 원본 평가 후보
+
+[원본 후보 36종](evalset/forms_candidates_v1/README.md)을 추가했습니다. 전체 502개 서식의 출처·동일 계열을 조사하고 gov 12·hana 12·hf 12종의 단일 페이지 원본 PDF를 입력 이미지로 준비했습니다. **최종 선정 전이며 기준 HTML은 아직 없습니다.**
+
+로컬에서 `evalset/forms_candidates_v1/index.html`을 열어 채택/보류/제외를 기록하고 JSON으로 저장하세요. 원본 선정과 템플릿 승인은 별도 단계입니다. 자세한 절차는 후보 폴더 README에 있습니다.
+
+재생성에는 `pip install -r requirements-data.txt` 후 다음 명령을 사용합니다. 출력 폴더를 덮어쓰지 않으므로 새 이름을 지정하세요.
+
+```bash
+python tools/prepare_form_candidates.py build --source ../document_gen --out evalset/forms_candidates_new
+```
+
 ## 사람 검수 기준으로 모델 비교하기 (추가)
 
 프론티어 모델이 만든 기준을 사람이 승인하고, 같은 값 변경 시험으로 모델들을 비교합니다.
@@ -127,3 +139,9 @@ python -m tplgen bench configs/local.json      # → runs/<out>/compare.md : 모
 | `configs/` | 실행 설정 |
 
 `main` 브랜치는 예전 방식(SVG 값 자리 평가)이다. **실서류 이미지는 사내 모델 주소에만 보낸다.**
+
+후보 화면을 로컬 웹으로 열려면 다음 명령 후 `http://127.0.0.1:8766`에 접속하세요.
+
+```bash
+python -m http.server 8766 --bind 127.0.0.1 --directory evalset/forms_candidates_v1
+```

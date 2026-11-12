@@ -1,0 +1,37 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.name": {
+   "label": "성명",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "주민등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  },
+  "official.issued": {
+   "label": "발급일자",
+   "type": "text",
+   "source": "profile.issue_date"
+  },
+  "official.first_joined": {
+   "label": "최초 자격 취득일",
+   "type": "text",
+   "source": "profile.employment.hire_date"
+  },
+  "official.type": {
+   "label": "가입자 종류",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "사업장가입자"
+  },
+  "official.qual": {
+   "label": "자격 취득일",
+   "type": "text",
+   "source": "profile.employment.hire_date"
+  }
+ }
+}

@@ -1,0 +1,42 @@
+{
+  "id": "gov_land",
+  "group": "gov",
+  "title": "토지대장",
+  "category": "real_estate",
+  "family": "gov_land",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_land",
+  "source_url": "https://www.law.go.kr/LSW/flDownload.do?gubun=&flSeq=162454805&bylClsCd=110202",
+  "source_pdf": "docgen/forms/official_sources/gov_land.pdf",
+  "source_pdf_sha256": "0d99f55243f13c1576753a89006d40f46a18c6b2dada31e330d2305446f3a267",
+  "declared_sha256": "0d99f55243f13c1576753a89006d40f46a18c6b2dada31e330d2305446f3a267",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 3,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "상",
+  "selection_reason": "가로 서식·토지 이력 격자",
+  "family_members": [
+    "gov_land"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 841.0,
+  "height_pt": 595.0,
+  "text_char_count": 512,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "a33d94480d4da1e14aa05c94740ead048fe4e07a2e1f8eb3adaaf6f15476ab78",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

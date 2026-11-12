@@ -1,0 +1,38 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.head": {
+   "label": "세대주",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.address": {
+   "label": "주소",
+   "type": "text",
+   "source": "profile.person.address.road_short"
+  },
+  "official.row": {
+   "label": "순번",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "1"
+  },
+  "official.relation": {
+   "label": "세대주와의 관계",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "본인"
+  },
+  "official.name": {
+   "label": "성명",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "주민등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  }
+ }
+}

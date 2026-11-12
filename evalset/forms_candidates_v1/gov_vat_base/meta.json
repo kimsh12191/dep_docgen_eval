@@ -1,0 +1,42 @@
+{
+  "id": "gov_vat_base",
+  "group": "gov",
+  "title": "부가가치세 과세표준증명",
+  "category": "tax",
+  "family": "gov_vat_base",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_vat_base",
+  "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=155626701&flNm=%5B%EB%B3%84%EC%A7%80+9%5D+%EB%B6%80%EA%B0%80%EA%B0%80%EC%B9%98%EC%84%B8%EA%B3%BC%EC%84%B8%ED%91%9C%EC%A4%80%EC%A6%9D%EB%AA%85%28%EA%B5%AD%EB%AC%B8%29&bylClsCd=200203",
+  "source_pdf": "docgen/forms/official_sources/gov_vat_base.pdf",
+  "source_pdf_sha256": "361dc74baf6b06607dc2f7e530ce09249c127b8b6b74fa67e36c0d895b043dd6",
+  "declared_sha256": "361dc74baf6b06607dc2f7e530ce09249c127b8b6b74fa67e36c0d895b043dd6",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 10,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "상",
+  "selection_reason": "과세기간·금액 반복 행",
+  "family_members": [
+    "gov_vat_base"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.0,
+  "height_pt": 841.0,
+  "text_char_count": 419,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "e07421787af8ba8ab1885a73bb9f7a218e20c26f4725ecbc0a55103400e6ba19",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

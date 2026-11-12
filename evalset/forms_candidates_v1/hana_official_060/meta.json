@@ -1,0 +1,43 @@
+{
+  "id": "hana_official_060",
+  "group": "hana",
+  "title": "[필수] 개인(신용)정보 수집이용 동의서(대출성상품 적합성적정성 판단용)",
+  "category": "hana",
+  "family": "hf060",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hana_official_060",
+  "source_url": "https://image.kebhana.com/cont/customer/customer07/customer0701/customer070102/__icsFiles/afieldfile/2024/06/14/3-06-0151.pdf",
+  "source_pdf": "docgen/forms/hf060/look/original.pdf",
+  "source_pdf_sha256": "f08b66da9f2939a9f1f434ebb58c94a39bf0263e7a73c4e636a978c27ff7e0e4",
+  "declared_sha256": "f08b66da9f2939a9f1f434ebb58c94a39bf0263e7a73c4e636a978c27ff7e0e4",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 6,
+  "row_cell_hints": 1,
+  "check_hints": 2,
+  "field_hints_inherited_from": "hf060",
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "중",
+  "selection_reason": "동의서·고정 법정 문구 보존",
+  "family_members": [
+    "hana_official_060",
+    "hf060"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 1151,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "1b99a30409b3f2199f10e0a66c0c1543ad8e9a55cce8da7984cc718082799a70",
+  "tier": "중",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

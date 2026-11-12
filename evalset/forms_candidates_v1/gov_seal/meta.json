@@ -1,0 +1,42 @@
+{
+  "id": "gov_seal",
+  "group": "gov",
+  "title": "인감증명서",
+  "category": "identity",
+  "family": "gov_seal",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_seal",
+  "source_url": "https://www.law.go.kr/LSW/flDownload.do?gubun=&flSeq=145953337&bylClsCd=110202",
+  "source_pdf": "docgen/forms/official_sources/gov_seal.pdf",
+  "source_pdf_sha256": "47d4cba5a2e85d24820284ecca08501fd0b924a1a19f08303397f1fa8837b004",
+  "declared_sha256": "47d4cba5a2e85d24820284ecca08501fd0b924a1a19f08303397f1fa8837b004",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 5,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "proposed_tier": "중",
+  "selection_reason": "인감 영역·격자와 신원 항목",
+  "family_members": [
+    "gov_seal"
+  ],
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.0,
+  "height_pt": 841.0,
+  "text_char_count": 1759,
+  "input_kind": "official_blank_form_pdf",
+  "raster_dpi": 120,
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "9f1fa91d5622bd3893c8a5c9915b5a017df24027d2eaa3509cc14d02ba439cf5",
+  "tier": "중",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}
