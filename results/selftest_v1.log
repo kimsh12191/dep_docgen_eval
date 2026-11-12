@@ -1,0 +1,396 @@
+[1/85] account_opening_application reseed@0.03=0.7599 wrong@0.03=0.0851
+[2/85] alien_registration_card reseed@0.03=1.0 wrong@0.03=0.2703
+[3/85] articles_of_incorporation reseed@0.03=0.6305 wrong@0.03=0.1356
+[4/85] auto_transfer_application reseed@0.03=0.88 wrong@0.03=0.1702
+[5/85] balance_certificate reseed@0.03=0.8137 wrong@0.03=0.3243
+[6/85] bank_statement reseed@0.03=0.7556 wrong@0.03=0.2051
+[7/85] bankbook_copy reseed@0.03=0.3572 wrong@0.03=0.2703
+[8/85] basic_certificate reseed@0.03=0.8906 wrong@0.03=0.24
+[9/85] bill_of_lading reseed@0.03=0.977 wrong@0.03=0.3478
+[10/85] business_registration_certificate reseed@0.03=0.9375 wrong@0.03=0.6429
+[11/85] business_registration_certificate_corp reseed@0.03=0.9651 wrong@0.03=0.2424
+[12/85] business_registration_proof reseed@0.03=1.0 wrong@0.03=0.2128
+[13/85] card_statement reseed@0.03=0.8842 wrong@0.03=0.375
+[14/85] career_certificate reseed@0.03=0.775 wrong@0.03=0.2727
+[15/85] commercial_invoice reseed@0.03=0.8063 wrong@0.03=0.2581
+[16/85] corporate_customer_due_diligence reseed@0.03=0.8709 wrong@0.03=0.0857
+[17/85] corporate_registry reseed@0.03=0.887 wrong@0.03=0.2979
+[18/85] corporate_seal_certificate reseed@0.03=0.9667 wrong@0.03=0.2745
+[19/85] credit_agreement reseed@0.03=0.8938 wrong@0.03=0.4444
+[20/85] credit_agreement_corp reseed@0.03=0.9167 wrong@0.03=0.2388
+[21/85] customer_due_diligence reseed@0.03=0.7602 wrong@0.03=0.1923
+[22/85] debt_certificate reseed@0.03=0.816 wrong@0.03=0.3226
+[23/85] driver_license reseed@0.03=1.0 wrong@0.03=0.1538
+[24/85] employment_contract reseed@0.03=0.7578 wrong@0.03=0.2745
+[25/85] family_relation_certificate reseed@0.03=0.8321 wrong@0.03=0.1905
+[26/85] fatca_crs reseed@0.03=0.693 wrong@0.03=0.0476
+[27/85] financial_statements reseed@0.03=0.9318 wrong@0.03=0.0455
+[28/85] financial_transaction_purpose reseed@0.03=0.7094 wrong@0.03=0.0625
+[29/85] gov_business_proof reseed@0.03=1.0 wrong@0.03=0.3158
+[30/85] gov_financial_proof reseed@0.03=1.0 wrong@0.03=0.3077
+[31/85] gov_foreign_household reseed@0.03=1.0 wrong@0.03=0.2857
+[32/85] gov_land reseed@0.03=1.0 wrong@0.03=0.0
+[33/85] gov_move_in reseed@0.03=1.0 wrong@0.03=0.4
+[34/85] gov_national_tax reseed@0.03=1.0 wrong@0.03=0.3636
+[35/85] gov_pension reseed@0.03=1.0 wrong@0.03=0.5333
+[36/85] gov_tax_payment_history reseed@0.03=1.0 wrong@0.03=0.7368
+[37/85] gov_vat_base reseed@0.03=1.0 wrong@0.03=0.8421
+[38/85] gov_vat_exempt_income reseed@0.03=1.0 wrong@0.03=0.2353
+[39/85] guarantee_agreement reseed@0.03=0.7758 wrong@0.03=0.0952
+[40/85] hana_official_024 reseed@0.03=1.0 wrong@0.03=0.2857
+[41/85] hana_official_028 reseed@0.03=1.0 wrong@0.03=0.0476
+[42/85] hana_official_029 reseed@0.03=1.0 wrong@0.03=0.2105
+[43/85] hana_official_051 reseed@0.03=1.0 wrong@0.03=0.3333
+[44/85] hana_official_060 reseed@0.03=0.977 wrong@0.03=0.2927
+[45/85] hana_official_061 reseed@0.03=1.0 wrong@0.03=0.1818
+[46/85] hana_official_064 reseed@0.03=1.0 wrong@0.03=0.5333
+[47/85] hana_official_066 reseed@0.03=1.0 wrong@0.03=0.1905
+[48/85] hana_official_067 reseed@0.03=1.0 wrong@0.03=0.087
+[49/85] hana_official_138 reseed@0.03=0.9683 wrong@0.03=0.0
+[50/85] hana_official_139 reseed@0.03=1.0 wrong@0.03=0.2581
+[51/85] hana_official_157 reseed@0.03=1.0 wrong@0.03=0.0952
+[52/85] hana_official_408 reseed@0.03=0.9959 wrong@0.03=0.3256
+[53/85] hana_official_419 reseed@0.03=0.9807 wrong@0.03=0.4103
+[54/85] hana_official_420 reseed@0.03=0.9919 wrong@0.03=0.129
+[55/85] health_insurance_qualification reseed@0.03=0.95 wrong@0.03=0.3846
+[56/85] income_certificate reseed@0.03=0.9352 wrong@0.03=0.1111
+[57/85] income_tax_return reseed@0.03=0.9675 wrong@0.03=0.1562
+[58/85] land_register reseed@0.03=0.9677 wrong@0.03=0.2609
+[59/85] lease_contract reseed@0.03=0.9542 wrong@0.03=0.2222
+[60/85] local_tax_assessment reseed@0.03=0.83 wrong@0.03=0.4
+[61/85] local_tax_payment_certificate reseed@0.03=0.7134 wrong@0.03=0.129
+[62/85] marriage_relation_certificate reseed@0.03=0.6263 wrong@0.03=0.1667
+[63/85] move_in_household_list reseed@0.03=0.9545 wrong@0.03=0.2069
+[64/85] overseas_remittance_application reseed@0.03=0.9167 wrong@0.03=0.1875
+[65/85] packing_list reseed@0.03=0.7014 wrong@0.03=0.1951
+[66/85] passport reseed@0.03=0.9598 wrong@0.03=0.2439
+[67/85] pay_stub reseed@0.03=0.8864 wrong@0.03=0.3415
+[68/85] pension_enrollment_certificate reseed@0.03=0.7787 wrong@0.03=0.3529
+[69/85] power_of_attorney reseed@0.03=0.6932 wrong@0.03=0.0
+[70/85] privacy_consent reseed@0.03=0.7163 wrong@0.03=0.0625
+[71/85] real_estate_registry reseed@0.03=0.6393 wrong@0.03=0.125
+[72/85] resident_id_card reseed@0.03=0.9157 wrong@0.03=0.1667
+[73/85] resident_registration_abstract reseed@0.03=0.9722 wrong@0.03=0.1481
+[74/85] sales_contract reseed@0.03=0.8233 wrong@0.03=0.12
+[75/85] seal_certificate reseed@0.03=0.9231 wrong@0.03=0.2162
+[76/85] shareholder_registry reseed@0.03=0.9583 wrong@0.03=0.4348
+[77/85] shareholders_meeting_minutes reseed@0.03=0.7911 wrong@0.03=0.3226
+[78/85] signature_confirmation reseed@0.03=0.8167 wrong@0.03=0.2264
+[79/85] standard_financial_statement_proof reseed@0.03=1.0 wrong@0.03=0.3103
+[80/85] tax_payment_certificate reseed@0.03=1.0 wrong@0.03=1.0
+[81/85] tax_payment_certificate_corp reseed@0.03=0.9881 wrong@0.03=0.2727
+[82/85] trade_contract reseed@0.03=0.9757 wrong@0.03=0.2909
+[83/85] tuition_invoice reseed@0.03=0.9849 wrong@0.03=0.1818
+[84/85] vat_tax_base_certificate reseed@0.03=0.9035 wrong@0.03=0.2
+[85/85] withholding_receipt reseed@0.03=0.9675 wrong@0.03=0.1714
+{
+ "forms": 85,
+ "fixed_structure": 25,
+ "varying_structure": 60,
+ "skipped": [],
+ "seconds": 194,
+ "T1_identity_all_1": true,
+ "T3_half": {
+  "precision": {
+   "n": 85,
+   "mean": 1.0,
+   "median": 1.0,
+   "min": 1.0,
+   "p10": 1.0,
+   "max": 1.0
+  },
+  "recall_minus_expect": {
+   "n": 85,
+   "mean": 0.0,
+   "median": 0.0,
+   "min": 0.0,
+   "p10": 0.0,
+   "max": 0.0
+  }
+ },
+ "T4_empty_all_0": true,
+ "T6_shift_f1": {
+  "n": 85,
+  "mean": 0.994,
+  "median": 1.0,
+  "min": 0.8,
+  "p10": 1.0,
+  "max": 1.0
+ },
+ "T6_shift_f1_without_align": {
+  "n": 85,
+  "mean": 0.1338,
+  "median": 0.1,
+  "min": 0.0,
+  "p10": 0.0,
+  "max": 0.4762
+ },
+ "T6_small_jitter_f1": {
+  "n": 85,
+  "mean": 0.9938,
+  "median": 1.0,
+  "min": 0.871,
+  "p10": 1.0,
+  "max": 1.0
+ },
+ "T6_large_jitter_f1": {
+  "n": 85,
+  "mean": 0.3321,
+  "median": 0.3333,
+  "min": 0.0,
+  "p10": 0.1667,
+  "max": 0.6
+ },
+ "T7_kind_swap_f1_minus_expect": {
+  "n": 85,
+  "mean": 0.0,
+  "median": 0.0,
+  "min": 0.0,
+  "p10": 0.0,
+  "max": 0.0
+ },
+ "T2_reseed_fixed_field_f1": {
+  "0.01": {
+   "n": 149,
+   "mean": 0.9961,
+   "median": 1.0,
+   "min": 0.9286,
+   "p10": 0.9796,
+   "max": 1.0
+  },
+  "0.02": {
+   "n": 149,
+   "mean": 0.9966,
+   "median": 1.0,
+   "min": 0.9412,
+   "p10": 1.0,
+   "max": 1.0
+  },
+  "0.03": {
+   "n": 149,
+   "mean": 0.9966,
+   "median": 1.0,
+   "min": 0.9412,
+   "p10": 1.0,
+   "max": 1.0
+  },
+  "0.05": {
+   "n": 149,
+   "mean": 0.9966,
+   "median": 1.0,
+   "min": 0.9412,
+   "p10": 1.0,
+   "max": 1.0
+  },
+  "0.08": {
+   "n": 149,
+   "mean": 0.9966,
+   "median": 1.0,
+   "min": 0.9412,
+   "p10": 1.0,
+   "max": 1.0
+  }
+ },
+ "T2_reseed_fixed_field_f1_label": {
+  "n": 149,
+  "mean": 0.9966,
+  "median": 1.0,
+  "min": 0.9412,
+  "p10": 1.0,
+  "max": 1.0
+ },
+ "T2_reseed_fixed_text_f1": {
+  "n": 149,
+  "mean": 0.9992,
+  "median": 1.0,
+  "min": 0.9703,
+  "p10": 1.0,
+  "max": 1.0
+ },
+ "T2_reseed_varying_field_f1 (참고: 오라클 아님)": {
+  "0.01": {
+   "n": 311,
+   "mean": 0.7235,
+   "median": 0.7727,
+   "min": 0.0513,
+   "p10": 0.4444,
+   "max": 1.0
+  },
+  "0.02": {
+   "n": 311,
+   "mean": 0.8251,
+   "median": 0.8636,
+   "min": 0.0741,
+   "p10": 0.6047,
+   "max": 1.0
+  },
+  "0.03": {
+   "n": 311,
+   "mean": 0.8572,
+   "median": 0.9,
+   "min": 0.0741,
+   "p10": 0.6512,
+   "max": 1.0
+  },
+  "0.05": {
+   "n": 311,
+   "mean": 0.8927,
+   "median": 0.9655,
+   "min": 0.1481,
+   "p10": 0.6842,
+   "max": 1.0
+  },
+  "0.08": {
+   "n": 311,
+   "mean": 0.9157,
+   "median": 0.9737,
+   "min": 0.1481,
+   "p10": 0.7619,
+   "max": 1.0
+  }
+ },
+ "T5_wrong_field_f1": {
+  "0.01": {
+   "n": 85,
+   "mean": 0.1464,
+   "median": 0.0976,
+   "min": 0.0,
+   "p10": 0.0,
+   "max": 0.9286
+  },
+  "0.02": {
+   "n": 85,
+   "mean": 0.2052,
+   "median": 0.1765,
+   "min": 0.0,
+   "p10": 0.0476,
+   "max": 0.9286
+  },
+  "0.03": {
+   "n": 85,
+   "mean": 0.2563,
+   "median": 0.2388,
+   "min": 0.0,
+   "p10": 0.0851,
+   "max": 1.0
+  },
+  "0.05": {
+   "n": 85,
+   "mean": 0.3367,
+   "median": 0.3143,
+   "min": 0.0,
+   "p10": 0.127,
+   "max": 1.0
+  },
+  "0.08": {
+   "n": 85,
+   "mean": 0.4105,
+   "median": 0.3889,
+   "min": 0.0476,
+   "p10": 0.1667,
+   "max": 1.0
+  }
+ },
+ "T5_wrong_field_f1_label": {
+  "n": 85,
+  "mean": 0.0677,
+  "median": 0.0,
+  "min": 0.0,
+  "p10": 0.0,
+  "max": 0.9286
+ },
+ "T5_wrong_text_f1": {
+  "n": 85,
+  "mean": 0.1275,
+  "median": 0.0735,
+  "min": 0.0,
+  "p10": 0.0058,
+  "max": 1.0
+ },
+ "T8_draft_folder": {
+  "fields": 12,
+  "rows": {
+   "rows": 5
+  },
+  "seeds": [
+   {
+    "valid": true,
+    "field_f1": 0.9167,
+    "field_f1_label": 0.9167,
+    "text_f1": 1.0,
+    "by_tol": {
+     "0.01": 0.9167,
+     "0.02": 0.9167,
+     "0.03": 0.9167,
+     "0.05": 1.0,
+     "0.08": 1.0
+    }
+   },
+   {
+    "valid": true,
+    "field_f1": 1.0,
+    "field_f1_label": 1.0,
+    "text_f1": 1.0,
+    "by_tol": {
+     "0.01": 1.0,
+     "0.02": 1.0,
+     "0.03": 1.0,
+     "0.05": 1.0,
+     "0.08": 1.0
+    }
+   },
+   {
+    "valid": true,
+    "field_f1": 1.0,
+    "field_f1_label": 1.0,
+    "text_f1": 1.0,
+    "by_tol": {
+     "0.01": 1.0,
+     "0.02": 1.0,
+     "0.03": 1.0,
+     "0.05": 1.0,
+     "0.08": 1.0
+    }
+   },
+   {
+    "valid": true,
+    "field_f1": 0.9167,
+    "field_f1_label": 0.9167,
+    "text_f1": 1.0,
+    "by_tol": {
+     "0.01": 0.9167,
+     "0.02": 0.9167,
+     "0.03": 0.9167,
+     "0.05": 1.0,
+     "0.08": 1.0
+    }
+   },
+   {
+    "valid": true,
+    "field_f1": 1.0,
+    "field_f1_label": 1.0,
+    "text_f1": 1.0,
+    "by_tol": {
+     "0.01": 1.0,
+     "0.02": 1.0,
+     "0.03": 1.0,
+     "0.05": 1.0,
+     "0.08": 1.0
+    }
+   },
+   {
+    "valid": true,
+    "field_f1": 1.0,
+    "field_f1_label": 1.0,
+    "text_f1": 1.0,
+    "by_tol": {
+     "0.01": 1.0,
+     "0.02": 1.0,
+     "0.03": 1.0,
+     "0.05": 1.0,
+     "0.08": 1.0
+    }
+   }
+  ]
+ }
+}

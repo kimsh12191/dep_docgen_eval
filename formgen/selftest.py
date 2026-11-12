@@ -2,7 +2,9 @@
 
 정답을 아는 입력을 넣어 점수가 기대대로 나오는지 본다.
   T1 같은 것        정답 = 만든 것                         → 1.0
-  T2 다시 그리기    같은 서식을 다른 seed 로 (값·글꼴·여백이 바뀜)  → 1.0 에 가까워야 (채점기의 잡음 바닥)
+  T2 다시 그리기    같은 서식을 다른 seed 로 (값이 바뀜)             → 1.0 에 가까워야 (채점기의 잡음 바닥)
+                    구조가 고정된 서식(html 서식)만 오라클이다. 코드 서식은 seed 마다 칸 구성이 달라져
+                    (예: 통장사본 8칸 ↔ 13칸) 같은 서식이어도 다른 문서가 된다 → 따로 적고 판정에 쓰지 않는다.
   T3 칸 절반        칸을 하나 걸러 지움                     → 재현율 ≈ 0.5, 정밀도 1.0
   T4 빈 것          칸·글자 없음                           → 0
   T5 다른 서식      다른 서식을 만든 것으로 넣음             → 0 에 가까워야 (변별력)
@@ -54,7 +56,8 @@ def _stats(xs):
             "p10": round(xs[int(0.1 * (len(xs) - 1))], 4), "max": round(xs[-1], 4)}
 
 
-def run(ids: list[str], out: Path, seeds=(1, 2, 3, 4, 5, 6), example: Path | None = None) -> dict:
+def run(ids: list[str], out: Path, seeds=(1, 2, 3, 4, 5, 6), example: Path | None = None, fixed: set[str] | None = None) -> dict:
+    fixed = fixed or set()
     out.mkdir(parents=True, exist_ok=True)
     rng = random.Random(0)
     rows, skipped = [], []
@@ -78,7 +81,7 @@ def run(ids: list[str], out: Path, seeds=(1, 2, 3, 4, 5, 6), example: Path | Non
         order = list(base)
         for n, doc_id in enumerate(order):
             gt, variant = base[doc_id]
-            rec = {"id": doc_id, "fields": len(gt["fields"]), "texts": len(gt["texts"]),
+            rec = {"id": doc_id, "fixed": doc_id in fixed, "fields": len(gt["fields"]), "texts": len(gt["texts"]),
                    "checks": sum(f["kind"] == "check" for f in gt["fields"])}
             s = score(gt, gt)
             rec["t1"] = [s["field_f1"], s["text_f1"]]
@@ -100,7 +103,7 @@ def run(ids: list[str], out: Path, seeds=(1, 2, 3, 4, 5, 6), example: Path | Non
             rec["t7"] = {"f1": field_score(gt, swapped)["field_f1"], "expect": round(1 - rec["checks"] / len(gt["fields"]), 4)}
             # T2 다시 그리기: 같은 레이아웃 변형, 한 쪽인 seed 만
             rec["t2"] = {str(t): [] for t in TOLS}
-            rec["t2_text"], rec["t2_label"], rec["t2_type"], rec["t2_pos"] = [], [], [], []
+            rec["t2_text"], rec["t2_label"], rec["t2_type"], rec["t2_pos"], rec["t2_f1_label"] = [], [], [], [], []
             for seed in seeds:
                 try:
                     lab = R.form(doc_id, seed)
@@ -113,38 +116,43 @@ def run(ids: list[str], out: Path, seeds=(1, 2, 3, 4, 5, 6), example: Path | Non
                     rec["t2"][str(t)].append(field_score(gt, other, tol=t)["field_f1"])
                 full = score(gt, other)
                 rec["t2_text"].append(full["text_f1"])
+                rec["t2_f1_label"].append(full["field_f1_label"])
                 rec["t2_label"].append(full["label_acc"])
                 rec["t2_type"].append(full["type_acc"])
                 rec["t2_pos"].append(full["pos_err"])
             # T5 다른 서식 (목록의 다음 서식)
             wrong = base[order[(n + 1) % len(order)]][0]
             rec["t5"] = {str(t): field_score(gt, wrong, tol=t)["field_f1"] for t in TOLS}
-            rec["t5_text"] = score(gt, wrong)["text_f1"]
+            full = score(gt, wrong)
+            rec["t5_text"], rec["t5_label"] = full["text_f1"], full["field_f1_label"]
             rows.append(rec)
             print(f"[{n + 1}/{len(order)}] {doc_id} reseed@{TOL}={_stats(rec['t2'][str(TOL)]) and _stats(rec['t2'][str(TOL)])['mean']} wrong@{TOL}={rec['t5'][str(TOL)]}", flush=True)
         t8 = None
         if example and example.is_dir():
             try:
                 a = first_page(from_label(R.draft(example, 0)))
-                b = first_page(from_label(R.draft(example, 1)))
-                s = score(a, b)
-                t8 = {"valid": s["valid"], "invalid_why": s["invalid_why"], "field_f1": s["field_f1"], "text_f1": s["text_f1"],
-                      "fields": len(a["fields"]), "rows": a["rows"]}
+                t8 = {"fields": len(a["fields"]), "rows": a["rows"], "seeds": []}
+                for seed in seeds:
+                    s = score(a, first_page(from_label(R.draft(example, seed))))
+                    t8["seeds"].append({"valid": s["valid"], "field_f1": s["field_f1"], "field_f1_label": s["field_f1_label"], "text_f1": s["text_f1"],
+                                        "by_tol": {str(t): field_score(a, first_page(from_label(R.draft(example, seed))), tol=t)["field_f1"] for t in TOLS}})
             except Exception as e:
                 t8 = {"error": f"{type(e).__name__}: {e}"[:300]}
-    flat = lambda key: [x for r in rows for x in r[key]]
+    fx, var = [r for r in rows if r["fixed"]], [r for r in rows if not r["fixed"]]
+    flat = lambda rs, key: [x for r in rs for x in r[key]]
     summary = {
-        "forms": len(rows), "skipped": skipped, "seconds": round(time.time() - t0),
+        "forms": len(rows), "fixed_structure": len(fx), "varying_structure": len(var), "skipped": skipped, "seconds": round(time.time() - t0),
         "T1_identity_all_1": all(r["t1"] == [1.0, 1.0] for r in rows),
         "T3_half": {"precision": _stats([r["t3"]["p"] for r in rows]), "recall_minus_expect": _stats([round(r["t3"]["r"] - r["t3"]["expect_r"], 4) for r in rows])},
         "T4_empty_all_0": all(r["t4"] == [0.0, 0.0] for r in rows),
         "T6_shift_f1": _stats([r["t6_shift"]["f1"] for r in rows]), "T6_shift_f1_without_align": _stats([r["t6_shift"]["no_align"] for r in rows]),
         "T6_small_jitter_f1": _stats([r["t6_small"] for r in rows]), "T6_large_jitter_f1": _stats([r["t6_large"] for r in rows]),
         "T7_kind_swap_f1_minus_expect": _stats([round(r["t7"]["f1"] - r["t7"]["expect"], 4) for r in rows]),
-        "T2_reseed_field_f1": {str(t): _stats([x for r in rows for x in r["t2"][str(t)]]) for t in TOLS},
+        "T2_reseed_fixed_field_f1": {str(t): _stats([x for r in fx for x in r["t2"][str(t)]]) for t in TOLS},
+        "T2_reseed_fixed_field_f1_label": _stats(flat(fx, "t2_f1_label")), "T2_reseed_fixed_text_f1": _stats(flat(fx, "t2_text")),
+        "T2_reseed_varying_field_f1 (참고: 오라클 아님)": {str(t): _stats([x for r in var for x in r["t2"][str(t)]]) for t in TOLS},
         "T5_wrong_field_f1": {str(t): _stats([r["t5"][str(t)] for r in rows]) for t in TOLS},
-        "T2_reseed_text_f1": _stats(flat("t2_text")), "T5_wrong_text_f1": _stats([r["t5_text"] for r in rows]),
-        "T2_reseed_label_acc": _stats(flat("t2_label")), "T2_reseed_type_acc": _stats(flat("t2_type")), "T2_reseed_pos_err": _stats(flat("t2_pos")),
+        "T5_wrong_field_f1_label": _stats([r["t5_label"] for r in rows]), "T5_wrong_text_f1": _stats([r["t5_text"] for r in rows]),
         "T8_draft_folder": t8,
     }
     (out / "selftest.json").write_text(json.dumps({"summary": summary, "rows": rows}, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -153,15 +161,17 @@ def run(ids: list[str], out: Path, seeds=(1, 2, 3, 4, 5, 6), example: Path | Non
 
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="formgen selftest", description="채점기 자체 검증 (모델 없이)")
-    ap.add_argument("--pool", required=True, help="서식 ID 목록 JSON (문자열 목록, 또는 [{id: …}] )")
+    ap.add_argument("--pool", required=True, help='서식 ID 목록 JSON: ["id", …] 또는 [{"id": …, "structure": "fixed"|"varies"}]')
     ap.add_argument("--out", required=True)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--example", default=str(Path(__file__).resolve().parents[1] / "examples" / "spec_example"))
     a = ap.parse_args(argv)
-    ids = [x["id"] if isinstance(x, dict) else x for x in json.loads(Path(a.pool).read_text(encoding="utf-8"))]
+    pool = json.loads(Path(a.pool).read_text(encoding="utf-8"))
+    ids = [x["id"] if isinstance(x, dict) else x for x in pool]
+    fixed = {x["id"] for x in pool if isinstance(x, dict) and x.get("structure") == "fixed"}
     if a.limit:
         ids = ids[:a.limit]
-    summary = run(ids, Path(a.out), example=Path(a.example))
+    summary = run(ids, Path(a.out), example=Path(a.example), fixed=fixed)
     print(json.dumps(summary, ensure_ascii=False, indent=1))
 
 

@@ -1,6 +1,8 @@
 """document_gen(docgen) 연결: 서식·초안 폴더를 그려 라벨을 받는다.
 
-docgen 은 이 저장소에 들어 있지 않다. 환경변수 DOCGEN_ROOT (document_gen 을 받은 폴더) 로 찾는다.
+docgen 은 이 저장소에 들어 있지 않다. 환경변수 DOCGEN_ROOT (document_gen 을 받은 폴더) 로 찾고,
+없으면 이미 import 되는 docgen 을 쓴다 (내부망 docgen-studio 컨테이너는 그렇게 잡혀 있다).
+이 저장소의 코드는 파이썬 표준 라이브러리만 쓴다. 브라우저·글꼴·jinja2 는 docgen 쪽 환경의 것을 그대로 쓴다.
 그리기·검사는 모두 docgen.preview 를 그대로 쓴다 (studio·분석기와 같은 코드).
 """
 from __future__ import annotations
@@ -13,15 +15,21 @@ from pathlib import Path
 
 
 def docgen_root() -> Path:
+    """docgen 을 찾는다: DOCGEN_ROOT 가 있으면 그 폴더, 없으면 이미 import 되는 docgen (studio 컨테이너는 PYTHONPATH 에 잡혀 있다)."""
     root = os.environ.get("DOCGEN_ROOT")
-    if not root:
-        raise SystemExit("DOCGEN_ROOT 가 없습니다. document_gen 을 받은 폴더를 지정하세요: export DOCGEN_ROOT=/path/to/document_gen")
-    p = Path(root).resolve()
-    if not (p / "docgen" / "preview.py").is_file():
-        raise SystemExit(f"DOCGEN_ROOT 에 docgen 이 없습니다: {p}")
-    if str(p) not in sys.path:
-        sys.path.insert(0, str(p))
-    return p
+    if root:
+        p = Path(root).resolve()
+        if not (p / "docgen" / "preview.py").is_file():
+            raise SystemExit(f"DOCGEN_ROOT 에 docgen 이 없습니다: {p}")
+        if str(p) not in sys.path:
+            sys.path.insert(0, str(p))
+        return p
+    try:
+        import docgen.preview as _pv
+    except ImportError:
+        raise SystemExit("docgen 을 찾지 못했습니다. document_gen 폴더를 지정하세요: export DOCGEN_ROOT=/path/to/document_gen "
+                         "(studio 컨테이너 안에서는 지정하지 않아도 됩니다)")
+    return Path(_pv.__file__).resolve().parents[1]
 
 
 class Renderer:

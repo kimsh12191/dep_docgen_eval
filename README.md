@@ -10,21 +10,58 @@
 | 단계 | 내용 | 상태 |
 |---|---|---|
 | 1 | 난이도 기준을 기존 템플릿 139종에 적용 (`scripts/measure_difficulty.py`, `data/step1_difficulty.json`) | 완료. 기준 v0 은 틀림 → v1 초안 |
-| 2 | 채점기 + 자체 검증 (`formgen/score.py`, `python -m formgen selftest`) | 진행 중. 결과는 `results/` |
+| 2 | 채점기 + 자체 검증 (`formgen/score.py`, `python -m formgen selftest`) | 완료. 결과는 아래와 `results/selftest_v1/` |
 | 3 | 생성기 (`make`), 벤치마크 실행 (`bench`), 파일럿 | 없음 |
 | 4~6 | 평가 세트 60장, 통과 기준선, 전체 실행, 모델 선택 규칙 | 없음 |
 
 채점에서 아직 없는 것: 표 구조(L2), 모양 유사도(L4). 지금은 유효성(L0)·인쇄 문구(L1)·칸(L3)만 봅니다.
 
-## 실행
+## 내부망에서 쓰기
 
-docgen 은 이 저장소에 들어 있지 않습니다. document_gen 을 받아 두고 위치를 알려 줍니다.
+**새로 설치할 것은 없습니다.** 이 저장소의 코드는 파이썬 표준 라이브러리만 씁니다.
+그리기에 필요한 Chromium·playwright·한글 글꼴·jinja2 는 내부망의 `docgen-studio` 컨테이너에 이미 들어 있는 것을 그대로 씁니다
+(document_gen 의 `docker/README.md`). 그래서 **이 저장소 `main` 하나만 반입해 그 컨테이너 안에서 돌리면 됩니다.**
 
 ```bash
-pip install jinja2 pillow playwright      # 브라우저(chromium)는 docgen 이 쓰는 것과 같음
-export DOCGEN_ROOT=/path/to/document_gen
+# 인터넷 되는 PC: 코드 묶음 만들기
+git archive --format=tar.gz -o docgen_eval.tar.gz main
+
+# 내부망 서버: 풀어서 docgen-studio 컨테이너 안에서 실행 (docgen 은 컨테이너의 PYTHONPATH 에 이미 잡혀 있음)
 python -m formgen selftest --pool data/roundtrip_pool_v0.json --out results/selftest
 ```
+
+- 필요한 것은 두 가지뿐입니다: 이 저장소, 그리고 이미 반입된 document_gen (`docgen_share`, 이 코드는 커밋 `1727485` 로 확인).
+- 컨테이너 밖에서 돌릴 때만 `export DOCGEN_ROOT=/path/to/document_gen` 과 playwright 가 필요합니다.
+- 모델(vLLM)은 HTTP 로 부릅니다. 컨테이너에서 vLLM 주소로 닿기만 하면 됩니다 (3단계에서 추가).
+- `results/` 의 숫자는 한글 글꼴이 없는 환경에서 낸 것입니다. 컨테이너에서 다시 돌려 확인하세요.
+
+브라우저가 꼭 필요한 이유: 칸 위치, 쪽 넘침, 글자 상자는 실제로 그려야 나옵니다. 브라우저 없이 html 만 비교하면
+위치·넘침을 못 보고, html 이 없는 그림(인터넷·실서류)과는 비교할 수 없습니다.
+
+## 채점기 자체 검증 결과 (2단계)
+
+모델 없이, 정답을 아는 입력을 넣어 점수가 기대대로 나오는지 봤습니다 (왕복 세트 후보 85종, `results/selftest_v1/selftest.json`).
+
+| 검사 | 기대 | 결과 |
+|---|---|---|
+| T1 같은 것을 넣음 | 1.0 | 85종 모두 1.0 |
+| T3 칸을 절반 지움 | 재현율이 정확히 그만큼, 정밀도 1.0 | 85종 모두 일치 |
+| T4 빈 것 | 0 | 85종 모두 0 |
+| T7 체크 칸을 값 칸으로 바꿈 | 체크 칸 비율만큼 하락 | 85종 모두 일치 |
+| T6 전체를 3% 밀기 | 유지 | 평균 0.994 (정렬을 끄면 0.13) |
+| T6 칸마다 조금 / 많이 흔들기 | 유지 / 하락 | 0.994 / 0.33 |
+| T2 같은 서식 다시 그리기 (구조 고정 25종) | 1.0 근처 | 평균 0.997, 최저 0.94 |
+| T5 다른 서식을 넣음 | 0 근처 | 칸(자리) 0.26, 칸(자리+항목명) 0.07, 문구 0.13 |
+| T8 초안 폴더 경로 | 유효, 1.0 근처 | 유효. seed 에 따라 0.92~1.0 |
+
+알게 된 것:
+
+- **자리만 보는 칸 점수는 변별력이 약합니다.** 다른 서식을 넣어도 0.26 이 나옵니다. 항목명까지 보면 0.07 입니다.
+  그래서 `field_f1`(자리+갈래)과 `field_f1_label`(+항목명)을 둘 다 냅니다. 무엇을 주 지표로 할지는 파일럿에서 사람 판정과 맞춰 정합니다.
+- **코드 서식은 다시 그리면 다른 문서가 됩니다.** seed 마다 칸 구성이 달라집니다 (통장사본 8칸 ↔ 13칸). 그래서 T2 는 구조가 고정된 서식만 봤습니다.
+  평가 항목은 "서식"이 아니라 "그린 그림 한 장 + 그때의 라벨"로 고정해야 합니다.
+- **한 줄에 값이 이어진 칸은 흔들립니다.** `시작일 ~ 종료일` 의 종료일은 앞 값 길이에 따라 4% 쯤 밀립니다 (T8 에서 12칸 중 1칸).
+  허용 거리 0.03 에서는 놓치고 0.05 에서는 잡힙니다. 허용 거리는 파일럿에서 다시 봅니다.
 
 ## 폴더
 
@@ -35,8 +72,9 @@ python -m formgen selftest --pool data/roundtrip_pool_v0.json --out results/self
 | `formgen/match.py` | 정답 칸과 만든 칸을 1:1 로 짝짓기 (전체 밀림·늘어남은 맞춘 뒤) |
 | `formgen/score.py` | 채점 (유효성·문구·칸) |
 | `formgen/selftest.py` | 채점기 자체 검증 (모델 없이) |
-| `data/` | 1단계 측정 결과, 왕복 세트 후보 |
+| `data/` | 1단계 측정 결과, 왕복 세트 후보 (`structure`: 구조 고정 / 바뀜) |
 | `examples/spec_example/` | NEW_FORM_SPEC 9절의 초안 폴더 예시 (초안 경로 검사용) |
+| `results/` | 실행 결과 기록 |
 
 ## 알아 둘 점
 

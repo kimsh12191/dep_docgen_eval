@@ -1,342 +1,427 @@
 [
  {
   "id": "account_opening_application",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "alien_registration_card",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "varies"
  },
  {
   "id": "articles_of_incorporation",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "auto_transfer_application",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "balance_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "bank_statement",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "bankbook_copy",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "basic_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "bill_of_lading",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "business_registration_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "business_registration_certificate_corp",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "business_registration_proof",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "card_statement",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "career_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "commercial_invoice",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "corporate_customer_due_diligence",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "corporate_registry",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "corporate_seal_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "credit_agreement",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "credit_agreement_corp",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "customer_due_diligence",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "debt_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "driver_license",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "varies"
  },
  {
   "id": "employment_contract",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "family_relation_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "fatca_crs",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "financial_statements",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "financial_transaction_purpose",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "gov_business_proof",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "gov_financial_proof",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "gov_foreign_household",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "gov_land",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "gov_move_in",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "gov_national_tax",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "gov_pension",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "gov_tax_payment_history",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "gov_vat_base",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "gov_vat_exempt_income",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "guarantee_agreement",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "hana_official_024",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_028",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_029",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_051",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_060",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_061",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_064",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_066",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_067",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_138",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_139",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_157",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_408",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_419",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "hana_official_420",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "fixed"
  },
  {
   "id": "health_insurance_qualification",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "varies"
  },
  {
   "id": "income_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "income_tax_return",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "land_register",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "lease_contract",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "local_tax_assessment",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "local_tax_payment_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "marriage_relation_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "move_in_household_list",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "overseas_remittance_application",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "packing_list",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "passport",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "pay_stub",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "pension_enrollment_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "power_of_attorney",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "privacy_consent",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "real_estate_registry",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "resident_id_card",
-  "tier_v1": "하"
+  "tier_v1": "하",
+  "structure": "varies"
  },
  {
   "id": "resident_registration_abstract",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "sales_contract",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "seal_certificate",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "shareholder_registry",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "shareholders_meeting_minutes",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "signature_confirmation",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "standard_financial_statement_proof",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "tax_payment_certificate",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "tax_payment_certificate_corp",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "trade_contract",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  },
  {
   "id": "tuition_invoice",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "vat_tax_base_certificate",
-  "tier_v1": "중"
+  "tier_v1": "중",
+  "structure": "varies"
  },
  {
   "id": "withholding_receipt",
-  "tier_v1": "상"
+  "tier_v1": "상",
+  "structure": "varies"
  }
 ]
