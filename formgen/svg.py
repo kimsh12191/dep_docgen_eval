@@ -186,8 +186,8 @@ def stats(value: str) -> dict:
             "types": {t: n for t in sorted(TYPES) if (n := sum(f["type"] == t for f in doc["fields"]))}}
 
 
-def render(value: str, output, font_files=None) -> dict:
-    """svg → png. resvg_py 가 필요하다 (requirements-svg.txt). 쓴 그리기 도구 버전과 글꼴 해시를 돌려준다."""
+def render(value: str, output, font_files=None, scale: float = 1) -> dict:
+    """svg → png (viewBox 크기 × scale). resvg_py 가 필요하다 (requirements-svg.txt). 쓴 그리기 도구 버전과 글꼴 해시를 돌려준다."""
     parsed = parse(value)
     if not parsed["valid"]:
         raise ValueError("Invalid SVG: " + ",".join(parsed["issues"]))
@@ -196,7 +196,7 @@ def render(value: str, output, font_files=None) -> dict:
     for p in fonts:
         if not Path(p).is_file():
             raise ValueError("Font missing: " + p)
-    png = resvg_py.svg_to_bytes(svg_string=value, background="white", width=round(parsed["width"]), height=round(parsed["height"]),
+    png = resvg_py.svg_to_bytes(svg_string=value, background="white", width=round(parsed["width"] * scale), height=round(parsed["height"] * scale),
                                 font_files=fonts or None, skip_system_fonts=bool(fonts))
     Path(output).parent.mkdir(parents=True, exist_ok=True)
     Path(output).write_bytes(png)

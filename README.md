@@ -8,21 +8,29 @@
 
 ## 쓰는 법
 
+모델 주소·vLLM 옵션·셀프 고치기 횟수는 설정 파일 하나에 둡니다. [`configs/example.json`](configs/example.json) 을 `configs/local.json` 으로 복사해 고치세요 (`configs/local*.json` 은 커밋되지 않습니다).
+
 ```bash
-# 1) 모델마다 한 번씩 돌린다 → runs/<이름>/report.md
-python -m formgen bench --endpoint http://host:8000/v1 --model NAME_A --out runs/A --repeat 3
-python -m formgen bench --endpoint http://host:8001/v1 --model NAME_B --out runs/B --repeat 3
+# 설정의 모델을 차례로 → runs/<out>/<name>/report.md, runs/<out>/compare.md
+python -m formgen bench configs/local.json            # --only model_a 로 하나만
 
-# 2) 모델 × 난이도 표
-python -m formgen compare runs/A runs/B
-
-# 이미지 한 장만 svg 로 (평가와 같은 코드)
-python -m formgen make --image x.png --endpoint http://host:8000/v1 --model NAME_A --out drafts/x
+# 이미지 한 장만 svg 로 (평가와 같은 코드, 같은 설정)
+python -m formgen make --config configs/local.json --name model_a --image x.png --out drafts/x
 ```
 
-- 끊기면 같은 `--out` 으로 다시 돌리면 이어서 합니다. 프록시 환경이면 모델 주소를 `NO_PROXY` 에 넣으세요.
-- 모델 없이 길만 확인: `python -m formgen bench --mock ref --out runs/mock` (정답을 답으로 → 12/12 통과).
-- 그 밖: `score` `validate` `stats` `render` `report` `selftest` — `python -m formgen` 만 치면 설명이 나옵니다.
+| 설정 키 | 뜻 |
+|---|---|
+| `rounds` | 셀프 고치기 횟수. 0 = 한 번만 생성. N 이면 회차 0…N 을 모두 채점해 **한 번만 생성(0회차)과 고친 뒤(N회차)를 같은 표에** 냅니다 |
+| `repeat` | 항목마다 돌리는 횟수 (온도 > 0 일 때 흔들림을 보려면 3) |
+| `models[]` | `name` `endpoint`(…/v1) `model`(vLLM 이 내놓은 이름), 그리고 `max_tokens` `temperature` `timeout` `api_key_env`(키가 든 환경변수 이름) `extra`(요청 본문에 그대로: `top_p`, `repetition_penalty`, `chat_template_kwargs` 등). `defaults` 에 두면 모든 모델에 공통 |
+| `font_files` | 고치기 피드백 그림에 쓸 한글 글꼴 파일. 비우면 시스템 글꼴 |
+
+**셀프 고치기 한 회차**에 모델이 받는 것: 원본 이미지 + 직전 SVG 를 그린 그림(값 자리는 빨간 상자로 덧그림) + 직전 SVG 원문과 규격 검사 결과 ([`formgen/prompts/svg_v1_fix.md`](formgen/prompts/svg_v1_fix.md)).
+**정답은 루프에 쓰지 않습니다.** 직전 SVG 가 규격에 안 맞아 그릴 수 없으면 그림 없이 글만 갑니다. 그림은 `resvg-py` 가 있어야 그려집니다 (`requirements-svg.txt`).
+
+- 끊기면 같은 명령을 다시 치면 이어서 합니다. 설정(모델·출력 한도·옵션·회차)을 바꿨으면 `out` 이나 `name` 을 바꾸라고 멈춥니다. 프록시 환경이면 모델 주소를 `NO_PROXY` 에 넣으세요.
+- 모델 없이 길만 확인: `python -m formgen bench configs/mock.json` (정답을 답으로 → 12/12, 값 자리 없는 답을 고쳐 정답으로 → 0회차 0/12, 1회차 12/12).
+- 그 밖: `compare` `report` `score` `validate` `stats` `render` `selftest` — `python -m formgen` 만 치면 설명이 나옵니다.
 
 ## 평가 세트
 
@@ -59,13 +67,15 @@ python -m formgen make --image x.png --endpoint http://host:8000/v1 --model NAME
 |---|---|
 | 확인함 | 채점기 자체 검증: 정답 12개를 12가지로 망가뜨린 144건이 모두 기대대로 (`python -m formgen selftest`). 실행 길: `python -m unittest discover -s tests` |
 | **아직 안 함** | **실제 모델로 돌려 본 적이 없습니다.** 통과 기준 0.8, 프롬프트, 출력 한도(32000 토큰)는 가설입니다 |
+| 셀프 고치기의 가설 | 값 자리 재현이 0회차보다 오른다. **틀렸다고 볼 때:** 보고서의 "0회차 → N회차" 줄에서 내린 시도가 오른 시도보다 많거나 평균이 오르지 않음. 오른다 해도 누적 토큰·초가 함께 나오니 비용 대비로 판단합니다. 이미지 12장으로는 난이도별 차이를 가리기 어렵습니다 |
 | 사람이 할 일 | ① 사내 모델로 돌려 실패 유형을 본다 ② `check.png` 로 정답을 검수한다 ③ 출력 몇 개를 직접 보고 통과 기준이 눈과 맞는지 맞춘다 |
 
 ## 폴더
 
 | | |
 |---|---|
-| `formgen/` | `make` 생성 · `bench` 벤치마크·표·비교 · `svg` 규격 검사·채점 · `selftest` · `llm` 모델 호출 · `match` 짝짓기 · `prompts/` 지시문 |
+| `configs/` | 실행 설정 (`example.json` 본보기, `mock.json` 길 검사) |
+| `formgen/` | `config` 설정 읽기 · `make` 생성·셀프 고치기 · `bench` 벤치마크·표·비교 · `svg` 규격 검사·채점 · `selftest` · `llm` 모델 호출 · `match` 짝짓기 · `prompts/` 지시문 |
 | `bench/golden_v1/` | 평가 세트 |
 | `tools/` | `build_golden.py` 평가 세트 만들기 · `fake_vllm.py` 가짜 모델 서버 |
 | `tests/` | 시험 |

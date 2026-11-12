@@ -6,7 +6,7 @@ import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-from formgen import bench, selftest, svg
+from formgen import bench, config, selftest, svg
 from formgen.make import extract_svg, make
 
 ITEMS = Path(__file__).resolve().parents[1] / "bench" / "golden_v1"
@@ -14,9 +14,8 @@ SAMPLE = ('<svg xmlns="http://www.w3.org/2000/svg" width="794" height="1123" vie
           '<rect data-field="name" data-label="Name" data-type="text" x="100" y="30" width="100" height="20" fill="none" stroke="none"/></svg>')
 
 
-def args(out, **kw):
-    base = dict(items=str(ITEMS), out=str(out), endpoint="", model="", max_tokens=32000, repeat=1, api_key=None, mock="ref")
-    return type("Args", (), {**base, **kw})()
+def cfg(out, models, rounds=0, repeat=1):
+    return {"items": str(ITEMS), "out": str(out), "repeat": repeat, "rounds": rounds, "models": models}
 
 
 class Contract(unittest.TestCase):
@@ -54,20 +53,47 @@ class Bench(unittest.TestCase):
 
     def test_mock_runs_resume_compare(self):
         with tempfile.TemporaryDirectory() as d:
+            models = [{"name": "good", "mock": "ref"}, {"name": "bad", "mock": "nofields"}]
+            bench.run(cfg(d, models, repeat=2))
             good, bad = Path(d) / "good", Path(d) / "bad"
-            bench.run(args(good, repeat=2))
             lines = (good / "results.jsonl").read_text(encoding="utf-8")
-            bench.run(args(good, repeat=2))   # 이어하기: 다시 돌리지 않는다
+            bench.run(cfg(d, models, repeat=2))   # 이어하기: 다시 돌리지 않는다
             self.assertEqual((good / "results.jsonl").read_text(encoding="utf-8"), lines)
             s = bench.summarize(bench.load(good)[1])
             self.assertEqual((s["전체"]["images"], s["전체"]["attempts"], s["전체"]["image_pass"]), (12, 24, 12))
-            bench.run(args(bad, mock="nofields"))
-            self.assertEqual(bench.summarize(bench.load(bad)[1])["전체"]["failures"], {"invalid:no_fields": 12})
-            table = bench.compare([good, bad])
-            self.assertIn("| mock:ref | 4/4", table)
-            self.assertIn("| mock:nofields | 0/4", table)
+            self.assertEqual(bench.summarize(bench.load(bad)[1])["전체"]["failures"], {"invalid:no_fields": 24})
+            table = (Path(d) / "compare.md").read_text(encoding="utf-8")
+            self.assertIn("| good | 0 | 4/4", table)
+            self.assertIn("| bad | 0 | 0/4", table)
             with self.assertRaises(SystemExit):
-                bench.run(args(good, mock="empty"))   # 다른 설정을 같은 폴더에 섞지 않는다
+                bench.run(cfg(d, [{"name": "good", "mock": "empty"}]))   # 다른 설정을 같은 폴더에 섞지 않는다
+
+    def test_self_fix_rounds(self):
+        """회차마다 따로 채점되고, 0회차(한 번만)와 마지막 회차(고친 뒤)가 나란히 나온다."""
+        with tempfile.TemporaryDirectory() as d:
+            bench.run(cfg(d, [{"name": "fix", "mock": "nofields,ref"}, {"name": "worse", "mock": "ref,empty"}], rounds=2))
+            run, rows = bench.load(Path(d) / "fix")
+            self.assertEqual(len(rows), 36)
+            self.assertEqual(bench.summarize(bench.at(rows, 0))["전체"]["image_pass"], 0)
+            self.assertEqual(bench.summarize(bench.at(rows, 2))["전체"]["image_pass"], 12)
+            self.assertEqual(bench.change(rows, 2), {"up": 12, "down": 0, "same": 0})
+            self.assertEqual(bench.change(bench.load(Path(d) / "worse")[1], 2), {"up": 0, "down": 12, "same": 0})
+            table = (Path(d) / "compare.md").read_text(encoding="utf-8")
+            self.assertIn("| fix | 0 | 0/4", table)
+            self.assertIn("| fix | 2 | 4/4", table)
+            self.assertIn("오름 12 · 내림 0", (Path(d) / "fix" / "report.md").read_text(encoding="utf-8"))
+
+    def test_config_checks(self):
+        for bad in [{"models": []}, {"models": [{"name": "a"}]}, {"models": [{"name": "a b", "mock": "ref"}]},
+                    {"models": [{"name": "a", "mock": "ref", "temprature": 0}]}, {"modles": []},
+                    {"models": [{"name": "a", "mock": "ref"}, {"name": "a", "mock": "ref"}]}]:
+            with self.assertRaises(SystemExit, msg=bad):
+                config.load(bad)
+        c = config.load({"defaults": {"max_tokens": 100, "extra": {"top_p": 0.9}},
+                         "models": [{"name": "a", "endpoint": "http://x/v1", "model": "m", "extra": {"seed": 1}}]})
+        self.assertEqual((c["models"][0]["max_tokens"], c["models"][0]["extra"]), (100, {"top_p": 0.9, "seed": 1}))
+        for path in Path(ITEMS.parents[1], "configs").glob("*.json"):
+            config.load(path)
 
     def test_repeats_grouped_by_image(self):
         ok = {"tier": "하", "valid": True, "field_recall": 1, "text_f1": 1}
@@ -79,7 +105,8 @@ class Bench(unittest.TestCase):
 
 
 class Transport(unittest.TestCase):
-    def test_http(self):
+    def test_http_and_fix_round(self):
+        """vLLM 옵션이 요청에 실리고, 고치기 회차에는 원본 + 직전 svg 그림 + 직전 svg 원문이 간다."""
         seen = []
 
         class Handler(BaseHTTPRequestHandler):
@@ -96,12 +123,17 @@ class Transport(unittest.TestCase):
         threading.Thread(target=server.serve_forever, daemon=True).start()
         try:
             with tempfile.TemporaryDirectory() as d:
-                image = Path(d) / "image.png"
-                image.write_bytes(b"fake")
-                log = make(image, Path(d) / "out", f"http://127.0.0.1:{server.server_port}/v1", "fake")
-                self.assertTrue(log["valid"])
-                self.assertEqual(seen[0]["messages"][1]["content"][0]["type"], "image_url")
-                self.assertEqual((Path(d) / "out" / "out.svg").read_text(encoding="utf-8"), SAMPLE)
+                m = config.load({"models": [{"name": "fake", "endpoint": f"http://127.0.0.1:{server.server_port}/v1", "model": "fake",
+                                             "extra": {"top_p": 0.5}}]})["models"][0]
+                logs = make(ITEMS / "hf138" / "image.png", Path(d) / "out", m, rounds=1)
+                self.assertEqual([log["valid"] for log in logs], [True, True])
+                self.assertEqual(seen[0]["top_p"], 0.5)
+                first, second = seen[0]["messages"][1]["content"], seen[1]["messages"][1]["content"]
+                self.assertEqual([p["type"] for p in first], ["image_url", "text"])
+                picture = logs[1]["feedback"]["picture"]
+                self.assertEqual([p["type"] for p in second], ["image_url"] + ["image_url"] * picture + ["text"])
+                self.assertIn(SAMPLE, second[-1]["text"])
+                self.assertEqual((Path(d) / "out" / "round1" / "out.svg").read_text(encoding="utf-8"), SAMPLE)
         finally:
             server.shutdown()
             server.server_close()

@@ -1,0 +1,27 @@
+{
+  "items": "bench/golden_v1",
+  "out": "runs/exp1",
+  "repeat": 1,
+  "rounds": 2,
+  "font_files": [],
+  "defaults": {
+    "max_tokens": 32000,
+    "temperature": 0.0,
+    "timeout": 1800,
+    "extra": {}
+  },
+  "models": [
+    {
+      "name": "model_a",
+      "endpoint": "http://HOST_A:8000/v1",
+      "model": "SERVED_MODEL_NAME_A"
+    },
+    {
+      "name": "model_b",
+      "endpoint": "http://HOST_B:8000/v1",
+      "model": "SERVED_MODEL_NAME_B",
+      "api_key_env": "MODEL_B_API_KEY",
+      "extra": {"top_p": 0.95, "repetition_penalty": 1.05, "chat_template_kwargs": {"enable_thinking": false}}
+    }
+  ]
+}

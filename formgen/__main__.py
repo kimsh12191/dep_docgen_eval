@@ -1,9 +1,9 @@
 """python -m formgen <명령> …
 
-  make      이미지 한 장 → svg 서식                     make --image x.png --endpoint URL --model NAME --out 폴더
-  bench     golden set 으로 모델 하나를 잰다             bench --endpoint URL --model NAME --out runs/NAME [--repeat 3]
-  compare   여러 모델의 결과를 한 표로                   compare runs/A runs/B …
-  report    결과 폴더의 표를 다시 만든다 (모델 호출 없음)  report runs/NAME
+  make      이미지 한 장 → svg 서식                     make --config configs/x.json --name A --image x.png --out 폴더 [--rounds 2]
+  bench     설정 파일의 모델들을 golden set 으로 잰다    bench configs/x.json [--only A B]
+  compare   여러 모델의 결과를 한 표로                   compare runs/exp1/A runs/exp1/B …
+  report    결과 폴더의 표를 다시 만든다 (모델 호출 없음)  report runs/exp1/A
   score     정답 svg 와 만든 svg 를 채점                 score ref.svg out.svg
   validate  svg 가 규격에 맞는지                         validate out.svg
   stats     svg 의 난이도 특징 세기                      stats ref.svg …

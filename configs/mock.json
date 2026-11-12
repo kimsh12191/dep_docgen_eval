@@ -1,0 +1,11 @@
+{
+  "items": "bench/golden_v1",
+  "out": "runs/mock",
+  "repeat": 1,
+  "rounds": 1,
+  "models": [
+    {"name": "mock_ref", "mock": "ref"},
+    {"name": "mock_fix", "mock": "nofields,ref"},
+    {"name": "mock_empty", "mock": "empty"}
+  ]
+}

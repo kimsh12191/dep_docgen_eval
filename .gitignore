@@ -4,3 +4,4 @@ runs/
 drafts/
 bench/*/_cache/
 results/*/cache/
+configs/local*.json

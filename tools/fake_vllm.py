@@ -2,7 +2,8 @@
 늘 --answer 파일의 내용을 답으로 준다. 이미지가 없는 요청은 400.
 
   python tools/fake_vllm.py --port 8099 --answer bench/golden_v1/hf138/ref.svg
-  python -m formgen make --image bench/golden_v1/hf138/image.png --endpoint http://127.0.0.1:8099/v1 --model fake --out drafts/x
+  설정 파일의 모델을 {"name": "fake", "endpoint": "http://127.0.0.1:8099/v1", "model": "fake"} 로 두고
+  python -m formgen make --config configs/local.json --name fake --image bench/golden_v1/hf138/image.png --out drafts/x --rounds 1
 """
 import argparse
 import json
