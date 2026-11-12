@@ -130,6 +130,25 @@ class Scores(unittest.TestCase):
         self.assertFalse(ok(*got["no_table"]), got)
         self.assertFalse(ok(*got["other"]), got)
 
+    def test_lazy_package_is_caught(self):
+        """원본 값을 고정 글자로 박고 값 자리를 하나만 둔 꾸러미: 닮음·견딤은 높게 나오지만 기준 꾸러미와 견주면 걸린다."""
+        import re
+        pkg = package.load(EXAMPLE)
+        filled = re.sub(r'\s*data-field="[^"]*"', "", package.html(pkg, pkg["sample"]))
+        filled = filled.replace('<div class="page">', '<div class="page"><span data-field="recipient">{{ recipient }}</span>', 1)
+        with tempfile.TemporaryDirectory() as d:
+            lazy = Path(d) / "lazy"
+            package.save({"template.html": filled, "schema.json": json.dumps({"title": "x", "fields": [{"name": "recipient", "label": "x", "type": "text"}], "tables": []}),
+                          "sample.json": json.dumps({"recipient": ""})}, lazy)
+            without = check.check(lazy, IMAGE, renderer=self.r)
+            self.assertTrue(without["pass"])   # 기준 꾸러미 없이는 못 잡는다 (알려진 한계)
+            got = check.check(lazy, IMAGE, renderer=self.r, reference=EXAMPLE)
+            self.assertFalse(got["pass"])
+            self.assertLess(got["coverage"], check.MIN_COVERAGE)
+            self.assertGreater(got["ref_leak"], 0)
+        same = check.check(EXAMPLE, IMAGE, renderer=self.r, reference=EXAMPLE)
+        self.assertEqual((same["coverage"], same["ref_leak"], same["pass"]), (1.0, 0, True))
+
     def test_broken_is_caught(self):
         t = lambda old, new: (lambda n, s: s.replace(old, new) if n == "template.html" else s)
         leak = self.run_check(t("{{ pledgor_name }}", "박찬연"))

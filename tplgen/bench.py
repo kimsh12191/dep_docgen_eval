@@ -66,28 +66,30 @@ def run_model(cfg: dict, m: dict, renderer: Renderer) -> Path:
                 tokens += (g.get("usage") or {}).get("completion_tokens") or 0
                 seconds += g.get("seconds") or 0
                 res = g["result"]
+                if it["reference"] and it["reference"].is_dir():   # 채점에만 기준 꾸러미를 쓴다 (루프가 회차를 고를 때는 쓰지 않는다 → 정답이 루프에 새지 않게)
+                    res = C.check(out / it["id"] / f"round{g['round']}", it["image"], renderer=renderer, reference=it["reference"])
                 row = {"image": it["id"], "tier": it["tier"], "round": g["round"], "picked": g["round"] == picked, "error": g.get("error"),
-                       **{k: res.get(k) for k in ("pass", "valid", "layout", "missing", "robust", "leak", "fields", "tables", "columns", "assets", "issues")},
+                       **{k: res.get(k) for k in ("pass", "valid", "layout", "missing", "coverage", "ref_leak", "robust", "leak", "fields", "tables", "columns", "assets", "issues")},
                        "broken_tests": [k for k, v in res["tests"].items() if v], "tokens_total": tokens, "seconds_total": round(seconds, 1)}
                 fh.write(json.dumps(row, ensure_ascii=False) + "\n")
                 print(f"{m['name']} [{n + 1}/{len(todo)}] {it['id']} ({it['tier'] or '-'}) round{g['round']}{' *' if row['picked'] else ''} "
-                      f"쓸만함={row['pass']} 닮음={row['layout']} 빠짐={row['missing']} 견딤={row['robust']} 샘={row['leak']} {', '.join(row['issues'][:3])}", flush=True)
+                      f"쓸만함={row['pass']} 닮음={row['layout']} 빠짐={row['missing']} 자리재현={row['coverage']} 견딤={row['robust']} 샘={row['leak']} {', '.join(row['issues'][:3])}", flush=True)
             fh.flush()
     return out
 
 
 def line(name: str, what: str, rows: list[dict]) -> str:
     if not rows:
-        return f"| {name} | {what} |" + " - |" * (len(TIERS) + 6)
+        return f"| {name} | {what} |" + " - |" * (len(TIERS) + 7)
     mean = lambda k, rs=rows: (lambda xs: f"{st.fmean(xs):.2f}" if xs else "-")([r[k] for r in rs if r.get(k) is not None])
     tier = lambda t: (lambda rs: f"{sum(r['pass'] for r in rs)}/{len(rs)}" if rs else "-")([r for r in rows if r.get("tier") == t])
-    return (f"| {name} | {what} | " + " | ".join(tier(t) for t in TIERS) + f" | **{sum(r['pass'] for r in rows)}/{len(rows)}** | {mean('layout')} | {mean('missing')} | {mean('robust')} "
-            f"| {sum((r['leak'] or 0) > 0 for r in rows)} | {mean('tokens_total')} | {mean('seconds_total')} |")
+    return (f"| {name} | {what} | " + " | ".join(tier(t) for t in TIERS) + f" | **{sum(r['pass'] for r in rows)}/{len(rows)}** | {mean('layout')} | {mean('missing')} | {mean('coverage')} | {mean('robust')} "
+            f"| {sum((r['leak'] or 0) > 0 or (r.get('ref_leak') or 0) > 0 for r in rows)} | {mean('tokens_total')} | {mean('seconds_total')} |")
 
 
 def compare(outs: list) -> str:
-    lines = ["| 모델 | 무엇 | " + " | ".join(TIERS) + " | 전체 쓸 만함 | 닮음 평균 | 빠짐 평균 | 견딤 평균 | 값이 샌 이미지 | 누적 평균 출력 토큰 | 누적 평균 초 |",
-             "|---|---|" + "---|" * (len(TIERS) + 7)]
+    lines = ["| 모델 | 무엇 | " + " | ".join(TIERS) + " | 전체 쓸 만함 | 닮음 평균 | 빠짐 평균 | 자리 재현 평균 | 견딤 평균 | 값이 샌 이미지 | 누적 평균 출력 토큰 | 누적 평균 초 |",
+             "|---|---|" + "---|" * (len(TIERS) + 8)]
     for out in outs:
         rows, name = rows_of(Path(out)), Path(out).name
         last = max((r["round"] for r in rows), default=0)
@@ -97,9 +99,9 @@ def compare(outs: list) -> str:
             lines.append(line(name, f"고치기 {last}회 중 고른 것", final))
             first = {r["image"]: r for r in rows if r["round"] == 0}
             up = sum(M.rank(r) > M.rank(first[r["image"]]) for r in final)
-            lines.append(f"| | 고치기로 나아진 이미지 {up}/{len(final)} |" + " |" * (len(TIERS) + 7))
+            lines.append(f"| | 고치기로 나아진 이미지 {up}/{len(final)} |" + " |" * (len(TIERS) + 8))
     rule = " ∧ ".join(f"{k} ≥ {v}" for k, v in C.PASS_RULE.items())
-    return "\n".join(lines) + f"\n\n칸(하·중·상·전체) = 쓸 만한 이미지 수/이미지 수. 쓸 만함(임시 기준) = 유효 ∧ 샘 0 ∧ {rule} ∧ missing ≤ {C.MAX_MISSING}. 정답 없이 꾸러미를 돌려 보고 잰 점수다.\n"
+    return "\n".join(lines) + f"\n\n칸(하·중·상·전체) = 쓸 만한 이미지 수/이미지 수. 쓸 만함(임시 기준) = 유효 ∧ 샘 0 ∧ {rule} ∧ missing ≤ {C.MAX_MISSING} ∧ (기준 꾸러미가 있으면) 자리 재현 ≥ {C.MIN_COVERAGE} ∧ 기준 샘 0. 루프가 회차를 고를 때는 기준 꾸러미를 쓰지 않는다.\n"
 
 
 def run(cfg, only: list[str] | None = None) -> str:

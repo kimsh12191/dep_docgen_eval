@@ -3,6 +3,9 @@
   valid    규칙대로이고 예시 값으로 그려지는가
   layout   예시 값으로 그린 그림과 원본 이미지가 위에서 아래로 같은 모양의 줄을 같은 순서로 갖는 정도 (0~1). 글꼴·간격 차이는 봐준다
   missing  원본에서 통째로 빠진 가장 큰 덩어리 (0~1). 닮음은 평균이라 표 하나가 빠져도 통과할 수 있어 따로 본다
+  coverage 기준 꾸러미(평가 세트의 reference/)가 있을 때만: 기준의 값 자리 중 이 꾸러미에도 같은 자리에 값 자리가 있는 비율.
+           원본 값을 고정 글자로 박고 값 자리를 거의 안 만든 '게으른' 꾸러미는 닮음·견딤이 높게 나오므로 이것으로 잡는다
+  ref_leak 기준 꾸러미가 있을 때만: 값을 비워 그렸는데 원본에 적힌 값(기준 sample.json)이 보이는 수
   robust   값을 바꾸고 표 행을 바꿔 그려도 깨지지 않는 시험의 비율 (data.stress 의 시험들)
   leak     예시 값이 틀에 고정 글자로 박혀 있는 수 (값을 비워 그렸는데도 예시 값이 보이면 샌 것)
   fields · tables · columns · assets   개수 (참고)
@@ -20,7 +23,8 @@ from . import data as D, package as P
 from .render import Renderer
 
 PASS_RULE = {"robust": 1.0, "layout": 0.6}
-MAX_MISSING = 0.12                            # 빠짐이 이보다 크면 탈락 (임시)     # 유효 ∧ 샘 0 ∧ 아래 점수 이상 (임시)
+MAX_MISSING = 0.12                            # 빠짐이 이보다 크면 탈락 (임시)
+MIN_COVERAGE = 0.7                            # 기준 꾸러미가 있을 때: 자리 재현이 이보다 작으면 탈락 (임시)     # 유효 ∧ 샘 0 ∧ 아래 점수 이상 (임시)
 CELL = 8           # layout: 이 크기(px, 폭 794 기준)의 칸마다 잉크가 있는지만 본다
 
 
@@ -135,9 +139,27 @@ def leak_candidates(pkg: dict) -> set[str]:
     return {v.strip() for v in out if isinstance(v, str) and len(v.strip()) >= 3}
 
 
-def check(folder, image=None, out=None, renderer: Renderer | None = None) -> dict:
+def field_boxes(pkg: dict, renderer: Renderer, rows: int = 2) -> list[tuple]:
+    """임의 값(표는 rows 행)으로 그린 값 자리들: (이름, 쪽 폭·높이로 나눈 [x0, y0, x1, y1]). 표의 칸은 이름의 행 번호를 지운다."""
+    import random, re
+    shot = renderer.render(P.html(pkg, D.make(pkg["schema"], random.Random(1), rows=rows)))
+    W, H = max(shot["width"], 1), max(shot["height"], 1)
+    return [(re.sub(r"\.\d+\.", ".#.", l["field"]), [l["box"][0] / W, l["box"][1] / H, (l["box"][0] + l["box"][2]) / W, (l["box"][1] + l["box"][3]) / H])
+            for l in shot["labels"] if l["box"][2] > 0 and l["box"][3] > 0]
+
+
+def coverage(pkg: dict, ref: dict, renderer: Renderer) -> float:
+    """기준의 값 자리 중, 이 꾸러미의 값 자리와 겹치거나 가까운(쪽 폭의 3% · 높이의 2% 안) 것의 비율. 이름은 보지 않는다."""
+    mine, theirs = field_boxes(pkg, renderer), field_boxes(ref, renderer)
+    if not theirs:
+        return 1.0
+    near = lambda a, b: a[0] - 0.03 < b[2] and b[0] - 0.03 < a[2] and a[1] - 0.02 < b[3] and b[1] - 0.02 < a[3]
+    return round(sum(any(near(t, m) for _, m in mine) for _, t in theirs) / len(theirs), 3)
+
+
+def check(folder, image=None, out=None, renderer: Renderer | None = None, reference=None) -> dict:
     pkg = P.load(folder)
-    result = {"valid": False, "issues": list(pkg["issues"]), "layout": None, "missing": None, "robust": 0.0, "leak": 0, "tests": {},
+    result = {"valid": False, "issues": list(pkg["issues"]), "layout": None, "missing": None, "coverage": None, "ref_leak": None, "robust": 0.0, "leak": 0, "tests": {},
               "fields": len(pkg["schema"].get("fields") or []), "tables": len(pkg["schema"].get("tables") or []),
               "columns": sum(len(P.columns(t)) for t in pkg["schema"].get("tables") or [] if isinstance(t, dict)), "assets": 0}
     if pkg["issues"]:
@@ -165,7 +187,12 @@ def check(folder, image=None, out=None, renderer: Renderer | None = None) -> dic
                         result["layout"], result["missing"] = layout(image, fill_assets(png, shot))
                 if name == "empty":   # 값을 비웠는데도 예시 값이 보이면 틀에 박힌 것
                     text = r._page.inner_text("body")
+                    if reference:
+                        ref = P.load(reference)
+                        result["ref_leak"] = sum(1 for v in leak_candidates(ref) if v in text)
                     result["leak"] = sum(1 for v in leak_candidates(pkg) if v in text)
+            if reference and "sample" in result["tests"]:
+                result["coverage"] = coverage(pkg, P.load(reference), r)
         finally:
             if own:
                 r.__exit__()
@@ -173,14 +200,16 @@ def check(folder, image=None, out=None, renderer: Renderer | None = None) -> dic
     result["valid"] = not tests.get("sample") or all(not p.startswith(("render_error", "no_page")) for p in tests["sample"])
     result["robust"] = round(sum(not p for p in tests.values()) / len(tests), 3) if tests else 0.0
     result["pass"] = bool(result["valid"] and result["leak"] == 0 and result["robust"] >= PASS_RULE["robust"]
-                          and (result["layout"] is None or (result["layout"] >= PASS_RULE["layout"] and result["missing"] <= MAX_MISSING)))
+                          and (result["layout"] is None or (result["layout"] >= PASS_RULE["layout"] and result["missing"] <= MAX_MISSING))
+                          and (result["coverage"] is None or (result["coverage"] >= MIN_COVERAGE and result["ref_leak"] == 0)))
     return result
 
 
 def brief(result: dict) -> str:
     bad = {k: v for k, v in result["tests"].items() if v}
     return (f"쓸 만함={result['pass']} 유효={result['valid']} 닮음={result['layout']} 빠짐={result['missing']} 견딤={result['robust']} 샘={result['leak']} "
-            f"항목={result['fields']} 표={result['tables']}(열 {result['columns']}) 그림자리={result['assets']}"
+            + (f"자리재현={result['coverage']} 기준샘={result['ref_leak']} " if result.get("coverage") is not None else "")
+            + f"항목={result['fields']} 표={result['tables']}(열 {result['columns']}) 그림자리={result['assets']}"
             + ("\n규칙 위반: " + ", ".join(result["issues"]) if result["issues"] else "")
             + "".join(f"\n깨짐[{k}]: " + ", ".join(v[:8]) + (" …" if len(v) > 8 else "") for k, v in bad.items()))
 
@@ -191,8 +220,9 @@ def main(argv=None):
     ap.add_argument("package")
     ap.add_argument("--image", help="원본 이미지 (주면 닮음 점수도 낸다)")
     ap.add_argument("--out", help="시험마다 그린 그림을 남길 폴더")
+    ap.add_argument("--reference", help="기준 꾸러미 폴더 (평가 세트의 reference/). 주면 자리 재현·기준 샘도 잰다")
     a = ap.parse_args(argv)
-    print(brief(check(a.package, a.image, a.out)))
+    print(brief(check(a.package, a.image, a.out, reference=a.reference)))
 
 
 if __name__ == "__main__":
