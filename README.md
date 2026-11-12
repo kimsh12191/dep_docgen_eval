@@ -1,5 +1,21 @@
 # docgen_eval (template-html) — 문서 이미지 → 수정 가능한 HTML 템플릿
 
+## 사람 검수 기준으로 모델 비교하기 (추가)
+
+프론티어 모델이 만든 기준을 사람이 승인하고, 같은 값 변경 시험으로 모델들을 비교합니다.
+
+```bash
+pip install -r requirements.txt
+python -m playwright install chromium
+python -m tplgen review evalset/v1                       # 원본·기준·변경 시험 확인 → 승인
+python -m tplgen bench configs/local.json                # 모델 생성 (기존 흐름)
+python -m tplgen evaluate --dataset evalset/v1 --runs runs/exp1 --out out/exp1-reviewed
+```
+
+`--runs`는 설정의 `out`과 맞추세요. 뷰어는 `http://127.0.0.1:8765`입니다. `review ... --runs runs/exp1`로 모델 결과도 볼 수 있습니다. 승인된 기준이 바뀌면 재검수를 요구합니다. **기존 9개 기준은 아직 사람 승인되지 않았습니다.** 기존 `bench` 점수는 종전의 진단 지표이고, 승인 기준 점수는 별도의 `evaluate` 보고서입니다.
+
+[검수·평가 사용법과 지표 정의](docs/review-evaluation.md)에 데이터 형식, 수동 필드 매핑, 비용 집계, 알려진 한계를 설명했습니다.
+
 ## 왜
 업무 중 들어오는 문서(은행 서식, 기관·정부 문서, 스캔·사진)를 사람이 라벨링해 KIE·문서분류 모델을 만드는 수고를 줄인다.
 문서 이미지 한 장을 **수정 가능한 템플릿**으로 바꿔 두면, 값과 표 행을 바꿔 가며 **라벨이 붙은 문서 이미지를 자동으로 대량 생성**할 수 있다.

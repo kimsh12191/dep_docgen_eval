@@ -25,6 +25,9 @@ from .render import Renderer
 PASS_RULE = {"robust": 1.0, "layout": 0.6}
 MAX_MISSING = 0.12                            # 빠짐이 이보다 크면 탈락 (임시)
 MIN_COVERAGE = 0.7                            # 기준 꾸러미가 있을 때: 자리 재현이 이보다 작으면 탈락 (임시)     # 유효 ∧ 샘 0 ∧ 아래 점수 이상 (임시)
+# Reviewed-reference gates, provisional until calibrated against human judgments.
+REVIEW_RULE = {"field_recall": 1.0, "field_f1": 0.95, "sample_accuracy": 1.0,
+               "fixed_text": 0.98, "change_pass_rate": 1.0, "layout": PASS_RULE["layout"]}
 CELL = 8           # layout: 이 크기(px, 폭 794 기준)의 칸마다 잉크가 있는지만 본다
 
 

@@ -15,6 +15,7 @@ problems (값을 바꿔 그렸을 때 깨졌는지):
 from __future__ import annotations
 
 from pathlib import Path
+import os
 
 JS = r"""
 () => {
@@ -23,7 +24,18 @@ JS = r"""
   const p = page.getBoundingClientRect(), problems = [];
   const box = e => { const r = e.getBoundingClientRect(); return [r.left - p.left, r.top - p.top, r.width, r.height].map(v => Math.round(v * 10) / 10); };
   const els = [...page.querySelectorAll('[data-field]')];
-  const labels = els.map(e => ({field: e.getAttribute('data-field'), text: e.innerText.trim(), box: box(e)}));
+  const visible = e => {
+    if (!e.checkVisibility({checkOpacity: true, checkVisibilityCSS: true})) return false;
+    const r = e.getBoundingClientRect();
+    return r.width > 0 && r.height > 0 && r.right > p.left && r.left < p.right && r.bottom > p.top && r.top < p.bottom;
+  };
+  const labels = els.map(e => ({field: e.getAttribute('data-field'), text: e.innerText.trim(), box: box(e), visible: visible(e)}));
+  const walker = document.createTreeWalker(page, NodeFilter.SHOW_TEXT), fixed = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode, parent = node.parentElement;
+    if (!parent.closest('[data-field], [data-asset], style, script') && visible(parent)) fixed.push(node.textContent);
+  }
+  const fixed_text = fixed.join(' ').replace(/\s+/g, ' ').trim();
   const assets = [...page.querySelectorAll('[data-asset]')].map(e => ({kind: e.getAttribute('data-asset'), box: box(e)}));
   let right = 0;
   for (const e of page.querySelectorAll('*')) { const r = e.getBoundingClientRect(); if (r.width > 0) right = Math.max(right, r.right); }
@@ -44,7 +56,7 @@ JS = r"""
     }
     if (hit) problems.push('overlap:' + labels[i].field + '|' + labels[j].field);
   }
-  return {problems: [...new Set(problems)], labels, assets, width: Math.round(p.width), height: Math.round(p.height)};
+  return {problems: [...new Set(problems)], labels, assets, fixed_text, width: Math.round(p.width), height: Math.round(p.height)};
 }
 """
 
@@ -58,7 +70,11 @@ class Renderer:
     def __enter__(self):
         from playwright.sync_api import sync_playwright
         self._pw = sync_playwright().start()
-        self._browser = self._pw.chromium.launch()
+        try:
+            self._browser = self._pw.chromium.launch(executable_path=os.environ.get("TPLGEN_CHROMIUM") or None)
+        except Exception:
+            self._pw.stop()
+            raise
         self._ctx = self._browser.new_context(java_script_enabled=False, device_scale_factor=self.scale, viewport={"width": 1200, "height": 1200})
         self._ctx.route("**/*", lambda route: route.abort())
         self._page = self._ctx.new_page()

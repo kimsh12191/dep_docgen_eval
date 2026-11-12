@@ -4,3 +4,6 @@ runs/
 out/
 gen/
 configs/local*.json
+
+.venv/
+.review-cache/
