@@ -1,4 +1,5 @@
 """python -m unittest discover -s tests   (모델 없이 돈다)"""
+import base64
 import json
 import tempfile
 import threading
@@ -133,6 +134,10 @@ class Transport(unittest.TestCase):
                 picture = logs[1]["feedback"]["picture"]
                 self.assertEqual([p["type"] for p in second], ["image_url"] + ["image_url"] * picture + ["text"])
                 self.assertIn(SAMPLE, second[-1]["text"])
+                raw = lambda p: base64.b64decode(p["image_url"]["url"].split(",", 1)[1])
+                self.assertEqual(raw(second[0]), (ITEMS / "hf138" / "image.png").read_bytes())   # 고치기에도 원본이 먼저 간다
+                if picture:
+                    self.assertEqual(raw(second[1]), (Path(d) / "out" / "round0" / "view.png").read_bytes())
                 self.assertEqual((Path(d) / "out" / "round1" / "out.svg").read_text(encoding="utf-8"), SAMPLE)
         finally:
             server.shutdown()
