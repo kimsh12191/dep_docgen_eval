@@ -37,7 +37,7 @@ def dump(path, value) -> None:
 
 
 def make(image, out, endpoint: str = "", model: str = "", max_tokens: int = 16000, api_key: str | None = None,
-         temperature: float = 0.0, mock: str | None = None) -> dict:
+         temperature: float = 0.0, mock: str | None = None, timeout: float = 1800) -> dict:
     """make.json 내용을 돌려준다. mock 을 주면 모델을 부르지 않고 그 글을 모델의 답으로 쓴다 (길 검사용)."""
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
@@ -46,7 +46,7 @@ def make(image, out, endpoint: str = "", model: str = "", max_tokens: int = 1600
     else:
         messages = [{"role": "system", "content": prompt_text()},
                     {"role": "user", "content": [llm.image_part(image), {"type": "text", "text": ASK}]}]
-        response = llm.chat(endpoint, model, messages, max_tokens=max_tokens, temperature=temperature, api_key=api_key)
+        response = llm.chat(endpoint, model, messages, max_tokens=max_tokens, temperature=temperature, api_key=api_key, timeout=timeout)
     raw = response.pop("text", "") or ""
     value = extract_svg(raw)
     (out / "raw.txt").write_text(raw, encoding="utf-8")

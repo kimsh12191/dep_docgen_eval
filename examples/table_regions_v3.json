@@ -1,0 +1,27 @@
+{
+  "image_size": [
+    1000,
+    1414
+  ],
+  "tables": [
+    {
+      "id": "upper_right_table",
+      "bbox": [
+        640,
+        91,
+        258,
+        152
+      ]
+    },
+    {
+      "id": "main_grid",
+      "bbox": [
+        76,
+        371,
+        830,
+        742
+      ]
+    }
+  ],
+  "ignore_regions": []
+}

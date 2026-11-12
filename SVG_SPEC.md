@@ -31,7 +31,7 @@ The validator cannot determine whether an arbitrary path is a letter; visual/man
 
 ## Commands
 
-`python -m formgen svg <command>` remains an alias of `python -m formgen <command>`.
+`python -m formgen svg ...` is the separate diagnostic CLI (v2/v3 scorers, see the end of this file); generation is the same function.
 
 ```bash
 # Generate using an INTERNAL image-capable OpenAI-compatible endpoint. No external pip dependency.
@@ -81,3 +81,8 @@ Prepare wheels for the target OS, architecture and Python version on a compatibl
 
 Not yet implemented: renderer-based whole-page overlap/overflow evaluation, constrained field-value filling,
 per-option checkbox placement, table topology, multi-page model input, retries/P2, calibrated pass/fail, multi-model comparison table.
+
+## Scoring v2 / v3 diagnostics (experimental, `python -m formgen svg ...`)
+
+`python -m formgen svg score` and `svg bench` use `svg-eval-v2`: independent field detection/label/type/location, explicit text-anchor localization, and optional raster ink/edge agreement (`--visual --source-image IMAGE --font-file FONT`). Old metrics remain under `legacy_svg_v1`. Render comparison requires the optional `requirements-svg-visual.txt`; `final_pass` is still null. See [docs/SCORER_V2.md](docs/SCORER_V2.md) and [docs/SCORER_V3.md](docs/SCORER_V3.md).
+`python -m formgen bench` (pass-rate table) stores the stdlib v2 field/text-position numbers next to the v1 scores in results.jsonl, so a later pass rule can use them without rerunning models.

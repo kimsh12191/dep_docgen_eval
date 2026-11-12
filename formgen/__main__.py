@@ -9,8 +9,9 @@
   render    svg → png (resvg-py 필요, 브라우저 불필요)          render out.svg --out out.png [--font-file 글꼴.ttf]
   selftest  채점기 자체 검증 (모델 없이)                        selftest [--items 폴더] [--out 폴더]
 
+  harness … 여러 모델 서버에 같은 이미지를 보내 svg 생성 (P1, 선택 P2 고쳐 쓰기)   → docs/HARNESS.md
+  svg …     실험 중인 진단 채점 (v2·v3): svg score | score-v3 | bench --visual --v3   → docs/SCORER_V2.md, docs/SCORER_V3.md
   html …    예전 html 길 (기록용): html make | bench | score | tier | selftest | evaluate
-  svg …     위 명령과 같다 (예전 문서의 `python -m formgen svg make …` 를 위해 남김)
 """
 import argparse
 import json
@@ -80,17 +81,24 @@ def _html(argv):
     cli.main(argv)
 
 
+def _svg(argv):
+    from . import svg_cli
+    svg_cli.main(argv)
+
+
+def _harness(argv):
+    from . import harness
+    harness.main(argv)
+
+
 def main(argv=None):
     from . import bench, make, selftest
     commands = {"make": make.main, "bench": bench.main, "report": _report, "score": _score, "validate": _validate,
-                "stats": _stats, "render": _render, "selftest": selftest.main, "html": _html}
+                "stats": _stats, "render": _render, "selftest": selftest.main, "html": _html, "svg": _svg, "harness": _harness}
     argv = list(sys.argv[1:] if argv is None else argv)
-    if argv[:1] == ["svg"]:
-        argv = argv[1:]
     if not argv or argv[0] not in commands:
         raise SystemExit(__doc__)
     commands[argv[0]](argv[1:])
 
 
-if __name__ == "__main__":
-    main()
+if __name__=='__main__':main()

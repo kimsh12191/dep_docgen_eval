@@ -1,0 +1,3 @@
+# Optional v2 raster comparison dependencies; core SVG scorer remains stdlib-only
+-r requirements-svg.txt
+Pillow>=10,<13

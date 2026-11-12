@@ -9,6 +9,7 @@
 
 통과 기준은 **임시**다 (PASS_RULE). results.jsonl 에는 점수만 남기고 통과 여부는 집계할 때 계산하므로,
 기준을 바꾸면 모델을 다시 부르지 않고 `python -m formgen report <out>` 으로 표만 다시 만든다.
+  줄마다 v2 진단 점수(v2_…, 항목명보다 자리를 먼저 보고 짝짓는 채점)도 함께 남긴다. 통과 기준에는 아직 쓰지 않는다.
   text_r(재현율)을 쓰는 까닭: 지금 정답 후보의 일부 글자가 글자 모양(path)으로만 남아 있어, 모델이 그 글자를
   옳게 적으면 text_f1 의 정밀도가 깎인다. 정답의 글자를 다 채운 뒤에는 text_f1 로 바꾼다.
 
@@ -29,11 +30,12 @@ import time
 from collections import Counter
 from pathlib import Path
 
-from . import make as M, svg
+from . import make as M, svg, svg_eval_v2
 
 TIERS = ("하", "중", "상")
 SCORES = ("typed_field_f1", "located_field_f1", "field_iou_mean", "text_f1", "text_r")
 PASS_RULE = {"version": "pass-provisional-0", "typed_field_f1": 0.8, "located_field_f1": 0.8, "text_r": 0.8}
+V2_FIELD_KEYS = ("field_detection_f1", "field_semantic_f1", "field_located_semantic_f1")   # 진단용으로 함께 남긴다 (docs/SCORER_V2.md)
 FAIL_NAME = {"typed_field_f1": "low_fields", "located_field_f1": "low_position", "text_r": "low_text", "text_f1": "low_text"}
 FIELD_RECT = re.compile(r"<rect\b[^>]*\bdata-field=[^>]*/>")
 
@@ -170,11 +172,13 @@ def run(a) -> dict:
                 d = out / "items" / i / f"r{rep}"
                 log = M.make(items_dir / i / "image.png", d, a.endpoint, a.model, a.max_tokens, a.api_key,
                              mock=mock_answer(a.mock, ref) if a.mock else None)
-                s = svg.score(ref, read(d / "out.svg"))
+                v2 = svg_eval_v2.evaluate(ref, read(d / "out.svg"))   # 표준 라이브러리 부분만 (그림 비교 없음)
+                s = v2["legacy_svg_v1"]
                 usage = log.get("usage") or {}
                 row = {"id": i, "repeat": rep, "tier": metas[i].get("tier"), "gold_approved": metas[i].get("gold_approved") is True,
                        "valid": log["valid"], "issues": s["issues"], "truncated": log["truncated"], "error": log.get("error"),
                        **{k: s[k] for k in ("fields_gt", "fields_pred", *SCORES, "text_p")},
+                       **{"v2_" + k: v2["fields"].get(k) for k in V2_FIELD_KEYS}, "v2_text_located_f1": v2["text_geometry"].get("text_located_f1"),
                        "seconds": log.get("seconds"), "prompt_tokens": usage.get("prompt_tokens"), "completion_tokens": usage.get("completion_tokens"),
                        "svg_bytes": log["svg_bytes"]}
                 rows.append(row)

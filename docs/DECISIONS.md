@@ -1,6 +1,6 @@
 # Decisions and migration ledger
 
-## 2026-11-12 / D007 / purpose audit and cleanup: SVG is the top-level path, bench aggregation added
+## 2026-11-12 / D008 / purpose audit and cleanup: SVG is the top-level path, bench aggregation added
 
 User request: check that the code fits the three goals, then clean up code and documents.
 Audit result (docs/PURPOSE_AUDIT.md): generation (goal 3) fit; pass-rate table (goal 1) lacked repeats, tier aggregation,
@@ -25,7 +25,18 @@ Validation: 16 tests pass (browser test skipped); selftest 30/30 expected; mock 
 resvg-py 0.5.0 rendered gov_pension ref.svg on Linux x86_64 with a system Korean font.
 Not validated: any real model output; pass thresholds; tier labels; internal target wheels/fonts.
 Migration: scripts calling `python -m formgen make|bench|score|tier|selftest` for HTML must add `html`.
-Imports `formgen.svg_cli.make` → `formgen.make.make`; `formgen.score` etc. → `formgen.html.score`.
+Imports `formgen.score` etc. → `formgen.html.score`.
+
+Merge with concurrent D007 / V3 / harness work (pushed while this cleanup was in progress): nothing discarded.
+- formgen/svg_cli.py kept as the experimental v2/v3 diagnostic CLI; its `make` is now a re-export of formgen.make.make, so bench, svg_cli and harness share one generator.
+- `hidden_content` validation carried into the rewritten svg.py; `svg.tag` kept public because svg_eval_v2 uses it.
+- bench.py rows additionally store stdlib v2 field/text-position diagnostics (`v2_*`); PASS_RULE still uses v1 keys.
+- Open: two bench paths and three scorer generations coexist. Deliberately not collapsed without real model outputs and human judgements.
+- Validation after merge: 48 tests pass (browser test skipped); selftest 30/30; v1 score output still identical on the 30 cases.
+## 2026-11-12 / D007 / diagnostic SVG scorer v2
+
+Added geometry-first field pairing with separate detection, semantic, type and localization scores, explicit text-anchor localization, optional resvg/Pillow foreground and edge F1, and repeated diagnostic attempts with unique-image counts. Preserved SVG v1 scores in `legacy_svg_v1`, did not calibrate `final_pass`, and retained unapproved gold gating. Added counterfactual regression tests and `docs/SCORER_V2.md`. No real-model quality claim. Core scoring remains stdlib-only; visual path needs optional offline wheels/fonts.
+
 
 ## 2026-11-12 / D006 / user scope correction — supersedes routing requirements in D005
 
@@ -84,3 +95,11 @@ Real SVG model inference was not performed; no endpoint was supplied. The three 
 Append dated decisions with: user constraint, concrete implementation paths, behavior change, validation evidence,
 known limitations and migration consequences. Update STATE.json and contract version when behavior changes.
 Do not write aspirations into the implemented/verified sections.
+
+## 2026-11-12 / Scorer V3: original-image visual fidelity + table regions
+
+Implemented fixed provisional 70% whole-page Foreground/Edge F1 plus 30% independently scored table ROIs, preventing small complex-table omissions being diluted by white page area. Optional canonical GriTS Top/Loc is available ONLY with explicit cell annotations. Invalid SVG contract is a zero-score failure; missing/invalid ROI or aspect mismatch is unscorable. Human calibration, model evaluation and final pass thresholds remain outstanding. Source images and manual scores have not been committed.
+
+## 2026-11-12 / SVG generation harness P1/P2
+
+Add a concurrent per-endpoint OpenAI-compatible vLLM harness, with deterministic job fingerprint/resume and optional visual feedback refinement. Preserve P1; accept only score-improving and SVG-valid P2 candidates, stop and revert on regression. When reviewed table ROIs exist, use V3 for the feedback objective; when absent, label the page-only feedback metric `visual_proxy_unannotated` and never present it as a calibrated V3 quality benchmark. Invalid P1 SVG may receive one validation-only repair attempt without unsafe rendering. No model server is accessible here, so only fake-HTTP integration tests have been run. Refer to docs/HARNESS.md.

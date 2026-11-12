@@ -42,6 +42,11 @@ LIMITATIONS = [
 ]
 
 
+def tag(e) -> str:
+    """요소의 이름 (네임스페이스 뗀 것). svg_eval_v2 도 쓴다."""
+    return _name(e.tag)
+
+
 def _name(qualified: str) -> str:
     return qualified.split("}")[-1]
 
@@ -104,6 +109,14 @@ def parse(value: str) -> dict:
 
     def walk(e, in_field=False):
         name = _name(e.tag)
+        # 숨긴 문서는 유효하지 않다. 값 자리 rect 는 원래 보이지 않는 것이라 검사하지 않는다.
+        if name in {"svg", "g", "text"}:
+            try:
+                invisible = float(e.get("opacity", "1").strip().rstrip("%")) <= 0
+            except ValueError:
+                invisible = False
+            if e.get("display") == "none" or e.get("visibility") in {"hidden", "collapse"} or invisible:
+                issues.append("hidden_content")
         if name not in ALLOWED:
             issues.append("unsupported_element:" + name)
         for k, v in e.attrib.items():
