@@ -1,0 +1,83 @@
+{
+  "fields": [
+    {
+      "key": "official.address",
+      "label": "대상 건물 소재지",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.name",
+      "label": "성명",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.moved",
+      "label": "전입일자",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.number",
+      "label": "일련번호",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    }
+  ],
+  "rendered_fields": [
+    {
+      "key": "official.address",
+      "label": "대상 건물 소재지",
+      "type": "text",
+      "bbox": [
+        176.328125,
+        186.65625,
+        527.328125,
+        64
+      ]
+    },
+    {
+      "key": "official.name",
+      "label": "성명",
+      "type": "text",
+      "bbox": [
+        176.328125,
+        309.328125,
+        220.65625,
+        30.65625
+      ]
+    },
+    {
+      "key": "official.moved",
+      "label": "전입일자",
+      "type": "text",
+      "bbox": [
+        429.65625,
+        309.328125,
+        147.328125,
+        30.65625
+      ]
+    },
+    {
+      "key": "official.number",
+      "label": "일련번호",
+      "type": "text",
+      "bbox": [
+        85.65625,
+        309.328125,
+        71.328125,
+        30.65625
+      ]
+    }
+  ],
+  "coordinate_space": "CSS pixels at 96 dpi"
+}

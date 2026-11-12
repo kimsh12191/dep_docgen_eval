@@ -27,8 +27,8 @@ def _tier(argv):
 
 
 def main():
-    from . import bench, make, selftest
-    commands = {"make": make.main, "bench": bench.main, "selftest": selftest.main, "score": _score, "tier": _tier}
+    from . import bench, make, selftest, svg_cli
+    commands = {"svg": svg_cli.main, "make": make.main, "bench": bench.main, "selftest": selftest.main, "score": _score, "tier": _tier}
     if len(sys.argv) < 2 or sys.argv[1] not in commands:
         raise SystemExit(__doc__)
     commands[sys.argv[1]](sys.argv[2:])

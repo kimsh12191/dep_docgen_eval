@@ -1,0 +1,58 @@
+{
+  "id": "gov_pension",
+  "name": "국민연금가입자 증명서",
+  "tier": "하",
+  "tier_reason": "필드 6개, 단순 단일 페이지",
+  "difficulty_rule": "official-pilot-expert-v0 (provisional)",
+  "source": {
+    "publisher": "국가법령정보센터 · 해당 발급기관",
+    "url": "https://www.law.go.kr/LSW/flDownload.do?gubun=&flSeq=161706061&bylClsCd=110202",
+    "source_file": "forms/official_sources/gov_pension.pdf",
+    "sha256": "265f562bd52b397b31c5c18f2ee37df2e6fc1c242c80f71e2b20bc80fe854a69",
+    "checked_at": "2026-10-20",
+    "revision": "<개정2011.12.8>",
+    "matches": [
+      "pension_enrollment_certificate"
+    ],
+    "source_pages": [
+      0
+    ],
+    "online_verification": {
+      "status": "verified_pdf",
+      "sha256": "265f562bd52b397b31c5c18f2ee37df2e6fc1c242c80f71e2b20bc80fe854a69",
+      "matches_local": true,
+      "checked_at": "2026-10-20"
+    }
+  },
+  "downloaded_at": "2026-11-12",
+  "download_sha256": "265f562bd52b397b31c5c18f2ee37df2e6fc1c242c80f71e2b20bc80fe854a69",
+  "input_kind": "official_blank_pdf_raster",
+  "source_page": 1,
+  "reference_origin": "adapted_local_official_compared_html",
+  "review_status": "candidate",
+  "gold_approved": false,
+  "limitations": [
+    "Official blank form, not a real filled scan",
+    "Inherited field coverage needs independent annotation review",
+    "Some printed glyphs are SVG paths, so DOM text scores are incomplete"
+  ],
+  "rights_status": "publicly downloadable; redistribution license not established",
+  "preferred_format": "svg",
+  "svg_contract": "svg-v1",
+  "svg_migration": {
+    "date": "2026-11-12",
+    "method": "absolute_html_text_to_svg_plus_existing_paths",
+    "render": {
+      "renderer": "resvg_py",
+      "version": "0.5.0",
+      "font_mode": "system_unpinned",
+      "fonts": []
+    },
+    "review_status": "candidate",
+    "limitations": [
+      "Text baselines approximated at 0.82 em; review against PDF",
+      "Existing PDF glyph outlines retained in imported line layer; model output should retain editable text",
+      "Inherited field omissions remain; not approved gold"
+    ]
+  }
+}

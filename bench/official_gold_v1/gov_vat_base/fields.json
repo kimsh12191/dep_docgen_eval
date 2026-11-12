@@ -1,0 +1,197 @@
+{
+  "fields": [
+    {
+      "key": "official.name",
+      "label": "성명",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.rrn",
+      "label": "주민등록번호",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.address",
+      "label": "주소",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.company",
+      "label": "상호",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.biz_no",
+      "label": "사업자등록번호",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.biz_type",
+      "label": "업태",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.biz_item",
+      "label": "종목",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.period_start",
+      "label": "과세기간 시작",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.period_end",
+      "label": "과세기간 종료",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.sales",
+      "label": "매출과세표준",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    }
+  ],
+  "rendered_fields": [
+    {
+      "key": "official.name",
+      "label": "성명",
+      "type": "text",
+      "bbox": [
+        221.65625,
+        186.65625,
+        163.328125,
+        44
+      ]
+    },
+    {
+      "key": "official.rrn",
+      "label": "주민등록번호",
+      "type": "text",
+      "bbox": [
+        560.328125,
+        186.65625,
+        147.328125,
+        44
+      ]
+    },
+    {
+      "key": "official.address",
+      "label": "주소",
+      "type": "text",
+      "bbox": [
+        221.65625,
+        329.328125,
+        486,
+        28
+      ]
+    },
+    {
+      "key": "official.company",
+      "label": "상호",
+      "type": "text",
+      "bbox": [
+        221.65625,
+        234.65625,
+        163.328125,
+        44
+      ]
+    },
+    {
+      "key": "official.biz_no",
+      "label": "사업자등록번호",
+      "type": "text",
+      "bbox": [
+        560.328125,
+        234.65625,
+        147.328125,
+        44
+      ]
+    },
+    {
+      "key": "official.biz_type",
+      "label": "업태",
+      "type": "text",
+      "bbox": [
+        221.65625,
+        282.65625,
+        163.328125,
+        42.65625
+      ]
+    },
+    {
+      "key": "official.biz_item",
+      "label": "종목",
+      "type": "text",
+      "bbox": [
+        560.328125,
+        282.65625,
+        147.328125,
+        42.65625
+      ]
+    },
+    {
+      "key": "official.period_start",
+      "label": "과세기간 시작",
+      "type": "text",
+      "bbox": [
+        85.65625,
+        490.65625,
+        155.328125,
+        33.328125
+      ]
+    },
+    {
+      "key": "official.period_end",
+      "label": "과세기간 종료",
+      "type": "text",
+      "bbox": [
+        249.65625,
+        490.65625,
+        94,
+        33.328125
+      ]
+    },
+    {
+      "key": "official.sales",
+      "label": "매출과세표준",
+      "type": "text",
+      "bbox": [
+        353.65625,
+        490.65625,
+        123.328125,
+        33.328125
+      ]
+    }
+  ],
+  "coordinate_space": "CSS pixels at 96 dpi"
+}

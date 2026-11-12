@@ -1,0 +1,58 @@
+{
+  "id": "gov_income",
+  "name": "소득금액증명",
+  "tier": "상",
+  "tier_reason": "밀집된 소득 표, 반복 구역과 분할 날짜 필드",
+  "difficulty_rule": "official-pilot-expert-v0 (provisional)",
+  "source": {
+    "publisher": "국가법령정보센터 · 해당 발급기관",
+    "url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=155626737&flNm=%5B%EB%B3%84%EC%A7%80+15%5D+%EC%86%8C%EB%93%9D%EA%B8%88%EC%95%A1%EC%A6%9D%EB%AA%85%28%EA%B5%AD%EB%AC%B8%29&bylClsCd=200203",
+    "source_file": "forms/official_sources/gov_income.pdf",
+    "sha256": "54bd2110509b75a070bb2234a40059ce4a774df65cdb690fb9aaa1773f323129",
+    "checked_at": "2026-10-20",
+    "revision": "<2024. 4. 17. 개정>",
+    "matches": [
+      "income_certificate"
+    ],
+    "source_pages": [
+      0
+    ],
+    "online_verification": {
+      "status": "verified_pdf",
+      "sha256": "54bd2110509b75a070bb2234a40059ce4a774df65cdb690fb9aaa1773f323129",
+      "matches_local": true,
+      "checked_at": "2026-10-20"
+    }
+  },
+  "downloaded_at": "2026-11-12",
+  "download_sha256": "54bd2110509b75a070bb2234a40059ce4a774df65cdb690fb9aaa1773f323129",
+  "input_kind": "official_blank_pdf_raster",
+  "source_page": 1,
+  "reference_origin": "adapted_local_official_compared_html",
+  "review_status": "candidate",
+  "gold_approved": false,
+  "limitations": [
+    "Official blank form, not a real filled scan",
+    "Inherited field coverage needs independent annotation review",
+    "Some printed glyphs are SVG paths, so DOM text scores are incomplete"
+  ],
+  "rights_status": "publicly downloadable; redistribution license not established",
+  "preferred_format": "svg",
+  "svg_contract": "svg-v1",
+  "svg_migration": {
+    "date": "2026-11-12",
+    "method": "absolute_html_text_to_svg_plus_existing_paths",
+    "render": {
+      "renderer": "resvg_py",
+      "version": "0.5.0",
+      "font_mode": "system_unpinned",
+      "fonts": []
+    },
+    "review_status": "candidate",
+    "limitations": [
+      "Text baselines approximated at 0.82 em; review against PDF",
+      "Existing PDF glyph outlines retained in imported line layer; model output should retain editable text",
+      "Inherited field omissions remain; not approved gold"
+    ]
+  }
+}

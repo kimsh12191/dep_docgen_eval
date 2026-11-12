@@ -1,0 +1,73 @@
+{
+  "updated_at": "2026-11-12",
+  "preferred_output": "standalone_svg",
+  "contract": "svg-v1",
+  "purpose_source": "목적.md",
+  "purpose_audit": "docs/PURPOSE_AUDIT.md",
+  "scope": {
+    "required": ["reliable_model_by_difficulty_pass_rates", "manual_difficulty_guide_and_cases", "selected_model_svg_generation"],
+    "not_required": ["automatic_model_routing", "automatic_image_difficulty_prediction"],
+    "deferred": ["value_filling", "training_image_generation", "training_label_export"],
+    "difficulty_guide": "docs/DIFFICULTY_GUIDE.md"
+  },
+  "product_readiness": {
+    "manual_model_image_to_svg": "implemented; real internal model not yet exercised",
+    "shared_make_bench_generation_path": "implemented in formgen.svg_cli.make",
+    "model_by_difficulty_pass_rate": "not_ready; scores exist but approved gold/calibration/repeats/aggregation missing",
+    "unseen_image_model_selection": "manual_by_user; automation_not_required",
+    "filled_training_images_and_labels": "deferred_out_of_current_scope",
+    "overall": "generation_and_scoring_pilot_not_complete_product"
+  },
+  "entry_points": ["AGENTS.md", "SVG_SPEC.md", "docs/DECISIONS.md"],
+  "constraints": {
+    "target": "internet_disconnected_internal_network",
+    "pip": "some_packages_allowed",
+    "browser_runtime": "not_required_for_svg",
+    "internal_os_python_arch": "unknown"
+  },
+  "implemented": {
+    "commands": "python -m formgen svg make|validate|score|render|bench",
+    "core_dependencies": "python_standard_library",
+    "render_dependency": "resvg-py==0.5.0",
+    "font_dependency": "Korean font; explicit --font-file recommended",
+    "model_protocol": "OpenAI-compatible /chat/completions; image_url data URI; P1 only",
+    "gold_candidate_directory": "bench/official_pilot_v1",
+    "candidate_count": 3,
+    "approved_gold_count": 0,
+    "legacy": ["formgen make/bench/score HTML", "formgen.evaluate HTML", "formgen.rendercheck optional browser"]
+  },
+  "verification": {
+    "tests": "9 tests passed; stdlib-only SVG run: 5 passed and optional renderer test skipped",
+    "model_transport": "local fake HTTP server verified image request and SVG save path; not a model quality test",
+    "svg_self_score_stdlib_only": "executed with python -S; identity scores 1.0",
+    "svg_renderer": "Windows Python 3.12 binary wheel installed; all three candidate PNGs rendered and visually inspected",
+    "real_model_svg_run": "not_run_no_internal_endpoint_supplied",
+    "old_sol_luna_terra_results": "HTML only; NOT SVG measurements"
+  },
+  "known_gaps": [
+    "Candidate field annotations incomplete; inherited omissions must be fixed",
+    "No independent gold approval or calibrated pass thresholds",
+    "Current images are official blank PDFs, not filled real scans/photos",
+    "Actual rendered SVG overlap/overflow evaluation not implemented",
+    "Difficulty rubric and existing candidate tier assignments require review",
+    "Some reference glyphs remain PDF outlines; text metric misses those",
+    "Model-generated field geometry is declared, not proof of actual rendered layout",
+    "Multi-page, P2, resume and repeated-run aggregation not implemented for SVG",
+    "Internal target wheel/font compatibility not yet verified"
+  ],
+  "next_steps": [
+    "Complete field annotations against official source pages and review each candidate",
+    "Confirm internal OS/Python/architecture and permitted font; prepare matching offline wheels",
+    "Run same documents through internal image-capable model using svg_v1 prompt",
+    "Document manual difficulty criteria, counting conventions, boundary cases and representative examples",
+    "Add rendered SVG quality checks without requiring value filling",
+    "Calibrate and freeze pass criteria before scored evaluation runs",
+    "Implement repeats, per-tier pass counts/rates, uncertainty and failure breakdown; repeats are not independent images"
+  ],
+  "invariants": [
+    "Do not turn missing measurements into successful pass",
+    "Do not equate official provenance with complete gold annotations",
+    "Do not replace original input images with generated references",
+    "Do not compare SVG and HTML score numbers as identical metrics"
+  ]
+}

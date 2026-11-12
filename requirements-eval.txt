@@ -1,0 +1,6 @@
+# Optional authoring/browser evaluation dependencies; v1 CLI remains standard-library only.
+playwright>=1.40,<2
+Pillow>=10,<13
+PyMuPDF>=1.24,<2
+Jinja2>=3.1,<4
+beautifulsoup4>=4.12,<5

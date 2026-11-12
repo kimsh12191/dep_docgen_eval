@@ -85,6 +85,9 @@ def run(a) -> dict:
         ids = [i for i in ids if metas[i].get("tier") in a.tiers]
     if a.limit:
         ids = ids[:a.limit]
+    candidates = [i for i in ids if metas[i].get("gold_approved") is False]
+    if candidates and not getattr(a, "allow_candidates", False):
+        raise SystemExit("Unreviewed gold candidates: use --allow-candidates only for development diagnostics: " + ", ".join(candidates))
     cfg = {"model": a.model or f"mock:{a.mock}", "endpoint": a.endpoint, "protocol": a.protocol, "rounds": a.rounds, "max_tokens": a.max_tokens,
            "repeat": a.repeat, "items": str(items_dir), "items_name": items_dir.name, "n_items": len(ids), "prompt": M.PROMPT_VERSION,
            "score_version": SCORE_VERSION, "difficulty_rule": difficulty.VERSION, "pass_rule": PASS, "started": time.strftime("%Y-%m-%dT%H:%M:%S")}
@@ -136,6 +139,7 @@ def main(argv=None):
     ap.add_argument("--repeat", type=int, default=1)
     ap.add_argument("--tiers", nargs="*", default=None, help="이 난이도만 (하 중 상)")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--allow-candidates", action="store_true", help="Allow unreviewed official pilot items; results are not validated gold scores")
     ap.add_argument("--api-key", default=None)
     ap.add_argument("--mock", default=None, choices=["ref", "nospan", "empty"], help="모델 없이 길 검사")
     a = ap.parse_args(argv)

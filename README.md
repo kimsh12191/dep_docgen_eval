@@ -1,4 +1,15 @@
-# docgen_eval: 이미지 → html 서식 생성 벤치마크
+# docgen_eval: 이미지 → SVG 서식 생성 평가
+
+**현재 목표:** 모델별·난이도별 신뢰할 만한 SVG 생성 통과율 표와 [수동 난이도 분류 가이드](docs/DIFFICULTY_GUIDE.md).
+모델은 사용자가 직접 선택합니다. 자동 모델 선택과 값 채우기·학습 데이터 생산은 현재 범위에서 제외합니다.
+
+**현재 신규 개발 경로는 SVG입니다.** 내부망에서 브라우저 없이 생성·채점하고, `resvg-py`로 PNG를 만듭니다.
+[SVG_SPEC.md](SVG_SPEC.md)의 `python -m formgen svg ...`를 사용하세요.
+다른 LLM/에이전트는 [AGENTS.md](AGENTS.md) → [docs/STATE.json](docs/STATE.json) → [docs/DECISIONS.md](docs/DECISIONS.md) 순서로 읽으세요.
+아래 HTML 설명은 기존 경로의 기록입니다.
+
+공식 PDF 기반 새 파일럿과 브라우저 평가 보강: [EVALUATION_V2.md](EVALUATION_V2.md).
+3종의 상·중·하 자료는 아직 주석 검토가 필요한 **gold 후보**이며 자동 승인하지 않습니다.
 
 서류 이미지 한 장을 주면 **값 자리를 표시한 html 서식**을 만들어 내는 능력을 모델별로 잽니다.
 만든 html 은 OCR·문서분류·KIE 학습 데이터를 찍어 내는 틀로 씁니다.

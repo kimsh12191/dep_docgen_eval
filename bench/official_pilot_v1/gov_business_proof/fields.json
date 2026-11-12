@@ -1,0 +1,197 @@
+{
+  "fields": [
+    {
+      "key": "official.company",
+      "label": "상호(법인명)",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.biz_no",
+      "label": "사업자등록번호",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.name",
+      "label": "대표자성명",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.rrn",
+      "label": "주민등록번호",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.address",
+      "label": "사업장 소재지",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.opened",
+      "label": "개업일",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.registered",
+      "label": "사업자등록일",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.industry",
+      "label": "업태",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.item",
+      "label": "종목",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    },
+    {
+      "key": "official.number",
+      "label": "발급번호",
+      "type": "text",
+      "scope": "document_instance",
+      "required": true,
+      "review_status": "candidate"
+    }
+  ],
+  "rendered_fields": [
+    {
+      "key": "official.company",
+      "label": "상호(법인명)",
+      "type": "text",
+      "bbox": [
+        240.328125,
+        185.328125,
+        466,
+        48
+      ]
+    },
+    {
+      "key": "official.biz_no",
+      "label": "사업자등록번호",
+      "type": "text",
+      "bbox": [
+        240.328125,
+        241.328125,
+        466,
+        48
+      ]
+    },
+    {
+      "key": "official.name",
+      "label": "대표자성명",
+      "type": "text",
+      "bbox": [
+        240.328125,
+        297.328125,
+        466,
+        48
+      ]
+    },
+    {
+      "key": "official.rrn",
+      "label": "주민등록번호",
+      "type": "text",
+      "bbox": [
+        240.328125,
+        353.328125,
+        466,
+        48
+      ]
+    },
+    {
+      "key": "official.address",
+      "label": "사업장 소재지",
+      "type": "text",
+      "bbox": [
+        240.328125,
+        409.328125,
+        466,
+        48
+      ]
+    },
+    {
+      "key": "official.opened",
+      "label": "개업일",
+      "type": "text",
+      "bbox": [
+        240.328125,
+        465.328125,
+        466,
+        48
+      ]
+    },
+    {
+      "key": "official.registered",
+      "label": "사업자등록일",
+      "type": "text",
+      "bbox": [
+        240.328125,
+        521.328125,
+        466,
+        48
+      ]
+    },
+    {
+      "key": "official.industry",
+      "label": "업태",
+      "type": "text",
+      "bbox": [
+        240.328125,
+        577.328125,
+        466,
+        48
+      ]
+    },
+    {
+      "key": "official.item",
+      "label": "종목",
+      "type": "text",
+      "bbox": [
+        240.328125,
+        633.328125,
+        466,
+        48
+      ]
+    },
+    {
+      "key": "official.number",
+      "label": "발급번호",
+      "type": "text",
+      "bbox": [
+        81.65625,
+        144,
+        100.65625,
+        36
+      ]
+    }
+  ],
+  "coordinate_space": "CSS pixels at 96 dpi"
+}

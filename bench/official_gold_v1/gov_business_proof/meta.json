@@ -1,0 +1,40 @@
+{
+  "id": "gov_business_proof",
+  "name": "사업자등록증명",
+  "tier": null,
+  "tier_reason": "Unclassified: source-level annotation review required",
+  "difficulty_rule": "official-pilot-expert-v0 (provisional)",
+  "source": {
+    "publisher": "국가법령정보센터 · 해당 발급기관",
+    "url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=155626677&flNm=%5B%EB%B3%84%EC%A7%80+5%5D+%EC%82%AC%EC%97%85%EC%9E%90%EB%93%B1%EB%A1%9D%EC%A6%9D%EB%AA%85%28%EA%B5%AD%EB%AC%B8%29&bylClsCd=200203",
+    "source_file": "forms/official_sources/gov_business_proof.pdf",
+    "sha256": "3186ef6d49a7cab561843034709e7a39296844582fb7e0aff8f171e847e1b523",
+    "checked_at": "2026-10-20",
+    "revision": "< 2025. 08. 12.개정>",
+    "matches": [
+      "business_registration_proof"
+    ],
+    "source_pages": [
+      0
+    ],
+    "online_verification": {
+      "status": "verified_pdf",
+      "sha256": "3186ef6d49a7cab561843034709e7a39296844582fb7e0aff8f171e847e1b523",
+      "matches_local": true,
+      "checked_at": "2026-10-20"
+    }
+  },
+  "downloaded_at": "2026-11-12",
+  "download_sha256": "3186ef6d49a7cab561843034709e7a39296844582fb7e0aff8f171e847e1b523",
+  "input_kind": "official_blank_pdf_raster",
+  "source_page": 1,
+  "reference_origin": "adapted_local_official_compared_html",
+  "review_status": "candidate",
+  "gold_approved": false,
+  "limitations": [
+    "Official blank form, not a real filled scan",
+    "Inherited field coverage needs independent annotation review",
+    "Some printed glyphs are SVG paths, so DOM text scores are incomplete"
+  ],
+  "rights_status": "publicly downloadable; redistribution license not established"
+}

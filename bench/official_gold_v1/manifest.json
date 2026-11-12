@@ -1,0 +1,128 @@
+[
+  {
+    "id": "hana_official_028",
+    "name": "위임장",
+    "tier": null,
+    "tier_reason": "Unclassified: source-level annotation review required",
+    "difficulty_rule": "official-pilot-expert-v0 (provisional)",
+    "source": {
+      "publisher": "하나은행",
+      "url": "https://image.kebhana.com/cont/customer/customer07/customer0701/customer070101/__icsFiles/afieldfile/2020/05/29/5_08_0041_20200601.pdf",
+      "source_file": "forms/하나은행_서식자료/예금/028_위임장.pdf",
+      "sha256": "fe598d774cc62523ff44624e9de4fee2efdaa1a734a94590853ea85a49231256",
+      "checked_at": "2026-10-20",
+      "revision": "(2020.05 개정)",
+      "matches": [
+        "power_of_attorney"
+      ],
+      "online_verification": {
+        "status": "verified_pdf",
+        "sha256": "fe598d774cc62523ff44624e9de4fee2efdaa1a734a94590853ea85a49231256",
+        "matches_local": true,
+        "checked_at": "2026-10-20"
+      }
+    },
+    "downloaded_at": "2026-11-12",
+    "download_sha256": "fe598d774cc62523ff44624e9de4fee2efdaa1a734a94590853ea85a49231256",
+    "input_kind": "official_blank_pdf_raster",
+    "source_page": 1,
+    "source_page_count": 1,
+    "item_scope": "one source page, not the entire multipage form",
+    "reference_origin": "adapted_local_official_compared_html",
+    "review_status": "candidate",
+    "gold_approved": false,
+    "limitations": [
+      "Official blank form, not a real filled scan",
+      "Inherited field coverage needs independent annotation review",
+      "Some printed glyphs are SVG paths, so DOM text scores are incomplete"
+    ],
+    "rights_status": "publicly downloadable; redistribution license not established"
+  },
+  {
+    "id": "hana_official_011",
+    "name": "예금(신탁)잔액증명 의뢰서",
+    "tier": null,
+    "tier_reason": "Unclassified: source-level annotation review required",
+    "difficulty_rule": "official-pilot-expert-v0 (provisional)",
+    "source": {
+      "publisher": "하나은행",
+      "url": "https://image.kebhana.com/cont/customer/customer07/customer0701/customer070101/__icsFiles/afieldfile/2025/01/07/5-08-0094.pdf",
+      "source_file": "forms/하나은행_서식자료/예금/011_예금(신탁)잔액증명 의뢰서.pdf",
+      "sha256": "557f36608d25a6f007d2cc015eb41e881e9e9168894b7a4c2463da3b5be3610d",
+      "checked_at": "2026-10-20",
+      "revision": "(2025.01 개정)",
+      "matches": [],
+      "online_verification": {
+        "status": "verified_pdf",
+        "sha256": "557f36608d25a6f007d2cc015eb41e881e9e9168894b7a4c2463da3b5be3610d",
+        "matches_local": true,
+        "checked_at": "2026-10-20"
+      }
+    },
+    "downloaded_at": "2026-11-12",
+    "download_sha256": "557f36608d25a6f007d2cc015eb41e881e9e9168894b7a4c2463da3b5be3610d",
+    "input_kind": "official_blank_pdf_raster",
+    "source_page": 1,
+    "source_page_count": 1,
+    "item_scope": "one source page, not the entire multipage form",
+    "reference_origin": "adapted_local_official_compared_html",
+    "review_status": "candidate",
+    "gold_approved": false,
+    "limitations": [
+      "Official blank form, not a real filled scan",
+      "Inherited field coverage needs independent annotation review",
+      "Some printed glyphs are SVG paths, so DOM text scores are incomplete"
+    ],
+    "rights_status": "publicly downloadable; redistribution license not established"
+  },
+  {
+    "id": "gov_withholding",
+    "name": "근로소득 원천징수영수증",
+    "tier": null,
+    "tier_reason": "Unclassified: source-level annotation review required",
+    "difficulty_rule": "official-pilot-expert-v0 (provisional)",
+    "source": {
+      "publisher": "국가법령정보센터 · 해당 발급기관",
+      "url": "https://www.law.go.kr/flDownload.do?gubun=&flSeq=150204063&bylClsCd=110202",
+      "source_file": "forms/official_sources/gov_withholding.pdf",
+      "sha256": "e00cb141818f1d8156a10285b131fe13c46061045473cc6ad6c2faba0920b25c",
+      "checked_at": "2026-10-20",
+      "revision": "<개정 2025. 3. 21.>",
+      "matches": [
+        "withholding_receipt"
+      ],
+      "source_pages": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "online_verification": {
+        "status": "verified_pdf",
+        "sha256": "e00cb141818f1d8156a10285b131fe13c46061045473cc6ad6c2faba0920b25c",
+        "matches_local": true,
+        "checked_at": "2026-10-20"
+      }
+    },
+    "downloaded_at": "2026-11-12",
+    "download_sha256": "e00cb141818f1d8156a10285b131fe13c46061045473cc6ad6c2faba0920b25c",
+    "input_kind": "official_blank_pdf_raster",
+    "source_page": 1,
+    "source_page_count": 28,
+    "item_scope": "one source page, not the entire multipage form",
+    "reference_origin": "adapted_local_official_compared_html",
+    "review_status": "candidate",
+    "gold_approved": false,
+    "limitations": [
+      "Official blank form, not a real filled scan",
+      "Inherited field coverage needs independent annotation review",
+      "Some printed glyphs are SVG paths, so DOM text scores are incomplete"
+    ],
+    "rights_status": "publicly downloadable; redistribution license not established"
+  }
+]
