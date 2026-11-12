@@ -40,6 +40,14 @@ def parse(value):
     seen=set()
     def walk(e, in_field=False):
         name=tag(e)
+        # A hidden document must not be considered structurally valid.
+        # Field rects are intentionally invisible and are exempt.
+        if name in {'svg', 'g', 'text'}:
+            opacity=e.get('opacity','1').strip().rstrip('%')
+            try: invisible=float(opacity)<=0
+            except ValueError: invisible=False
+            if e.get('display')=='none' or e.get('visibility') in {'hidden','collapse'} or invisible:
+                issues.append('hidden_content')
         if name not in ALLOWED:issues.append('unsupported_element:'+name)
         for k,v in e.attrib.items():
             key=k.split('}')[-1]

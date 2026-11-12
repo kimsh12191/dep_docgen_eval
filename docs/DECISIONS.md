@@ -1,5 +1,10 @@
 # Decisions and migration ledger
 
+## 2026-11-12 / D007 / diagnostic SVG scorer v2
+
+Added geometry-first field pairing with separate detection, semantic, type and localization scores, explicit text-anchor localization, optional resvg/Pillow foreground and edge F1, and repeated diagnostic attempts with unique-image counts. Preserved SVG v1 scores in `legacy_svg_v1`, did not calibrate `final_pass`, and retained unapproved gold gating. Added counterfactual regression tests and `docs/SCORER_V2.md`. No real-model quality claim. Core scoring remains stdlib-only; visual path needs optional offline wheels/fonts.
+
+
 ## 2026-11-12 / D006 / user scope correction — supersedes routing requirements in D005
 
 Required: reliable model-by-difficulty pass rates, manual difficulty criteria/examples, user-selected SVG generation.

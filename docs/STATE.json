@@ -5,9 +5,20 @@
   "purpose_source": "목적.md",
   "purpose_audit": "docs/PURPOSE_AUDIT.md",
   "scope": {
-    "required": ["reliable_model_by_difficulty_pass_rates", "manual_difficulty_guide_and_cases", "selected_model_svg_generation"],
-    "not_required": ["automatic_model_routing", "automatic_image_difficulty_prediction"],
-    "deferred": ["value_filling", "training_image_generation", "training_label_export"],
+    "required": [
+      "reliable_model_by_difficulty_pass_rates",
+      "manual_difficulty_guide_and_cases",
+      "selected_model_svg_generation"
+    ],
+    "not_required": [
+      "automatic_model_routing",
+      "automatic_image_difficulty_prediction"
+    ],
+    "deferred": [
+      "value_filling",
+      "training_image_generation",
+      "training_label_export"
+    ],
     "difficulty_guide": "docs/DIFFICULTY_GUIDE.md"
   },
   "product_readiness": {
@@ -18,7 +29,11 @@
     "filled_training_images_and_labels": "deferred_out_of_current_scope",
     "overall": "generation_and_scoring_pilot_not_complete_product"
   },
-  "entry_points": ["AGENTS.md", "SVG_SPEC.md", "docs/DECISIONS.md"],
+  "entry_points": [
+    "AGENTS.md",
+    "SVG_SPEC.md",
+    "docs/DECISIONS.md"
+  ],
   "constraints": {
     "target": "internet_disconnected_internal_network",
     "pip": "some_packages_allowed",
@@ -34,7 +49,13 @@
     "gold_candidate_directory": "bench/official_pilot_v1",
     "candidate_count": 3,
     "approved_gold_count": 0,
-    "legacy": ["formgen make/bench/score HTML", "formgen.evaluate HTML", "formgen.rendercheck optional browser"]
+    "legacy": [
+      "formgen make/bench/score HTML",
+      "formgen.evaluate HTML",
+      "formgen.rendercheck optional browser"
+    ],
+    "svg_evaluator": "formgen/svg_eval_v2.py; independent field/text geometry metrics; optional raster comparison",
+    "svg_repeat_diagnostics": "formgen.svg_cli bench --repeat, unique-image and attempt counts"
   },
   "verification": {
     "tests": "9 tests passed; stdlib-only SVG run: 5 passed and optional renderer test skipped",
@@ -42,7 +63,8 @@
     "svg_self_score_stdlib_only": "executed with python -S; identity scores 1.0",
     "svg_renderer": "Windows Python 3.12 binary wheel installed; all three candidate PNGs rendered and visually inspected",
     "real_model_svg_run": "not_run_no_internal_endpoint_supplied",
-    "old_sol_luna_terra_results": "HTML only; NOT SVG measurements"
+    "old_sol_luna_terra_results": "HTML only; NOT SVG measurements",
+    "svg_v2_counterfactuals": "13 local counterfactual tests passed with minimal stub dependencies; full repository test run pending"
   },
   "known_gaps": [
     "Candidate field annotations incomplete; inherited omissions must be fixed",
@@ -52,8 +74,9 @@
     "Difficulty rubric and existing candidate tier assignments require review",
     "Some reference glyphs remain PDF outlines; text metric misses those",
     "Model-generated field geometry is declared, not proof of actual rendered layout",
-    "Multi-page, P2, resume and repeated-run aggregation not implemented for SVG",
-    "Internal target wheel/font compatibility not yet verified"
+    "Internal target wheel/font compatibility not yet verified",
+    "SVG repeat diagnostics are aggregated but correlated repeats are not independent; final pass calibration absent",
+    "Text-anchor matching excludes transformed or path-only glyphs; visual pixel metric is font-sensitive"
   ],
   "next_steps": [
     "Complete field annotations against official source pages and review each candidate",
@@ -62,7 +85,7 @@
     "Document manual difficulty criteria, counting conventions, boundary cases and representative examples",
     "Add rendered SVG quality checks without requiring value filling",
     "Calibrate and freeze pass criteria before scored evaluation runs",
-    "Implement repeats, per-tier pass counts/rates, uncertainty and failure breakdown; repeats are not independent images"
+    "Calibrate v2 field/layout thresholds against independent human ratings and freeze before full model benchmark"
   ],
   "invariants": [
     "Do not turn missing measurements into successful pass",

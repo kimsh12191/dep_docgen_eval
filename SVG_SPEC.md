@@ -62,3 +62,7 @@ Prepare wheels for the target OS, architecture and Python version on a compatibl
 
 Not yet implemented: renderer-based whole-page overlap/overflow evaluation, constrained field-value filling,
 per-option checkbox placement, table topology, multi-page model input, retries/P2, resumable SVG runs, calibrated pass/fail.
+
+## Scoring v2 diagnostics
+
+`python -m formgen svg score` and `svg bench` now use `svg-eval-v2`: independent field detection/label/type/location, explicit text-anchor localization, and optional raster ink/edge agreement (`--visual --source-image IMAGE --font-file FONT`). Old metrics remain under `legacy_svg_v1`. Render comparison requires the optional `requirements-svg-visual.txt`; `final_pass` is still null. See [docs/SCORER_V2.md](docs/SCORER_V2.md).
