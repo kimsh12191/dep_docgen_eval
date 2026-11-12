@@ -1,0 +1,3 @@
+# Optional official GriTS Top and Loc from annotated table-cell matrices
+-r requirements-svg-visual.txt
+grits-metric

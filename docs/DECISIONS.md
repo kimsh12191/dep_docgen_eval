@@ -62,3 +62,7 @@ Real SVG model inference was not performed; no endpoint was supplied. The three 
 Append dated decisions with: user constraint, concrete implementation paths, behavior change, validation evidence,
 known limitations and migration consequences. Update STATE.json and contract version when behavior changes.
 Do not write aspirations into the implemented/verified sections.
+
+## 2026-11-12 / Scorer V3: original-image visual fidelity + table regions
+
+Implemented fixed provisional 70% whole-page Foreground/Edge F1 plus 30% independently scored table ROIs, preventing small complex-table omissions being diluted by white page area. Optional canonical GriTS Top/Loc is available ONLY with explicit cell annotations. Invalid SVG contract is a zero-score failure; missing/invalid ROI or aspect mismatch is unscorable. Human calibration, model evaluation and final pass thresholds remain outstanding. Source images and manual scores have not been committed.

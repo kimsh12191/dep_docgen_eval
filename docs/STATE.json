@@ -55,7 +55,9 @@
       "formgen.rendercheck optional browser"
     ],
     "svg_evaluator": "formgen/svg_eval_v2.py; independent field/text geometry metrics; optional raster comparison",
-    "svg_repeat_diagnostics": "formgen.svg_cli bench --repeat, unique-image and attempt counts"
+    "svg_repeat_diagnostics": "formgen.svg_cli bench --repeat, unique-image and attempt counts",
+    "svg_v3": "original-image to rendered-SVG document visual score: 70% page + 30% equal-weight table ROIs",
+    "svg_v3_grits": "official grits-metric Top/Loc optional with explicit reference and predicted cells; not inferred from arbitrary strokes"
   },
   "verification": {
     "tests": "9 tests passed; stdlib-only SVG run: 5 passed and optional renderer test skipped",
@@ -64,7 +66,8 @@
     "svg_renderer": "Windows Python 3.12 binary wheel installed; all three candidate PNGs rendered and visually inspected",
     "real_model_svg_run": "not_run_no_internal_endpoint_supplied",
     "old_sol_luna_terra_results": "HTML only; NOT SVG measurements",
-    "svg_v2_counterfactuals": "13 local counterfactual tests passed with minimal stub dependencies; full repository test run pending"
+    "svg_v2_counterfactuals": "13 local counterfactual tests passed with minimal stub dependencies; full repository test run pending",
+    "svg_v3": "30 local tests passed against equivalent V3/CLI sources; synthetic and three-document controlled corruptions; no GitHub CI or genuine model endpoint validation"
   },
   "known_gaps": [
     "Candidate field annotations incomplete; inherited omissions must be fixed",
@@ -76,7 +79,9 @@
     "Model-generated field geometry is declared, not proof of actual rendered layout",
     "Internal target wheel/font compatibility not yet verified",
     "SVG repeat diagnostics are aggregated but correlated repeats are not independent; final pass calibration absent",
-    "Text-anchor matching excludes transformed or path-only glyphs; visual pixel metric is font-sensitive"
+    "Text-anchor matching excludes transformed or path-only glyphs; visual pixel metric is font-sensitive",
+    "V3 requires reviewed per-image table_regions.json and ignore masks for filled originals",
+    "GriTS requires cell annotations and optional grits-metric; not a default V3 aggregate component"
   ],
   "next_steps": [
     "Complete field annotations against official source pages and review each candidate",
@@ -85,7 +90,8 @@
     "Document manual difficulty criteria, counting conventions, boundary cases and representative examples",
     "Add rendered SVG quality checks without requiring value filling",
     "Calibrate and freeze pass criteria before scored evaluation runs",
-    "Calibrate v2 field/layout thresholds against independent human ratings and freeze before full model benchmark"
+    "Calibrate v2 field/layout thresholds against independent human ratings and freeze before full model benchmark",
+    "Annotate image-native ROI/masks, score genuine VLM outputs, collect blind human ratings and calibrate V3 versus visual-only"
   ],
   "invariants": [
     "Do not turn missing measurements into successful pass",

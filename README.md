@@ -1,5 +1,7 @@
 # docgen_eval: 이미지 → SVG 서식 생성 평가
 
+**채점기 V3 (실험 단계)**: 원본 이미지 대비 렌더된 SVG의 Visual F1(70%) + 각 표 영역별 ROI F1(30%)로 0–100점 유사도를 산출한다. GriTS Top/Loc는 셀 주석이 있는 경우에만 별도 실행한다. [설명 및 사용법](docs/SCORER_V3.md). 가중치는 사람 평가로 보정되지 않았다.
+
 **채점기 v2 (2026-11-12)**: 필드 검출/라벨/타입/위치 분리, 텍스트 앵커 위치, 선택적 resvg+Pillow 렌더 이미지 ink/edge F1, SVG 반복 진단 집계가 추가됐습니다. 구 점수는 `legacy_svg_v1`에 유지됩니다. 상세: [docs/SCORER_V2.md](docs/SCORER_V2.md). `final_pass`는 아직 `null`이며, 공식 gold 승인과 사람 판정 보정 이전에는 모델 통과율을 발표하지 않습니다.
 
 
