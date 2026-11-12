@@ -1,0 +1,56 @@
+{
+  "id": "hana_official_428__p02",
+  "group": "hana",
+  "title": "본인확인서(FATCA CRS 법인,임의단체용)(국문)",
+  "category": "hana",
+  "family": "hf428",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hana_official_428",
+  "source_url": "https://image.kebhana.com/cont/customer/customer07/customer0701/customer070106/__icsFiles/afieldfile/2024/01/05/5-08-0335.pdf",
+  "source_pdf": "docgen/forms/hf428/look/original.pdf",
+  "source_pdf_sha256": "72da27b83ce0236f26bfea29c3883b72faa7d14443f756f94848ca362990f76f",
+  "declared_sha256": "72da27b83ce0236f26bfea29c3883b72faa7d14443f756f94848ca362990f76f",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    1
+  ],
+  "field_entries": 49,
+  "row_cell_hints": 17,
+  "check_hints": 3,
+  "field_hints_inherited_from": "hf428",
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "hana_official_428",
+  "declared_source_pages_zero_based": [
+    0,
+    1
+  ],
+  "form_page_one_based": 2,
+  "proposed_tier": "상",
+  "selection_reason": "법인 FATCA 추가확인: 계층형 질문·다수 선택지",
+  "complexity_tags": [
+    "hierarchical_rows",
+    "choice_groups",
+    "dense_prose"
+  ],
+  "raster_dpi": 160,
+  "family_members": [
+    "hana_official_428",
+    "hf428"
+  ],
+  "family_page_count": 2,
+  "family_weight": 0.5,
+  "pdf_total_pages": 2,
+  "input_page_one_based": 2,
+  "width_pt": 595.56,
+  "height_pt": 842.04,
+  "text_char_count": 2912,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "1721cfdf59fd1f052b05083a61d831fd3f49eee8637aed32e8c7ef04a378d4a6",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

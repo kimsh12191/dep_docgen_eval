@@ -1,0 +1,50 @@
+{
+  "id": "gov_foreign_household",
+  "group": "gov",
+  "title": "외국인체류확인서",
+  "category": "family",
+  "family": "gov_foreign_household",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_foreign_household",
+  "source_url": "https://www.law.go.kr/LSW/flDownload.do?gubun=&flSeq=169477471&bylClsCd=110202",
+  "source_pdf": "docgen/forms/official_sources/gov_foreign_household.pdf",
+  "source_pdf_sha256": "8086f6e1a812e50641b73eab4ac2fb08ae45caa1de50f790435046da14442724",
+  "declared_sha256": "8086f6e1a812e50641b73eab4ac2fb08ae45caa1de50f790435046da14442724",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 4,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "gov_foreign_household",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "중",
+  "selection_reason": "외국인 체류 정보·목록 형태",
+  "complexity_tags": [],
+  "raster_dpi": 120,
+  "family_members": [
+    "gov_foreign_household"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.0,
+  "height_pt": 841.0,
+  "text_char_count": 431,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "32e4ed0887c9c649cff1324a04a9ad31f2f13b07d42b677e8d357850981f4cea",
+  "tier": "중",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

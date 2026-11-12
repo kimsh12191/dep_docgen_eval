@@ -1,0 +1,50 @@
+{
+  "id": "hf144",
+  "group": "hf",
+  "title": "동산담보 제공 예정내역서(개별동산용)",
+  "category": "대출",
+  "family": "hf144",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf144",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf144/look/original.pdf",
+  "source_pdf_sha256": "44bbfd05fd0fd290c12c5b0bca192fd4008e05e0f9475adfc0d71a00a5bd0af5",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 34,
+  "row_cell_hints": 30,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "hf144",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "중",
+  "selection_reason": "동산 담보·품목별 반복 표",
+  "complexity_tags": [],
+  "raster_dpi": 120,
+  "family_members": [
+    "hf144"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 429,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "ef3f9f5785db2313dc6e21c4cfd6ee07867906822aec50ba00e894695794816e",
+  "tier": "중",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

@@ -1,0 +1,56 @@
+{
+  "id": "gov_building_general__p02",
+  "group": "gov",
+  "title": "일반건축물대장(갑)",
+  "category": "real_estate",
+  "family": "gov_building_general",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_building_general",
+  "source_url": "https://www.law.go.kr/LSW/flDownload.do?gubun=&flSeq=155204859&bylClsCd=110202",
+  "source_pdf": "docgen/forms/official_sources/gov_building_general.pdf",
+  "source_pdf_sha256": "a8f3bb6a266b057e5fe846d2b375fea8984abea594e57a2397ad873d9acea9c4",
+  "declared_sha256": "a8f3bb6a266b057e5fe846d2b375fea8984abea594e57a2397ad873d9acea9c4",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    1
+  ],
+  "field_entries": 5,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "gov_building_general",
+  "declared_source_pages_zero_based": [
+    0,
+    1,
+    2
+  ],
+  "form_page_one_based": 2,
+  "proposed_tier": "상",
+  "selection_reason": "건축물대장 계속면: 설비·인허가·변동 이력",
+  "complexity_tags": [
+    "landscape",
+    "multi_section",
+    "hierarchical_rows"
+  ],
+  "raster_dpi": 160,
+  "family_members": [
+    "gov_building_general"
+  ],
+  "family_page_count": 2,
+  "family_weight": 0.5,
+  "pdf_total_pages": 3,
+  "input_page_one_based": 2,
+  "width_pt": 841.0,
+  "height_pt": 595.0,
+  "text_char_count": 813,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "9669edd1bff9fa6842911276ab794bd2e694604e9494da3e9ddd1010b5f580c0",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

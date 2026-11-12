@@ -1,0 +1,57 @@
+{
+  "id": "gov_retirement_withholding__p10",
+  "group": "gov",
+  "title": "퇴직소득 원천징수영수증",
+  "category": "income",
+  "family": "gov_pension_withholding",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_retirement_withholding",
+  "source_url": "https://www.law.go.kr/flDownload.do?gubun=&flSeq=150204063&bylClsCd=110202",
+  "source_pdf": "docgen/forms/official_sources/gov_retirement_withholding.pdf",
+  "source_pdf_sha256": "e00cb141818f1d8156a10285b131fe13c46061045473cc6ad6c2faba0920b25c",
+  "declared_sha256": "e00cb141818f1d8156a10285b131fe13c46061045473cc6ad6c2faba0920b25c",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    9
+  ],
+  "field_entries": 4,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "gov_retirement_withholding",
+  "declared_source_pages_zero_based": [
+    9,
+    10
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "상",
+  "selection_reason": "퇴직소득 원천징수 앞쪽: 근속연수·과세표준·세액 격자",
+  "complexity_tags": [
+    "hierarchical_rows",
+    "merged_cells",
+    "dense_numeric"
+  ],
+  "raster_dpi": 160,
+  "family_members": [
+    "gov_pension_withholding",
+    "gov_retirement_withholding",
+    "gov_withholding"
+  ],
+  "family_page_count": 7,
+  "family_weight": 0.14285714285714285,
+  "pdf_total_pages": 28,
+  "input_page_one_based": 10,
+  "width_pt": 595.0,
+  "height_pt": 841.0,
+  "text_char_count": 1253,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "aa71ad3d3392d1c742c2b37713d3c7e461941096e4a759960028bf2452efb9e7",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

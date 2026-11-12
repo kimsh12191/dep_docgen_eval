@@ -1,0 +1,50 @@
+{
+  "id": "gov_tax_payment_history",
+  "group": "gov",
+  "title": "납부내역증명",
+  "category": "tax",
+  "family": "gov_tax_payment_history",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_tax_payment_history",
+  "source_url": "https://www.law.go.kr/LSW/flDownload.do?flSeq=155626763&flNm=%5B%EB%B3%84%EC%A7%80+19%5D+%EB%82%A9%EB%B6%80%EB%82%B4%EC%97%AD%EC%A6%9D%EB%AA%85%28%EA%B5%AD%EB%AC%B8%29&bylClsCd=200203",
+  "source_pdf": "docgen/forms/official_sources/gov_tax_payment_history.pdf",
+  "source_pdf_sha256": "b404b7c18939e9b6b885b5b1c046099ad156cf3e5be584c2aed3a0e263fac4da",
+  "declared_sha256": "b404b7c18939e9b6b885b5b1c046099ad156cf3e5be584c2aed3a0e263fac4da",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 9,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "gov_tax_payment_history",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "상",
+  "selection_reason": "납부내역 표·여러 날짜와 금액",
+  "complexity_tags": [],
+  "raster_dpi": 120,
+  "family_members": [
+    "gov_tax_payment_history"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.0,
+  "height_pt": 841.0,
+  "text_char_count": 648,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "95a514042aa203e7518c3c911bd6977faaed17bd2dde89d672584283abe673dd",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

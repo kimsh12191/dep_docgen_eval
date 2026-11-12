@@ -1,0 +1,54 @@
+{
+  "id": "hf038__p01",
+  "group": "hf",
+  "title": "수표(어음)발행사실 확인의뢰서",
+  "category": "예금",
+  "family": "hf038",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf038",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf038/look/original.pdf",
+  "source_pdf_sha256": "4edaa9bc75ad78277bea284275b542d605f87e5fac937cbabcde9c829565054b",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 155,
+  "row_cell_hints": 153,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "hf038",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "상",
+  "selection_reason": "수표·어음 발행 확인: 많은 반복 셀·좁은 열",
+  "complexity_tags": [
+    "dense_table",
+    "repeating_rows",
+    "small_text"
+  ],
+  "raster_dpi": 160,
+  "family_members": [
+    "hf038"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 365,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "d9a5fb85c23d2e52a76fb981ccbbc3af536116ece2e21bf290154b9332ec642e",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

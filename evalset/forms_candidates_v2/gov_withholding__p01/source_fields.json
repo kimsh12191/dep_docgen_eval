@@ -1,0 +1,36 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.company": {
+   "label": "징수의무자 상호",
+   "type": "text",
+   "source": "profile.employment.company.name"
+  },
+  "official.biz_no": {
+   "label": "사업자등록번호",
+   "type": "text",
+   "source": "profile.employment.company.biz_no"
+  },
+  "official.name": {
+   "label": "성명",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "주민등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  },
+  "official.address": {
+   "label": "주소",
+   "type": "text",
+   "source": "profile.person.address.road_short"
+  },
+  "official.salary": {
+   "label": "급여",
+   "type": "text",
+   "source": "profile.employment.annual_salary"
+  }
+ }
+}

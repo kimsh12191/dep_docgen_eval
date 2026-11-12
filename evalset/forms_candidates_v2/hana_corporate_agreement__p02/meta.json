@@ -1,0 +1,57 @@
+{
+  "id": "hana_corporate_agreement__p02",
+  "group": "hana",
+  "title": "여신거래약정서(기업용)",
+  "category": "hana",
+  "family": "hana_corporate_agreement",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hana_corporate_agreement",
+  "source_url": "https://image.kebhana.com/cont/download/documents/provide/0000003061032_20260630.pdf",
+  "source_pdf": "docgen/forms/official_sources/hana_corporate_agreement.pdf",
+  "source_pdf_sha256": "5b3e2302b69f1573188510fc3a292c3c5d76287c0c300ac21c418d0e453a270c",
+  "declared_sha256": "5b3e2302b69f1573188510fc3a292c3c5d76287c0c300ac21c418d0e453a270c",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    1
+  ],
+  "field_entries": 38,
+  "row_cell_hints": 0,
+  "check_hints": 10,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "hana_corporate_agreement",
+  "declared_source_pages_zero_based": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "form_page_one_based": 2,
+  "proposed_tier": "상",
+  "selection_reason": "기업 여신 약정 계속: 긴 약관·상환 조건·선택지",
+  "complexity_tags": [
+    "dense_prose",
+    "choice_groups",
+    "small_text"
+  ],
+  "raster_dpi": 160,
+  "family_members": [
+    "hana_corporate_agreement"
+  ],
+  "family_page_count": 2,
+  "family_weight": 0.5,
+  "pdf_total_pages": 4,
+  "input_page_one_based": 2,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 3889,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "0a26f74cfe64603f77e2a6ce7a4a8ea901db7c1dee6e461abb92286575240c00",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

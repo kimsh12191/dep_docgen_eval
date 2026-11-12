@@ -1,0 +1,49 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.name": {
+   "label": "성명",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "주민등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  },
+  "official.address": {
+   "label": "주소",
+   "type": "text",
+   "source": "profile.person.address.road_short"
+  },
+  "official.company": {
+   "label": "상호",
+   "type": "text",
+   "source": "profile.business.name"
+  },
+  "official.purpose": {
+   "label": "사용목적",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "금융기관 제출용"
+  },
+  "official.tax": {
+   "label": "세목",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "재산세"
+  },
+  "official.period": {
+   "label": "부과연월",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "2025.07"
+  },
+  "official.amount": {
+   "label": "세액",
+   "type": "text",
+   "source": "rule:amount"
+  }
+ }
+}

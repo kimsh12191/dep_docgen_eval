@@ -1,0 +1,218 @@
+{
+ "engine": "overlay",
+ "unit": "pt",
+ "no": 29,
+ "class": "예금",
+ "name": "사용인감계(금융계좌개설용)",
+ "file": "forms/하나은행_서식자료/예금/029_사용인감계(금융계좌개설용).pdf",
+ "pages": [
+  {
+   "width": 595.28,
+   "height": 841.89,
+   "bank": [
+    [
+     482.2,
+     85.2,
+     561.1,
+     137.6
+    ]
+   ],
+   "staff": [
+    {
+     "role": "담당",
+     "rect": [
+      482.2,
+      100.6,
+      520.9,
+      137.6
+     ]
+    },
+    {
+     "role": "책임자",
+     "rect": [
+      520.9,
+      100.6,
+      561.1,
+      137.6
+     ]
+    }
+   ]
+  }
+ ],
+ "items": [
+  {
+   "t": "text",
+   "page": 0,
+   "label": "사 용 인 감",
+   "rect": [
+    255.5,
+    205.2,
+    369.0,
+    290.2
+   ],
+   "kind": "seal"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "성명",
+   "rect": [
+    156.3,
+    354.7,
+    312.2,
+    383.0
+   ],
+   "section": "대 리 인",
+   "kind": "person",
+   "key": "agent.name"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "연락처 (선택항목)",
+   "rect": [
+    156.3,
+    383.0,
+    312.2,
+    411.4
+   ],
+   "section": "대 리 인",
+   "kind": "phone",
+   "key": "agent.phone"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "주소 (선택항목)",
+   "rect": [
+    156.3,
+    411.4,
+    546.6,
+    439.7
+   ],
+   "section": "대 리 인",
+   "kind": "address",
+   "key": "agent.address"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "생년월일",
+   "rect": [
+    397.2,
+    354.7,
+    546.6,
+    383.0
+   ],
+   "section": "대 리 인",
+   "kind": "date",
+   "key": "agent.birth"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "본인과의 관계",
+   "rect": [
+    397.2,
+    383.0,
+    546.6,
+    411.4
+   ],
+   "section": "대 리 인",
+   "kind": "text",
+   "key": "agent.relation"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "취급점",
+   "rect": [
+    89.8,
+    80.2,
+    170.9,
+    98.5
+   ],
+   "kind": "branch",
+   "std": false,
+   "key": "취급점"
+  },
+  {
+   "t": "date",
+   "page": 0,
+   "label": "작성일",
+   "parts": {
+    "y": [
+     349.3,
+     517.0,
+     388.3,
+     531.2
+    ],
+    "m": [
+     399.0,
+     517.0,
+     427.9,
+     531.2
+    ],
+    "d": [
+     438.6,
+     517.0,
+     467.4,
+     531.2
+    ]
+   },
+   "key": "date"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "법 인 명",
+   "rect": [
+    224.3,
+    554.0,
+    547.3,
+    572.2
+   ],
+   "kind": "company",
+   "key": "company.name"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "사업자등록번호",
+   "rect": [
+    226.5,
+    574.0,
+    431.3,
+    592.2
+   ],
+   "kind": "biz_no",
+   "key": "company.biz_no"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "주 소 (선택항목)",
+   "rect": [
+    224.1,
+    594.0,
+    547.3,
+    612.2
+   ],
+   "kind": "address",
+   "key": "customer.address"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "대 표 자 명",
+   "rect": [
+    392.0,
+    614.0,
+    547.3,
+    632.2
+   ],
+   "kind": "text",
+   "key": "company.ceo"
+  }
+ ]
+}

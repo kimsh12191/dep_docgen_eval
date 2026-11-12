@@ -1,0 +1,50 @@
+{
+  "id": "hf342",
+  "group": "hf",
+  "title": "해외은행 계좌정보 수신서비스(SWIFT MT940) 이용신청서",
+  "category": "전자금융",
+  "family": "hf342",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf342",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf342/look/original.pdf",
+  "source_pdf_sha256": "6f98833f9f130665ab02daec4cc1c5b217fc9eb0bbd1fc3e55f36f2e326cd487",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 26,
+  "row_cell_hints": 12,
+  "check_hints": 2,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "hf342",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "중",
+  "selection_reason": "전자금융·해외계좌 정보와 선택지",
+  "complexity_tags": [],
+  "raster_dpi": 120,
+  "family_members": [
+    "hf342"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 869,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "b040635cab7dd76d60b5a08c6143a6a3d0a7e1deab983b6f54ad6d12c812bf6b",
+  "tier": "중",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

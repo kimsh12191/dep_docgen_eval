@@ -1,0 +1,107 @@
+{
+ "engine": "overlay",
+ "unit": "pt",
+ "no": 201,
+ "class": "외환",
+ "name": "거래외국환지정(변경)신청서(영문)",
+ "file": "forms/하나은행_서식자료/외환/201_거래외국환지정(변경)신청서(영문).pdf",
+ "pages": [
+  {
+   "width": 595.28,
+   "height": 841.89,
+   "bank": [],
+   "staff": []
+  }
+ ],
+ "items": [
+  {
+   "t": "text",
+   "page": 0,
+   "label": "Staff",
+   "rect": [
+    471.8,
+    28.5,
+    512.8,
+    65.3
+   ],
+   "hint": "(Identity verification)",
+   "row": true,
+   "kind": "text",
+   "std": false,
+   "key": "Staff"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "Manager",
+   "rect": [
+    512.8,
+    28.5,
+    551.5,
+    65.3
+   ],
+   "row": true,
+   "kind": "text",
+   "std": false,
+   "key": "Manager"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "Phone No",
+   "rect": [
+    367.5,
+    112.8,
+    472.5,
+    131.8
+   ],
+   "kind": "phone",
+   "std": false,
+   "key": "PhoneNo"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "Phone No",
+   "rect": [
+    367.5,
+    184.8,
+    472.5,
+    203.8
+   ],
+   "kind": "phone",
+   "std": false,
+   "key": "PhoneNo"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "of",
+   "rect": [
+    358.2,
+    687.9,
+    433.1,
+    708.3
+   ],
+   "free": true,
+   "kind": "text",
+   "std": false,
+   "key": "of"
+  },
+  {
+   "t": "text",
+   "page": 0,
+   "label": "Bank",
+   "rect": [
+    466.9,
+    687.9,
+    549.9,
+    708.3
+   ],
+   "free": true,
+   "kind": "text",
+   "std": false,
+   "key": "Bank"
+  }
+ ]
+}

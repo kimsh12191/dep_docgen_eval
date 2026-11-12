@@ -1,0 +1,51 @@
+{
+  "id": "hana_official_029",
+  "group": "hana",
+  "title": "사용인감계(금융계좌개설용)",
+  "category": "hana",
+  "family": "hf029",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hana_official_029",
+  "source_url": "https://image.kebhana.com/cont/customer/customer07/customer0701/customer070101/__icsFiles/afieldfile/2020/05/08/5-08-0056_200508.pdf",
+  "source_pdf": "docgen/forms/hf029/look/original.pdf",
+  "source_pdf_sha256": "95feda5bb77fea8c1dfa503d7572fcb06df4cec41c1d246ca5b3e32dbf7e1634",
+  "declared_sha256": "95feda5bb77fea8c1dfa503d7572fcb06df4cec41c1d246ca5b3e32dbf7e1634",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 12,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": "hf029",
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "hana_official_029",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "하",
+  "selection_reason": "인감 신고·도장 자리",
+  "complexity_tags": [],
+  "raster_dpi": 120,
+  "family_members": [
+    "hana_official_029",
+    "hf029"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 652,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "bfe125cf740076e47a106fbf89d74ac303e64d9820f9e0ef1fb96da205ff4a63",
+  "tier": "하",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

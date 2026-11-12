@@ -1,0 +1,54 @@
+{
+  "id": "hf174__p01",
+  "group": "hf",
+  "title": "퇴직연금 계약이전 동의서",
+  "category": "퇴직연금",
+  "family": "hf174",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf174",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf174/look/original.pdf",
+  "source_pdf_sha256": "938f47874462fa73ab531a6ce1da146ef723639dea04a0ece243a02db346453c",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 171,
+  "row_cell_hints": 120,
+  "check_hints": 44,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "hf174",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "상",
+  "selection_reason": "퇴직연금 계약이전 동의: 고밀도 목록·반복 체크",
+  "complexity_tags": [
+    "dense_table",
+    "check_matrix",
+    "small_text"
+  ],
+  "raster_dpi": 160,
+  "family_members": [
+    "hf174"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 1264,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "0b2875eda6db289658809bf1ca27c2ec66bf6b85b978ca20ed472ae1a634b161",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

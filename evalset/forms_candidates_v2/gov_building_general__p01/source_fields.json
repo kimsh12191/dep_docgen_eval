@@ -1,0 +1,32 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.name": {
+   "label": "명칭",
+   "type": "text",
+   "source": "profile.property.address.building_name"
+  },
+  "official.address": {
+   "label": "대지위치",
+   "type": "text",
+   "source": "profile.property.address.jibun_full"
+  },
+  "official.road": {
+   "label": "도로명주소",
+   "type": "text",
+   "source": "profile.property.address.road_short"
+  },
+  "official.owner": {
+   "label": "소유자",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.structure": {
+   "label": "주구조",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "철근콘크리트구조"
+  }
+ }
+}

@@ -1,0 +1,235 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.name": {
+   "label": "채무자",
+   "type": "text",
+   "source": "profile.corporation.name"
+  },
+  "official.address": {
+   "label": "주소",
+   "type": "text",
+   "source": "profile.corporation.address.road_short"
+  },
+  "official.amount": {
+   "label": "여신금액",
+   "type": "text",
+   "source": "parent.loan.amount",
+   "format": "number"
+  },
+  "official.name_copy": {
+   "label": "채무자",
+   "type": "text",
+   "source": "profile.corporation.name"
+  },
+  "official.address_copy": {
+   "label": "주소",
+   "type": "text",
+   "source": "profile.corporation.address.road_short"
+  },
+  "official.amount_copy": {
+   "label": "여신금액",
+   "type": "text",
+   "source": "parent.loan.amount",
+   "format": "number"
+  },
+  "official.subject": {
+   "label": "여신과목",
+   "type": "text",
+   "source": "parent.loan.subject"
+  },
+  "official.subject_copy": {
+   "label": "여신과목",
+   "type": "text",
+   "source": "parent.loan.subject"
+  },
+  "terms.method": {
+   "label": "개별거래",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "개별거래"
+  },
+  "terms.method_copy": {
+   "label": "개별거래",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "개별거래"
+  },
+  "terms.fixed": {
+   "label": "고정금리",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "고정금리"
+  },
+  "terms.fixed_copy": {
+   "label": "고정금리",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "고정금리"
+  },
+  "terms.fixed_choice": {
+   "label": "확정금리",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "확정금리"
+  },
+  "terms.fixed_choice_copy": {
+   "label": "확정금리",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "확정금리"
+  },
+  "terms.rate": {
+   "label": "약정이율",
+   "type": "text",
+   "source": "parent.loan.applied_rate",
+   "format": "number"
+  },
+  "terms.rate_copy": {
+   "label": "약정이율",
+   "type": "text",
+   "source": "parent.loan.applied_rate",
+   "format": "number"
+  },
+  "terms.repay": {
+   "label": "만기일시상환",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "만기일시상환"
+  },
+  "terms.repay_copy": {
+   "label": "만기일시상환",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "만기일시상환"
+  },
+  "terms.execution": {
+   "label": "전액실행",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "전액실행"
+  },
+  "terms.execution_copy": {
+   "label": "전액실행",
+   "type": "checkbox",
+   "source": "rule:fixed",
+   "text": "전액실행"
+  },
+  "terms.start0": {
+   "label": "개시일 년",
+   "type": "text",
+   "source": "parent.loan.start_date",
+   "part": 0,
+   "format": "yy"
+  },
+  "terms.start0_copy": {
+   "label": "개시일 년",
+   "type": "text",
+   "source": "parent.loan.start_date",
+   "part": 0,
+   "format": "yy"
+  },
+  "terms.start1": {
+   "label": "개시일 월",
+   "type": "text",
+   "source": "parent.loan.start_date",
+   "part": 1
+  },
+  "terms.start1_copy": {
+   "label": "개시일 월",
+   "type": "text",
+   "source": "parent.loan.start_date",
+   "part": 1
+  },
+  "terms.start2": {
+   "label": "개시일 일",
+   "type": "text",
+   "source": "parent.loan.start_date",
+   "part": 2
+  },
+  "terms.start2_copy": {
+   "label": "개시일 일",
+   "type": "text",
+   "source": "parent.loan.start_date",
+   "part": 2
+  },
+  "terms.end0": {
+   "label": "만료일 년",
+   "type": "text",
+   "source": "parent.loan.maturity",
+   "part": 0,
+   "format": "yy"
+  },
+  "terms.end0_copy": {
+   "label": "만료일 년",
+   "type": "text",
+   "source": "parent.loan.maturity",
+   "part": 0,
+   "format": "yy"
+  },
+  "terms.end1": {
+   "label": "만료일 월",
+   "type": "text",
+   "source": "parent.loan.maturity",
+   "part": 1
+  },
+  "terms.end1_copy": {
+   "label": "만료일 월",
+   "type": "text",
+   "source": "parent.loan.maturity",
+   "part": 1
+  },
+  "terms.end2": {
+   "label": "만료일 일",
+   "type": "text",
+   "source": "parent.loan.maturity",
+   "part": 2
+  },
+  "terms.end2_copy": {
+   "label": "만료일 일",
+   "type": "text",
+   "source": "parent.loan.maturity",
+   "part": 2
+  },
+  "terms.written0": {
+   "label": "작성일 년",
+   "type": "text",
+   "source": "parent.contract_date",
+   "part": 0,
+   "format": "yy"
+  },
+  "terms.written0_copy": {
+   "label": "작성일 년",
+   "type": "text",
+   "source": "parent.contract_date",
+   "part": 0,
+   "format": "yy"
+  },
+  "terms.written1": {
+   "label": "작성일 월",
+   "type": "text",
+   "source": "parent.contract_date",
+   "part": 1
+  },
+  "terms.written1_copy": {
+   "label": "작성일 월",
+   "type": "text",
+   "source": "parent.contract_date",
+   "part": 1
+  },
+  "terms.written2": {
+   "label": "작성일 일",
+   "type": "text",
+   "source": "parent.contract_date",
+   "part": 2
+  },
+  "terms.written2_copy": {
+   "label": "작성일 일",
+   "type": "text",
+   "source": "parent.contract_date",
+   "part": 2
+  }
+ },
+ "shared_copies": true
+}

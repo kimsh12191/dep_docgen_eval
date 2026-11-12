@@ -1,0 +1,33 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.name": {
+   "label": "성명",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "주민등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  },
+  "official.address": {
+   "label": "주소",
+   "type": "text",
+   "source": "profile.person.address.road_short"
+  },
+  "official.nationality": {
+   "label": "국적",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "대한민국"
+  },
+  "official.purpose": {
+   "label": "일반용 용도",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "금융기관 제출용"
+  }
+ }
+}

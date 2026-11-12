@@ -1,0 +1,50 @@
+{
+  "id": "gov_signature",
+  "group": "gov",
+  "title": "본인서명사실확인서",
+  "category": "identity",
+  "family": "gov_signature",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/gov_signature",
+  "source_url": "https://www.law.go.kr/LSW/flDownload.do?gubun=&flSeq=145951719&bylClsCd=110202",
+  "source_pdf": "docgen/forms/official_sources/gov_signature.pdf",
+  "source_pdf_sha256": "dd6743242faa4b70774185fce25016116016bcd6546b4072ea3149980f3a9fc8",
+  "declared_sha256": "dd6743242faa4b70774185fce25016116016bcd6546b4072ea3149980f3a9fc8",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 4,
+  "row_cell_hints": 0,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "gov_signature",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "중",
+  "selection_reason": "서명 영역·용도와 인적사항",
+  "complexity_tags": [],
+  "raster_dpi": 120,
+  "family_members": [
+    "gov_signature"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.0,
+  "height_pt": 841.0,
+  "text_char_count": 1883,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "59dfc137c1cdf233b2e63d121e3b1d164daed2c58713e7055aa5b4bfd35324d9",
+  "tier": "중",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

@@ -1,0 +1,50 @@
+{
+  "id": "hf086",
+  "group": "hf",
+  "title": "미래채권담보대출 협력기업 일괄추천서",
+  "category": "대출",
+  "family": "hf086",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hf086",
+  "source_url": null,
+  "source_pdf": "docgen/forms/hf086/look/original.pdf",
+  "source_pdf_sha256": "ce998d123b6417945080e1e5fdec4aa95df70febeeec02ac2a14df4f238e2ce6",
+  "declared_sha256": null,
+  "source_hash_matches": null,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 136,
+  "row_cell_hints": 133,
+  "check_hints": 0,
+  "field_hints_inherited_from": null,
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "hf086",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "상",
+  "selection_reason": "협력기업 목록·고밀도 반복 행",
+  "complexity_tags": [],
+  "raster_dpi": 120,
+  "family_members": [
+    "hf086"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 841.89,
+  "height_pt": 595.28,
+  "text_char_count": 573,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "14829eacd8e4ce09a898d3151ad1ec352d8f053b15386151f8529b7f8f2f6753",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}

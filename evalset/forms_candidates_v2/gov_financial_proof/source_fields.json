@@ -1,0 +1,53 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.company": {
+   "label": "상호",
+   "type": "text",
+   "source": "profile.corporation.name"
+  },
+  "official.biz_no": {
+   "label": "사업자등록번호",
+   "type": "text",
+   "source": "profile.corporation.biz_no"
+  },
+  "official.name": {
+   "label": "대표자",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.corp_no": {
+   "label": "법인등록번호",
+   "type": "text",
+   "source": "profile.corporation.corp_no"
+  },
+  "official.industry": {
+   "label": "업태",
+   "type": "text",
+   "source": "profile.corporation.biz_type"
+  },
+  "official.item": {
+   "label": "종목",
+   "type": "text",
+   "source": "profile.corporation.biz_item"
+  },
+  "official.address": {
+   "label": "사업장",
+   "type": "text",
+   "source": "profile.corporation.address.road_short"
+  },
+  "official.year": {
+   "label": "사업연도",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "2025.01.01 ~ 2025.12.31"
+  },
+  "official.filing": {
+   "label": "신고구분",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "정기신고"
+  }
+ }
+}

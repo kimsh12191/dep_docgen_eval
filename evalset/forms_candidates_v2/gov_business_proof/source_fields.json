@@ -1,0 +1,56 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.company": {
+   "label": "상호(법인명)",
+   "type": "text",
+   "source": "profile.business.name"
+  },
+  "official.biz_no": {
+   "label": "사업자등록번호",
+   "type": "text",
+   "source": "profile.business.biz_no"
+  },
+  "official.name": {
+   "label": "대표자성명",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "주민등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  },
+  "official.address": {
+   "label": "사업장 소재지",
+   "type": "text",
+   "source": "profile.business.address.road_short"
+  },
+  "official.opened": {
+   "label": "개업일",
+   "type": "text",
+   "source": "profile.business.established"
+  },
+  "official.registered": {
+   "label": "사업자등록일",
+   "type": "text",
+   "source": "profile.business.established"
+  },
+  "official.industry": {
+   "label": "업태",
+   "type": "text",
+   "source": "profile.business.biz_type"
+  },
+  "official.item": {
+   "label": "종목",
+   "type": "text",
+   "source": "profile.business.biz_item"
+  },
+  "official.number": {
+   "label": "발급번호",
+   "type": "text",
+   "source": "rule:number"
+  }
+ }
+}

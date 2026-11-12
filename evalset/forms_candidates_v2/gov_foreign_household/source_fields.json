@@ -1,0 +1,27 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.address": {
+   "label": "대상 건물 소재지",
+   "type": "text",
+   "source": "profile.property.address.road_short"
+  },
+  "official.name": {
+   "label": "성명",
+   "type": "text",
+   "source": "profile.person.name_en"
+  },
+  "official.moved": {
+   "label": "전입일자",
+   "type": "text",
+   "source": "profile.employment.hire_date"
+  },
+  "official.number": {
+   "label": "일련번호",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "1"
+  }
+ }
+}

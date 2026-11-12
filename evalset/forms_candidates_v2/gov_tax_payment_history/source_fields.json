@@ -1,0 +1,54 @@
+{
+ "engine": "html",
+ "unit": "px",
+ "fields": {
+  "official.name": {
+   "label": "성명",
+   "type": "text",
+   "source": "profile.person.name"
+  },
+  "official.rrn": {
+   "label": "주민등록번호",
+   "type": "text",
+   "source": "profile.person.rrn"
+  },
+  "official.address": {
+   "label": "주소",
+   "type": "text",
+   "source": "profile.person.address.road_short"
+  },
+  "official.company": {
+   "label": "상호",
+   "type": "text",
+   "source": "profile.business.name"
+  },
+  "official.biz_no": {
+   "label": "사업자등록번호",
+   "type": "text",
+   "source": "profile.business.biz_no"
+  },
+  "official.tax_year": {
+   "label": "귀속연도",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "2025"
+  },
+  "official.tax_kind": {
+   "label": "세목",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "종합소득세"
+  },
+  "official.paid_on": {
+   "label": "납부일",
+   "type": "text",
+   "source": "rule:fixed",
+   "text": "2026.05.31"
+  },
+  "official.paid": {
+   "label": "납부금액",
+   "type": "text",
+   "source": "rule:amount"
+  }
+ }
+}

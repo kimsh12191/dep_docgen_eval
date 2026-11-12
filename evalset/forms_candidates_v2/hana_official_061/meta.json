@@ -1,0 +1,51 @@
+{
+  "id": "hana_official_061",
+  "group": "hana",
+  "title": "적합성, 적정성 고객정보 확인서(개인 및 개인사업자용)",
+  "category": "hana",
+  "family": "hf061",
+  "source_commit": "172748589e020d3f7fe91b7ebcfe8d687ac58a27",
+  "source_folder": "docgen/forms/hana_official_061",
+  "source_url": "https://image.kebhana.com/cont/customer/customer07/customer0701/customer070102/__icsFiles/afieldfile/2024/06/14/5-06-0967.pdf",
+  "source_pdf": "docgen/forms/hf061/look/original.pdf",
+  "source_pdf_sha256": "caea3f3e8a905a5b995b0c4d402468db6c800c071876b6468aebd2bf95b7bec0",
+  "declared_sha256": "caea3f3e8a905a5b995b0c4d402468db6c800c071876b6468aebd2bf95b7bec0",
+  "source_hash_matches": true,
+  "source_pages_zero_based": [
+    0
+  ],
+  "field_entries": 19,
+  "row_cell_hints": 1,
+  "check_hints": 10,
+  "field_hints_inherited_from": "hf061",
+  "metadata_available": true,
+  "selection_status": "proposed",
+  "split": "unassigned",
+  "human_review": "pending",
+  "source_id": "hana_official_061",
+  "declared_source_pages_zero_based": [
+    0
+  ],
+  "form_page_one_based": 1,
+  "proposed_tier": "상",
+  "selection_reason": "적합성 질문·복합 체크 그룹",
+  "complexity_tags": [],
+  "raster_dpi": 120,
+  "family_members": [
+    "hana_official_061",
+    "hf061"
+  ],
+  "family_page_count": 1,
+  "family_weight": 1.0,
+  "pdf_total_pages": 1,
+  "input_page_one_based": 1,
+  "width_pt": 595.28,
+  "height_pt": 841.89,
+  "text_char_count": 1783,
+  "input_kind": "official_blank_form_pdf",
+  "rasterizer": "PyMuPDF 1.26.6",
+  "image_sha256": "8cb508c25c11b61064453a5512a44e5b921f07ca7b84ee35c6d1f2de25168bc9",
+  "tier": "상",
+  "reference_status": "not_created",
+  "note": "원본 서식 채택 후보. source_fields는 검수 참고자료이며 정답 계약이 아닙니다."
+}
