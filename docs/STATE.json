@@ -5,20 +5,37 @@
   "purpose_source": "목적.md",
   "purpose_audit": "docs/PURPOSE_AUDIT.md",
   "scope": {
-    "required": ["reliable_model_by_difficulty_pass_rates", "manual_difficulty_guide_and_cases", "selected_model_svg_generation"],
-    "not_required": ["automatic_model_routing", "automatic_image_difficulty_prediction"],
-    "deferred": ["value_filling", "training_image_generation", "training_label_export"],
+    "required": [
+      "reliable_model_by_difficulty_pass_rates",
+      "manual_difficulty_guide_and_cases",
+      "selected_model_svg_generation"
+    ],
+    "not_required": [
+      "automatic_model_routing",
+      "automatic_image_difficulty_prediction"
+    ],
+    "deferred": [
+      "value_filling",
+      "training_image_generation",
+      "training_label_export"
+    ],
     "difficulty_guide": "docs/DIFFICULTY_GUIDE.md"
   },
   "product_readiness": {
     "manual_model_image_to_svg": "implemented; real internal model not yet exercised",
-    "shared_make_bench_generation_path": "implemented in formgen.svg_cli.make",
-    "model_by_difficulty_pass_rate": "not_ready; scores exist but approved gold/calibration/repeats/aggregation missing",
+    "shared_make_bench_generation_path": "implemented in formgen.make.make (bench calls it)",
+    "model_by_difficulty_pass_rate": "aggregation implemented (repeats, per-tier image/attempt pass counts, Wilson interval, failure types, resume); NOT trustworthy yet: 0 approved gold, provisional pass rule, no real model run",
     "unseen_image_model_selection": "manual_by_user; automation_not_required",
     "filled_training_images_and_labels": "deferred_out_of_current_scope",
-    "overall": "generation_and_scoring_pilot_not_complete_product"
+    "overall": "generation_and_scoring_pilot_not_complete_product",
+    "manual_difficulty_guide": "draft; 3 reference cases unreviewed; numeric criteria disagree with 2 of 3 provisional labels"
   },
-  "entry_points": ["AGENTS.md", "SVG_SPEC.md", "docs/DECISIONS.md"],
+  "entry_points": [
+    "AGENTS.md",
+    "README.md",
+    "SVG_SPEC.md",
+    "docs/DECISIONS.md"
+  ],
   "constraints": {
     "target": "internet_disconnected_internal_network",
     "pip": "some_packages_allowed",
@@ -26,7 +43,7 @@
     "internal_os_python_arch": "unknown"
   },
   "implemented": {
-    "commands": "python -m formgen svg make|validate|score|render|bench",
+    "commands": "python -m formgen make|bench|report|score|validate|stats|render|selftest (alias: python -m formgen svg ...)",
     "core_dependencies": "python_standard_library",
     "render_dependency": "resvg-py==0.5.0",
     "font_dependency": "Korean font; explicit --font-file recommended",
@@ -34,15 +51,26 @@
     "gold_candidate_directory": "bench/official_pilot_v1",
     "candidate_count": 3,
     "approved_gold_count": 0,
-    "legacy": ["formgen make/bench/score HTML", "formgen.evaluate HTML", "formgen.rendercheck optional browser"]
+    "legacy": [
+      "python -m formgen html make|bench|score|tier|selftest|evaluate",
+      "formgen/html/rendercheck.py optional browser",
+      "docs/legacy/"
+    ],
+    "modules": "formgen/svg.py, make.py, bench.py, selftest.py, llm.py, match.py; legacy HTML in formgen/html/",
+    "bench": "repeats, resume via results.jsonl, per-tier aggregation, failure types, report.md, --mock ref|nofields|empty, settings-mismatch guard",
+    "pass_rule": "pass-provisional-0 in formgen.bench.PASS_RULE (valid, typed_field_f1>=0.8, located_field_f1>=0.8, text_r>=0.8); uncalibrated hypothesis",
+    "html_only_candidate_directory": "bench/official_gold_v1 (9 items, ref.html only, no ref.svg; not benchmarkable in SVG yet)"
   },
   "verification": {
-    "tests": "9 tests passed; stdlib-only SVG run: 5 passed and optional renderer test skipped",
+    "tests": "16 tests passed (1 optional skipped: browser; renderer test passes when resvg-py is installed); python -S run of test_svg and test_bench passes",
     "model_transport": "local fake HTTP server verified image request and SVG save path; not a model quality test",
     "svg_self_score_stdlib_only": "executed with python -S; identity scores 1.0",
-    "svg_renderer": "Windows Python 3.12 binary wheel installed; all three candidate PNGs rendered and visually inspected",
+    "svg_renderer": "resvg-py 0.5.0 wheel verified on Windows/Python 3.12 (earlier) and on Linux x86_64 in the cleanup session (gov_pension ref.svg rendered with a system Korean font, visually inspected); internal target still unverified",
     "real_model_svg_run": "not_run_no_internal_endpoint_supplied",
-    "old_sol_luna_terra_results": "HTML only; NOT SVG measurements"
+    "old_sol_luna_terra_results": "HTML only; NOT SVG measurements",
+    "svg_scorer_selftest": "30/30 perturbation cases as expected on 3 candidates; results/selftest_svg/",
+    "refactor_equivalence": "svg.score output byte-identical before/after readability rewrite on 30 perturbation cases",
+    "bench_path": "mock ref 3/3 pass, mock nofields 0/3 invalid:no_fields, resume and settings guard exercised; fake HTTP server bench run exercised"
   },
   "known_gaps": [
     "Candidate field annotations incomplete; inherited omissions must be fixed",
@@ -52,17 +80,22 @@
     "Difficulty rubric and existing candidate tier assignments require review",
     "Some reference glyphs remain PDF outlines; text metric misses those",
     "Model-generated field geometry is declared, not proof of actual rendered layout",
-    "Multi-page, P2, resume and repeated-run aggregation not implemented for SVG",
-    "Internal target wheel/font compatibility not yet verified"
+    "Internal target wheel/font compatibility not yet verified",
+    "Multi-page input and P2 retries not implemented for SVG",
+    "Pass rule is provisional; text_r is used because references have outlined glyphs",
+    "shift_far selftest case is skipped on current items (no room to move fields 30% of page width)",
+    "bench/official_gold_v1 has no ref.svg; overlaps 3 pilot forms",
+    "No multi-model comparison table; each run reports one model",
+    "Redistribution rights of official PDFs not established"
   ],
   "next_steps": [
-    "Complete field annotations against official source pages and review each candidate",
+    "Run the 3 pilot items through one internal image-capable model (--allow-candidates) to see real failure modes before investing in gold",
+    "Complete field annotations against official source pages; independent review; set gold_approved",
+    "Convert official_gold_v1 candidates to ref.svg; assign tiers with docs/DIFFICULTY_GUIDE.md; balance tiers",
+    "Calibrate PASS_RULE against human usable/needs-fix/unusable judgements on development outputs, then freeze and version it",
+    "Add rendered overlap/overflow checks",
     "Confirm internal OS/Python/architecture and permitted font; prepare matching offline wheels",
-    "Run same documents through internal image-capable model using svg_v1 prompt",
-    "Document manual difficulty criteria, counting conventions, boundary cases and representative examples",
-    "Add rendered SVG quality checks without requiring value filling",
-    "Calibrate and freeze pass criteria before scored evaluation runs",
-    "Implement repeats, per-tier pass counts/rates, uncertainty and failure breakdown; repeats are not independent images"
+    "Add a multi-model comparison table over frozen runs"
   ],
   "invariants": [
     "Do not turn missing measurements into successful pass",

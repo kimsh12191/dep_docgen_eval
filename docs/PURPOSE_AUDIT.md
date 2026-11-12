@@ -1,61 +1,57 @@
-# Purpose-to-implementation audit — 2026-11-12
+# 목적 대비 점검 — 2026-11-12
 
-## CURRENT SCOPE OVERRIDE — latest user clarification
+목적은 [목적.md](../목적.md) 맨 위 "현재 확정 범위"입니다. 이 문서는 "코드가 그 목적에 맞게 짜여 있는가"를 점검한 결과입니다.
+이전 점검(자동 모델 선택·학습 데이터 생산까지 포함하던 판)은 범위가 바뀌어 지웠습니다. 필요하면 git 기록에서 볼 수 있습니다.
 
-Required: reliable model × difficulty pass-rate tables; a manual difficulty guide with representative/boundary cases;
-SVG generation using a user-selected model through the same generator as the benchmark.
-Automatic routing and image-only difficulty prediction are NOT required.
-Value filling, training images, label export and downstream OCR/KIE production are deferred, not milestone blockers.
-The earlier audit below is retained as history; its routing/production requirements and steps 4–5 are superseded.
+## 결론
 
-Current remaining sequence:
-1. Complete/review balanced SVG gold and manually record difficulty features and reasons.
-2. Verify generated SVG render/field quality; calibrate and freeze a pass rule on development outputs.
-3. Run selected internal models on held-out cases with fixed settings and repeated trials.
-4. Report model × tier pass counts/rates, unique-image counts, attempt counts, uncertainty, failures, time and tokens.
-5. Use docs/DIFFICULTY_GUIDE.md to help the USER compare new images and select models manually.
+**코드의 뼈대는 목적에 맞습니다. 믿을 만한 숫자를 내기에는 데이터와 기준이 모자랍니다.**
+지금 막힌 곳은 코드가 아니라 ① 승인된 정답 ② 실제 모델 출력 ③ 사람 판정으로 맞춘 통과 기준입니다.
 
-Repeated outputs of one image are correlated; do not report them as independent images.
+## 목표별 점검
 
-## Earlier scope audit — superseded where noted above
+| 목표 | 코드 | 판정 | 모자란 것 |
+|---|---|---|---|
+| 1. 모델별·난이도별 통과율 표 | `formgen/bench.py`, `formgen/svg.py` | 표를 만드는 길은 됨. 숫자는 아직 못 믿음 | 승인된 정답 0개 (후보 3개, 난이도마다 1개) · 통과 기준 임시 · 실제 모델 실행 0회 · 모델 여러 개를 한 표로 모으는 기능 없음 |
+| 2. 난이도 기준·대표 사례 | `docs/DIFFICULTY_GUIDE.md`, `python -m formgen stats` | 초안 | 사례 3개의 라벨이 숫자 기준과 어긋남 (아래) · 경계 사례 없음 · 기준 숫자는 html 세트에서 온 가설 |
+| 3. 고른 모델로 SVG 생성 | `formgen/make.py` | 됨 (벤치마크가 같은 함수를 부름) | 실제 모델로 안 돌려 봄 · 여러 쪽·고쳐 쓰기(P2) 없음 |
 
-Authoritative objective: `목적.md`, clarified by the user in conversation.
-The product has three connected uses: model capability measurement; model selection for an unseen document;
-and real template generation using exactly the generation function used by the benchmark.
-The template ultimately produces OCR/classification/KIE training data with correct field labels.
-Switching HTML to SVG changes the output contract; it does not complete these objectives.
+## 이번 점검에서 고친 것
 
-| Requirement | Current SVG implementation | Remaining gap |
+| 발견 | 조치 |
+|---|---|
+| `python -m formgen make/bench` 가 예전 html 길이었고 SVG 는 `svg` 아래에 있었음 → 목적과 기본 명령이 어긋남 | SVG 를 기본 명령으로, html 은 `formgen/html/` 와 `python -m formgen html …` 로 분리 |
+| SVG 벤치마크에 반복·난이도별 집계·통과 판정·실패 유형·이어하기가 없었음 (html 쪽에만 있었음) → 목표 1의 표를 만들 수 없음 | `formgen/bench.py` 에 구현. 통과 기준은 임시이고 한 곳(`PASS_RULE`)에 둠 |
+| SVG 채점기가 장난감 예시로만 시험돼 있었음 | 정답 후보 3개를 10가지로 망가뜨려 기대값과 비교하는 `selftest` 추가. 30건 모두 기대대로 |
+| `svg.py`·`svg_cli.py` 가 한 줄에 여러 문장을 넣은 꼴이라 읽기 어려움 | 읽기 쉽게 다시 씀. 전후 채점 결과가 30건 모두 같음을 확인 |
+| README 본문이 html 길 설명이었음. 규격·평가 문서가 루트에 섞여 있었음 | README 를 SVG 기준으로 다시 씀. html 문서는 `docs/legacy/` 로 |
+| `bench/` 의 세 세트가 무엇인지 설명이 없었음 (`official_gold_v1` 은 어디에도 안 적혀 있었음) | `bench/README.md` 추가 |
+| 모델 답에 생각 글(`<think>`)이나 svg 가 둘 이상 있으면 엉뚱한 것을 꺼낼 수 있었음 | 생각 글을 버리고 가장 긴 svg 를 꺼냄 |
+
+## 확인한 것과 근거
+
+| 가설 | 실험 | 결과 |
 |---|---|---|
-| Image + selected model → template | svg_cli.make calls internal-compatible llm.chat and writes out.svg/raw.txt/make.json | Real internal model validation; robust output quality and operational error handling |
-| Same generation in make and bench | Both call svg_cli.make | Preserve this invariant when adding routing, retries and validation |
-| Fixed set × model evaluation | svg bench runs one model over item folders, saves item scores and summary JSON | Multiple model orchestration, repeats, uncertainty, tier aggregation and report |
-| Approved gold | 3 official PDF-backed candidates; 0 approved | Complete annotations, development/test separation and coverage |
-| L0 usability | Restricted SVG XML contract | Actual render success and overlap/overflow not integrated into make/bench |
-| L1/L3 content and fields | Text bigrams, label/type/options, declared region IoU | Compare original-image/render quality, aliases/date equivalences, annotation completeness |
-| L2/L4 structure and appearance | Separate SVG rendering works | SVG table topology and visual evaluation are not implemented |
-| Fixed pass threshold | final_pass is null | Human calibration and frozen rule/version; no valid pass-rate table yet |
-| Unseen image → smallest adequate model | No implementation | No image-only difficulty estimator, policy/model catalog, or validated reference-free quality gate |
-| Cost/reproducibility | seconds, usage, prompt version, P1, temperature, token cap saved | Full model config, hashes/input resolution, repeats, confidence intervals, cost ranking |
-| Training data production | Empty field rectangles + render command | Fill values/checks/seals, validate placement, export corresponding labels and dataset |
+| 채점기는 틀린 답을 틀렸다고 한다 | `python -m formgen selftest` | 30/30 기대대로 (`results/selftest_svg/`) |
+| 코드 정리는 점수를 바꾸지 않았다 | 정리 전후 같은 30건 채점 결과 비교 | 완전히 같음 |
+| 벤치마크 길은 끝까지 돈다 | `--mock ref` / `--mock nofields` / 가짜 HTTP 서버 / 끊고 이어하기 | 3/3 통과 / 0/3 (`invalid:no_fields`) / 정답을 준 1개만 통과 / 다시 돌리지 않음 |
 
-## Important interpretation rules
+## 확인하지 못한 것 (숫자를 믿기 전에 필요한 것)
 
-- `score` requires a reference; it cannot be used to decide quality for a new unannotated image.
-- A syntactically valid SVG can omit fields or reproduce the wrong form. Do not automatically escalate/accept using XML validity alone.
-- Existing difficulty.py uses reference HTML; it is not an image-only difficulty estimator and not the SVG router.
-- The previous Sol/Luna/Terra run is a one-image HTML agent smoke test, not the fixed-protocol SVG model benchmark described in 목적.md.
-- The old 60-item HTML roundtrip set is not a completed 60-item SVG gold set.
-- SVG conversion does not provide compatibility with docgen template.html.j2/form.json consumers; an adapter or dedicated SVG filling pipeline is needed.
-- Runtime human intervention may be zero only after construction-time gold review/calibration is complete. Do not introduce per-image approval as the intended routing workflow.
+1. **실제 모델 출력.** 모델이 이 규격의 SVG 를 실제로 내는지, 어떤 꼴로 틀리는지 모릅니다. 프롬프트와 16000 토큰 한도도 가설입니다.
+   상 난이도 정답 후보는 244KB 입니다 (글자 윤곽선 때문). 모델 출력은 그보다 훨씬 작아야 하지만 한도에 걸리는지는 돌려 봐야 압니다.
+2. **통과 기준.** 0.8·0.5 는 가설입니다. 사람이 "쓸 만함/고치면 됨/못 씀"으로 판정한 것과 맞춰 봐야 합니다.
+3. **난이도 라벨.** 숫자 기준으로 세면 중 라벨 사례는 하, 상 라벨 사례는 중이 됩니다 (주석 누락 때문에 실제 수는 더 클 수 있음). `docs/DIFFICULTY_GUIDE.md` 참고.
+4. **항목명 의존.** 값 자리는 항목명이 비슷해야(≥0.8) 짝이 됩니다. 모델이 항목명을 다르게 적으면 자리가 맞아도 틀린 것으로 셉니다. 실제 출력에서 이 때문에 얼마나 깎이는지 봐야 합니다.
+5. **보이는 품질.** 겹침·넘침·표 구조·원본과의 닮음은 재지 않습니다. 유효하고 점수가 높아도 보기에 못 쓸 수 있습니다.
+6. **사내 환경.** `resvg-py` 설치와 한글 글꼴. 윈도우와 리눅스(x86_64)에서는 그려지는 것을 확인했지만 사내 OS·파이썬 버전에 맞는 설치 파일은 따로 준비해야 합니다.
+7. **빈 서식과 채워진 스캔의 차이.** 지금 입력은 공식 빈 서식 PDF 를 그림으로 바꾼 것입니다.
 
-## Recommended implementation sequence
+## 다음 순서 (틀릴 때를 먼저 정해 둠)
 
-1. Complete and review a small balanced SVG gold pilot; fix declared-field and actual-render usability checks.
-2. Run internal small/large models with frozen prompts, repeat settings and metadata through the same make function.
-3. Calibrate and version pass criteria; aggregate model × tier × protocol results with uncertainty and cost.
-4. Validate reference-free quality signals on held-out gold. Implement model catalog + escalation/selection policy only after these signals are measured.
-5. Add real value filling and label export so templates become usable training-data generators.
-
-Routing fallback without a trusted quality signal must be explicit (e.g. configured default model / uncertain result),
-not a fabricated guarantee that the chosen model will pass.
+| 순서 | 할 일 | 이렇게 나오면 방향을 바꿈 |
+|---|---|---|
+| 1 | 사내 모델 하나로 후보 3개를 `--allow-candidates --repeat 3` 로 돌려 실패 꼴을 봄 | 대부분 `truncated`·`invalid` 면 → 정답을 늘리기 전에 프롬프트·규격(더 짧은 표현)·토큰 한도부터 손봄 |
+| 2 | 정답 주석을 채우고 다른 사람이 검수해 승인. `official_gold_v1` 을 SVG 정답으로 바꿔 난이도마다 여러 개 확보 | 주석 하나에 드는 시간이 너무 크면 → 항목 수 목표(난이도별 20)를 줄이고 구간이 넓다는 것을 표에 그대로 둠 |
+| 3 | 1의 출력을 사람이 판정해 통과 기준을 맞추고 버전을 고정 | 점수와 사람 판정이 안 맞으면 → 기준 숫자가 아니라 지표(항목명 의존, 보이는 품질 검사)를 고침 |
+| 4 | 고정한 설정으로 모델들을 돌려 표를 냄 | 반복마다 갈리는 이미지가 많으면 → 반복 수를 늘리고 이미지 통과 정의를 다시 봄 |

@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from formgen.tables import parse_tables, shape, table_score  # noqa: E402
+from formgen.html.tables import parse_tables, shape, table_score  # noqa: E402
 
 F = lambda key, label, t="text": f'<span data-field="{key}" data-label="{label}" data-type="{t}"></span>'
 C = lambda key, label: F(key, label, "checkbox")

@@ -5,7 +5,7 @@ import threading
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from formgen import svg
-from formgen.svg_cli import make
+from formgen.make import make
 
 SAMPLE='<svg xmlns="http://www.w3.org/2000/svg" width="794" height="1123" viewBox="0 0 794 1123"><text x="10" y="20">Name</text><rect data-field="name" data-label="Name" data-type="text" x="100" y="30" width="100" height="20" fill="none" stroke="none"/></svg>'
 

@@ -17,7 +17,7 @@ from __future__ import annotations
 
 from collections import Counter
 
-from .match import hungarian, label_sim, norm_label
+from ..match import hungarian, label_sim, norm_label
 
 FIELD = "⟨칸⟩"
 SAME = 0.8

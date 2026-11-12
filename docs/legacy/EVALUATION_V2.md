@@ -1,7 +1,9 @@
-# 평가 보강 및 공식 원본 파일럿
+# (기록) html 길의 평가 보강 및 공식 원본 파일럿
 
-**2026-11-12 변경:** 신규 생성/평가 방향은 독립 SVG로 전환했습니다. 현재 계약은 [SVG_SPEC.md](SVG_SPEC.md),
-구현 상태는 [docs/STATE.json](docs/STATE.json)을 따릅니다. 이 문서의 HTML/브라우저 경로와
+> 예전 html 길의 문서입니다. 명령은 `python -m formgen html …` 로 옮겼습니다. 지금 쓰는 길은 [README.md](../../README.md) 와 [SVG_SPEC.md](../../SVG_SPEC.md) 입니다.
+
+**2026-11-12 변경:** 신규 생성/평가 방향은 독립 SVG로 전환했습니다. 현재 계약은 [SVG_SPEC.md](../../SVG_SPEC.md),
+구현 상태는 [docs/STATE.json](../STATE.json)을 따릅니다. 이 문서의 HTML/브라우저 경로와
 아래의 “SVG 미지원” 설명은 전환 이전 단계의 기록입니다. SVG 경로에서는 requirements-svg.txt만 사용합니다.
 
 현재 v1은 결정적 내용·구조 회귀 지표로 보존합니다. 새 `formgen.evaluate`는
@@ -12,7 +14,7 @@
 ### 내부망 기본 모드: Python 표준 라이브러리만
 
 ```powershell
-python -m formgen.evaluate --ref ref.html --pred out.html --out runs/review
+python -m formgen html evaluate --ref ref.html --pred out.html --out runs/review
 ```
 
 설치할 pip 패키지, Playwright, Chromium이 없습니다. 이미지 입력 모델 서버가 내부망에 있으면
@@ -25,7 +27,7 @@ python -m formgen.evaluate --ref ref.html --pred out.html --out runs/review
 
 ```powershell
 python -m pip install -r requirements-eval.txt
-python -m formgen.evaluate --ref bench/official_pilot_v1/gov_pension/ref.html --pred output.html --source-image bench/official_pilot_v1/gov_pension/image.png --out runs/review --browser "C:/Program Files/Google/Chrome/Application/chrome.exe"
+python -m formgen html evaluate --ref bench/official_pilot_v1/gov_pension/ref.html --pred output.html --source-image bench/official_pilot_v1/gov_pension/image.png --out runs/review --browser "C:/Program Files/Google/Chrome/Application/chrome.exe"
 ```
 
 브라우저와 패키지를 내부망에 사전 반입해야 합니다. Linux에서도 `--browser`에 Chromium 경로를 지정할 수 있습니다.
@@ -52,7 +54,7 @@ python -m formgen.evaluate --ref bench/official_pilot_v1/gov_pension/ref.html --
 ## 재현과 검사
 
 ```powershell
-python -m tools.build_official_pilot --forms "C:/Users/hanati/Desktop/김수현/개발/bank_benchmark/docgen/forms"
+python -m tools.build_official_pilot --forms <공식대조 서식 폴더>
 python -m unittest discover -s tests -v
 ```
 

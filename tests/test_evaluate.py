@@ -1,7 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
-from formgen.evaluate import semantic_fields
+from formgen.html.evaluate import semantic_fields
 
 
 class EvaluationTests(unittest.TestCase):

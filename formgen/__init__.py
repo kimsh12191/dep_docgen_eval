@@ -1,1 +1,1 @@
-"""formgen: 이미지 → 칸이 달린 html 서식. 생성기와 벤치마크가 같은 코드를 쓴다."""
+"""formgen: 서류 이미지 → svg 서식. 생성(make)과 벤치마크(bench)가 같은 코드를 쓴다. 예전 html 길은 formgen.html."""

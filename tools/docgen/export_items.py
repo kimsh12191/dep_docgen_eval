@@ -2,7 +2,7 @@
 
 항목 폴더 <out>/<id>/
   image.png   서식을 값까지 채워 그린 그림 1쪽 (모델의 입력)
-  ref.html    정답 html: 같은 서식의 html 에서 값을 지우고 값 자리를 규격(SPEC.md)의 표시로 바꾼 것
+  ref.html    정답 html: 같은 서식의 html 에서 값을 지우고 값 자리를 규격(docs/legacy/HTML_SPEC.md)의 표시로 바꾼 것
   meta.json   출처·seed·난이도
 
 docgen 이 그린 html 은 값 자리를 <span class="fv" data-field=…>값</span>, 체크 보기를 data-opt, 도장·서명을 data-mark 로 적는다.
@@ -21,7 +21,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-from formgen import difficulty, htmldoc
+from formgen.html import difficulty, htmldoc
 
 from .bridge import Renderer, docgen_root
 from .sheet import type7

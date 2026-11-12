@@ -1,0 +1,393 @@
+{
+ "version": "svg-v1",
+ "items": "bench/official_pilot_v1",
+ "n_items": 3,
+ "rows": [
+  {
+   "id": "gov_business_proof",
+   "case": "same",
+   "valid": true,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 1.0,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_business_proof",
+   "case": "drop_half",
+   "valid": true,
+   "typed_field_f1": 0.6667,
+   "located_field_f1": 0.6667,
+   "field_iou_mean": 0.5,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_business_proof",
+   "case": "shift_small",
+   "valid": true,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 0.9714,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_business_proof",
+   "case": "retype",
+   "valid": true,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_business_proof",
+   "case": "half_text",
+   "valid": true,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 1.0,
+   "text_f1": 0.7321,
+   "text_r": 0.5774,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_business_proof",
+   "case": "no_text",
+   "valid": false,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 1.0,
+   "text_f1": 0.0,
+   "text_r": 0.0,
+   "issues": [
+    "no_editable_text"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_business_proof",
+   "case": "no_fields",
+   "valid": false,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [
+    "no_fields"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_business_proof",
+   "case": "other_form",
+   "valid": true,
+   "typed_field_f1": 0.1818,
+   "located_field_f1": 0.0606,
+   "field_iou_mean": 0.0658,
+   "text_f1": 0.2337,
+   "text_r": 0.5536,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_business_proof",
+   "case": "truncated",
+   "valid": false,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 0.0,
+   "text_r": 0.0,
+   "issues": [
+    "invalid_xml"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_business_proof",
+   "case": "empty",
+   "valid": false,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 0.0,
+   "text_r": 0.0,
+   "issues": [
+    "invalid_xml"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "same",
+   "valid": true,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 1.0,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "drop_half",
+   "valid": true,
+   "typed_field_f1": 0.6857,
+   "located_field_f1": 0.6857,
+   "field_iou_mean": 0.5217,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "shift_small",
+   "valid": true,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 0.8397,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "retype",
+   "valid": true,
+   "typed_field_f1": 0.1304,
+   "located_field_f1": 0.1304,
+   "field_iou_mean": 0.1304,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "half_text",
+   "valid": true,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 1.0,
+   "text_f1": 0.6638,
+   "text_r": 0.4968,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "no_text",
+   "valid": false,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 1.0,
+   "text_f1": 0.0,
+   "text_r": 0.0,
+   "issues": [
+    "no_editable_text"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "no_fields",
+   "valid": false,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [
+    "no_fields"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "other_form",
+   "valid": true,
+   "typed_field_f1": 0.1379,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 0.0644,
+   "text_r": 0.0398,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "truncated",
+   "valid": false,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 0.0,
+   "text_r": 0.0,
+   "issues": [
+    "invalid_xml"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_income",
+   "case": "empty",
+   "valid": false,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 0.0,
+   "text_r": 0.0,
+   "issues": [
+    "invalid_xml"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "same",
+   "valid": true,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 1.0,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "drop_half",
+   "valid": true,
+   "typed_field_f1": 0.6667,
+   "located_field_f1": 0.6667,
+   "field_iou_mean": 0.5,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "shift_small",
+   "valid": true,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 0.9633,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "retype",
+   "valid": true,
+   "typed_field_f1": 0.5,
+   "located_field_f1": 0.5,
+   "field_iou_mean": 0.5,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "half_text",
+   "valid": true,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 1.0,
+   "text_f1": 0.7787,
+   "text_r": 0.6376,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "no_text",
+   "valid": false,
+   "typed_field_f1": 1.0,
+   "located_field_f1": 1.0,
+   "field_iou_mean": 1.0,
+   "text_f1": 0.0,
+   "text_r": 0.0,
+   "issues": [
+    "no_editable_text"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "no_fields",
+   "valid": false,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 1.0,
+   "text_r": 1.0,
+   "issues": [
+    "no_fields"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "other_form",
+   "valid": true,
+   "typed_field_f1": 0.125,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 0.1767,
+   "text_r": 0.1879,
+   "issues": [],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "truncated",
+   "valid": false,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 0.0,
+   "text_r": 0.0,
+   "issues": [
+    "invalid_xml"
+   ],
+   "unexpected": []
+  },
+  {
+   "id": "gov_pension",
+   "case": "empty",
+   "valid": false,
+   "typed_field_f1": 0.0,
+   "located_field_f1": 0.0,
+   "field_iou_mean": 0.0,
+   "text_f1": 0.0,
+   "text_r": 0.0,
+   "issues": [
+    "invalid_xml"
+   ],
+   "unexpected": []
+  }
+ ],
+ "failed": [],
+ "ok": true
+}

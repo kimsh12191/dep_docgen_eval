@@ -10,8 +10,12 @@ Value filling, training-image generation and label export are deferred, not bloc
 Keep SVG field annotations for evaluation and the SAME generator for make and bench.
 Internal real documents must only be sent to internal model endpoints; external experiments use public blank forms or synthetic images.
 
-- Current output direction: standalone SVG. Use `python -m formgen svg ...`.
-- HTML commands remain explicitly legacy; do not silently change their score meaning.
+- Current output direction: standalone SVG. Top-level commands are SVG: `python -m formgen make|bench|report|score|validate|stats|render|selftest`
+  (`python -m formgen svg ...` is kept as an alias).
+- Layout: formgen/svg.py (contract, score, render), make.py (generation), bench.py (runs, aggregation, PASS_RULE), selftest.py, llm.py, match.py (shared matching/text).
+- HTML is legacy under formgen/html/ and `python -m formgen html ...`; docs in docs/legacy/. Do not silently change its score meaning.
+- Pass/fail exists only in bench aggregation as a provisional, versioned PASS_RULE; scores keep `final_pass:null`. Change the rule in one place and re-aggregate with `report`.
+- After any scorer change run `python -m formgen selftest`; it must stay all-expected.
 - Target runtime is an internet-disconnected internal network with limited pip installation.
   Never make Playwright/Chromium, an online font fetch, or a browser download a default runtime dependency.
 - Core SVG generation/validation/scoring must work with `python -S`; rendering may lazily import `resvg_py`.
@@ -19,6 +23,6 @@ Internal real documents must only be sent to internal model endpoints; external 
 - Preserve official source PDF/image hashes and provenance. Never replace an input image with a render of the candidate answer.
 - `gold_approved:false` means candidate; self-score 1.0 does NOT establish gold quality.
 - `final_pass:null` means no calibrated overall decision. Do not report it as pass or fail.
-- Tests: `python -m unittest discover -s tests -v`. Stdlib-only SVG: `python -S -m unittest discover -s tests -p test_svg.py -v` (render test may skip).
+- Tests: `python -m unittest discover -s tests -v`. Stdlib-only: `python -S -m unittest tests.test_svg tests.test_bench -v` (render test may skip).
 - Never compare old HTML scores numerically with SVG scores as if they measured the same target.
-- The repository contains local uncommitted work. Do not reset unrelated files.
+- User-facing docs (README.md, bench/README.md, docs/DIFFICULTY_GUIDE.md) are Korean; keep them in sync with behavior changes.

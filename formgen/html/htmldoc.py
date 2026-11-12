@@ -7,7 +7,7 @@ doc = {
   "issues": [(코드, 설명), …],                규격에서 벗어난 것 (validate.py 가 유효성으로 정리)
 }
 
-값 자리 = data-field 속성이 붙은 요소 (SPEC.md). 표에서 연속으로 같은 꼴인 행(빈 반복 행)은 한 번만 남긴다.
+값 자리 = data-field 속성이 붙은 요소 (docs/legacy/HTML_SPEC.md). 표에서 연속으로 같은 꼴인 행(빈 반복 행)은 한 번만 남긴다.
 """
 from __future__ import annotations
 

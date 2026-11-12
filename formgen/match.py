@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import math
 import re
+from collections import Counter
 from difflib import SequenceMatcher
 
 BIG = 1e6
@@ -140,3 +141,29 @@ def match_fields(gt: list[dict], pred: list[dict], tol: float = 0.03, align: boo
             gate = max(tol * 2, 0.05)
     pairs = [t for t in _assign(gt, pred, tf, tol, label_w) if t[2] <= tol]
     return pairs, tf
+
+
+# ── 인쇄 문구 비교 (html·svg 채점이 함께 쓴다) ──
+
+def _f1(tp, n_pred, n_gt):
+    p = tp / n_pred if n_pred else (1.0 if not n_gt else 0.0)
+    r = tp / n_gt if n_gt else (1.0 if not n_pred else 0.0)
+    return p, r, (2 * p * r / (p + r) if p + r else 0.0)
+
+
+def _grams(texts) -> Counter:
+    out = Counter()
+    for t in texts:
+        s = "".join(t.split())
+        if len(s) == 1:
+            out[s] += 1
+        for i in range(len(s) - 1):
+            out[s[i:i + 2]] += 1
+    return out
+
+
+def text_score(gt: dict, pred: dict) -> dict:
+    """인쇄 문구의 두 글자 묶음(띄어쓰기 무시)이 겹치는 정도. gt·pred 는 {"texts": [글자, …]}."""
+    a, b = _grams(gt["texts"]), _grams(pred["texts"])
+    p, r, f = _f1(sum((a & b).values()), sum(b.values()), sum(a.values()))
+    return {"text_f1": round(f, 4), "text_p": round(p, 4), "text_r": round(r, 4)}

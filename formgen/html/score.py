@@ -14,40 +14,16 @@ L3 값 자리  정답 값 자리와 만든 값 자리를 1:1 로 짝짓는다.
 """
 from __future__ import annotations
 
-from collections import Counter
 from difflib import SequenceMatcher
 
 from . import htmldoc
-from .match import BIG, hungarian, label_sim, norm_label
+from ..match import BIG, _f1, hungarian, label_sim, norm_label, text_score
 from .tables import tables_score
 from .validate import validate
 
 VERSION = "score-html-0.1"
 SAME = 0.8
 W_LABEL, W_PLACE, W_ORDER = 0.5, 0.4, 0.1
-
-
-def _f1(tp, n_pred, n_gt):
-    p = tp / n_pred if n_pred else (1.0 if not n_gt else 0.0)
-    r = tp / n_gt if n_gt else (1.0 if not n_pred else 0.0)
-    return p, r, (2 * p * r / (p + r) if p + r else 0.0)
-
-
-def _grams(texts) -> Counter:
-    out = Counter()
-    for t in texts:
-        s = "".join(t.split())
-        if len(s) == 1:
-            out[s] += 1
-        for i in range(len(s) - 1):
-            out[s[i:i + 2]] += 1
-    return out
-
-
-def text_score(gt: dict, pred: dict) -> dict:
-    a, b = _grams(gt["texts"]), _grams(pred["texts"])
-    p, r, f = _f1(sum((a & b).values()), sum(b.values()), sum(a.values()))
-    return {"text_f1": round(f, 4), "text_p": round(p, 4), "text_r": round(r, 4)}
 
 
 def _place(f: dict) -> str:

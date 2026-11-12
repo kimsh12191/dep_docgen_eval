@@ -1,13 +1,13 @@
 """V2 diagnostic evaluation: exact field types, browser checks and optional source ink comparison.
 
-python -m formgen.evaluate --ref ref.html --pred out.html --out runs/check --browser /path/to/chrome
+python -m formgen html evaluate --ref ref.html --pred out.html --out runs/check --browser /path/to/chrome
 No final gold pass until annotation review and visual thresholds are calibrated.
 """
 import argparse
 import json
 from pathlib import Path
 from .score import score_html, passed
-from .match import hungarian, label_sim
+from ..match import hungarian, label_sim
 
 
 def semantic_fields(gold, pred, width, height):

@@ -1,6 +1,6 @@
 # 공식 원본 기반 gold 후보 v1
 
-2026-11-12: `ref.svg`와 `ref_svg.png`를 추가했습니다. 새 생성 실험은 `formgen svg`를 사용합니다.
+2026-11-12: `ref.svg`와 `ref_svg.png`를 추가했습니다. 새 생성 실험은 `python -m formgen make|bench` 를 사용합니다 (세트 전체 안내: [bench/README.md](../README.md)).
 원본 PDF/PNG와 기존 HTML은 출처·회귀 대조용으로 보존합니다. 변환해도 gold 승인 상태는 바뀌지 않습니다.
 
 공식 사이트에서 2026-11-12 내려받은 PDF를 직접 래스터화한 입력과,

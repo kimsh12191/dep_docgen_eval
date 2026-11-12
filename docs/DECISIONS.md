@@ -1,5 +1,32 @@
 # Decisions and migration ledger
 
+## 2026-11-12 / D007 / purpose audit and cleanup: SVG is the top-level path, bench aggregation added
+
+User request: check that the code fits the three goals, then clean up code and documents.
+Audit result (docs/PURPOSE_AUDIT.md): generation (goal 3) fit; pass-rate table (goal 1) lacked repeats, tier aggregation,
+a pass rule and resume in the SVG path; difficulty guide (goal 2) is a draft whose numeric criteria disagree with 2 of 3 pilot labels.
+
+Changes:
+- Layout: SVG modules are top-level (formgen/svg.py, make.py, bench.py, selftest.py). HTML modules moved to formgen/html/,
+  commands to `python -m formgen html ...`, documents to docs/legacy/. `python -m formgen svg ...` kept as an alias.
+  Shared text_score moved to formgen/match.py. formgen/svg_cli.py removed (split into make.py, bench.py, __main__.py).
+- formgen/svg.py rewritten for readability only. Evidence: score output byte-identical on 30 perturbation cases before/after.
+- make: strips <think> blocks, picks the longest <svg> block, records truncated, image hash, svg size; accepts mock text.
+- bench: results.jsonl with resume, --repeat, --tiers, --limit, --mock, settings-mismatch guard, per-tier aggregation,
+  failure types, report.md, `report` re-aggregation without model calls.
+- Pass rule: provisional `pass-provisional-0` lives only in bench aggregation. Scores still return final_pass null.
+  Why a rule at all: goal 1 is a pass-rate table and the plumbing must be testable before calibration.
+  Why it is safe to be wrong: raw scores are stored, the rule is one versioned dict, and reports are rebuilt without rerunning models.
+  Why text_r rather than text_f1: references keep some glyphs as outlines, so correct model text would lower precision.
+- New: `selftest` (scorer perturbation checks with explicit expectations; exits non-zero on surprise), `stats` (difficulty feature counts).
+- Gate tightened to match the original SVG bench: any item whose gold_approved is not true needs --allow-candidates; report says diagnostic.
+
+Validation: 16 tests pass (browser test skipped); selftest 30/30 expected; mock ref 3/3, mock nofields 0/3; fake HTTP server run;
+resvg-py 0.5.0 rendered gov_pension ref.svg on Linux x86_64 with a system Korean font.
+Not validated: any real model output; pass thresholds; tier labels; internal target wheels/fonts.
+Migration: scripts calling `python -m formgen make|bench|score|tier|selftest` for HTML must add `html`.
+Imports `formgen.svg_cli.make` → `formgen.make.make`; `formgen.score` etc. → `formgen.html.score`.
+
 ## 2026-11-12 / D006 / user scope correction — supersedes routing requirements in D005
 
 Required: reliable model-by-difficulty pass rates, manual difficulty criteria/examples, user-selected SVG generation.
