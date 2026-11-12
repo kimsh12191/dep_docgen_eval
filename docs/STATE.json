@@ -41,7 +41,7 @@
     "internal_os_python_arch": "unknown"
   },
   "implemented": {
-    "commands": "python -m formgen svg make|validate|score|render|bench",
+    "commands": "python -m formgen svg make|validate|score|score-v3|render|bench; python -m formgen harness generate",
     "core_dependencies": "python_standard_library",
     "render_dependency": "resvg-py==0.5.0",
     "font_dependency": "Korean font; explicit --font-file recommended",
@@ -57,7 +57,9 @@
     "svg_evaluator": "formgen/svg_eval_v2.py; independent field/text geometry metrics; optional raster comparison",
     "svg_repeat_diagnostics": "formgen.svg_cli bench --repeat, unique-image and attempt counts",
     "svg_v3": "original-image to rendered-SVG document visual score: 70% page + 30% equal-weight table ROIs",
-    "svg_v3_grits": "official grits-metric Top/Loc optional with explicit reference and predicted cells; not inferred from arbitrary strokes"
+    "svg_v3_grits": "official grits-metric Top/Loc optional with explicit reference and predicted cells; not inferred from arbitrary strokes",
+    "harness": "formgen/harness.py: concurrent multi-vLLM generation runner, per-endpoint limits, checkpoint/resume, CSV summary",
+    "harness_refinement": "formgen/harness_refine.py: opt-in P2, render -> visual feedback -> revise -> score -> revert"
   },
   "verification": {
     "tests": "9 tests passed; stdlib-only SVG run: 5 passed and optional renderer test skipped",
@@ -67,7 +69,8 @@
     "real_model_svg_run": "not_run_no_internal_endpoint_supplied",
     "old_sol_luna_terra_results": "HTML only; NOT SVG measurements",
     "svg_v2_counterfactuals": "13 local counterfactual tests passed with minimal stub dependencies; full repository test run pending",
-    "svg_v3": "30 local tests passed against equivalent V3/CLI sources; synthetic and three-document controlled corruptions; no GitHub CI or genuine model endpoint validation"
+    "svg_v3": "30 local tests passed against equivalent V3/CLI sources; synthetic and three-document controlled corruptions; no GitHub CI or genuine model endpoint validation",
+    "harness": "12 fake-HTTP integration tests passed locally; real vLLM servers not exercised"
   },
   "known_gaps": [
     "Candidate field annotations incomplete; inherited omissions must be fixed",
@@ -81,7 +84,9 @@
     "SVG repeat diagnostics are aggregated but correlated repeats are not independent; final pass calibration absent",
     "Text-anchor matching excludes transformed or path-only glyphs; visual pixel metric is font-sensitive",
     "V3 requires reviewed per-image table_regions.json and ignore masks for filled originals",
-    "GriTS requires cell annotations and optional grits-metric; not a default V3 aggregate component"
+    "GriTS requires cell annotations and optional grits-metric; not a default V3 aggregate component",
+    "Harness P2 requires a model accepting at least 2 images in a chat; some vLLM served models need --limit-mm-per-prompt adjusted",
+    "Visual-only P2 feedback without reviewed table ROI is an uncalibrated proxy and must not be combined with official V3 results"
   ],
   "next_steps": [
     "Complete field annotations against official source pages and review each candidate",
@@ -91,7 +96,8 @@
     "Add rendered SVG quality checks without requiring value filling",
     "Calibrate and freeze pass criteria before scored evaluation runs",
     "Calibrate v2 field/layout thresholds against independent human ratings and freeze before full model benchmark",
-    "Annotate image-native ROI/masks, score genuine VLM outputs, collect blind human ratings and calibrate V3 versus visual-only"
+    "Annotate image-native ROI/masks, score genuine VLM outputs, collect blind human ratings and calibrate V3 versus visual-only",
+    "Run P1 and P2 through actual internal vLLM endpoints and perform manual review of failed and regression cases"
   ],
   "invariants": [
     "Do not turn missing measurements into successful pass",

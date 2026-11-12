@@ -11,10 +11,10 @@ from . import svg,svg_eval_v2,svg_eval_v3,llm
 def dump(path,value):Path(path).write_text(json.dumps(value,ensure_ascii=False,indent=2),encoding='utf-8')
 
 
-def make(image,out,endpoint,model,max_tokens=16000,api_key=None):
+def make(image,out,endpoint,model,max_tokens=16000,api_key=None,timeout=1800):
     out=Path(out);out.mkdir(parents=True,exist_ok=True)
     prompt=(Path(__file__).parent/'prompts/svg_v1.md').read_text(encoding='utf-8')
-    response=llm.chat(endpoint,model,[{'role':'system','content':prompt},{'role':'user','content':[llm.image_part(image),{'type':'text','text':'이 문서를 빈 SVG 서식으로 만드세요. SVG만 출력하세요.'}]}],max_tokens=max_tokens,api_key=api_key)
+    response=llm.chat(endpoint,model,[{'role':'system','content':prompt},{'role':'user','content':[llm.image_part(image),{'type':'text','text':'이 문서를 빈 SVG 서식으로 만드세요. SVG만 출력하세요.'}]}],max_tokens=max_tokens,api_key=api_key,timeout=timeout)
     raw=response.pop('text','');(out/'raw.txt').write_text(raw,encoding='utf-8')
     match=re.search(r'<svg\b.*?</svg\s*>',raw,re.S)
     value=match.group() if match else raw

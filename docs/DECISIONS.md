@@ -66,3 +66,7 @@ Do not write aspirations into the implemented/verified sections.
 ## 2026-11-12 / Scorer V3: original-image visual fidelity + table regions
 
 Implemented fixed provisional 70% whole-page Foreground/Edge F1 plus 30% independently scored table ROIs, preventing small complex-table omissions being diluted by white page area. Optional canonical GriTS Top/Loc is available ONLY with explicit cell annotations. Invalid SVG contract is a zero-score failure; missing/invalid ROI or aspect mismatch is unscorable. Human calibration, model evaluation and final pass thresholds remain outstanding. Source images and manual scores have not been committed.
+
+## 2026-11-12 / SVG generation harness P1/P2
+
+Add a concurrent per-endpoint OpenAI-compatible vLLM harness, with deterministic job fingerprint/resume and optional visual feedback refinement. Preserve P1; accept only score-improving and SVG-valid P2 candidates, stop and revert on regression. When reviewed table ROIs exist, use V3 for the feedback objective; when absent, label the page-only feedback metric `visual_proxy_unannotated` and never present it as a calibrated V3 quality benchmark. Invalid P1 SVG may receive one validation-only repair attempt without unsafe rendering. No model server is accessible here, so only fake-HTTP integration tests have been run. Refer to docs/HARNESS.md.
