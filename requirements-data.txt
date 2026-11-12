@@ -1,2 +1,5 @@
 # Optional: preparing input PNGs from existing source PDFs.
 PyMuPDF>=1.24,<2
+# 정답 라벨을 OCR 로 만들 때만 (tools/build_labels.py v1_ocr)
+rapidocr-onnxruntime==1.2.3
+rapidfuzz>=3

@@ -1,0 +1,39 @@
+{
+ "note": "OCR 위치에 기준 꾸러미 글자를 맞춘 뒤, 맞추기가 틀리거나 OCR 이 놓친 것만 여기서 고친다. i = OCR 번호 (python tools/build_labels.py ocr_dump --set evalset/v1 --item invoice_handwritten)",
+ "items": [
+  {
+   "i": 21,
+   "parts": [
+    [
+     "Stretch wrap film 500mm x 300m",
+     "value",
+     "items.0.description"
+    ]
+   ]
+  },
+  {
+   "i": 26,
+   "parts": [
+    [
+     "391.76",
+     "value",
+     "items.1.unit_price"
+    ]
+   ]
+  },
+  {
+   "add": {
+    "text": "2",
+    "box": [
+     1060.0,
+     660.0,
+     1095.0,
+     697.0
+    ],
+    "role": "value",
+    "key": "items.1.qty",
+    "box_estimated": true
+   }
+  }
+ ]
+}

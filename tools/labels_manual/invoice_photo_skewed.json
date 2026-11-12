@@ -1,0 +1,43 @@
+{
+ "note": "좌표는 편 종이 기준 (--paper). i = OCR 번호",
+ "items": [
+  {
+   "i": 36,
+   "parts": [
+    [
+     "14",
+     "value",
+     "items.3.qty"
+    ]
+   ]
+  },
+  {
+   "add": {
+    "text": "2",
+    "box": [
+     962.0,
+     679.0,
+     985.0,
+     707.0
+    ],
+    "role": "value",
+    "key": "items.0.qty",
+    "box_estimated": true
+   }
+  },
+  {
+   "add": {
+    "text": "7",
+    "box": [
+     962.0,
+     763.0,
+     985.0,
+     792.0
+    ],
+    "role": "value",
+    "key": "items.2.qty",
+    "box_estimated": true
+   }
+  }
+ ]
+}

@@ -1,0 +1,3645 @@
+{
+ "version": 1,
+ "image": "image.png",
+ "image_sha256": "157b381e36291013c5f99a16b7dbe07288051de4e6f99dec485e26e528db3e85",
+ "width": 1275,
+ "height": 1650,
+ "frame": null,
+ "texts": [
+  {
+   "text": "Form 8949",
+   "box": [
+    75.0,
+    62.1,
+    217.1,
+    122.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "2025",
+   "box": [
+    1055.8,
+    93.6,
+    1164.2,
+    146.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Sales and Other Dispositions of Capital Assets",
+   "box": [
+    333.0,
+    78.3,
+    942.0,
+    112.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Department of the Treasury",
+   "box": [
+    75.0,
+    135.3,
+    256.3,
+    152.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Internal Revenue Service",
+   "box": [
+    75.0,
+    152.8,
+    239.8,
+    169.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "File with your Schedule D to list your transactions for lines 1b, 2, 3, 8b, 9, and 10 of Schedule D.",
+   "box": [
+    269.2,
+    120.9,
+    1010.4,
+    140.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Go to www.irs.gov/Form8949 for instructions and the latest information.",
+   "box": [
+    352.3,
+    143.9,
+    922.7,
+    163.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "OMB No. 1545-0074",
+   "box": [
+    1042.3,
+    76.9,
+    1177.7,
+    93.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Attachment",
+   "box": [
+    1045.0,
+    140.3,
+    1132.5,
+    157.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Sequence No. 12A",
+   "box": [
+    1045.0,
+    147.7,
+    1186.1,
+    172.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Name(s) shown on return",
+   "box": [
+    75.0,
+    178.6,
+    238.4,
+    195.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Social security number or taxpayer identification number",
+   "box": [
+    773.3,
+    178.3,
+    1167.8,
+    195.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Before you check Box A, B, C, G, H, or I below, see whether you received any Form(s) 1099-B, Form(s) 1099-DA, or substitute statement(s)",
+   "box": [
+    75.0,
+    228.3,
+    1204.7,
+    250.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "from your broker. A substitute statement will have the same information as Form 1099-B or Form 1099-DA. They will show whether your",
+   "box": [
+    75.0,
+    250.8,
+    1180.6,
+    272.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "basis (usually your cost) was reported to the IRS by your broker and may even tell you which box to check.",
+   "box": [
+    75.0,
+    273.3,
+    934.9,
+    295.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Part I",
+   "box": [
+    85.9,
+    298.7,
+    139.1,
+    323.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Short-Term. Transactions involving capital assets you held 1 year or less are generally short-term (see",
+   "box": [
+    180.0,
+    298.7,
+    1140.0,
+    323.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "instructions). For long-term transactions, see page 2.",
+   "box": [
+    180.0,
+    324.2,
+    678.2,
+    348.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Note: You may aggregate all short-term transactions reported on Form(s) 1099-B and Form(s) 1099-DA",
+   "box": [
+    180.0,
+    352.9,
+    1146.7,
+    377.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "showing basis was reported to the IRS and for which no adjustments or codes are required. Enter the totals",
+   "box": [
+    180.0,
+    376.3,
+    1185.5,
+    400.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "directly on Schedule D, line 1a; you aren’t required to report these transactions on Form 8949 (see",
+   "box": [
+    180.0,
+    399.2,
+    1098.8,
+    423.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "instructions).",
+   "box": [
+    180.0,
+    422.1,
+    299.2,
+    446.4
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "You must check Box A, B, C, G, H, or I below. Check only one box. If more than one box applies for your short-term transactions,",
+   "box": [
+    75.0,
+    453.0,
+    1191.8,
+    475.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "complete a separate Form 8949, page 1, for each applicable box. If you have more short-term transactions than will fit on this page",
+   "box": [
+    75.0,
+    475.9,
+    1177.7,
+    497.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "for one or more of the boxes, complete as many forms with the same box checked as you need.",
+   "box": [
+    75.0,
+    498.4,
+    879.7,
+    520.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(A) Short-term transactions reported on Form(s) 1099-B showing basis was reported to the IRS (see Note above)",
+   "box": [
+    131.2,
+    525.3,
+    1083.8,
+    547.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(B) Short-term transactions reported on Form(s) 1099-B showing basis was not reported to the IRS",
+   "box": [
+    131.2,
+    550.3,
+    969.5,
+    572.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(C) Short-term transactions, other than digital asset transactions, not reported to you on Form 1099-B or Form 1099-DA",
+   "box": [
+    131.2,
+    575.1,
+    1143.6,
+    597.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(G) Short-term transactions reported on Form(s) 1099-DA showing basis was reported to the IRS (see Note above)",
+   "box": [
+    131.2,
+    600.3,
+    1098.7,
+    622.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(H) Short-term transactions reported on Form(s) 1099-DA showing basis was not reported to the IRS",
+   "box": [
+    131.2,
+    625.3,
+    983.8,
+    647.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(I) Short-term digital asset transactions not reported to you on Form 1099-DA or Form 1099-B",
+   "box": [
+    131.2,
+    650.3,
+    926.1,
+    672.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "1",
+   "box": [
+    92.5,
+    688.9,
+    102.9,
+    711.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(a)",
+   "box": [
+    224.0,
+    722.6,
+    245.1,
+    740.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Description of property",
+   "box": [
+    157.4,
+    740.4,
+    311.6,
+    757.4
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(Example: 100 sh. XYZ Co.)",
+   "box": [
+    143.4,
+    757.9,
+    321.6,
+    774.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(b)",
+   "box": [
+    403.7,
+    722.6,
+    425.3,
+    740.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Date acquired",
+   "box": [
+    364.7,
+    740.1,
+    464.4,
+    757.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(Mo., day, yr.)",
+   "box": [
+    366.0,
+    757.6,
+    467.1,
+    775.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(c)",
+   "box": [
+    509.0,
+    713.8,
+    530.1,
+    731.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Date sold or",
+   "box": [
+    475.8,
+    731.3,
+    563.3,
+    748.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "disposed of",
+   "box": [
+    479.1,
+    749.2,
+    559.9,
+    766.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(Mo., day, yr.)",
+   "box": [
+    471.0,
+    766.3,
+    564.0,
+    783.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(d)",
+   "box": [
+    628.7,
+    713.8,
+    654.4,
+    731.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Proceeds",
+   "box": [
+    606.4,
+    731.7,
+    672.6,
+    748.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(sales price)",
+   "box": [
+    598.7,
+    749.2,
+    680.3,
+    766.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(see instructions)",
+   "box": [
+    582.4,
+    766.7,
+    692.6,
+    783.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(e)",
+   "box": [
+    764.0,
+    696.3,
+    785.1,
+    713.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Cost or other basis",
+   "box": [
+    710.4,
+    714.2,
+    838.7,
+    731.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "See the Note below",
+   "box": [
+    708.0,
+    731.3,
+    841.0,
+    748.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "and see Column (e)",
+   "box": [
+    709.6,
+    749.1,
+    839.5,
+    766.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "in the separate",
+   "box": [
+    724.2,
+    766.7,
+    829.0,
+    783.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "instructions.",
+   "box": [
+    732.7,
+    784.2,
+    816.4,
+    801.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Adjustment, if any, to gain or loss",
+   "box": [
+    845.7,
+    677.9,
+    1063.1,
+    695.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "If you enter an amount in column (g),",
+   "box": [
+    843.1,
+    694.9,
+    1065.8,
+    711.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "enter a code in column (f).",
+   "box": [
+    872.1,
+    711.5,
+    1036.8,
+    728.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "See the separate instructions.",
+   "box": [
+    853.8,
+    727.9,
+    1051.3,
+    745.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(f)",
+   "box": [
+    877.7,
+    760.3,
+    896.3,
+    777.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Code(s) from",
+   "box": [
+    843.3,
+    778.3,
+    930.8,
+    795.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "instructions",
+   "box": [
+    848.1,
+    795.8,
+    921.9,
+    812.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(g)",
+   "box": [
+    988.7,
+    760.1,
+    1010.3,
+    777.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Amount of",
+   "box": [
+    963.6,
+    777.9,
+    1035.5,
+    794.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "adjustment",
+   "box": [
+    961.2,
+    795.4,
+    1033.8,
+    812.4
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(h)",
+   "box": [
+    1123.9,
+    696.3,
+    1149.3,
+    713.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Gain or (loss)",
+   "box": [
+    1086.7,
+    713.8,
+    1182.3,
+    731.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Subtract column (e)",
+   "box": [
+    1068.8,
+    731.7,
+    1200.3,
+    748.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "from column (d) and",
+   "box": [
+    1068.3,
+    749.2,
+    1200.8,
+    766.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "combine the result",
+   "box": [
+    1072.0,
+    766.7,
+    1197.1,
+    783.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "with column (g).",
+   "box": [
+    1080.9,
+    784.2,
+    1184.1,
+    801.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "2",
+   "box": [
+    90.4,
+    1384.3,
+    106.0,
+    1406.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Totals. Add the amounts in columns (d), (e), (g), and (h)",
+   "box": [
+    112.5,
+    1384.3,
+    560.2,
+    1406.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(subtract negative amounts). Enter each total here and",
+   "box": [
+    112.6,
+    1407.2,
+    560.3,
+    1429.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "include on your Schedule D, line 1b (if Box A or Box G",
+   "box": [
+    112.6,
+    1429.3,
+    560.3,
+    1451.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "above is checked), line 2 (if Box B or Box H above is",
+   "box": [
+    112.6,
+    1451.8,
+    560.2,
+    1474.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "checked), or line 3 (if Box C or Box I above is checked)",
+   "box": [
+    112.6,
+    1474.3,
+    557.6,
+    1496.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Note: If you checked Box A or Box G above but the basis reported to the IRS was incorrect, enter in column (e) the basis as reported to the IRS, and",
+   "box": [
+    75.0,
+    1504.5,
+    1185.0,
+    1524.4
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "enter an adjustment in column (g) to correct the basis. See Column (g) in the separate instructions for how to figure the amount of the adjustment.",
+   "box": [
+    75.0,
+    1524.8,
+    1157.7,
+    1544.4
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "For Paperwork Reduction Act Notice, see your tax return instructions.",
+   "box": [
+    75.0,
+    1554.0,
+    629.3,
+    1573.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Cat. No. 37768Z",
+   "box": [
+    748.7,
+    1556.9,
+    856.3,
+    1573.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Form 8949 (2025) Created 5/5/25",
+   "box": [
+    969.2,
+    1548.7,
+    1204.1,
+    1573.6
+   ],
+   "role": "fixed",
+   "key": null
+  }
+ ],
+ "rules": [
+  [
+   255.0,
+   74.5,
+   255.0,
+   125.5
+  ],
+  [
+   1020.0,
+   99.5,
+   1020.0,
+   138.0
+  ],
+  [
+   74.5,
+   175.0,
+   256.0,
+   175.0
+  ],
+  [
+   255.0,
+   124.5,
+   255.0,
+   176.0
+  ],
+  [
+   254.5,
+   175.0,
+   1020.5,
+   175.0
+  ],
+  [
+   1019.0,
+   100.0,
+   1200.5,
+   100.0
+  ],
+  [
+   1020.0,
+   74.5,
+   1020.0,
+   100.5
+  ],
+  [
+   1019.0,
+   175.0,
+   1200.5,
+   175.0
+  ],
+  [
+   1020.0,
+   137.0,
+   1020.0,
+   176.0
+  ],
+  [
+   765.0,
+   174.5,
+   765.0,
+   225.5
+  ],
+  [
+   74.5,
+   225.0,
+   1200.5,
+   225.0
+  ],
+  [
+   74.5,
+   300.0,
+   1200.5,
+   300.0
+  ],
+  [
+   74.5,
+   450.0,
+   1200.5,
+   450.0
+  ],
+  [
+   105.0,
+   528.6,
+   121.7,
+   528.6
+  ],
+  [
+   105.0,
+   545.3,
+   121.7,
+   545.3
+  ],
+  [
+   105.0,
+   528.6,
+   105.0,
+   545.3
+  ],
+  [
+   121.7,
+   528.6,
+   121.7,
+   545.3
+  ],
+  [
+   105.0,
+   553.6,
+   121.7,
+   553.6
+  ],
+  [
+   105.0,
+   570.3,
+   121.7,
+   570.3
+  ],
+  [
+   105.0,
+   553.6,
+   105.0,
+   570.3
+  ],
+  [
+   121.7,
+   553.6,
+   121.7,
+   570.3
+  ],
+  [
+   105.0,
+   578.5,
+   121.7,
+   578.5
+  ],
+  [
+   105.0,
+   595.2,
+   121.7,
+   595.2
+  ],
+  [
+   105.0,
+   578.5,
+   105.0,
+   595.2
+  ],
+  [
+   121.7,
+   578.5,
+   121.7,
+   595.2
+  ],
+  [
+   105.0,
+   603.6,
+   121.7,
+   603.6
+  ],
+  [
+   105.0,
+   620.3,
+   121.7,
+   620.3
+  ],
+  [
+   105.0,
+   603.6,
+   105.0,
+   620.3
+  ],
+  [
+   121.7,
+   603.6,
+   121.7,
+   620.3
+  ],
+  [
+   105.0,
+   628.6,
+   121.7,
+   628.6
+  ],
+  [
+   105.0,
+   645.3,
+   121.7,
+   645.3
+  ],
+  [
+   105.0,
+   628.6,
+   105.0,
+   645.3
+  ],
+  [
+   121.7,
+   628.6,
+   121.7,
+   645.3
+  ],
+  [
+   105.0,
+   653.6,
+   121.7,
+   653.6
+  ],
+  [
+   105.0,
+   670.3,
+   121.7,
+   670.3
+  ],
+  [
+   105.0,
+   653.6,
+   105.0,
+   670.3
+  ],
+  [
+   121.7,
+   653.6,
+   121.7,
+   670.3
+  ],
+  [
+   74.5,
+   675.0,
+   105.5,
+   675.0
+  ],
+  [
+   74.5,
+   825.0,
+   105.5,
+   825.0
+  ],
+  [
+   104.5,
+   675.0,
+   360.5,
+   675.0
+  ],
+  [
+   104.5,
+   825.0,
+   360.5,
+   825.0
+  ],
+  [
+   359.5,
+   675.0,
+   465.5,
+   675.0
+  ],
+  [
+   359.5,
+   825.0,
+   465.5,
+   825.0
+  ],
+  [
+   360.0,
+   674.5,
+   360.0,
+   825.5
+  ],
+  [
+   464.5,
+   675.0,
+   570.5,
+   675.0
+  ],
+  [
+   464.5,
+   825.0,
+   570.5,
+   825.0
+  ],
+  [
+   465.0,
+   674.5,
+   465.0,
+   825.5
+  ],
+  [
+   569.5,
+   675.0,
+   705.5,
+   675.0
+  ],
+  [
+   569.5,
+   825.0,
+   705.5,
+   825.0
+  ],
+  [
+   570.0,
+   674.5,
+   570.0,
+   825.5
+  ],
+  [
+   704.5,
+   675.0,
+   840.5,
+   675.0
+  ],
+  [
+   704.5,
+   825.0,
+   840.5,
+   825.0
+  ],
+  [
+   705.0,
+   674.5,
+   705.0,
+   825.5
+  ],
+  [
+   839.5,
+   675.0,
+   1065.5,
+   675.0
+  ],
+  [
+   839.5,
+   750.0,
+   1065.5,
+   750.0
+  ],
+  [
+   840.0,
+   674.5,
+   840.0,
+   750.5
+  ],
+  [
+   839.5,
+   825.0,
+   930.5,
+   825.0
+  ],
+  [
+   840.0,
+   749.5,
+   840.0,
+   825.5
+  ],
+  [
+   929.5,
+   825.0,
+   1065.5,
+   825.0
+  ],
+  [
+   930.0,
+   749.5,
+   930.0,
+   825.5
+  ],
+  [
+   1064.5,
+   675.0,
+   1200.5,
+   675.0
+  ],
+  [
+   1064.5,
+   825.0,
+   1200.5,
+   825.0
+  ],
+  [
+   1065.0,
+   674.5,
+   1065.0,
+   825.5
+  ],
+  [
+   74.5,
+   875.0,
+   360.5,
+   875.0
+  ],
+  [
+   359.5,
+   875.0,
+   465.5,
+   875.0
+  ],
+  [
+   360.0,
+   824.5,
+   360.0,
+   875.5
+  ],
+  [
+   464.5,
+   875.0,
+   570.5,
+   875.0
+  ],
+  [
+   465.0,
+   824.5,
+   465.0,
+   875.5
+  ],
+  [
+   569.5,
+   875.0,
+   705.5,
+   875.0
+  ],
+  [
+   570.0,
+   824.5,
+   570.0,
+   875.5
+  ],
+  [
+   704.5,
+   875.0,
+   840.5,
+   875.0
+  ],
+  [
+   705.0,
+   824.5,
+   705.0,
+   875.5
+  ],
+  [
+   839.5,
+   875.0,
+   930.5,
+   875.0
+  ],
+  [
+   840.0,
+   824.5,
+   840.0,
+   875.5
+  ],
+  [
+   929.5,
+   875.0,
+   1065.5,
+   875.0
+  ],
+  [
+   930.0,
+   824.5,
+   930.0,
+   875.5
+  ],
+  [
+   1064.5,
+   875.0,
+   1200.5,
+   875.0
+  ],
+  [
+   1065.0,
+   824.5,
+   1065.0,
+   875.5
+  ],
+  [
+   74.5,
+   925.0,
+   1200.5,
+   925.0
+  ],
+  [
+   74.5,
+   925.0,
+   360.5,
+   925.0
+  ],
+  [
+   359.5,
+   925.0,
+   465.5,
+   925.0
+  ],
+  [
+   360.0,
+   874.5,
+   360.0,
+   925.5
+  ],
+  [
+   464.5,
+   925.0,
+   570.5,
+   925.0
+  ],
+  [
+   465.0,
+   874.5,
+   465.0,
+   925.5
+  ],
+  [
+   569.5,
+   925.0,
+   705.5,
+   925.0
+  ],
+  [
+   570.0,
+   874.5,
+   570.0,
+   925.5
+  ],
+  [
+   704.5,
+   925.0,
+   840.5,
+   925.0
+  ],
+  [
+   705.0,
+   874.5,
+   705.0,
+   925.5
+  ],
+  [
+   839.5,
+   925.0,
+   930.5,
+   925.0
+  ],
+  [
+   840.0,
+   874.5,
+   840.0,
+   925.5
+  ],
+  [
+   929.5,
+   925.0,
+   1065.5,
+   925.0
+  ],
+  [
+   930.0,
+   874.5,
+   930.0,
+   925.5
+  ],
+  [
+   1064.5,
+   925.0,
+   1200.5,
+   925.0
+  ],
+  [
+   1065.0,
+   874.5,
+   1065.0,
+   925.5
+  ],
+  [
+   74.5,
+   975.0,
+   360.5,
+   975.0
+  ],
+  [
+   359.5,
+   975.0,
+   465.5,
+   975.0
+  ],
+  [
+   360.0,
+   924.5,
+   360.0,
+   975.5
+  ],
+  [
+   464.5,
+   975.0,
+   570.5,
+   975.0
+  ],
+  [
+   465.0,
+   924.5,
+   465.0,
+   975.5
+  ],
+  [
+   569.5,
+   975.0,
+   705.5,
+   975.0
+  ],
+  [
+   570.0,
+   924.5,
+   570.0,
+   975.5
+  ],
+  [
+   704.5,
+   975.0,
+   840.5,
+   975.0
+  ],
+  [
+   705.0,
+   924.5,
+   705.0,
+   975.5
+  ],
+  [
+   839.5,
+   975.0,
+   930.5,
+   975.0
+  ],
+  [
+   840.0,
+   924.5,
+   840.0,
+   975.5
+  ],
+  [
+   929.5,
+   975.0,
+   1065.5,
+   975.0
+  ],
+  [
+   930.0,
+   924.5,
+   930.0,
+   975.5
+  ],
+  [
+   1064.5,
+   975.0,
+   1200.5,
+   975.0
+  ],
+  [
+   1065.0,
+   924.5,
+   1065.0,
+   975.5
+  ],
+  [
+   74.5,
+   1025.0,
+   360.5,
+   1025.0
+  ],
+  [
+   359.5,
+   1025.0,
+   465.5,
+   1025.0
+  ],
+  [
+   360.0,
+   974.5,
+   360.0,
+   1025.5
+  ],
+  [
+   464.5,
+   1025.0,
+   570.5,
+   1025.0
+  ],
+  [
+   465.0,
+   974.5,
+   465.0,
+   1025.5
+  ],
+  [
+   569.5,
+   1025.0,
+   705.5,
+   1025.0
+  ],
+  [
+   570.0,
+   974.5,
+   570.0,
+   1025.5
+  ],
+  [
+   704.5,
+   1025.0,
+   840.5,
+   1025.0
+  ],
+  [
+   705.0,
+   974.5,
+   705.0,
+   1025.5
+  ],
+  [
+   839.5,
+   1025.0,
+   930.5,
+   1025.0
+  ],
+  [
+   840.0,
+   974.5,
+   840.0,
+   1025.5
+  ],
+  [
+   929.5,
+   1025.0,
+   1065.5,
+   1025.0
+  ],
+  [
+   930.0,
+   974.5,
+   930.0,
+   1025.5
+  ],
+  [
+   1064.5,
+   1025.0,
+   1200.5,
+   1025.0
+  ],
+  [
+   1065.0,
+   974.5,
+   1065.0,
+   1025.5
+  ],
+  [
+   74.5,
+   1075.0,
+   360.5,
+   1075.0
+  ],
+  [
+   359.5,
+   1075.0,
+   465.5,
+   1075.0
+  ],
+  [
+   360.0,
+   1024.5,
+   360.0,
+   1075.5
+  ],
+  [
+   464.5,
+   1075.0,
+   570.5,
+   1075.0
+  ],
+  [
+   465.0,
+   1024.5,
+   465.0,
+   1075.5
+  ],
+  [
+   569.5,
+   1075.0,
+   705.5,
+   1075.0
+  ],
+  [
+   570.0,
+   1024.5,
+   570.0,
+   1075.5
+  ],
+  [
+   704.5,
+   1075.0,
+   840.5,
+   1075.0
+  ],
+  [
+   705.0,
+   1024.5,
+   705.0,
+   1075.5
+  ],
+  [
+   839.5,
+   1075.0,
+   930.5,
+   1075.0
+  ],
+  [
+   840.0,
+   1024.5,
+   840.0,
+   1075.5
+  ],
+  [
+   929.5,
+   1075.0,
+   1065.5,
+   1075.0
+  ],
+  [
+   930.0,
+   1024.5,
+   930.0,
+   1075.5
+  ],
+  [
+   1064.5,
+   1075.0,
+   1200.5,
+   1075.0
+  ],
+  [
+   1065.0,
+   1024.5,
+   1065.0,
+   1075.5
+  ],
+  [
+   74.5,
+   1125.0,
+   360.5,
+   1125.0
+  ],
+  [
+   359.5,
+   1125.0,
+   465.5,
+   1125.0
+  ],
+  [
+   360.0,
+   1074.5,
+   360.0,
+   1125.5
+  ],
+  [
+   464.5,
+   1125.0,
+   570.5,
+   1125.0
+  ],
+  [
+   465.0,
+   1074.5,
+   465.0,
+   1125.5
+  ],
+  [
+   569.5,
+   1125.0,
+   705.5,
+   1125.0
+  ],
+  [
+   570.0,
+   1074.5,
+   570.0,
+   1125.5
+  ],
+  [
+   704.5,
+   1125.0,
+   840.5,
+   1125.0
+  ],
+  [
+   705.0,
+   1074.5,
+   705.0,
+   1125.5
+  ],
+  [
+   839.5,
+   1125.0,
+   930.5,
+   1125.0
+  ],
+  [
+   840.0,
+   1074.5,
+   840.0,
+   1125.5
+  ],
+  [
+   929.5,
+   1125.0,
+   1065.5,
+   1125.0
+  ],
+  [
+   930.0,
+   1074.5,
+   930.0,
+   1125.5
+  ],
+  [
+   1064.5,
+   1125.0,
+   1200.5,
+   1125.0
+  ],
+  [
+   1065.0,
+   1074.5,
+   1065.0,
+   1125.5
+  ],
+  [
+   74.5,
+   1175.0,
+   360.5,
+   1175.0
+  ],
+  [
+   359.5,
+   1175.0,
+   465.5,
+   1175.0
+  ],
+  [
+   360.0,
+   1124.5,
+   360.0,
+   1175.5
+  ],
+  [
+   464.5,
+   1175.0,
+   570.5,
+   1175.0
+  ],
+  [
+   465.0,
+   1124.5,
+   465.0,
+   1175.5
+  ],
+  [
+   569.5,
+   1175.0,
+   705.5,
+   1175.0
+  ],
+  [
+   570.0,
+   1124.5,
+   570.0,
+   1175.5
+  ],
+  [
+   704.5,
+   1175.0,
+   840.5,
+   1175.0
+  ],
+  [
+   705.0,
+   1124.5,
+   705.0,
+   1175.5
+  ],
+  [
+   839.5,
+   1175.0,
+   930.5,
+   1175.0
+  ],
+  [
+   840.0,
+   1124.5,
+   840.0,
+   1175.5
+  ],
+  [
+   929.5,
+   1175.0,
+   1065.5,
+   1175.0
+  ],
+  [
+   930.0,
+   1124.5,
+   930.0,
+   1175.5
+  ],
+  [
+   1064.5,
+   1175.0,
+   1200.5,
+   1175.0
+  ],
+  [
+   1065.0,
+   1124.5,
+   1065.0,
+   1175.5
+  ],
+  [
+   74.5,
+   1225.0,
+   360.5,
+   1225.0
+  ],
+  [
+   359.5,
+   1225.0,
+   465.5,
+   1225.0
+  ],
+  [
+   360.0,
+   1174.5,
+   360.0,
+   1225.5
+  ],
+  [
+   464.5,
+   1225.0,
+   570.5,
+   1225.0
+  ],
+  [
+   465.0,
+   1174.5,
+   465.0,
+   1225.5
+  ],
+  [
+   569.5,
+   1225.0,
+   705.5,
+   1225.0
+  ],
+  [
+   570.0,
+   1174.5,
+   570.0,
+   1225.5
+  ],
+  [
+   704.5,
+   1225.0,
+   840.5,
+   1225.0
+  ],
+  [
+   705.0,
+   1174.5,
+   705.0,
+   1225.5
+  ],
+  [
+   839.5,
+   1225.0,
+   930.5,
+   1225.0
+  ],
+  [
+   840.0,
+   1174.5,
+   840.0,
+   1225.5
+  ],
+  [
+   929.5,
+   1225.0,
+   1065.5,
+   1225.0
+  ],
+  [
+   930.0,
+   1174.5,
+   930.0,
+   1225.5
+  ],
+  [
+   1064.5,
+   1225.0,
+   1200.5,
+   1225.0
+  ],
+  [
+   1065.0,
+   1174.5,
+   1065.0,
+   1225.5
+  ],
+  [
+   74.5,
+   1275.0,
+   360.5,
+   1275.0
+  ],
+  [
+   359.5,
+   1275.0,
+   465.5,
+   1275.0
+  ],
+  [
+   360.0,
+   1224.5,
+   360.0,
+   1275.5
+  ],
+  [
+   464.5,
+   1275.0,
+   570.5,
+   1275.0
+  ],
+  [
+   465.0,
+   1224.5,
+   465.0,
+   1275.5
+  ],
+  [
+   569.5,
+   1275.0,
+   705.5,
+   1275.0
+  ],
+  [
+   570.0,
+   1224.5,
+   570.0,
+   1275.5
+  ],
+  [
+   704.5,
+   1275.0,
+   840.5,
+   1275.0
+  ],
+  [
+   705.0,
+   1224.5,
+   705.0,
+   1275.5
+  ],
+  [
+   839.5,
+   1275.0,
+   930.5,
+   1275.0
+  ],
+  [
+   840.0,
+   1224.5,
+   840.0,
+   1275.5
+  ],
+  [
+   929.5,
+   1275.0,
+   1065.5,
+   1275.0
+  ],
+  [
+   930.0,
+   1224.5,
+   930.0,
+   1275.5
+  ],
+  [
+   1064.5,
+   1275.0,
+   1200.5,
+   1275.0
+  ],
+  [
+   1065.0,
+   1224.5,
+   1065.0,
+   1275.5
+  ],
+  [
+   74.5,
+   1325.0,
+   360.5,
+   1325.0
+  ],
+  [
+   359.5,
+   1325.0,
+   465.5,
+   1325.0
+  ],
+  [
+   360.0,
+   1274.5,
+   360.0,
+   1325.5
+  ],
+  [
+   464.5,
+   1325.0,
+   570.5,
+   1325.0
+  ],
+  [
+   465.0,
+   1274.5,
+   465.0,
+   1325.5
+  ],
+  [
+   569.5,
+   1325.0,
+   705.5,
+   1325.0
+  ],
+  [
+   570.0,
+   1274.5,
+   570.0,
+   1325.5
+  ],
+  [
+   704.5,
+   1325.0,
+   840.5,
+   1325.0
+  ],
+  [
+   705.0,
+   1274.5,
+   705.0,
+   1325.5
+  ],
+  [
+   839.5,
+   1325.0,
+   930.5,
+   1325.0
+  ],
+  [
+   840.0,
+   1274.5,
+   840.0,
+   1325.5
+  ],
+  [
+   929.5,
+   1325.0,
+   1065.5,
+   1325.0
+  ],
+  [
+   930.0,
+   1274.5,
+   930.0,
+   1325.5
+  ],
+  [
+   1064.5,
+   1325.0,
+   1200.5,
+   1325.0
+  ],
+  [
+   1065.0,
+   1274.5,
+   1065.0,
+   1325.5
+  ],
+  [
+   74.5,
+   1375.0,
+   360.5,
+   1375.0
+  ],
+  [
+   359.5,
+   1375.0,
+   465.5,
+   1375.0
+  ],
+  [
+   360.0,
+   1324.5,
+   360.0,
+   1375.5
+  ],
+  [
+   464.5,
+   1375.0,
+   570.5,
+   1375.0
+  ],
+  [
+   465.0,
+   1324.5,
+   465.0,
+   1375.5
+  ],
+  [
+   569.5,
+   1375.0,
+   705.5,
+   1375.0
+  ],
+  [
+   570.0,
+   1324.5,
+   570.0,
+   1375.5
+  ],
+  [
+   704.5,
+   1375.0,
+   840.5,
+   1375.0
+  ],
+  [
+   705.0,
+   1324.5,
+   705.0,
+   1375.5
+  ],
+  [
+   840.0,
+   1324.5,
+   840.0,
+   1375.5
+  ],
+  [
+   929.5,
+   1375.0,
+   1065.5,
+   1375.0
+  ],
+  [
+   930.0,
+   1324.5,
+   930.0,
+   1375.5
+  ],
+  [
+   1064.5,
+   1375.0,
+   1200.5,
+   1375.0
+  ],
+  [
+   1065.0,
+   1324.5,
+   1065.0,
+   1375.5
+  ],
+  [
+   570.0,
+   1374.5,
+   570.0,
+   1500.5
+  ],
+  [
+   705.0,
+   1374.5,
+   705.0,
+   1500.5
+  ],
+  [
+   839.5,
+   1375.0,
+   930.5,
+   1375.0
+  ],
+  [
+   930.0,
+   1374.5,
+   930.0,
+   1500.5
+  ],
+  [
+   840.0,
+   1374.5,
+   840.0,
+   1500.5
+  ],
+  [
+   1065.0,
+   1374.5,
+   1065.0,
+   1500.5
+  ],
+  [
+   74.5,
+   1500.0,
+   1200.5,
+   1500.0
+  ],
+  [
+   74.5,
+   1550.0,
+   645.5,
+   1550.0
+  ],
+  [
+   644.5,
+   1550.0,
+   960.5,
+   1550.0
+  ],
+  [
+   959.5,
+   1550.0,
+   1200.5,
+   1550.0
+  ]
+ ],
+ "slots": [
+  {
+   "box": [
+    75.0,
+    195.8,
+    763.4,
+    225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_01[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    767.1,
+    195.8,
+    1200.0,
+    225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_02[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    105.0,
+    528.6,
+    121.7,
+    545.3
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].c1_1[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    105.0,
+    553.6,
+    121.7,
+    570.3
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].c1_1[1]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    105.0,
+    578.5,
+    121.7,
+    595.2
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].c1_1[2]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    105.0,
+    603.6,
+    121.7,
+    620.3
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].c1_1[3]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    105.0,
+    628.6,
+    121.7,
+    645.3
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].c1_1[4]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    105.0,
+    653.6,
+    121.7,
+    670.3
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].c1_1[5]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    825.0,
+    358.4,
+    875.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row1[0].f1_03[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    850.0,
+    465.0,
+    875.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row1[0].f1_04[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    850.0,
+    570.0,
+    875.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row1[0].f1_05[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    850.0,
+    703.4,
+    875.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row1[0].f1_06[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    850.0,
+    838.4,
+    875.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row1[0].f1_07[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    850.0,
+    930.0,
+    875.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row1[0].f1_08[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    850.0,
+    1063.4,
+    875.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row1[0].f1_09[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    850.0,
+    1200.0,
+    875.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row1[0].f1_10[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    875.0,
+    358.4,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row2[0].f1_11[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    900.0,
+    465.0,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row2[0].f1_12[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    900.0,
+    570.0,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row2[0].f1_13[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    900.0,
+    703.4,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row2[0].f1_14[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    900.0,
+    838.4,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row2[0].f1_15[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    900.0,
+    930.0,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row2[0].f1_16[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    900.0,
+    1063.4,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row2[0].f1_17[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    900.0,
+    1200.0,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row2[0].f1_18[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    925.0,
+    358.4,
+    975.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row3[0].f1_19[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    950.0,
+    465.0,
+    975.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row3[0].f1_20[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    950.0,
+    570.0,
+    975.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row3[0].f1_21[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    950.0,
+    703.4,
+    975.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row3[0].f1_22[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    950.0,
+    838.4,
+    975.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row3[0].f1_23[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    950.0,
+    930.0,
+    975.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row3[0].f1_24[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    950.0,
+    1063.4,
+    975.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row3[0].f1_25[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    950.0,
+    1200.0,
+    975.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row3[0].f1_26[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    975.0,
+    358.4,
+    1025.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row4[0].f1_27[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    1000.0,
+    465.0,
+    1025.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row4[0].f1_28[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    1000.0,
+    570.0,
+    1025.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row4[0].f1_29[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    1000.0,
+    703.4,
+    1025.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row4[0].f1_30[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    1000.0,
+    838.4,
+    1025.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row4[0].f1_31[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    1000.0,
+    930.0,
+    1025.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row4[0].f1_32[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    1000.0,
+    1063.4,
+    1025.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row4[0].f1_33[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    1000.0,
+    1200.0,
+    1025.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row4[0].f1_34[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    1025.0,
+    358.4,
+    1075.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row5[0].f1_35[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    1050.0,
+    465.0,
+    1075.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row5[0].f1_36[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    1050.0,
+    570.0,
+    1075.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row5[0].f1_37[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    1050.0,
+    703.4,
+    1075.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row5[0].f1_38[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    1050.0,
+    838.4,
+    1075.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row5[0].f1_39[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    1050.0,
+    930.0,
+    1075.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row5[0].f1_40[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    1050.0,
+    1063.4,
+    1075.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row5[0].f1_41[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    1050.0,
+    1200.0,
+    1075.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row5[0].f1_42[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    1075.0,
+    358.4,
+    1125.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row6[0].f1_43[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    1100.0,
+    465.0,
+    1125.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row6[0].f1_44[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    1100.0,
+    570.0,
+    1125.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row6[0].f1_45[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    1100.0,
+    703.4,
+    1125.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row6[0].f1_46[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    1100.0,
+    838.4,
+    1125.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row6[0].f1_47[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    1100.0,
+    930.0,
+    1125.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row6[0].f1_48[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    1100.0,
+    1063.4,
+    1125.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row6[0].f1_49[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    1100.0,
+    1200.0,
+    1125.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row6[0].f1_50[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    1125.0,
+    358.4,
+    1175.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row7[0].f1_51[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    1150.0,
+    465.0,
+    1175.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row7[0].f1_52[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    1150.0,
+    570.0,
+    1175.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row7[0].f1_53[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    1150.0,
+    703.4,
+    1175.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row7[0].f1_54[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    1150.0,
+    838.4,
+    1175.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row7[0].f1_55[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    1150.0,
+    930.0,
+    1175.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row7[0].f1_56[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    1150.0,
+    1063.4,
+    1175.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row7[0].f1_57[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    1150.0,
+    1200.0,
+    1175.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row7[0].f1_58[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    1175.0,
+    358.4,
+    1225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row8[0].f1_59[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    1200.0,
+    465.0,
+    1225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row8[0].f1_60[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    1200.0,
+    570.0,
+    1225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row8[0].f1_61[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    1200.0,
+    703.4,
+    1225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row8[0].f1_62[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    1200.0,
+    838.4,
+    1225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row8[0].f1_63[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    1200.0,
+    930.0,
+    1225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row8[0].f1_64[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    1200.0,
+    1063.4,
+    1225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row8[0].f1_65[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    1200.0,
+    1200.0,
+    1225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row8[0].f1_66[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    1225.0,
+    358.4,
+    1275.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row9[0].f1_67[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    1250.0,
+    465.0,
+    1275.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row9[0].f1_68[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    1250.0,
+    570.0,
+    1275.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row9[0].f1_69[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    1250.0,
+    703.4,
+    1275.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row9[0].f1_70[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    1250.0,
+    838.4,
+    1275.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row9[0].f1_71[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    1250.0,
+    930.0,
+    1275.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row9[0].f1_72[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    1250.0,
+    1063.4,
+    1275.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row9[0].f1_73[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    1250.0,
+    1200.0,
+    1275.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row9[0].f1_74[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    1275.0,
+    358.4,
+    1325.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row10[0].f1_75[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    1300.0,
+    465.0,
+    1325.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row10[0].f1_76[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    1300.0,
+    570.0,
+    1325.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row10[0].f1_77[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    1300.0,
+    703.4,
+    1325.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row10[0].f1_78[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    1300.0,
+    838.4,
+    1325.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row10[0].f1_79[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    1300.0,
+    930.0,
+    1325.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row10[0].f1_80[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    1300.0,
+    1063.4,
+    1325.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row10[0].f1_81[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    1300.0,
+    1200.0,
+    1325.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row10[0].f1_82[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    75.0,
+    1325.0,
+    358.4,
+    1375.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row11[0].f1_83[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    360.0,
+    1350.0,
+    465.0,
+    1375.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row11[0].f1_84[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    465.0,
+    1350.0,
+    570.0,
+    1375.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row11[0].f1_85[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    1350.0,
+    703.4,
+    1375.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row11[0].f1_86[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    1350.0,
+    838.4,
+    1375.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row11[0].f1_87[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    1350.0,
+    930.0,
+    1375.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row11[0].f1_88[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    1350.0,
+    1063.4,
+    1375.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row11[0].f1_89[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    1350.0,
+    1200.0,
+    1375.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Table_Line1_Part1[0].Row11[0].f1_90[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    570.0,
+    1475.0,
+    703.4,
+    1500.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_91[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    705.0,
+    1475.0,
+    838.4,
+    1500.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_92[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    840.0,
+    1475.0,
+    930.0,
+    1500.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_93[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    930.0,
+    1475.0,
+    1063.4,
+    1500.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_94[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1065.0,
+    1475.0,
+    1200.0,
+    1500.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_95[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  }
+ ],
+ "assets": [],
+ "provenance": {
+  "texts": "pdf_text_layer",
+  "rules": "pdf_vector",
+  "assets": "pdf_vector",
+  "slots": "pdf_widgets"
+ },
+ "counts": {
+  "texts": 79,
+  "values": 0,
+  "rules": 238,
+  "slots": 101,
+  "assets": 0
+ },
+ "reviewed_by_human": false,
+ "source": {
+  "pdf": "https://www.irs.gov/pub/irs-pdf/f8949.pdf",
+  "pdf_sha256": "274513891e4e281d11e14286f14b9df724c24b6030fca0f0681da64fb2e7f525",
+  "page_zero_based": 0,
+  "dpi": 150
+ }
+}

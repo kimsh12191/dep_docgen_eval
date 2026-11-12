@@ -1,0 +1,2439 @@
+{
+ "version": 1,
+ "image": "image.png",
+ "image_sha256": "d24bbf99db356afbf694348c5a0b9a4cf9223b03b7d00dbdd261c980a2e2930f",
+ "width": 1275,
+ "height": 1650,
+ "frame": null,
+ "texts": [
+  {
+   "text": "Form  W-9",
+   "box": [
+    75.0,
+    62.1,
+    200.4,
+    122.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(Rev. March 2024)",
+   "box": [
+    75.0,
+    116.4,
+    193.6,
+    133.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Request for Taxpayer",
+   "box": [
+    498.4,
+    74.0,
+    785.4,
+    108.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Identification Number and Certification",
+   "box": [
+    383.5,
+    105.3,
+    891.5,
+    139.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Department of the Treasury",
+   "box": [
+    75.0,
+    137.4,
+    256.3,
+    154.4
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Internal Revenue Service",
+   "box": [
+    75.0,
+    154.9,
+    235.9,
+    171.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Go to www.irs.gov/FormW9 for instructions and the latest information.",
+   "box": [
+    358.3,
+    145.9,
+    916.7,
+    165.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Give form to the",
+   "box": [
+    1034.6,
+    90.5,
+    1188.7,
+    112.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "requester. Do not",
+   "box": [
+    1034.6,
+    113.0,
+    1196.1,
+    135.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "send to the IRS.",
+   "box": [
+    1034.6,
+    135.5,
+    1176.6,
+    157.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Before you begin. For guidance related to the purpose of Form W-9, see Purpose of Form, below.",
+   "box": [
+    75.0,
+    176.9,
+    808.7,
+    196.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Print or type.",
+   "box": [
+    72.7,
+    406.6,
+    92.6,
+    513.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "See Specific Instructions on page 3.",
+   "box": [
+    92.7,
+    322.2,
+    112.6,
+    602.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "1    Name of entity/individual. An entry is required. (For a sole proprietor or disregarded entity, enter the owner’s name on line 1, and enter the business/disregarded",
+   "box": [
+    128.3,
+    202.4,
+    1197.2,
+    219.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "entity’s name on line 2.)",
+   "box": [
+    153.3,
+    220.3,
+    307.6,
+    237.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "2    Business name/disregarded entity name, if different from above.",
+   "box": [
+    128.3,
+    277.4,
+    570.5,
+    294.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "3a  Check the appropriate box for federal tax classification of the entity/individual whose name is entered on line 1. Check",
+   "box": [
+    128.3,
+    327.4,
+    925.9,
+    344.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "only one of the following seven boxes.",
+   "box": [
+    153.3,
+    344.9,
+    408.3,
+    362.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Individual/sole proprietor",
+   "box": [
+    180.4,
+    375.7,
+    342.5,
+    392.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "C corporation",
+   "box": [
+    403.3,
+    375.7,
+    493.0,
+    392.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "S corporation",
+   "box": [
+    553.3,
+    375.7,
+    641.9,
+    392.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Partnership",
+   "box": [
+    703.3,
+    375.7,
+    778.1,
+    392.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Trust/estate",
+   "box": [
+    838.3,
+    375.7,
+    916.4,
+    392.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "LLC. Enter the tax classification (C = C corporation, S = S corporation, P = Partnership)",
+   "box": [
+    180.0,
+    403.8,
+    751.0,
+    420.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    775.0,
+    403.8,
+    779.1,
+    420.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    800.0,
+    403.8,
+    804.1,
+    420.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    825.0,
+    403.8,
+    829.0,
+    420.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    850.0,
+    403.8,
+    854.0,
+    420.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Note: Check the “LLC” box above and, in the entry space, enter the appropriate code (C, S, or P) for the tax",
+   "box": [
+    180.0,
+    424.1,
+    880.4,
+    441.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "classification of the LLC, unless it is a disregarded entity. A disregarded entity should instead check the appropriate",
+   "box": [
+    180.0,
+    440.5,
+    929.0,
+    457.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "box for the tax classification of its owner.",
+   "box": [
+    180.0,
+    456.7,
+    444.7,
+    473.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Other (see instructions)",
+   "box": [
+    180.0,
+    479.9,
+    334.8,
+    496.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "3b If on line 3a you checked “Partnership” or “Trust/estate,” or checked “LLC” and entered “P” as its tax classification,",
+   "box": [
+    128.3,
+    513.3,
+    908.5,
+    530.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "and you are providing this form to a partnership, trust, or estate in which you have an ownership interest, check",
+   "box": [
+    153.3,
+    531.1,
+    908.7,
+    548.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "this box if you have any foreign partners, owners, or beneficiaries. See instructions .",
+   "box": [
+    153.4,
+    548.6,
+    704.1,
+    565.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    725.1,
+    548.6,
+    729.1,
+    565.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    750.1,
+    548.6,
+    754.1,
+    565.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    775.1,
+    548.6,
+    779.1,
+    565.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    800.0,
+    548.6,
+    804.1,
+    565.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    825.0,
+    548.6,
+    829.1,
+    565.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    850.0,
+    548.6,
+    854.1,
+    565.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    875.0,
+    548.6,
+    879.1,
+    565.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": ".",
+   "box": [
+    900.0,
+    548.6,
+    904.1,
+    565.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "4  Exemptions (codes apply only to",
+   "box": [
+    953.3,
+    329.5,
+    1186.2,
+    346.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "certain entities, not individuals;",
+   "box": [
+    970.0,
+    347.4,
+    1175.3,
+    364.4
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "see instructions on page 3):",
+   "box": [
+    970.0,
+    364.9,
+    1149.9,
+    381.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Exempt payee code (if any)",
+   "box": [
+    953.3,
+    401.7,
+    1124.7,
+    418.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Exemption from Foreign Account Tax",
+   "box": [
+    953.3,
+    439.5,
+    1200.5,
+    456.5
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Compliance Act (FATCA) reporting",
+   "box": [
+    953.3,
+    457.0,
+    1182.1,
+    474.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "code (if any)",
+   "box": [
+    950.2,
+    475.7,
+    1033.4,
+    492.7
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "(Applies to accounts maintained",
+   "box": [
+    968.5,
+    522.7,
+    1180.6,
+    539.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "outside the United States.)",
+   "box": [
+    986.3,
+    540.2,
+    1158.7,
+    557.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "5    Address (number, street, and apt. or suite no.). See instructions.",
+   "box": [
+    128.3,
+    577.4,
+    569.2,
+    594.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "6    City, state, and ZIP code",
+   "box": [
+    128.3,
+    627.4,
+    314.2,
+    644.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Requester’s name and address (optional)",
+   "box": [
+    818.3,
+    577.8,
+    1086.0,
+    594.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "7    List account number(s) here (optional)",
+   "box": [
+    128.3,
+    677.4,
+    398.2,
+    694.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Part I",
+   "box": [
+    85.9,
+    723.7,
+    139.1,
+    748.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Taxpayer Identification Number (TIN)",
+   "box": [
+    180.0,
+    723.7,
+    544.8,
+    748.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Enter your TIN in the appropriate box. The TIN provided must match the name given on line 1 to avoid",
+   "box": [
+    75.0,
+    757.7,
+    837.5,
+    777.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "backup withholding. For individuals, this is generally your social security number (SSN). However, for a",
+   "box": [
+    75.0,
+    777.7,
+    842.0,
+    797.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "resident alien, sole proprietor, or disregarded entity, see the instructions for Part I, later. For other",
+   "box": [
+    75.0,
+    797.7,
+    802.5,
+    817.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "entities, it is your employer identification number (EIN). If you do not have a number, see How to get a",
+   "box": [
+    75.0,
+    817.6,
+    834.4,
+    837.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "TIN, later.",
+   "box": [
+    75.0,
+    837.6,
+    147.2,
+    857.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Note: If the account is in more than one name, see the instructions for line 1. See also What Name and",
+   "box": [
+    75.0,
+    871.2,
+    842.8,
+    891.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Number To Give the Requester for guidelines on whose number to enter.",
+   "box": [
+    75.0,
+    891.5,
+    615.5,
+    911.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Social security number",
+   "box": [
+    878.3,
+    750.4,
+    1037.9,
+    767.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "–",
+   "box": [
+    970.8,
+    789.4,
+    979.2,
+    809.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "–",
+   "box": [
+    1060.8,
+    789.4,
+    1069.2,
+    809.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "or",
+   "box": [
+    870.0,
+    824.3,
+    888.8,
+    846.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Employer identification number",
+   "box": [
+    878.3,
+    850.4,
+    1100.2,
+    867.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "–",
+   "box": [
+    940.8,
+    889.4,
+    949.2,
+    909.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Part II",
+   "box": [
+    82.8,
+    923.7,
+    142.2,
+    948.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Certification",
+   "box": [
+    180.0,
+    923.7,
+    302.2,
+    948.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Under penalties of perjury, I certify that:",
+   "box": [
+    75.0,
+    954.4,
+    369.2,
+    973.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "1. The number shown on this form is my correct taxpayer identification number (or I am waiting for a number to be issued to me); and",
+   "box": [
+    75.0,
+    979.4,
+    1065.7,
+    998.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "2. I am not subject to backup withholding because (a) I am exempt from backup withholding, or (b) I have not been notified by the Internal Revenue",
+   "box": [
+    75.0,
+    1001.9,
+    1172.5,
+    1021.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Service (IRS) that I am subject to backup withholding as a result of a failure to report all interest or dividends, or (c) the IRS has notified me that I am",
+   "box": [
+    93.8,
+    1021.9,
+    1197.0,
+    1041.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "no longer subject to backup withholding; and",
+   "box": [
+    93.8,
+    1041.9,
+    430.3,
+    1061.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "3. I am a U.S. citizen or other U.S. person (defined below); and",
+   "box": [
+    75.0,
+    1066.9,
+    539.9,
+    1086.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "4. The FATCA code(s) entered on this form (if any) indicating that I am exempt from FATCA reporting is correct.",
+   "box": [
+    75.0,
+    1091.9,
+    900.1,
+    1111.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Certification instructions. You must cross out item 2 above if you have been notified by the IRS that you are currently subject to backup withholding",
+   "box": [
+    75.0,
+    1117.9,
+    1147.7,
+    1137.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "because you have failed to report all interest and dividends on your tax return. For real estate transactions, item 2 does not apply. For mortgage interest paid,",
+   "box": [
+    75.0,
+    1137.9,
+    1202.9,
+    1157.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "acquisition or abandonment of secured property, cancellation of debt, contributions to an individual retirement arrangement (IRA), and, generally, payments",
+   "box": [
+    75.0,
+    1157.9,
+    1188.4,
+    1177.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "other than interest and dividends, you are not required to sign the certification, but you must provide your correct TIN. See the instructions for Part II, later.",
+   "box": [
+    75.0,
+    1177.9,
+    1177.7,
+    1197.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Sign",
+   "box": [
+    75.0,
+    1201.3,
+    124.8,
+    1226.2
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Here",
+   "box": [
+    75.0,
+    1222.2,
+    122.5,
+    1247.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Signature of",
+   "box": [
+    158.3,
+    1209.9,
+    247.2,
+    1227.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "U.S. person",
+   "box": [
+    158.3,
+    1227.4,
+    239.1,
+    1244.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Date",
+   "box": [
+    803.3,
+    1227.4,
+    836.0,
+    1244.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "General Instructions",
+   "box": [
+    75.0,
+    1263.2,
+    357.4,
+    1298.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Section references are to the Internal Revenue Code unless otherwise",
+   "box": [
+    75.0,
+    1304.4,
+    598.8,
+    1323.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "noted.",
+   "box": [
+    75.0,
+    1323.1,
+    122.6,
+    1342.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Future developments. For the latest information about developments",
+   "box": [
+    75.0,
+    1347.7,
+    601.0,
+    1367.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "related to Form W-9 and its instructions, such as legislation enacted",
+   "box": [
+    75.0,
+    1366.9,
+    586.5,
+    1386.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "after they were published, go to www.irs.gov/FormW9.",
+   "box": [
+    75.0,
+    1385.5,
+    481.2,
+    1405.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "What’s New",
+   "box": [
+    75.0,
+    1414.3,
+    217.1,
+    1444.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Line 3a has been modified to clarify how a disregarded entity completes",
+   "box": [
+    75.0,
+    1450.2,
+    615.5,
+    1469.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "this line. An LLC that is a disregarded entity should check the",
+   "box": [
+    75.0,
+    1469.0,
+    535.9,
+    1488.4
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "appropriate box for the tax classification of its owner. Otherwise, it",
+   "box": [
+    75.0,
+    1487.7,
+    574.1,
+    1507.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "should check the “LLC” box and enter its appropriate tax classification.",
+   "box": [
+    75.0,
+    1506.5,
+    605.7,
+    1525.9
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "New line 3b has been added to this form. A flow-through entity is",
+   "box": [
+    676.7,
+    1266.9,
+    1165.3,
+    1286.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "required to complete this line to indicate that it has direct or indirect",
+   "box": [
+    660.0,
+    1285.6,
+    1168.7,
+    1305.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "foreign partners, owners, or beneficiaries when it provides the Form W-9",
+   "box": [
+    660.0,
+    1304.4,
+    1203.5,
+    1323.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "to another flow-through entity in which it has an ownership interest. This",
+   "box": [
+    660.0,
+    1323.1,
+    1201.4,
+    1342.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "change is intended to provide a flow-through entity with information",
+   "box": [
+    660.0,
+    1341.9,
+    1168.7,
+    1361.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "regarding the status of its indirect foreign partners, owners, or",
+   "box": [
+    660.0,
+    1360.6,
+    1125.1,
+    1380.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "beneficiaries, so that it can satisfy any applicable reporting",
+   "box": [
+    660.0,
+    1379.4,
+    1101.1,
+    1398.8
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "requirements. For example, a partnership that has any indirect foreign",
+   "box": [
+    660.0,
+    1398.1,
+    1183.6,
+    1417.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "partners may be required to complete Schedules K-2 and K-3. See the",
+   "box": [
+    660.0,
+    1416.9,
+    1190.4,
+    1436.3
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Partnership Instructions for Schedules K-2 and K-3 (Form 1065).",
+   "box": [
+    660.0,
+    1435.6,
+    1138.8,
+    1455.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Purpose of Form",
+   "box": [
+    660.0,
+    1464.3,
+    859.5,
+    1494.1
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "An individual or entity (Form W-9 requester) who is required to file an",
+   "box": [
+    660.0,
+    1500.2,
+    1175.5,
+    1519.6
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "information return with the IRS is giving you this form because they",
+   "box": [
+    660.0,
+    1519.0,
+    1158.9,
+    1538.4
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Cat. No. 10231X",
+   "box": [
+    493.7,
+    1556.9,
+    601.3,
+    1574.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Form W-9 (Rev. 3-2024)",
+   "box": [
+    1031.1,
+    1550.8,
+    1200.0,
+    1575.7
+   ],
+   "role": "fixed",
+   "key": null
+  }
+ ],
+ "rules": [
+  [
+   255.0,
+   74.5,
+   255.0,
+   117.2
+  ],
+  [
+   255.0,
+   116.1,
+   255.0,
+   138.0
+  ],
+  [
+   74.5,
+   175.0,
+   256.0,
+   175.0
+  ],
+  [
+   255.0,
+   137.0,
+   255.0,
+   176.0
+  ],
+  [
+   254.5,
+   175.0,
+   1020.5,
+   175.0
+  ],
+  [
+   1019.0,
+   175.0,
+   1200.5,
+   175.0
+  ],
+  [
+   1020.0,
+   74.5,
+   1020.0,
+   176.0
+  ],
+  [
+   74.5,
+   200.0,
+   1200.5,
+   200.0
+  ],
+  [
+   120.0,
+   199.5,
+   120.0,
+   725.5
+  ],
+  [
+   119.5,
+   275.0,
+   1200.5,
+   275.0
+  ],
+  [
+   119.5,
+   325.0,
+   1200.5,
+   325.0
+  ],
+  [
+   152.1,
+   375.5,
+   168.8,
+   375.5
+  ],
+  [
+   152.1,
+   392.2,
+   168.8,
+   392.2
+  ],
+  [
+   152.1,
+   375.5,
+   152.1,
+   392.2
+  ],
+  [
+   168.8,
+   375.5,
+   168.8,
+   392.2
+  ],
+  [
+   375.0,
+   375.5,
+   391.7,
+   375.5
+  ],
+  [
+   375.0,
+   392.2,
+   391.7,
+   392.2
+  ],
+  [
+   375.0,
+   375.5,
+   375.0,
+   392.2
+  ],
+  [
+   391.7,
+   375.5,
+   391.7,
+   392.2
+  ],
+  [
+   525.0,
+   375.5,
+   541.7,
+   375.5
+  ],
+  [
+   525.0,
+   392.2,
+   541.7,
+   392.2
+  ],
+  [
+   525.0,
+   375.5,
+   525.0,
+   392.2
+  ],
+  [
+   541.7,
+   375.5,
+   541.7,
+   392.2
+  ],
+  [
+   675.0,
+   375.5,
+   691.7,
+   375.5
+  ],
+  [
+   675.0,
+   392.2,
+   691.7,
+   392.2
+  ],
+  [
+   675.0,
+   375.5,
+   675.0,
+   392.2
+  ],
+  [
+   691.7,
+   375.5,
+   691.7,
+   392.2
+  ],
+  [
+   810.0,
+   375.5,
+   826.7,
+   375.5
+  ],
+  [
+   810.0,
+   392.2,
+   826.7,
+   392.2
+  ],
+  [
+   810.0,
+   375.5,
+   810.0,
+   392.2
+  ],
+  [
+   826.7,
+   375.5,
+   826.7,
+   392.2
+  ],
+  [
+   152.1,
+   403.1,
+   168.7,
+   403.1
+  ],
+  [
+   152.1,
+   419.8,
+   168.7,
+   419.8
+  ],
+  [
+   152.1,
+   403.1,
+   152.1,
+   419.8
+  ],
+  [
+   168.7,
+   403.1,
+   168.7,
+   419.8
+  ],
+  [
+   869.5,
+   422.9,
+   930.5,
+   422.9
+  ],
+  [
+   152.1,
+   479.2,
+   168.7,
+   479.2
+  ],
+  [
+   152.1,
+   495.8,
+   168.7,
+   495.8
+  ],
+  [
+   152.1,
+   479.2,
+   152.1,
+   495.8
+  ],
+  [
+   168.7,
+   479.2,
+   168.7,
+   495.8
+  ],
+  [
+   337.8,
+   500.0,
+   930.5,
+   500.0
+  ],
+  [
+   119.5,
+   506.2,
+   915.5,
+   506.2
+  ],
+  [
+   914.5,
+   506.2,
+   945.5,
+   506.2
+  ],
+  [
+   917.9,
+   547.9,
+   934.6,
+   547.9
+  ],
+  [
+   917.9,
+   564.6,
+   934.6,
+   564.6
+  ],
+  [
+   917.9,
+   547.9,
+   917.9,
+   564.6
+  ],
+  [
+   934.6,
+   547.9,
+   934.6,
+   564.6
+  ],
+  [
+   945.0,
+   324.5,
+   945.0,
+   400.5
+  ],
+  [
+   945.0,
+   399.5,
+   945.0,
+   425.5
+  ],
+  [
+   1132.0,
+   425.0,
+   1200.5,
+   425.0
+  ],
+  [
+   945.0,
+   424.5,
+   945.0,
+   475.5
+  ],
+  [
+   945.0,
+   474.5,
+   945.0,
+   500.5
+  ],
+  [
+   1042.4,
+   500.0,
+   1200.5,
+   500.0
+  ],
+  [
+   945.0,
+   499.5,
+   945.0,
+   575.5
+  ],
+  [
+   119.5,
+   575.0,
+   810.5,
+   575.0
+  ],
+  [
+   119.5,
+   625.0,
+   810.5,
+   625.0
+  ],
+  [
+   119.5,
+   675.0,
+   810.5,
+   675.0
+  ],
+  [
+   809.5,
+   575.0,
+   1200.5,
+   575.0
+  ],
+  [
+   809.5,
+   675.0,
+   1200.5,
+   675.0
+  ],
+  [
+   810.0,
+   574.5,
+   810.0,
+   675.5
+  ],
+  [
+   74.5,
+   725.0,
+   1200.5,
+   725.0
+  ],
+  [
+   74.5,
+   750.0,
+   1200.5,
+   750.0
+  ],
+  [
+   870.0,
+   750.0,
+   1200.0,
+   750.0
+  ],
+  [
+   870.0,
+   770.8,
+   1200.0,
+   770.8
+  ],
+  [
+   870.0,
+   750.0,
+   870.0,
+   770.8
+  ],
+  [
+   1200.0,
+   750.0,
+   1200.0,
+   770.8
+  ],
+  [
+   870.0,
+   775.0,
+   900.0,
+   775.0
+  ],
+  [
+   870.0,
+   825.0,
+   900.0,
+   825.0
+  ],
+  [
+   870.0,
+   775.0,
+   870.0,
+   825.0
+  ],
+  [
+   900.0,
+   775.0,
+   900.0,
+   825.0
+  ],
+  [
+   900.0,
+   775.0,
+   930.0,
+   775.0
+  ],
+  [
+   900.0,
+   825.0,
+   930.0,
+   825.0
+  ],
+  [
+   930.0,
+   775.0,
+   930.0,
+   825.0
+  ],
+  [
+   930.0,
+   775.0,
+   960.0,
+   775.0
+  ],
+  [
+   930.0,
+   825.0,
+   960.0,
+   825.0
+  ],
+  [
+   960.0,
+   775.0,
+   960.0,
+   825.0
+  ],
+  [
+   990.0,
+   775.0,
+   1020.0,
+   775.0
+  ],
+  [
+   990.0,
+   825.0,
+   1020.0,
+   825.0
+  ],
+  [
+   990.0,
+   775.0,
+   990.0,
+   825.0
+  ],
+  [
+   1020.0,
+   775.0,
+   1020.0,
+   825.0
+  ],
+  [
+   1020.0,
+   775.0,
+   1050.0,
+   775.0
+  ],
+  [
+   1020.0,
+   825.0,
+   1050.0,
+   825.0
+  ],
+  [
+   1050.0,
+   775.0,
+   1050.0,
+   825.0
+  ],
+  [
+   1080.0,
+   775.0,
+   1110.0,
+   775.0
+  ],
+  [
+   1080.0,
+   825.0,
+   1110.0,
+   825.0
+  ],
+  [
+   1080.0,
+   775.0,
+   1080.0,
+   825.0
+  ],
+  [
+   1110.0,
+   775.0,
+   1110.0,
+   825.0
+  ],
+  [
+   1110.0,
+   775.0,
+   1140.0,
+   775.0
+  ],
+  [
+   1110.0,
+   825.0,
+   1140.0,
+   825.0
+  ],
+  [
+   1140.0,
+   775.0,
+   1140.0,
+   825.0
+  ],
+  [
+   1140.0,
+   775.0,
+   1170.0,
+   775.0
+  ],
+  [
+   1140.0,
+   825.0,
+   1170.0,
+   825.0
+  ],
+  [
+   1170.0,
+   775.0,
+   1170.0,
+   825.0
+  ],
+  [
+   1170.0,
+   775.0,
+   1200.0,
+   775.0
+  ],
+  [
+   1170.0,
+   825.0,
+   1200.0,
+   825.0
+  ],
+  [
+   1200.0,
+   775.0,
+   1200.0,
+   825.0
+  ],
+  [
+   870.0,
+   850.0,
+   1170.0,
+   850.0
+  ],
+  [
+   870.0,
+   870.8,
+   1170.0,
+   870.8
+  ],
+  [
+   870.0,
+   850.0,
+   870.0,
+   870.8
+  ],
+  [
+   1170.0,
+   850.0,
+   1170.0,
+   870.8
+  ],
+  [
+   870.0,
+   875.0,
+   900.0,
+   875.0
+  ],
+  [
+   870.0,
+   925.0,
+   900.0,
+   925.0
+  ],
+  [
+   870.0,
+   875.0,
+   870.0,
+   925.0
+  ],
+  [
+   900.0,
+   875.0,
+   900.0,
+   925.0
+  ],
+  [
+   900.0,
+   875.0,
+   930.0,
+   875.0
+  ],
+  [
+   900.0,
+   925.0,
+   930.0,
+   925.0
+  ],
+  [
+   930.0,
+   875.0,
+   930.0,
+   925.0
+  ],
+  [
+   960.0,
+   875.0,
+   990.0,
+   875.0
+  ],
+  [
+   960.0,
+   925.0,
+   990.0,
+   925.0
+  ],
+  [
+   960.0,
+   875.0,
+   960.0,
+   925.0
+  ],
+  [
+   990.0,
+   875.0,
+   990.0,
+   925.0
+  ],
+  [
+   990.0,
+   875.0,
+   1020.0,
+   875.0
+  ],
+  [
+   990.0,
+   925.0,
+   1020.0,
+   925.0
+  ],
+  [
+   1020.0,
+   875.0,
+   1020.0,
+   925.0
+  ],
+  [
+   1020.0,
+   875.0,
+   1050.0,
+   875.0
+  ],
+  [
+   1020.0,
+   925.0,
+   1050.0,
+   925.0
+  ],
+  [
+   1050.0,
+   875.0,
+   1050.0,
+   925.0
+  ],
+  [
+   1050.0,
+   875.0,
+   1080.0,
+   875.0
+  ],
+  [
+   1050.0,
+   925.0,
+   1080.0,
+   925.0
+  ],
+  [
+   1080.0,
+   875.0,
+   1080.0,
+   925.0
+  ],
+  [
+   1080.0,
+   875.0,
+   1110.0,
+   875.0
+  ],
+  [
+   1080.0,
+   925.0,
+   1110.0,
+   925.0
+  ],
+  [
+   1110.0,
+   875.0,
+   1110.0,
+   925.0
+  ],
+  [
+   1110.0,
+   875.0,
+   1140.0,
+   875.0
+  ],
+  [
+   1110.0,
+   925.0,
+   1140.0,
+   925.0
+  ],
+  [
+   1140.0,
+   875.0,
+   1140.0,
+   925.0
+  ],
+  [
+   1140.0,
+   875.0,
+   1170.0,
+   875.0
+  ],
+  [
+   1140.0,
+   925.0,
+   1170.0,
+   925.0
+  ],
+  [
+   1170.0,
+   875.0,
+   1170.0,
+   925.0
+  ],
+  [
+   74.5,
+   925.0,
+   1200.5,
+   925.0
+  ],
+  [
+   74.5,
+   950.0,
+   1200.5,
+   950.0
+  ],
+  [
+   74.5,
+   1200.0,
+   150.5,
+   1200.0
+  ],
+  [
+   74.5,
+   1250.0,
+   150.5,
+   1250.0
+  ],
+  [
+   149.5,
+   1200.0,
+   795.5,
+   1200.0
+  ],
+  [
+   149.5,
+   1250.0,
+   795.5,
+   1250.0
+  ],
+  [
+   150.0,
+   1199.5,
+   150.0,
+   1250.8
+  ],
+  [
+   794.5,
+   1200.0,
+   1200.5,
+   1200.0
+  ],
+  [
+   794.5,
+   1250.0,
+   1200.5,
+   1250.0
+  ],
+  [
+   74.5,
+   1550.0,
+   1020.5,
+   1550.0
+  ],
+  [
+   1019.5,
+   1550.0,
+   1200.5,
+   1550.0
+  ]
+ ],
+ "slots": [
+  {
+   "box": [
+    122.1,
+    245.8,
+    1200.0,
+    275.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_01[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    122.1,
+    295.8,
+    1200.0,
+    325.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_02[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    152.1,
+    375.5,
+    168.8,
+    392.2
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].c1_1[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    375.0,
+    375.5,
+    391.7,
+    392.2
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].c1_1[1]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    525.0,
+    375.5,
+    541.7,
+    392.2
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].c1_1[2]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    675.0,
+    375.5,
+    691.7,
+    392.2
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].c1_1[3]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    810.0,
+    375.5,
+    826.7,
+    392.2
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].c1_1[4]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    152.1,
+    403.1,
+    168.7,
+    419.8
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].c1_1[5]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    870.0,
+    400.0,
+    930.0,
+    422.9
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].f1_03[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    152.1,
+    479.2,
+    168.7,
+    495.8
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].c1_1[6]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    338.3,
+    475.0,
+    930.0,
+    500.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].f1_04[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    917.9,
+    547.9,
+    934.6,
+    564.6
+   ],
+   "kind": "check",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Boxes3a-b_ReadOrder[0].c1_2[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1132.5,
+    400.0,
+    1200.0,
+    425.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_05[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1042.9,
+    475.0,
+    1200.0,
+    500.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_06[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    122.1,
+    595.8,
+    808.4,
+    625.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_07[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    122.1,
+    645.8,
+    808.4,
+    675.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_08[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    812.1,
+    595.8,
+    1200.0,
+    675.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_09[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    122.1,
+    695.8,
+    1200.0,
+    725.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_10[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    870.0,
+    775.0,
+    960.0,
+    825.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_11[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    990.0,
+    775.0,
+    1050.0,
+    825.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_12[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    1080.0,
+    775.0,
+    1200.0,
+    825.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_13[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    870.0,
+    875.0,
+    930.0,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_14[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  },
+  {
+   "box": [
+    960.0,
+    875.0,
+    1170.0,
+    925.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "topmostSubform[0].Page1[0].f1_15[0]",
+   "filled": false,
+   "source": "pdf_widgets"
+  }
+ ],
+ "assets": [],
+ "provenance": {
+  "texts": "pdf_text_layer",
+  "rules": "pdf_vector",
+  "assets": "pdf_vector",
+  "slots": "pdf_widgets"
+ },
+ "counts": {
+  "texts": 115,
+  "values": 0,
+  "rules": 140,
+  "slots": 23,
+  "assets": 0
+ },
+ "reviewed_by_human": false,
+ "source": {
+  "pdf": "https://www.irs.gov/pub/irs-pdf/fw9.pdf",
+  "pdf_sha256": "2d420cbb4123dcf1fb82595b2359cfbb5d81f00b9df9d359fcc7af361d093f53",
+  "page_zero_based": 0,
+  "dpi": 150
+ }
+}

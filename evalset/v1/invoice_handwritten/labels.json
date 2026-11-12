@@ -1,0 +1,738 @@
+{
+ "version": 1,
+ "image": "image.jpg",
+ "image_sha256": "d512e92915d24955ee838bd8c84b7cdfab8bd00ac405237bc179df4c8d23d494",
+ "width": 1654,
+ "height": 2339,
+ "frame": null,
+ "texts": [
+  {
+   "text": "Kafue Office Supplies Limited",
+   "box": [
+    105.0,
+    125.0,
+    663.0,
+    162.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "CASH INVOICE",
+   "box": [
+    1171.0,
+    123.0,
+    1547.0,
+    162.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "168 Obote Avenue",
+   "box": [
+    105.0,
+    173.0,
+    306.0,
+    199.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "No.:",
+   "box": [
+    1165.0,
+    194.0,
+    1221.0,
+    227.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "3738",
+   "box": [
+    1476.0,
+    197.0,
+    1548.0,
+    225.0
+   ],
+   "role": "value",
+   "key": "invoice_no"
+  },
+  {
+   "text": "Kitwe, 10101",
+   "box": [
+    105.0,
+    204.0,
+    245.0,
+    228.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Tel +260 18 555 149 | billing@kafueofficesupplie.co.zm",
+   "box": [
+    103.0,
+    232.0,
+    687.0,
+    259.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Date:",
+   "box": [
+    1157.0,
+    230.0,
+    1219.0,
+    255.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "29/10/2025",
+   "box": [
+    1391.0,
+    225.0,
+    1549.0,
+    257.0
+   ],
+   "role": "value",
+   "key": "invoice_date"
+  },
+  {
+   "text": "28/11/2025",
+   "box": [
+    1390.0,
+    256.0,
+    1544.0,
+    291.0
+   ],
+   "role": "value",
+   "key": "due_date"
+  },
+  {
+   "text": "TPIN: 1071880273",
+   "box": [
+    105.0,
+    263.0,
+    306.0,
+    286.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Due Date:",
+   "box": [
+    1107.0,
+    263.0,
+    1218.0,
+    287.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "BILL TO",
+   "box": [
+    105.0,
+    345.0,
+    205.0,
+    372.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Luangwa Security Services Limited",
+   "box": [
+    103.0,
+    376.0,
+    610.0,
+    410.0
+   ],
+   "role": "value",
+   "key": "customer_name"
+  },
+  {
+   "text": "281 Kafue Road",
+   "box": [
+    106.0,
+    410.0,
+    330.0,
+    440.0
+   ],
+   "role": "value",
+   "key": "customer_address"
+  },
+  {
+   "text": "Lusaka, 10101",
+   "box": [
+    105.0,
+    438.0,
+    310.0,
+    476.0
+   ],
+   "role": "value",
+   "key": "customer_address"
+  },
+  {
+   "text": "TPIN:",
+   "box": [
+    105.0,
+    472.0,
+    190.7,
+    498.0
+   ],
+   "role": "fixed",
+   "key": null,
+   "box_estimated": true
+  },
+  {
+   "text": "1016538403",
+   "box": [
+    190.7,
+    472.0,
+    362.0,
+    498.0
+   ],
+   "role": "value",
+   "key": "customer_tpin",
+   "box_estimated": true
+  },
+  {
+   "text": "Description",
+   "box": [
+    116.0,
+    568.0,
+    245.0,
+    592.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Qty",
+   "box": [
+    1049.0,
+    566.0,
+    1094.0,
+    597.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Unit Price",
+   "box": [
+    1195.0,
+    565.0,
+    1305.0,
+    592.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Amount",
+   "box": [
+    1447.0,
+    566.0,
+    1541.0,
+    593.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Stretch wrap film 500mm x 300m",
+   "box": [
+    114.0,
+    603.0,
+    575.0,
+    649.0
+   ],
+   "role": "value",
+   "key": "items.0.description"
+  },
+  {
+   "text": "21",
+   "box": [
+    1052.0,
+    606.0,
+    1095.0,
+    643.0
+   ],
+   "role": "value",
+   "key": "items.0.qty"
+  },
+  {
+   "text": "2,875.11",
+   "box": [
+    1416.0,
+    603.0,
+    1546.0,
+    637.0
+   ],
+   "role": "value",
+   "key": "items.0.amount"
+  },
+  {
+   "text": "136.91",
+   "box": [
+    1208.0,
+    607.0,
+    1309.0,
+    641.0
+   ],
+   "role": "value",
+   "key": "items.0.unit_price"
+  },
+  {
+   "text": "Ratchet straps 50mm x 9m (4)",
+   "box": [
+    111.0,
+    656.0,
+    529.0,
+    701.0
+   ],
+   "role": "value",
+   "key": "items.1.description"
+  },
+  {
+   "role": "value",
+   "key": "items.1.qty",
+   "text": "2",
+   "box": [
+    1060.0,
+    660.0,
+    1095.0,
+    697.0
+   ],
+   "box_estimated": true
+  },
+  {
+   "text": "391.76",
+   "box": [
+    1208.0,
+    659.0,
+    1304.0,
+    695.0
+   ],
+   "role": "value",
+   "key": "items.1.unit_price"
+  },
+  {
+   "text": "783.52",
+   "box": [
+    1437.0,
+    657.0,
+    1542.0,
+    695.0
+   ],
+   "role": "value",
+   "key": "items.1.amount"
+  },
+  {
+   "text": "K 3,658.63",
+   "box": [
+    1392.0,
+    747.0,
+    1560.0,
+    784.0
+   ],
+   "role": "value",
+   "key": "subtotal"
+  },
+  {
+   "text": "Subtotal",
+   "box": [
+    1078.0,
+    753.0,
+    1175.0,
+    780.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "VAT 16%",
+   "box": [
+    1064.0,
+    797.0,
+    1175.0,
+    824.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "K 585.38",
+   "box": [
+    1418.0,
+    794.0,
+    1555.0,
+    825.0
+   ],
+   "role": "value",
+   "key": "vat"
+  },
+  {
+   "text": "TOTAL",
+   "box": [
+    1072.0,
+    849.0,
+    1176.0,
+    882.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "K 4,244.01",
+   "box": [
+    1372.0,
+    849.0,
+    1545.0,
+    882.0
+   ],
+   "role": "value",
+   "key": "total"
+  },
+  {
+   "text": "Page 1 of 1",
+   "box": [
+    1439.0,
+    2271.0,
+    1553.0,
+    2295.0
+   ],
+   "role": "fixed",
+   "key": null
+  }
+ ],
+ "rules": [
+  [
+   105.0,
+   552.0,
+   105.0,
+   706.0
+  ],
+  [
+   971.0,
+   552.0,
+   971.0,
+   706.0
+  ],
+  [
+   1100.0,
+   552.0,
+   1100.0,
+   706.0
+  ],
+  [
+   1317.0,
+   552.0,
+   1317.0,
+   706.0
+  ],
+  [
+   1547.0,
+   552.0,
+   1547.0,
+   706.0
+  ],
+  [
+   105.0,
+   552.0,
+   1548.0,
+   553.0
+  ],
+  [
+   105.0,
+   599.0,
+   1548.0,
+   600.0
+  ],
+  [
+   105.0,
+   652.0,
+   1548.0,
+   652.0
+  ],
+  [
+   105.0,
+   705.0,
+   1548.0,
+   705.0
+  ],
+  [
+   1006.0,
+   836.0,
+   1548.0,
+   837.0
+  ]
+ ],
+ "slots": [
+  {
+   "box": [
+    1476.0,
+    197.0,
+    1548.0,
+    225.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "invoice_no",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1391.0,
+    225.0,
+    1549.0,
+    257.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "invoice_date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1390.0,
+    256.0,
+    1544.0,
+    291.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "due_date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    103.0,
+    376.0,
+    610.0,
+    410.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "customer_name",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    106.0,
+    410.0,
+    330.0,
+    440.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "customer_address",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    105.0,
+    438.0,
+    310.0,
+    476.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "customer_address",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    190.7,
+    472.0,
+    362.0,
+    498.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "customer_tpin",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    114.0,
+    603.0,
+    575.0,
+    649.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.0.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1052.0,
+    606.0,
+    1095.0,
+    643.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.0.qty",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1416.0,
+    603.0,
+    1546.0,
+    637.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.0.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1208.0,
+    607.0,
+    1309.0,
+    641.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.0.unit_price",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    111.0,
+    656.0,
+    529.0,
+    701.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.1.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1060.0,
+    660.0,
+    1095.0,
+    697.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.1.qty",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1208.0,
+    659.0,
+    1304.0,
+    695.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.1.unit_price",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1437.0,
+    657.0,
+    1542.0,
+    695.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.1.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1392.0,
+    747.0,
+    1560.0,
+    784.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "subtotal",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1418.0,
+    794.0,
+    1555.0,
+    825.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "vat",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1372.0,
+    849.0,
+    1545.0,
+    882.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "total",
+   "filled": true,
+   "source": "value_text"
+  }
+ ],
+ "assets": [],
+ "provenance": {
+  "texts": "ocr(위치)+기준 꾸러미·수기(글자·역할)",
+  "rules": "image_lines",
+  "assets": "manual",
+  "slots": "값 글자 위치 (빈 기재란은 모름)"
+ },
+ "counts": {
+  "texts": 37,
+  "values": 18,
+  "rules": 10,
+  "slots": 18,
+  "assets": 0
+ },
+ "reviewed_by_human": false,
+ "source": {
+  "ocr": "rapidocr_onnxruntime 1.2.3 (기본 모델)",
+  "text_from": "evalset 기준 꾸러미(reference/)의 같은 줄 + /home/user/docgen_eval/tools/labels_manual/invoice_handwritten.json",
+  "unverified": []
+ }
+}

@@ -1,0 +1,4282 @@
+{
+ "version": 1,
+ "image": "image.jpg",
+ "image_sha256": "7a156e08b28a9b21e759c11fa677d3aec3c35abee1b53dc9395412e97dec84ee",
+ "width": 1103,
+ "height": 1599,
+ "frame": null,
+ "texts": [
+  {
+   "text": "Date",
+   "box": [
+    22.0,
+    24.0,
+    60.0,
+    43.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Transaction History",
+   "box": [
+    172.0,
+    22.0,
+    317.0,
+    44.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Ref ID",
+   "box": [
+    631.0,
+    22.0,
+    681.0,
+    44.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Transacted",
+   "box": [
+    792.0,
+    23.0,
+    879.0,
+    44.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Running Balance",
+   "box": [
+    943.0,
+    23.0,
+    1070.0,
+    43.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Amount",
+   "box": [
+    792.0,
+    45.0,
+    857.0,
+    66.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Direct Debit Bill Payment Authorized to SCHWARTZ, MARTIN",
+   "box": [
+    172.0,
+    78.0,
+    591.0,
+    99.0
+   ],
+   "role": "value",
+   "key": "transactions.0.description"
+  },
+  {
+   "text": "07-Jan-2026",
+   "box": [
+    22.0,
+    79.0,
+    112.0,
+    99.0
+   ],
+   "role": "value",
+   "key": "transactions.0.date"
+  },
+  {
+   "text": "TXN391065",
+   "box": [
+    633.0,
+    79.0,
+    718.0,
+    99.0
+   ],
+   "role": "value",
+   "key": "transactions.0.ref_id"
+  },
+  {
+   "text": "+697.97",
+   "box": [
+    792.0,
+    79.0,
+    853.0,
+    100.0
+   ],
+   "role": "value",
+   "key": "transactions.0.amount"
+  },
+  {
+   "text": "15,183.77",
+   "box": [
+    943.0,
+    79.0,
+    1015.0,
+    100.0
+   ],
+   "role": "value",
+   "key": "transactions.0.balance"
+  },
+  {
+   "text": "AND MYERS Utility Account Ref: 724379286",
+   "box": [
+    173.0,
+    101.0,
+    474.0,
+    118.0
+   ],
+   "role": "value",
+   "key": "transactions.0.description"
+  },
+  {
+   "text": "08-Jan-2026",
+   "box": [
+    22.0,
+    131.0,
+    113.0,
+    151.0
+   ],
+   "role": "value",
+   "key": "transactions.1.date"
+  },
+  {
+   "text": "Direct Debit Bill Payment Authorized to WHEELER-SMITH Utility",
+   "box": [
+    173.0,
+    132.0,
+    604.0,
+    151.0
+   ],
+   "role": "value",
+   "key": "transactions.1.description"
+  },
+  {
+   "text": "TXN834055",
+   "box": [
+    632.0,
+    131.0,
+    718.0,
+    151.0
+   ],
+   "role": "value",
+   "key": "transactions.1.ref_id"
+  },
+  {
+   "text": "+700.07",
+   "box": [
+    791.0,
+    128.0,
+    854.0,
+    152.0
+   ],
+   "role": "value",
+   "key": "transactions.1.amount"
+  },
+  {
+   "text": "15,883.84",
+   "box": [
+    943.0,
+    131.0,
+    1016.0,
+    152.0
+   ],
+   "role": "value",
+   "key": "transactions.1.balance"
+  },
+  {
+   "text": "Account Ref: 929425109",
+   "box": [
+    173.0,
+    153.0,
+    341.0,
+    170.0
+   ],
+   "role": "value",
+   "key": "transactions.1.description"
+  },
+  {
+   "text": "08-Jan-2026",
+   "box": [
+    22.0,
+    183.0,
+    113.0,
+    203.0
+   ],
+   "role": "value",
+   "key": "transactions.1.date"
+  },
+  {
+   "text": "Interbank Outward Transfer to RHONDA ESTRADA / Ref No:",
+   "box": [
+    171.0,
+    183.0,
+    584.0,
+    202.0
+   ],
+   "role": "value",
+   "key": "transactions.2.description"
+  },
+  {
+   "text": "TXN479854",
+   "box": [
+    632.0,
+    183.0,
+    719.0,
+    203.0
+   ],
+   "role": "value",
+   "key": "transactions.2.ref_id"
+  },
+  {
+   "text": "-338.95",
+   "box": [
+    793.0,
+    183.0,
+    850.0,
+    204.0
+   ],
+   "role": "value",
+   "key": "transactions.2.amount"
+  },
+  {
+   "text": "15,544.89",
+   "box": [
+    943.0,
+    183.0,
+    1015.0,
+    204.0
+   ],
+   "role": "value",
+   "key": "transactions.2.balance"
+  },
+  {
+   "text": "911773 / Processing Route: 5989",
+   "box": [
+    173.0,
+    205.0,
+    398.0,
+    222.0
+   ],
+   "role": "value",
+   "key": "transactions.2.description"
+  },
+  {
+   "text": "09-Jan-2026",
+   "box": [
+    22.0,
+    235.0,
+    112.0,
+    256.0
+   ],
+   "role": "value",
+   "key": "transactions.3.date"
+  },
+  {
+   "text": "Point of Sale Purchase Merchant: MARKS-WILLIAMS Retail",
+   "box": [
+    173.0,
+    235.0,
+    577.0,
+    255.0
+   ],
+   "role": "value",
+   "key": "transactions.3.description"
+  },
+  {
+   "text": "TXN399636",
+   "box": [
+    632.0,
+    235.0,
+    718.0,
+    255.0
+   ],
+   "role": "value",
+   "key": "transactions.3.ref_id"
+  },
+  {
+   "text": "+595.32",
+   "box": [
+    793.0,
+    235.0,
+    853.0,
+    256.0
+   ],
+   "role": "value",
+   "key": "transactions.3.amount"
+  },
+  {
+   "text": "16,140.21",
+   "box": [
+    943.0,
+    235.0,
+    1014.0,
+    256.0
+   ],
+   "role": "value",
+   "key": "transactions.3.balance"
+  },
+  {
+   "text": "Outlet - Card ending in 6226",
+   "box": [
+    172.0,
+    256.0,
+    366.0,
+    276.0
+   ],
+   "role": "value",
+   "key": "transactions.3.description"
+  },
+  {
+   "text": "09-Jan-2026",
+   "box": [
+    22.0,
+    287.0,
+    112.0,
+    307.0
+   ],
+   "role": "value",
+   "key": "transactions.3.date"
+  },
+  {
+   "text": "Instant Incoming Payment Settled from JOHNSON-THOMAS -",
+   "box": [
+    172.0,
+    287.0,
+    591.0,
+    307.0
+   ],
+   "role": "value",
+   "key": "transactions.4.description"
+  },
+  {
+   "text": "TXN466286",
+   "box": [
+    632.0,
+    287.0,
+    719.0,
+    307.0
+   ],
+   "role": "value",
+   "key": "transactions.4.ref_id"
+  },
+  {
+   "text": "-432.17",
+   "box": [
+    792.0,
+    285.0,
+    851.0,
+    309.0
+   ],
+   "role": "value",
+   "key": "transactions.4.amount"
+  },
+  {
+   "text": "15,708.04",
+   "box": [
+    943.0,
+    287.0,
+    1015.0,
+    308.0
+   ],
+   "role": "value",
+   "key": "transactions.4.balance"
+  },
+  {
+   "text": "Transaction ID: 974415",
+   "box": [
+    171.0,
+    307.0,
+    334.0,
+    328.0
+   ],
+   "role": "value",
+   "key": "transactions.4.description"
+  },
+  {
+   "text": "09-Jan-2026",
+   "box": [
+    22.0,
+    339.0,
+    113.0,
+    359.0
+   ],
+   "role": "value",
+   "key": "transactions.3.date"
+  },
+  {
+   "text": "Direct Debit Bill Payment Authorized to FULLER, KENNEDY AND",
+   "box": [
+    172.0,
+    338.0,
+    612.0,
+    359.0
+   ],
+   "role": "value",
+   "key": "transactions.5.description"
+  },
+  {
+   "text": "TXN453806",
+   "box": [
+    632.0,
+    339.0,
+    718.0,
+    359.0
+   ],
+   "role": "value",
+   "key": "transactions.5.ref_id"
+  },
+  {
+   "text": "-669.59",
+   "box": [
+    793.0,
+    339.0,
+    850.0,
+    360.0
+   ],
+   "role": "value",
+   "key": "transactions.5.amount"
+  },
+  {
+   "text": "15,038.45",
+   "box": [
+    943.0,
+    339.0,
+    1015.0,
+    360.0
+   ],
+   "role": "value",
+   "key": "transactions.5.balance"
+  },
+  {
+   "text": "SMITH Utility Account Ref: 528004412",
+   "box": [
+    172.0,
+    360.0,
+    434.0,
+    380.0
+   ],
+   "role": "value",
+   "key": "transactions.5.description"
+  },
+  {
+   "text": "10-Jan-2026",
+   "box": [
+    22.0,
+    389.0,
+    112.0,
+    412.0
+   ],
+   "role": "value",
+   "key": "transactions.6.date"
+  },
+  {
+   "text": "+34.22",
+   "box": [
+    792.0,
+    390.0,
+    844.0,
+    412.0
+   ],
+   "role": "value",
+   "key": "transactions.6.amount"
+  },
+  {
+   "text": "Instant Incoming Payment Settled from GARCIA LLC -",
+   "box": [
+    172.0,
+    392.0,
+    538.0,
+    412.0
+   ],
+   "role": "value",
+   "key": "transactions.6.description"
+  },
+  {
+   "text": "TXN953039",
+   "box": [
+    632.0,
+    391.0,
+    718.0,
+    411.0
+   ],
+   "role": "value",
+   "key": "transactions.6.ref_id"
+  },
+  {
+   "text": "15,072.67",
+   "box": [
+    943.0,
+    391.0,
+    1015.0,
+    412.0
+   ],
+   "role": "value",
+   "key": "transactions.6.balance"
+  },
+  {
+   "text": "Transaction ID: 326857",
+   "box": [
+    172.0,
+    412.0,
+    333.0,
+    432.0
+   ],
+   "role": "value",
+   "key": "transactions.6.description"
+  },
+  {
+   "text": "10-Jan-2026",
+   "box": [
+    23.0,
+    443.0,
+    112.0,
+    464.0
+   ],
+   "role": "value",
+   "key": "transactions.6.date"
+  },
+  {
+   "text": "Point of Sale Purchase Merchant: MARTIN INC Retail Outlet -",
+   "box": [
+    173.0,
+    443.0,
+    587.0,
+    463.0
+   ],
+   "role": "value",
+   "key": "transactions.7.description"
+  },
+  {
+   "text": "TXN349367",
+   "box": [
+    632.0,
+    443.0,
+    718.0,
+    463.0
+   ],
+   "role": "value",
+   "key": "transactions.7.ref_id"
+  },
+  {
+   "text": "+574.75",
+   "box": [
+    792.0,
+    441.0,
+    854.0,
+    465.0
+   ],
+   "role": "value",
+   "key": "transactions.7.amount"
+  },
+  {
+   "text": "15,647.42",
+   "box": [
+    943.0,
+    443.0,
+    1015.0,
+    464.0
+   ],
+   "role": "value",
+   "key": "transactions.7.balance"
+  },
+  {
+   "text": "Card ending in 3484",
+   "box": [
+    173.0,
+    464.0,
+    313.0,
+    484.0
+   ],
+   "role": "value",
+   "key": "transactions.7.description"
+  },
+  {
+   "text": "10-Jan-2026",
+   "box": [
+    23.0,
+    495.0,
+    112.0,
+    515.0
+   ],
+   "role": "value",
+   "key": "transactions.6.date"
+  },
+  {
+   "text": "Point of Sale Purchase Merchant: FLORES LTD Retail Outlet -",
+   "box": [
+    172.0,
+    496.0,
+    592.0,
+    515.0
+   ],
+   "role": "value",
+   "key": "transactions.8.description"
+  },
+  {
+   "text": "TXN456037",
+   "box": [
+    632.0,
+    495.0,
+    718.0,
+    515.0
+   ],
+   "role": "value",
+   "key": "transactions.8.ref_id"
+  },
+  {
+   "text": "+765.18",
+   "box": [
+    792.0,
+    495.0,
+    853.0,
+    516.0
+   ],
+   "role": "value",
+   "key": "transactions.8.amount"
+  },
+  {
+   "text": "16,412.60",
+   "box": [
+    943.0,
+    495.0,
+    1015.0,
+    516.0
+   ],
+   "role": "value",
+   "key": "transactions.8.balance"
+  },
+  {
+   "text": "Card ending in 8122",
+   "box": [
+    171.0,
+    515.0,
+    312.0,
+    537.0
+   ],
+   "role": "value",
+   "key": "transactions.8.description"
+  },
+  {
+   "text": "11-Jan-2026",
+   "box": [
+    22.0,
+    547.0,
+    112.0,
+    568.0
+   ],
+   "role": "value",
+   "key": "transactions.9.date"
+  },
+  {
+   "text": "Interbank Outward Transfer to MATTHEW PATTERSON / Ref",
+   "box": [
+    171.0,
+    546.0,
+    589.0,
+    567.0
+   ],
+   "role": "value",
+   "key": "transactions.9.description"
+  },
+  {
+   "text": "TXN186059",
+   "box": [
+    633.0,
+    547.0,
+    718.0,
+    567.0
+   ],
+   "role": "value",
+   "key": "transactions.9.ref_id"
+  },
+  {
+   "text": "-80.75",
+   "box": [
+    792.0,
+    547.0,
+    841.0,
+    568.0
+   ],
+   "role": "value",
+   "key": "transactions.9.amount"
+  },
+  {
+   "text": "16,331.85",
+   "box": [
+    943.0,
+    547.0,
+    1015.0,
+    568.0
+   ],
+   "role": "value",
+   "key": "transactions.9.balance"
+  },
+  {
+   "text": "No: 272077 / Processing Route: 4205",
+   "box": [
+    171.0,
+    567.0,
+    427.0,
+    588.0
+   ],
+   "role": "value",
+   "key": "transactions.9.description"
+  },
+  {
+   "text": "11-Jan-2026",
+   "box": [
+    22.0,
+    599.0,
+    113.0,
+    620.0
+   ],
+   "role": "value",
+   "key": "transactions.9.date"
+  },
+  {
+   "text": "Point of Sale Purchase Merchant: ONEILL, MACDONALD AND",
+   "box": [
+    172.0,
+    597.0,
+    597.0,
+    621.0
+   ],
+   "role": "value",
+   "key": "transactions.10.description"
+  },
+  {
+   "text": "TXN768406",
+   "box": [
+    632.0,
+    599.0,
+    718.0,
+    620.0
+   ],
+   "role": "value",
+   "key": "transactions.10.ref_id"
+  },
+  {
+   "text": "-1,494.29",
+   "box": [
+    791.0,
+    598.0,
+    861.0,
+    619.0
+   ],
+   "role": "value",
+   "key": "transactions.10.amount"
+  },
+  {
+   "text": "14,837.56",
+   "box": [
+    943.0,
+    599.0,
+    1016.0,
+    620.0
+   ],
+   "role": "value",
+   "key": "transactions.10.balance"
+  },
+  {
+   "text": "CURTIS Retail Outlet - Card ending in 5734",
+   "box": [
+    172.0,
+    619.0,
+    467.0,
+    640.0
+   ],
+   "role": "value",
+   "key": "transactions.10.description"
+  },
+  {
+   "text": "12-Jan-2026",
+   "box": [
+    23.0,
+    651.0,
+    112.0,
+    672.0
+   ],
+   "role": "value",
+   "key": "transactions.11.date"
+  },
+  {
+   "text": "Instant Incoming Payment Settled from MCCORMICK, COLON",
+   "box": [
+    172.0,
+    652.0,
+    596.0,
+    672.0
+   ],
+   "role": "value",
+   "key": "transactions.11.description"
+  },
+  {
+   "text": "TXN367668",
+   "box": [
+    632.0,
+    651.0,
+    718.0,
+    672.0
+   ],
+   "role": "value",
+   "key": "transactions.11.ref_id"
+  },
+  {
+   "text": "+810.11",
+   "box": [
+    792.0,
+    649.0,
+    852.0,
+    673.0
+   ],
+   "role": "value",
+   "key": "transactions.11.amount"
+  },
+  {
+   "text": "15,647.67",
+   "box": [
+    943.0,
+    651.0,
+    1015.0,
+    672.0
+   ],
+   "role": "value",
+   "key": "transactions.11.balance"
+  },
+  {
+   "text": "AND JENKINS - Transaction ID: 342088",
+   "box": [
+    172.0,
+    672.0,
+    446.0,
+    692.0
+   ],
+   "role": "value",
+   "key": "transactions.11.description"
+  },
+  {
+   "text": "TXN788668",
+   "box": [
+    630.0,
+    701.0,
+    718.0,
+    725.0
+   ],
+   "role": "value",
+   "key": "transactions.12.ref_id"
+  },
+  {
+   "text": "-357.06",
+   "box": [
+    793.0,
+    702.0,
+    850.0,
+    723.0
+   ],
+   "role": "value",
+   "key": "transactions.12.amount"
+  },
+  {
+   "text": "12-Jan-2026",
+   "box": [
+    22.0,
+    703.0,
+    112.0,
+    724.0
+   ],
+   "role": "value",
+   "key": "transactions.11.date"
+  },
+  {
+   "text": "Over-the-Counter Cash Deposit by Agent GREGORY PRICE at",
+   "box": [
+    173.0,
+    704.0,
+    600.0,
+    723.0
+   ],
+   "role": "value",
+   "key": "transactions.12.description"
+  },
+  {
+   "text": "15,290.61",
+   "box": [
+    943.0,
+    703.0,
+    1014.0,
+    724.0
+   ],
+   "role": "value",
+   "key": "transactions.12.balance"
+  },
+  {
+   "text": "Corporate Counter - Tracker: 874407",
+   "box": [
+    172.0,
+    723.0,
+    423.0,
+    744.0
+   ],
+   "role": "value",
+   "key": "transactions.12.description"
+  },
+  {
+   "text": "12-Jan-2026",
+   "box": [
+    22.0,
+    756.0,
+    113.0,
+    776.0
+   ],
+   "role": "value",
+   "key": "transactions.11.date"
+  },
+  {
+   "text": "Point of Sale Purchase Merchant: BARRY GROUP Retail Outlet -",
+   "box": [
+    173.0,
+    756.0,
+    611.0,
+    776.0
+   ],
+   "role": "value",
+   "key": "transactions.13.description"
+  },
+  {
+   "text": "TXN579117",
+   "box": [
+    633.0,
+    755.0,
+    718.0,
+    776.0
+   ],
+   "role": "value",
+   "key": "transactions.13.ref_id"
+  },
+  {
+   "text": "-1,409.99",
+   "box": [
+    791.0,
+    755.0,
+    861.0,
+    776.0
+   ],
+   "role": "value",
+   "key": "transactions.13.amount"
+  },
+  {
+   "text": "13,880.62",
+   "box": [
+    943.0,
+    756.0,
+    1015.0,
+    776.0
+   ],
+   "role": "value",
+   "key": "transactions.13.balance"
+  },
+  {
+   "text": "Card ending in 4351",
+   "box": [
+    173.0,
+    778.0,
+    311.0,
+    795.0
+   ],
+   "role": "value",
+   "key": "transactions.13.description"
+  },
+  {
+   "text": "12-Jan-2026",
+   "box": [
+    22.0,
+    807.0,
+    113.0,
+    827.0
+   ],
+   "role": "value",
+   "key": "transactions.11.date"
+  },
+  {
+   "text": "Interbank Outward Transfer to MARY MURPHY / Ref No: 433166",
+   "box": [
+    172.0,
+    807.0,
+    611.0,
+    827.0
+   ],
+   "role": "value",
+   "key": "transactions.14.description"
+  },
+  {
+   "text": "TXN655471",
+   "box": [
+    632.0,
+    806.0,
+    717.0,
+    827.0
+   ],
+   "role": "value",
+   "key": "transactions.14.ref_id"
+  },
+  {
+   "text": "+794.68",
+   "box": [
+    792.0,
+    806.0,
+    853.0,
+    827.0
+   ],
+   "role": "value",
+   "key": "transactions.14.amount"
+  },
+  {
+   "text": "14,675.30",
+   "box": [
+    943.0,
+    806.0,
+    1015.0,
+    827.0
+   ],
+   "role": "value",
+   "key": "transactions.14.balance"
+  },
+  {
+   "text": "/ Processing Route: 4724",
+   "box": [
+    170.0,
+    826.0,
+    346.0,
+    848.0
+   ],
+   "role": "value",
+   "key": "transactions.14.description"
+  },
+  {
+   "text": "+409.88",
+   "box": [
+    790.0,
+    856.0,
+    853.0,
+    881.0
+   ],
+   "role": "value",
+   "key": "transactions.15.amount"
+  },
+  {
+   "text": "12-Jan-2026",
+   "box": [
+    23.0,
+    858.0,
+    111.0,
+    879.0
+   ],
+   "role": "value",
+   "key": "transactions.11.date"
+  },
+  {
+   "text": "Interbank Outward Transfer to ROGER EDWARDS / Ref No:",
+   "box": [
+    172.0,
+    859.0,
+    580.0,
+    879.0
+   ],
+   "role": "value",
+   "key": "transactions.15.description"
+  },
+  {
+   "text": "TXN496959",
+   "box": [
+    632.0,
+    858.0,
+    718.0,
+    879.0
+   ],
+   "role": "value",
+   "key": "transactions.15.ref_id"
+  },
+  {
+   "text": "15,085.18",
+   "box": [
+    943.0,
+    858.0,
+    1015.0,
+    879.0
+   ],
+   "role": "value",
+   "key": "transactions.15.balance"
+  },
+  {
+   "text": "631116 / Processing Route: 6416",
+   "box": [
+    171.0,
+    878.0,
+    400.0,
+    899.0
+   ],
+   "role": "value",
+   "key": "transactions.15.description"
+  },
+  {
+   "text": "12-Jan-2026",
+   "box": [
+    22.0,
+    911.0,
+    111.0,
+    931.0
+   ],
+   "role": "value",
+   "key": "transactions.11.date"
+  },
+  {
+   "text": "Over-the-Counter Cash Deposit by Agent ANTHONY LEWIS at",
+   "box": [
+    173.0,
+    911.0,
+    597.0,
+    931.0
+   ],
+   "role": "value",
+   "key": "transactions.16.description"
+  },
+  {
+   "text": "TXN147500",
+   "box": [
+    631.0,
+    910.0,
+    717.0,
+    931.0
+   ],
+   "role": "value",
+   "key": "transactions.16.ref_id"
+  },
+  {
+   "text": "-906.03",
+   "box": [
+    793.0,
+    910.0,
+    850.0,
+    931.0
+   ],
+   "role": "value",
+   "key": "transactions.16.amount"
+  },
+  {
+   "text": "14,179.15",
+   "box": [
+    943.0,
+    910.0,
+    1015.0,
+    931.0
+   ],
+   "role": "value",
+   "key": "transactions.16.balance"
+  },
+  {
+   "text": "Corporate Counter - Tracker: 392074",
+   "box": [
+    173.0,
+    933.0,
+    422.0,
+    950.0
+   ],
+   "role": "value",
+   "key": "transactions.16.description"
+  },
+  {
+   "text": "13-Jan-2026",
+   "box": [
+    22.0,
+    963.0,
+    113.0,
+    983.0
+   ],
+   "role": "value",
+   "key": "transactions.17.date"
+  },
+  {
+   "text": "Over-the-Counter Cash Deposit by Agent CHAD CHRISTIAN at",
+   "box": [
+    173.0,
+    963.0,
+    600.0,
+    983.0
+   ],
+   "role": "value",
+   "key": "transactions.17.description"
+  },
+  {
+   "text": "TXN490437",
+   "box": [
+    633.0,
+    962.0,
+    718.0,
+    983.0
+   ],
+   "role": "value",
+   "key": "transactions.17.ref_id"
+  },
+  {
+   "text": "-353.69",
+   "box": [
+    790.0,
+    961.0,
+    850.0,
+    985.0
+   ],
+   "role": "value",
+   "key": "transactions.17.amount"
+  },
+  {
+   "text": "13,825.46",
+   "box": [
+    943.0,
+    963.0,
+    1015.0,
+    983.0
+   ],
+   "role": "value",
+   "key": "transactions.17.balance"
+  },
+  {
+   "text": "Corporate Counter - Tracker: 831180",
+   "box": [
+    174.0,
+    985.0,
+    423.0,
+    1002.0
+   ],
+   "role": "value",
+   "key": "transactions.17.description"
+  },
+  {
+   "text": "-289.43",
+   "box": [
+    793.0,
+    1014.0,
+    850.0,
+    1035.0
+   ],
+   "role": "value",
+   "key": "transactions.18.amount"
+  },
+  {
+   "text": "13,536.03",
+   "box": [
+    943.0,
+    1014.0,
+    1015.0,
+    1035.0
+   ],
+   "role": "value",
+   "key": "transactions.18.balance"
+  },
+  {
+   "text": "13-Jan-2026",
+   "box": [
+    22.0,
+    1015.0,
+    113.0,
+    1035.0
+   ],
+   "role": "value",
+   "key": "transactions.17.date"
+  },
+  {
+   "text": "Direct Debit Bill Payment Authorized to STEVENS-ANDERSON",
+   "box": [
+    173.0,
+    1015.0,
+    600.0,
+    1035.0
+   ],
+   "role": "value",
+   "key": "transactions.18.description"
+  },
+  {
+   "text": "TXN914929",
+   "box": [
+    632.0,
+    1015.0,
+    718.0,
+    1035.0
+   ],
+   "role": "value",
+   "key": "transactions.18.ref_id"
+  },
+  {
+   "text": "Utility Account Ref: 857606858",
+   "box": [
+    173.0,
+    1037.0,
+    382.0,
+    1054.0
+   ],
+   "role": "value",
+   "key": "transactions.18.description"
+  },
+  {
+   "text": "13-Jan-2026",
+   "box": [
+    22.0,
+    1067.0,
+    112.0,
+    1087.0
+   ],
+   "role": "value",
+   "key": "transactions.17.date"
+  },
+  {
+   "text": "Interbank Outward Transfer to PAULA JOHNSON / Ref No:",
+   "box": [
+    171.0,
+    1066.0,
+    571.0,
+    1086.0
+   ],
+   "role": "value",
+   "key": "transactions.19.description"
+  },
+  {
+   "text": "TXN762350",
+   "box": [
+    632.0,
+    1066.0,
+    718.0,
+    1087.0
+   ],
+   "role": "value",
+   "key": "transactions.19.ref_id"
+  },
+  {
+   "text": "-1,445.81",
+   "box": [
+    791.0,
+    1067.0,
+    860.0,
+    1087.0
+   ],
+   "role": "value",
+   "key": "transactions.19.amount"
+  },
+  {
+   "text": "12,090.22",
+   "box": [
+    943.0,
+    1066.0,
+    1015.0,
+    1087.0
+   ],
+   "role": "value",
+   "key": "transactions.19.balance"
+  },
+  {
+   "text": "969365 / Processing Route: 5101",
+   "box": [
+    173.0,
+    1089.0,
+    397.0,
+    1106.0
+   ],
+   "role": "value",
+   "key": "transactions.19.description"
+  },
+  {
+   "text": "14-Jan-2026",
+   "box": [
+    22.0,
+    1119.0,
+    112.0,
+    1139.0
+   ],
+   "role": "value",
+   "key": "transactions.20.date"
+  },
+  {
+   "text": "Point of Sale Purchase Merchant: STANLEY GROUP Retail",
+   "box": [
+    172.0,
+    1118.0,
+    576.0,
+    1139.0
+   ],
+   "role": "value",
+   "key": "transactions.20.description"
+  },
+  {
+   "text": "TXN833330",
+   "box": [
+    632.0,
+    1119.0,
+    718.0,
+    1139.0
+   ],
+   "role": "value",
+   "key": "transactions.20.ref_id"
+  },
+  {
+   "text": "-1,039.26",
+   "box": [
+    791.0,
+    1119.0,
+    862.0,
+    1139.0
+   ],
+   "role": "value",
+   "key": "transactions.20.amount"
+  },
+  {
+   "text": "11,050.96",
+   "box": [
+    942.0,
+    1119.0,
+    1015.0,
+    1139.0
+   ],
+   "role": "value",
+   "key": "transactions.20.balance"
+  },
+  {
+   "text": "Outlet - Card ending in 7775",
+   "box": [
+    173.0,
+    1141.0,
+    364.0,
+    1158.0
+   ],
+   "role": "value",
+   "key": "transactions.20.description"
+  },
+  {
+   "text": "14-Jan-2026",
+   "box": [
+    22.0,
+    1171.0,
+    113.0,
+    1191.0
+   ],
+   "role": "value",
+   "key": "transactions.20.date"
+  },
+  {
+   "text": "Instant Incoming Payment Settled from MITCHELL-TAYLOR -",
+   "box": [
+    172.0,
+    1171.0,
+    588.0,
+    1191.0
+   ],
+   "role": "value",
+   "key": "transactions.21.description"
+  },
+  {
+   "text": "TXN858070",
+   "box": [
+    633.0,
+    1170.0,
+    718.0,
+    1191.0
+   ],
+   "role": "value",
+   "key": "transactions.21.ref_id"
+  },
+  {
+   "text": "-328.89",
+   "box": [
+    792.0,
+    1171.0,
+    850.0,
+    1192.0
+   ],
+   "role": "value",
+   "key": "transactions.21.amount"
+  },
+  {
+   "text": "10,722.07",
+   "box": [
+    943.0,
+    1170.0,
+    1015.0,
+    1191.0
+   ],
+   "role": "value",
+   "key": "transactions.21.balance"
+  },
+  {
+   "text": "Transaction ID: 396546",
+   "box": [
+    172.0,
+    1192.0,
+    330.0,
+    1209.0
+   ],
+   "role": "value",
+   "key": "transactions.21.description"
+  },
+  {
+   "text": "14-Jan-2026",
+   "box": [
+    22.0,
+    1223.0,
+    113.0,
+    1243.0
+   ],
+   "role": "value",
+   "key": "transactions.20.date"
+  },
+  {
+   "text": "Interbank Outward Transfer to MARK MCCLURE / Ref No:",
+   "box": [
+    172.0,
+    1223.0,
+    567.0,
+    1243.0
+   ],
+   "role": "value",
+   "key": "transactions.22.description"
+  },
+  {
+   "text": "TXN335743",
+   "box": [
+    632.0,
+    1223.0,
+    718.0,
+    1243.0
+   ],
+   "role": "value",
+   "key": "transactions.22.ref_id"
+  },
+  {
+   "text": "+506.57",
+   "box": [
+    792.0,
+    1222.0,
+    853.0,
+    1243.0
+   ],
+   "role": "value",
+   "key": "transactions.22.amount"
+  },
+  {
+   "text": "11,228.64",
+   "box": [
+    942.0,
+    1221.0,
+    1015.0,
+    1244.0
+   ],
+   "role": "value",
+   "key": "transactions.22.balance"
+  },
+  {
+   "text": "389873 / Processing Route: 8481",
+   "box": [
+    173.0,
+    1245.0,
+    397.0,
+    1262.0
+   ],
+   "role": "value",
+   "key": "transactions.22.description"
+  },
+  {
+   "text": "14-Jan-2026",
+   "box": [
+    22.0,
+    1275.0,
+    113.0,
+    1295.0
+   ],
+   "role": "value",
+   "key": "transactions.20.date"
+  },
+  {
+   "text": "Over-the-Counter Cash Deposit by Agent MICHAEL MORRIS at",
+   "box": [
+    173.0,
+    1275.0,
+    603.0,
+    1295.0
+   ],
+   "role": "value",
+   "key": "transactions.23.description"
+  },
+  {
+   "text": "TXN270674",
+   "box": [
+    632.0,
+    1275.0,
+    718.0,
+    1295.0
+   ],
+   "role": "value",
+   "key": "transactions.23.ref_id"
+  },
+  {
+   "text": "+715.40",
+   "box": [
+    790.0,
+    1273.0,
+    853.0,
+    1297.0
+   ],
+   "role": "value",
+   "key": "transactions.23.amount"
+  },
+  {
+   "text": "11,944.04",
+   "box": [
+    941.0,
+    1271.0,
+    1016.0,
+    1297.0
+   ],
+   "role": "value",
+   "key": "transactions.23.balance"
+  },
+  {
+   "text": "Corporate Counter - Tracker: 587062",
+   "box": [
+    173.0,
+    1296.0,
+    422.0,
+    1313.0
+   ],
+   "role": "value",
+   "key": "transactions.23.description"
+  },
+  {
+   "text": "Interbank Outward Transfer to DEBRA WADE / Ref No: 590633 /",
+   "box": [
+    172.0,
+    1326.0,
+    608.0,
+    1347.0
+   ],
+   "role": "value",
+   "key": "transactions.24.description"
+  },
+  {
+   "text": "15-Jan-2026",
+   "box": [
+    22.0,
+    1327.0,
+    112.0,
+    1347.0
+   ],
+   "role": "value",
+   "key": "transactions.24.date"
+  },
+  {
+   "text": "TXN291768",
+   "box": [
+    632.0,
+    1327.0,
+    718.0,
+    1347.0
+   ],
+   "role": "value",
+   "key": "transactions.24.ref_id"
+  },
+  {
+   "text": "+663.29",
+   "box": [
+    792.0,
+    1327.0,
+    853.0,
+    1348.0
+   ],
+   "role": "value",
+   "key": "transactions.24.amount"
+  },
+  {
+   "text": "12,607.33",
+   "box": [
+    943.0,
+    1327.0,
+    1016.0,
+    1348.0
+   ],
+   "role": "value",
+   "key": "transactions.24.balance"
+  },
+  {
+   "text": "Processing Route: 4340",
+   "box": [
+    173.0,
+    1349.0,
+    336.0,
+    1366.0
+   ],
+   "role": "value",
+   "key": "transactions.24.description"
+  },
+  {
+   "text": "15-Jan-2026",
+   "box": [
+    22.0,
+    1379.0,
+    113.0,
+    1399.0
+   ],
+   "role": "value",
+   "key": "transactions.24.date"
+  },
+  {
+   "text": "Point of Sale Purchase Merchant: ALLEN AND SONS Retail",
+   "box": [
+    173.0,
+    1379.0,
+    577.0,
+    1399.0
+   ],
+   "role": "value",
+   "key": "transactions.25.description"
+  },
+  {
+   "text": "TXN659504",
+   "box": [
+    632.0,
+    1379.0,
+    718.0,
+    1399.0
+   ],
+   "role": "value",
+   "key": "transactions.25.ref_id"
+  },
+  {
+   "text": "+394.26",
+   "box": [
+    792.0,
+    1379.0,
+    853.0,
+    1400.0
+   ],
+   "role": "value",
+   "key": "transactions.25.amount"
+  },
+  {
+   "text": "13,001.59",
+   "box": [
+    943.0,
+    1379.0,
+    1015.0,
+    1399.0
+   ],
+   "role": "value",
+   "key": "transactions.25.balance"
+  },
+  {
+   "text": "Outlet - Card ending in 9435",
+   "box": [
+    173.0,
+    1401.0,
+    364.0,
+    1418.0
+   ],
+   "role": "value",
+   "key": "transactions.25.description"
+  },
+  {
+   "text": "15-Jan-2026",
+   "box": [
+    22.0,
+    1431.0,
+    113.0,
+    1451.0
+   ],
+   "role": "value",
+   "key": "transactions.24.date"
+  },
+  {
+   "text": "Over-the-Counter Cash Deposit by Agent TINA MARTINEZ at",
+   "box": [
+    173.0,
+    1432.0,
+    588.0,
+    1451.0
+   ],
+   "role": "value",
+   "key": "transactions.26.description"
+  },
+  {
+   "text": "TXN511430",
+   "box": [
+    632.0,
+    1431.0,
+    718.0,
+    1451.0
+   ],
+   "role": "value",
+   "key": "transactions.26.ref_id"
+  },
+  {
+   "text": "-225.82",
+   "box": [
+    793.0,
+    1431.0,
+    850.0,
+    1452.0
+   ],
+   "role": "value",
+   "key": "transactions.26.amount"
+  },
+  {
+   "text": "12,775.77",
+   "box": [
+    943.0,
+    1431.0,
+    1015.0,
+    1451.0
+   ],
+   "role": "value",
+   "key": "transactions.26.balance"
+  },
+  {
+   "text": "Corporate Counter - Tracker: 582999",
+   "box": [
+    174.0,
+    1453.0,
+    423.0,
+    1470.0
+   ],
+   "role": "value",
+   "key": "transactions.26.description"
+  },
+  {
+   "text": "Direct Debit Bill Payment Authorized to MORGAN LLC Utility",
+   "box": [
+    170.0,
+    1481.0,
+    580.0,
+    1505.0
+   ],
+   "role": "value",
+   "key": "transactions.27.description"
+  },
+  {
+   "text": "16-Jan-2026",
+   "box": [
+    22.0,
+    1483.0,
+    113.0,
+    1503.0
+   ],
+   "role": "value",
+   "key": "transactions.27.date"
+  },
+  {
+   "text": "TXN806357",
+   "box": [
+    632.0,
+    1483.0,
+    718.0,
+    1503.0
+   ],
+   "role": "value",
+   "key": "transactions.27.ref_id"
+  },
+  {
+   "text": "-36.78",
+   "box": [
+    792.0,
+    1483.0,
+    842.0,
+    1504.0
+   ],
+   "role": "value",
+   "key": "transactions.27.amount"
+  },
+  {
+   "text": "12,738.99",
+   "box": [
+    943.0,
+    1483.0,
+    1015.0,
+    1504.0
+   ],
+   "role": "value",
+   "key": "transactions.27.balance"
+  },
+  {
+   "text": "Account Ref: 413459099",
+   "box": [
+    173.0,
+    1505.0,
+    341.0,
+    1522.0
+   ],
+   "role": "value",
+   "key": "transactions.27.description"
+  },
+  {
+   "text": "16-Jan-2026",
+   "box": [
+    22.0,
+    1535.0,
+    113.0,
+    1555.0
+   ],
+   "role": "value",
+   "key": "transactions.27.date"
+  },
+  {
+   "text": "Interbank Outward Transfer to DOUGLAS MCDONALD / Ref No:",
+   "box": [
+    172.0,
+    1536.0,
+    608.0,
+    1555.0
+   ],
+   "role": "value",
+   "key": "transactions.28.description"
+  },
+  {
+   "text": "TXN248462",
+   "box": [
+    632.0,
+    1535.0,
+    719.0,
+    1555.0
+   ],
+   "role": "value",
+   "key": "transactions.28.ref_id"
+  },
+  {
+   "text": "-1,011.89",
+   "box": [
+    791.0,
+    1535.0,
+    862.0,
+    1556.0
+   ],
+   "role": "value",
+   "key": "transactions.28.amount"
+  },
+  {
+   "text": "11,727.10",
+   "box": [
+    943.0,
+    1535.0,
+    1015.0,
+    1555.0
+   ],
+   "role": "value",
+   "key": "transactions.28.balance"
+  },
+  {
+   "text": "827370 / Processing Route: 7987",
+   "box": [
+    173.0,
+    1557.0,
+    397.0,
+    1574.0
+   ],
+   "role": "value",
+   "key": "transactions.28.description"
+  }
+ ],
+ "rules": [
+  [
+   12.0,
+   72.0,
+   1091.0,
+   73.0
+  ]
+ ],
+ "slots": [
+  {
+   "box": [
+    172.0,
+    78.0,
+    591.0,
+    99.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.0.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    79.0,
+    112.0,
+    99.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.0.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    633.0,
+    79.0,
+    718.0,
+    99.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.0.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    79.0,
+    853.0,
+    100.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.0.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    79.0,
+    1015.0,
+    100.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.0.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    101.0,
+    474.0,
+    118.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.0.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    131.0,
+    113.0,
+    151.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.1.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    132.0,
+    604.0,
+    151.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.1.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    131.0,
+    718.0,
+    151.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.1.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    791.0,
+    128.0,
+    854.0,
+    152.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.1.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    131.0,
+    1016.0,
+    152.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.1.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    153.0,
+    341.0,
+    170.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.1.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    183.0,
+    113.0,
+    203.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.1.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    171.0,
+    183.0,
+    584.0,
+    202.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.2.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    183.0,
+    719.0,
+    203.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.2.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    793.0,
+    183.0,
+    850.0,
+    204.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.2.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    183.0,
+    1015.0,
+    204.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.2.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    205.0,
+    398.0,
+    222.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.2.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    235.0,
+    112.0,
+    256.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.3.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    235.0,
+    577.0,
+    255.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.3.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    235.0,
+    718.0,
+    255.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.3.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    793.0,
+    235.0,
+    853.0,
+    256.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.3.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    235.0,
+    1014.0,
+    256.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.3.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    256.0,
+    366.0,
+    276.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.3.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    287.0,
+    112.0,
+    307.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.3.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    287.0,
+    591.0,
+    307.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.4.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    287.0,
+    719.0,
+    307.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.4.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    285.0,
+    851.0,
+    309.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.4.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    287.0,
+    1015.0,
+    308.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.4.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    171.0,
+    307.0,
+    334.0,
+    328.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.4.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    339.0,
+    113.0,
+    359.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.3.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    338.0,
+    612.0,
+    359.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.5.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    339.0,
+    718.0,
+    359.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.5.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    793.0,
+    339.0,
+    850.0,
+    360.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.5.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    339.0,
+    1015.0,
+    360.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.5.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    360.0,
+    434.0,
+    380.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.5.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    389.0,
+    112.0,
+    412.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.6.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    390.0,
+    844.0,
+    412.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.6.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    392.0,
+    538.0,
+    412.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.6.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    391.0,
+    718.0,
+    411.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.6.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    391.0,
+    1015.0,
+    412.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.6.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    412.0,
+    333.0,
+    432.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.6.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    23.0,
+    443.0,
+    112.0,
+    464.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.6.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    443.0,
+    587.0,
+    463.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.7.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    443.0,
+    718.0,
+    463.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.7.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    441.0,
+    854.0,
+    465.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.7.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    443.0,
+    1015.0,
+    464.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.7.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    464.0,
+    313.0,
+    484.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.7.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    23.0,
+    495.0,
+    112.0,
+    515.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.6.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    496.0,
+    592.0,
+    515.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.8.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    495.0,
+    718.0,
+    515.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.8.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    495.0,
+    853.0,
+    516.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.8.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    495.0,
+    1015.0,
+    516.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.8.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    171.0,
+    515.0,
+    312.0,
+    537.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.8.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    547.0,
+    112.0,
+    568.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.9.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    171.0,
+    546.0,
+    589.0,
+    567.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.9.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    633.0,
+    547.0,
+    718.0,
+    567.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.9.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    547.0,
+    841.0,
+    568.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.9.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    547.0,
+    1015.0,
+    568.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.9.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    171.0,
+    567.0,
+    427.0,
+    588.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.9.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    599.0,
+    113.0,
+    620.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.9.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    597.0,
+    597.0,
+    621.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.10.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    599.0,
+    718.0,
+    620.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.10.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    791.0,
+    598.0,
+    861.0,
+    619.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.10.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    599.0,
+    1016.0,
+    620.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.10.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    619.0,
+    467.0,
+    640.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.10.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    23.0,
+    651.0,
+    112.0,
+    672.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    652.0,
+    596.0,
+    672.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    651.0,
+    718.0,
+    672.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    649.0,
+    852.0,
+    673.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    651.0,
+    1015.0,
+    672.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    672.0,
+    446.0,
+    692.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    630.0,
+    701.0,
+    718.0,
+    725.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.12.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    793.0,
+    702.0,
+    850.0,
+    723.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.12.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    703.0,
+    112.0,
+    724.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    704.0,
+    600.0,
+    723.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.12.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    703.0,
+    1014.0,
+    724.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.12.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    723.0,
+    423.0,
+    744.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.12.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    756.0,
+    113.0,
+    776.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    756.0,
+    611.0,
+    776.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.13.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    633.0,
+    755.0,
+    718.0,
+    776.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.13.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    791.0,
+    755.0,
+    861.0,
+    776.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.13.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    756.0,
+    1015.0,
+    776.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.13.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    778.0,
+    311.0,
+    795.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.13.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    807.0,
+    113.0,
+    827.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    807.0,
+    611.0,
+    827.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.14.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    806.0,
+    717.0,
+    827.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.14.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    806.0,
+    853.0,
+    827.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.14.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    806.0,
+    1015.0,
+    827.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.14.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    170.0,
+    826.0,
+    346.0,
+    848.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.14.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    790.0,
+    856.0,
+    853.0,
+    881.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.15.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    23.0,
+    858.0,
+    111.0,
+    879.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    859.0,
+    580.0,
+    879.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.15.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    858.0,
+    718.0,
+    879.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.15.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    858.0,
+    1015.0,
+    879.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.15.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    171.0,
+    878.0,
+    400.0,
+    899.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.15.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    911.0,
+    111.0,
+    931.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.11.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    911.0,
+    597.0,
+    931.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.16.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    631.0,
+    910.0,
+    717.0,
+    931.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.16.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    793.0,
+    910.0,
+    850.0,
+    931.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.16.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    910.0,
+    1015.0,
+    931.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.16.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    933.0,
+    422.0,
+    950.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.16.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    963.0,
+    113.0,
+    983.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.17.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    963.0,
+    600.0,
+    983.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.17.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    633.0,
+    962.0,
+    718.0,
+    983.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.17.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    790.0,
+    961.0,
+    850.0,
+    985.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.17.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    963.0,
+    1015.0,
+    983.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.17.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    174.0,
+    985.0,
+    423.0,
+    1002.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.17.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    793.0,
+    1014.0,
+    850.0,
+    1035.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.18.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    1014.0,
+    1015.0,
+    1035.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.18.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1015.0,
+    113.0,
+    1035.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.17.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1015.0,
+    600.0,
+    1035.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.18.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1015.0,
+    718.0,
+    1035.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.18.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1037.0,
+    382.0,
+    1054.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.18.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1067.0,
+    112.0,
+    1087.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.17.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    171.0,
+    1066.0,
+    571.0,
+    1086.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.19.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1066.0,
+    718.0,
+    1087.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.19.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    791.0,
+    1067.0,
+    860.0,
+    1087.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.19.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    1066.0,
+    1015.0,
+    1087.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.19.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1089.0,
+    397.0,
+    1106.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.19.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1119.0,
+    112.0,
+    1139.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.20.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    1118.0,
+    576.0,
+    1139.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.20.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1119.0,
+    718.0,
+    1139.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.20.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    791.0,
+    1119.0,
+    862.0,
+    1139.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.20.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    942.0,
+    1119.0,
+    1015.0,
+    1139.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.20.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1141.0,
+    364.0,
+    1158.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.20.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1171.0,
+    113.0,
+    1191.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.20.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    1171.0,
+    588.0,
+    1191.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.21.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    633.0,
+    1170.0,
+    718.0,
+    1191.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.21.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    1171.0,
+    850.0,
+    1192.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.21.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    1170.0,
+    1015.0,
+    1191.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.21.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    1192.0,
+    330.0,
+    1209.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.21.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1223.0,
+    113.0,
+    1243.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.20.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    1223.0,
+    567.0,
+    1243.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.22.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1223.0,
+    718.0,
+    1243.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.22.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    1222.0,
+    853.0,
+    1243.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.22.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    942.0,
+    1221.0,
+    1015.0,
+    1244.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.22.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1245.0,
+    397.0,
+    1262.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.22.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1275.0,
+    113.0,
+    1295.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.20.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1275.0,
+    603.0,
+    1295.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.23.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1275.0,
+    718.0,
+    1295.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.23.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    790.0,
+    1273.0,
+    853.0,
+    1297.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.23.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    941.0,
+    1271.0,
+    1016.0,
+    1297.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.23.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1296.0,
+    422.0,
+    1313.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.23.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    1326.0,
+    608.0,
+    1347.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.24.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1327.0,
+    112.0,
+    1347.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.24.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1327.0,
+    718.0,
+    1347.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.24.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    1327.0,
+    853.0,
+    1348.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.24.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    1327.0,
+    1016.0,
+    1348.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.24.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1349.0,
+    336.0,
+    1366.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.24.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1379.0,
+    113.0,
+    1399.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.24.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1379.0,
+    577.0,
+    1399.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.25.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1379.0,
+    718.0,
+    1399.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.25.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    1379.0,
+    853.0,
+    1400.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.25.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    1379.0,
+    1015.0,
+    1399.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.25.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1401.0,
+    364.0,
+    1418.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.25.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1431.0,
+    113.0,
+    1451.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.24.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1432.0,
+    588.0,
+    1451.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.26.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1431.0,
+    718.0,
+    1451.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.26.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    793.0,
+    1431.0,
+    850.0,
+    1452.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.26.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    1431.0,
+    1015.0,
+    1451.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.26.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    174.0,
+    1453.0,
+    423.0,
+    1470.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.26.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    170.0,
+    1481.0,
+    580.0,
+    1505.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.27.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1483.0,
+    113.0,
+    1503.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.27.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1483.0,
+    718.0,
+    1503.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.27.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    792.0,
+    1483.0,
+    842.0,
+    1504.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.27.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    1483.0,
+    1015.0,
+    1504.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.27.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1505.0,
+    341.0,
+    1522.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.27.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    22.0,
+    1535.0,
+    113.0,
+    1555.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.27.date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    172.0,
+    1536.0,
+    608.0,
+    1555.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.28.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    632.0,
+    1535.0,
+    719.0,
+    1555.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.28.ref_id",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    791.0,
+    1535.0,
+    862.0,
+    1556.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.28.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    943.0,
+    1535.0,
+    1015.0,
+    1555.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.28.balance",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    173.0,
+    1557.0,
+    397.0,
+    1574.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "transactions.28.description",
+   "filled": true,
+   "source": "value_text"
+  }
+ ],
+ "assets": [],
+ "provenance": {
+  "texts": "ocr(위치)+기준 꾸러미·수기(글자·역할)",
+  "rules": "image_lines",
+  "assets": "manual",
+  "slots": "값 글자 위치 (빈 기재란은 모름)"
+ },
+ "counts": {
+  "texts": 180,
+  "values": 174,
+  "rules": 1,
+  "slots": 174,
+  "assets": 0
+ },
+ "reviewed_by_human": false,
+ "source": {
+  "ocr": "rapidocr_onnxruntime 1.2.3 (기본 모델)",
+  "text_from": "evalset 기준 꾸러미(reference/)의 같은 줄 + /home/user/docgen_eval/tools/labels_manual/statement.json",
+  "unverified": []
+ }
+}

@@ -1,0 +1,1124 @@
+{
+ "version": 1,
+ "image": "image.jpg",
+ "image_sha256": "54a6ac9eab672d3ce8c9f045ba39a557940790d391cd5b3ef6545e34e251bbca",
+ "width": 2150,
+ "height": 3039,
+ "frame": {
+  "kind": "paper",
+  "width": 1485,
+  "height": 2361,
+  "how": "tplgen.check.paper (네 모서리를 찾아 편 종이). 좌표는 이 종이 기준"
+ },
+ "texts": [
+  {
+   "text": "INVOICE",
+   "box": [
+    83.0,
+    113.0,
+    282.0,
+    157.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Suidkus Workshop Supplies (Pty) Ltd",
+   "box": [
+    770.0,
+    115.0,
+    1413.0,
+    153.0
+   ],
+   "role": "value",
+   "key": "supplier_name"
+  },
+  {
+   "text": "206 Rivonia Road",
+   "box": [
+    1233.0,
+    164.0,
+    1409.0,
+    189.0
+   ],
+   "role": "value",
+   "key": "supplier_address"
+  },
+  {
+   "text": "Invoice Number:",
+   "box": [
+    82.0,
+    190.0,
+    242.0,
+    214.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "IN0084778",
+   "box": [
+    346.0,
+    187.0,
+    465.0,
+    214.0
+   ],
+   "role": "value",
+   "key": "invoice_number"
+  },
+  {
+   "text": "Cape Town, 8001",
+   "box": [
+    1235.0,
+    194.0,
+    1408.0,
+    221.0
+   ],
+   "role": "value",
+   "key": "supplier_address"
+  },
+  {
+   "text": "Date:",
+   "box": [
+    79.0,
+    222.0,
+    140.0,
+    251.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "02/08/2025",
+   "box": [
+    348.0,
+    221.0,
+    469.0,
+    248.0
+   ],
+   "role": "value",
+   "key": "invoice_date"
+  },
+  {
+   "text": "+27 62 555 0257",
+   "box": [
+    848.0,
+    225.0,
+    1031.3,
+    251.0
+   ],
+   "role": "value",
+   "key": "supplier_tel",
+   "box_estimated": true
+  },
+  {
+   "text": "|",
+   "box": [
+    1031.3,
+    225.0,
+    1043.5,
+    251.0
+   ],
+   "role": "fixed",
+   "key": null,
+   "box_estimated": true
+  },
+  {
+   "text": "admin@suidkusworkshopsup.co.za",
+   "box": [
+    1043.5,
+    225.0,
+    1410.0,
+    251.0
+   ],
+   "role": "value",
+   "key": "supplier_email",
+   "box_estimated": true
+  },
+  {
+   "text": "Due Date:",
+   "box": [
+    80.0,
+    256.0,
+    183.0,
+    284.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "16/08/2025",
+   "box": [
+    348.0,
+    255.0,
+    469.0,
+    282.0
+   ],
+   "role": "value",
+   "key": "due_date"
+  },
+  {
+   "text": "VAT No:",
+   "box": [
+    1196.0,
+    253.0,
+    1284.1,
+    279.0
+   ],
+   "role": "fixed",
+   "key": null,
+   "box_estimated": true
+  },
+  {
+   "text": "4653373498",
+   "box": [
+    1284.1,
+    253.0,
+    1410.0,
+    279.0
+   ],
+   "role": "value",
+   "key": "supplier_vat",
+   "box_estimated": true
+  },
+  {
+   "text": "PO Number:",
+   "box": [
+    81.0,
+    293.0,
+    207.0,
+    317.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "PO-41258",
+   "box": [
+    348.0,
+    290.0,
+    457.0,
+    317.0
+   ],
+   "role": "value",
+   "key": "po_number"
+  },
+  {
+   "text": "Terms:",
+   "box": [
+    76.0,
+    324.0,
+    156.0,
+    354.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "14 days",
+   "box": [
+    346.0,
+    321.0,
+    438.0,
+    355.0
+   ],
+   "role": "value",
+   "key": "terms"
+  },
+  {
+   "text": "BILL TO",
+   "box": [
+    81.0,
+    409.0,
+    174.0,
+    437.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Drakensig Industrial Supply (Pty) Ltd",
+   "box": [
+    82.0,
+    446.0,
+    499.0,
+    475.0
+   ],
+   "role": "value",
+   "key": "customer_name"
+  },
+  {
+   "text": "530 Church Street",
+   "box": [
+    82.0,
+    479.0,
+    272.0,
+    505.0
+   ],
+   "role": "value",
+   "key": "customer_address"
+  },
+  {
+   "text": "Upington, 8801",
+   "box": [
+    82.0,
+    509.0,
+    240.0,
+    540.0
+   ],
+   "role": "value",
+   "key": "customer_address"
+  },
+  {
+   "text": "VAT No:",
+   "box": [
+    82.0,
+    540.0,
+    174.6,
+    566.0
+   ],
+   "role": "fixed",
+   "key": null,
+   "box_estimated": true
+  },
+  {
+   "text": "4809535264",
+   "box": [
+    174.6,
+    540.0,
+    307.0,
+    566.0
+   ],
+   "role": "value",
+   "key": "customer_vat",
+   "box_estimated": true
+  },
+  {
+   "text": "Qty",
+   "box": [
+    944.0,
+    630.0,
+    993.0,
+    667.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Description",
+   "box": [
+    90.0,
+    633.0,
+    212.0,
+    666.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Unit Price",
+   "box": [
+    1082.0,
+    633.0,
+    1184.0,
+    660.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "Amount",
+   "box": [
+    1313.0,
+    632.0,
+    1400.0,
+    660.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "1 269,54",
+   "box": [
+    1096.0,
+    678.0,
+    1187.0,
+    706.0
+   ],
+   "role": "value",
+   "key": "items.0.unit_price"
+  },
+  {
+   "text": "2 539,08",
+   "box": [
+    1308.0,
+    677.0,
+    1399.0,
+    705.0
+   ],
+   "role": "value",
+   "key": "items.0.amount"
+  },
+  {
+   "text": "Toner cartridge, black, high yield",
+   "box": [
+    92.0,
+    681.0,
+    409.0,
+    707.0
+   ],
+   "role": "value",
+   "key": "items.0.description"
+  },
+  {
+   "role": "value",
+   "key": "items.0.qty",
+   "text": "2",
+   "box": [
+    962.0,
+    679.0,
+    985.0,
+    707.0
+   ],
+   "box_estimated": true
+  },
+  {
+   "text": "Stretch wrap film 500mm x 300m",
+   "box": [
+    92.0,
+    724.0,
+    414.0,
+    750.0
+   ],
+   "role": "value",
+   "key": "items.1.description"
+  },
+  {
+   "text": "23",
+   "box": [
+    956.0,
+    720.0,
+    991.0,
+    751.0
+   ],
+   "role": "value",
+   "key": "items.1.qty"
+  },
+  {
+   "text": "166,75",
+   "box": [
+    1115.0,
+    720.0,
+    1188.0,
+    749.0
+   ],
+   "role": "value",
+   "key": "items.1.unit_price"
+  },
+  {
+   "text": "3 835,25",
+   "box": [
+    1307.0,
+    721.0,
+    1399.0,
+    748.0
+   ],
+   "role": "value",
+   "key": "items.1.amount"
+  },
+  {
+   "text": "LED work lamp 24V",
+   "box": [
+    89.0,
+    764.0,
+    289.0,
+    796.0
+   ],
+   "role": "value",
+   "key": "items.2.description"
+  },
+  {
+   "role": "value",
+   "key": "items.2.qty",
+   "text": "7",
+   "box": [
+    962.0,
+    763.0,
+    985.0,
+    792.0
+   ],
+   "box_estimated": true
+  },
+  {
+   "text": "309,66",
+   "box": [
+    1114.0,
+    763.0,
+    1187.0,
+    792.0
+   ],
+   "role": "value",
+   "key": "items.2.unit_price"
+  },
+  {
+   "text": "2 167,62",
+   "box": [
+    1307.0,
+    764.0,
+    1399.0,
+    791.0
+   ],
+   "role": "value",
+   "key": "items.2.amount"
+  },
+  {
+   "text": "Angle grinder discs 115mm (10)",
+   "box": [
+    91.0,
+    808.0,
+    402.0,
+    836.0
+   ],
+   "role": "value",
+   "key": "items.3.description"
+  },
+  {
+   "text": "14",
+   "box": [
+    956.0,
+    805.0,
+    991.0,
+    836.0
+   ],
+   "role": "value",
+   "key": "items.3.qty"
+  },
+  {
+   "text": "199,34",
+   "box": [
+    1116.0,
+    806.0,
+    1187.0,
+    834.0
+   ],
+   "role": "value",
+   "key": "items.3.unit_price"
+  },
+  {
+   "text": "2 790,76",
+   "box": [
+    1307.0,
+    805.0,
+    1400.0,
+    833.0
+   ],
+   "role": "value",
+   "key": "items.3.amount"
+  },
+  {
+   "text": "Subtotal",
+   "box": [
+    973.0,
+    886.0,
+    1065.0,
+    917.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "R 11 332,71",
+   "box": [
+    1275.0,
+    887.0,
+    1405.0,
+    914.0
+   ],
+   "role": "value",
+   "key": "subtotal"
+  },
+  {
+   "text": "VAT",
+   "box": [
+    961.0,
+    932.0,
+    1012.0,
+    960.0
+   ],
+   "role": "fixed",
+   "key": null,
+   "box_estimated": true
+  },
+  {
+   "text": "15%",
+   "box": [
+    1012.0,
+    932.0,
+    1063.0,
+    960.0
+   ],
+   "role": "value",
+   "key": "vat_rate",
+   "box_estimated": true
+  },
+  {
+   "text": "R 1 699,91",
+   "box": [
+    1289.0,
+    932.0,
+    1406.0,
+    959.0
+   ],
+   "role": "value",
+   "key": "vat"
+  },
+  {
+   "text": "TOTAL",
+   "box": [
+    969.0,
+    987.0,
+    1065.0,
+    1019.0
+   ],
+   "role": "fixed",
+   "key": null
+  },
+  {
+   "text": "R 13 032,62",
+   "box": [
+    1258.0,
+    987.0,
+    1405.0,
+    1017.0
+   ],
+   "role": "value",
+   "key": "total"
+  },
+  {
+   "text": "Page 1 of 1",
+   "box": [
+    1302.0,
+    2301.0,
+    1410.0,
+    2330.0
+   ],
+   "role": "fixed",
+   "key": null
+  }
+ ],
+ "rules": [
+  [
+   82.0,
+   846.0,
+   453.0,
+   846.0
+  ],
+  [
+   82.0,
+   845.0,
+   988.0,
+   845.0
+  ],
+  [
+   344.0,
+   844.0,
+   1406.0,
+   844.0
+  ],
+  [
+   871.0,
+   843.0,
+   1407.0,
+   843.0
+  ],
+  [
+   908.0,
+   972.0,
+   1293.0,
+   972.0
+  ],
+  [
+   909.0,
+   971.0,
+   1406.0,
+   971.0
+  ]
+ ],
+ "slots": [
+  {
+   "box": [
+    770.0,
+    115.0,
+    1413.0,
+    153.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "supplier_name",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1233.0,
+    164.0,
+    1409.0,
+    189.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "supplier_address",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    346.0,
+    187.0,
+    465.0,
+    214.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "invoice_number",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1235.0,
+    194.0,
+    1408.0,
+    221.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "supplier_address",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    348.0,
+    221.0,
+    469.0,
+    248.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "invoice_date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    848.0,
+    225.0,
+    1031.3,
+    251.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "supplier_tel",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1043.5,
+    225.0,
+    1410.0,
+    251.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "supplier_email",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    348.0,
+    255.0,
+    469.0,
+    282.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "due_date",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1284.1,
+    253.0,
+    1410.0,
+    279.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "supplier_vat",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    348.0,
+    290.0,
+    457.0,
+    317.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "po_number",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    346.0,
+    321.0,
+    438.0,
+    355.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "terms",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    82.0,
+    446.0,
+    499.0,
+    475.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "customer_name",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    82.0,
+    479.0,
+    272.0,
+    505.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "customer_address",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    82.0,
+    509.0,
+    240.0,
+    540.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "customer_address",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    174.6,
+    540.0,
+    307.0,
+    566.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "customer_vat",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1096.0,
+    678.0,
+    1187.0,
+    706.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.0.unit_price",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1308.0,
+    677.0,
+    1399.0,
+    705.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.0.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    92.0,
+    681.0,
+    409.0,
+    707.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.0.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    962.0,
+    679.0,
+    985.0,
+    707.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.0.qty",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    92.0,
+    724.0,
+    414.0,
+    750.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.1.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    956.0,
+    720.0,
+    991.0,
+    751.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.1.qty",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1115.0,
+    720.0,
+    1188.0,
+    749.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.1.unit_price",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1307.0,
+    721.0,
+    1399.0,
+    748.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.1.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    89.0,
+    764.0,
+    289.0,
+    796.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.2.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    962.0,
+    763.0,
+    985.0,
+    792.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.2.qty",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1114.0,
+    763.0,
+    1187.0,
+    792.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.2.unit_price",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1307.0,
+    764.0,
+    1399.0,
+    791.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.2.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    91.0,
+    808.0,
+    402.0,
+    836.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.3.description",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    956.0,
+    805.0,
+    991.0,
+    836.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.3.qty",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1116.0,
+    806.0,
+    1187.0,
+    834.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.3.unit_price",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1307.0,
+    805.0,
+    1400.0,
+    833.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "items.3.amount",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1275.0,
+    887.0,
+    1405.0,
+    914.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "subtotal",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1012.0,
+    932.0,
+    1063.0,
+    960.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "vat_rate",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1289.0,
+    932.0,
+    1406.0,
+    959.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "vat",
+   "filled": true,
+   "source": "value_text"
+  },
+  {
+   "box": [
+    1258.0,
+    987.0,
+    1405.0,
+    1017.0
+   ],
+   "kind": "text",
+   "label": "",
+   "key": "total",
+   "filled": true,
+   "source": "value_text"
+  }
+ ],
+ "assets": [],
+ "provenance": {
+  "texts": "ocr(위치)+기준 꾸러미·수기(글자·역할)",
+  "rules": "image_lines",
+  "assets": "manual",
+  "slots": "값 글자 위치 (빈 기재란은 모름)"
+ },
+ "counts": {
+  "texts": 53,
+  "values": 35,
+  "rules": 6,
+  "slots": 35,
+  "assets": 0
+ },
+ "reviewed_by_human": false,
+ "source": {
+  "ocr": "rapidocr_onnxruntime 1.2.3 (기본 모델)",
+  "text_from": "evalset 기준 꾸러미(reference/)의 같은 줄 + /home/user/docgen_eval/tools/labels_manual/invoice_photo_skewed.json",
+  "unverified": []
+ }
+}

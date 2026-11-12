@@ -21,6 +21,10 @@ python -m http.server 8766 --bind 127.0.0.1 --directory evalset/forms_candidates
 python tools/prepare_form_candidates.py build --source ../document_gen --out evalset/forms_candidates_new
 ```
 
+## 정답 라벨 (평가 재료)
+평가 세트와 후보 60쪽의 항목마다 `labels.json`: 원본 이미지의 글자(고정 문구 / 값)·선·기재란·그림 자리와 위치. 평가 때 OCR 없이 이것과 맞춰 본다.
+형식·출처·정확도는 [evalset/LABELS.md](evalset/LABELS.md), 만드는 법은 `tools/build_labels.py`. PDF 가 있는 항목은 PDF 에서 정확히, 없는 4개는 OCR 위치 + 기준 꾸러미 글자로 만들었다. 사람이 검수하지 않았다.
+
 ## 사람 검수 기준으로 모델 비교하기 (추가)
 
 프론티어 모델이 만든 기준을 사람이 승인하고, 같은 값 변경 시험으로 모델들을 비교합니다.
