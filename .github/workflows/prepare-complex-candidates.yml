@@ -1,0 +1,49 @@
+name: Prepare complex form candidates
+on:
+  workflow_dispatch:
+  push:
+    branches: [template-html]
+    paths:
+      - 'evalset/selections/forms_complex_v2.json'
+      - '.github/workflows/prepare-complex-candidates.yml'
+permissions:
+  contents: write
+concurrency:
+  group: prepare-complex-candidates
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: kimsh12191/document_gen
+          ref: 172748589e020d3f7fe91b7ebcfe8d687ac58a27
+          path: _source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install data and browser test dependencies
+        run: |
+          python -m pip install -r requirements.txt PyMuPDF==1.26.6
+          python -m playwright install --with-deps chromium
+      - name: Prepare immutable candidate snapshot
+        run: |
+          if [ ! -d evalset/forms_candidates_v2 ]; then
+            python tools/prepare_form_candidates.py build --source _source --selection evalset/selections/forms_complex_v2.json --out evalset/forms_candidates_v2
+          fi
+      - name: Validate data and human-selection browser workflow
+        run: python -m unittest discover -s tests -p '*candidates.py'
+      - name: Commit validated candidate data
+        run: |
+          git add evalset/forms_candidates_v2
+          git diff --cached --check
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m "Add validated complex candidate snapshot: 48 forms, 60 page inputs"
+            git push origin HEAD:template-html
+          fi

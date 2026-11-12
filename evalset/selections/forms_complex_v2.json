@@ -1,0 +1,506 @@
+{
+  "version": 1,
+  "name": "gov-hana-hf-complex-v2",
+  "status": "proposed",
+  "excluded_development_families": [
+    "hf138",
+    "hf153"
+  ],
+  "items": [
+    {
+      "id": "gov_business_proof",
+      "tier": "하",
+      "reason": "사업자 기본 항목·발급 문구"
+    },
+    {
+      "id": "gov_financial_proof",
+      "tier": "하",
+      "reason": "증명서 표지·고정 문구와 변수 구분"
+    },
+    {
+      "id": "gov_national_tax",
+      "tier": "하",
+      "reason": "납세 증명·신청인 항목"
+    },
+    {
+      "id": "gov_pension",
+      "tier": "하",
+      "reason": "가입 증명·날짜와 번호"
+    },
+    {
+      "id": "gov_foreign_household",
+      "tier": "중",
+      "reason": "외국인 체류 정보·목록 형태"
+    },
+    {
+      "id": "gov_resident_copy",
+      "tier": "중",
+      "reason": "세대원 관계·목록과 주석"
+    },
+    {
+      "id": "gov_seal",
+      "tier": "중",
+      "reason": "인감 영역·격자와 신원 항목"
+    },
+    {
+      "id": "gov_signature",
+      "tier": "중",
+      "reason": "서명 영역·용도와 인적사항"
+    },
+    {
+      "id": "gov_income",
+      "tier": "상",
+      "reason": "소득 구역·복합 표와 작은 글씨"
+    },
+    {
+      "id": "gov_land",
+      "tier": "상",
+      "reason": "가로 서식·토지 이력 격자"
+    },
+    {
+      "id": "gov_vat_base",
+      "tier": "상",
+      "reason": "과세기간·금액 반복 행"
+    },
+    {
+      "id": "gov_tax_payment_history",
+      "tier": "상",
+      "reason": "납부내역 표·여러 날짜와 금액"
+    },
+    {
+      "id": "hana_official_028",
+      "tier": "하",
+      "reason": "위임장·위임인과 대리인 구분"
+    },
+    {
+      "id": "hana_official_029",
+      "tier": "하",
+      "reason": "인감 신고·도장 자리"
+    },
+    {
+      "id": "hana_official_051",
+      "tier": "하",
+      "reason": "철회 신청·신청인과 계약 정보"
+    },
+    {
+      "id": "hana_official_420",
+      "tier": "하",
+      "reason": "신청 종류 체크·고객 기본 정보"
+    },
+    {
+      "id": "hana_official_011",
+      "tier": "중",
+      "reason": "잔액증명 의뢰·체크와 계좌 목록"
+    },
+    {
+      "id": "hana_official_139",
+      "tier": "중",
+      "reason": "기업 지급보증·여러 금액과 조건"
+    },
+    {
+      "id": "hana_official_157",
+      "tier": "중",
+      "reason": "인감명판 신고·복수 기재 영역"
+    },
+    {
+      "id": "hana_official_060",
+      "tier": "중",
+      "reason": "동의서·고정 법정 문구 보존"
+    },
+    {
+      "id": "hana_official_024",
+      "tier": "상",
+      "reason": "금융정보 동의·다수 선택지"
+    },
+    {
+      "id": "hana_official_061",
+      "tier": "상",
+      "reason": "적합성 질문·복합 체크 그룹"
+    },
+    {
+      "id": "hana_official_408",
+      "tier": "상",
+      "reason": "FATCA CRS·국가 정보와 선택 항목"
+    },
+    {
+      "id": "hana_official_419",
+      "tier": "상",
+      "reason": "밀집된 동의 문구·작은 글씨"
+    },
+    {
+      "id": "hf007",
+      "tier": "중",
+      "reason": "예금·계좌 목록과 신청 내용"
+    },
+    {
+      "id": "hf021",
+      "tier": "상",
+      "reason": "일괄 지급·밀집된 표와 선택지"
+    },
+    {
+      "id": "hf037",
+      "tier": "상",
+      "reason": "유가증권·많은 반복 셀"
+    },
+    {
+      "id": "hf086",
+      "tier": "상",
+      "reason": "협력기업 목록·고밀도 반복 행"
+    },
+    {
+      "id": "hf144",
+      "tier": "중",
+      "reason": "동산 담보·품목별 반복 표"
+    },
+    {
+      "id": "hf177",
+      "tier": "상",
+      "reason": "퇴직연금 운용상품·표와 체크 혼합"
+    },
+    {
+      "id": "hf181",
+      "tier": "상",
+      "reason": "가입자 명부·여러 열과 반복 행"
+    },
+    {
+      "id": "hf201",
+      "tier": "하",
+      "reason": "영문 외환 신청·언어 다양성"
+    },
+    {
+      "id": "hf293",
+      "tier": "상",
+      "reason": "무역·선적서류 목록과 작은 글씨"
+    },
+    {
+      "id": "hf342",
+      "tier": "중",
+      "reason": "전자금융·해외계좌 정보와 선택지"
+    },
+    {
+      "id": "hf387",
+      "tier": "상",
+      "reason": "파생상품·자동결제 표와 체크 혼합"
+    },
+    {
+      "id": "hf436",
+      "tier": "중",
+      "reason": "주주명부·금액과 지분 목록"
+    },
+    {
+      "id": "gov_withholding__p01",
+      "source_id": "gov_withholding",
+      "page": 1,
+      "tier": "상",
+      "reason": "근로소득 원천징수 본표: 인적사항·소득·세액 복합 표",
+      "complexity_tags": [
+        "multi_section",
+        "merged_headers",
+        "dense_numeric"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_withholding__p02",
+      "source_id": "gov_withholding",
+      "page": 2,
+      "tier": "상",
+      "reason": "정산명세: 계층형 공제 항목·좌우 병렬 표",
+      "complexity_tags": [
+        "hierarchical_rows",
+        "parallel_tables",
+        "small_text"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_withholding__p03",
+      "source_id": "gov_withholding",
+      "page": 3,
+      "tier": "상",
+      "reason": "소득·세액공제 명세: 다단 머리글·인적공제 표시",
+      "complexity_tags": [
+        "multi_level_headers",
+        "check_matrix",
+        "wide_table"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_withholding__p06",
+      "source_id": "gov_withholding",
+      "page": 6,
+      "tier": "상",
+      "reason": "연금·저축 공제명세: 여러 반복 표·계좌·금액",
+      "complexity_tags": [
+        "multiple_tables",
+        "repeating_rows",
+        "dense_numeric"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_withholding__p07",
+      "source_id": "gov_withholding",
+      "page": 7,
+      "tier": "상",
+      "reason": "월세·임차차입금 명세: 다단 머리글·긴 주소·금액",
+      "complexity_tags": [
+        "merged_headers",
+        "long_text",
+        "multiple_tables"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_retirement_withholding__p10",
+      "source_id": "gov_retirement_withholding",
+      "page": 10,
+      "tier": "상",
+      "reason": "퇴직소득 원천징수 앞쪽: 근속연수·과세표준·세액 격자",
+      "complexity_tags": [
+        "hierarchical_rows",
+        "merged_cells",
+        "dense_numeric"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_pension_withholding__p20",
+      "source_id": "gov_pension_withholding",
+      "page": 20,
+      "tier": "상",
+      "reason": "연금소득 원천징수: 지급액·인적공제·정산 복합 격자",
+      "complexity_tags": [
+        "multi_section",
+        "merged_cells",
+        "dense_numeric"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_income_tax_return__p03",
+      "source_id": "gov_income_tax_return",
+      "page": 3,
+      "tier": "상",
+      "reason": "종합소득 신고 본표: 선택지·신고인·세액 계산",
+      "complexity_tags": [
+        "choice_groups",
+        "multi_section",
+        "dense_numeric"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_income_tax_return__p09",
+      "source_id": "gov_income_tax_return",
+      "page": 9,
+      "tier": "상",
+      "reason": "사업소득명세: 세로 항목 계층·사업장별 열",
+      "complexity_tags": [
+        "hierarchical_rows",
+        "parallel_columns",
+        "dense_numeric"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_income_tax_return__p19",
+      "source_id": "gov_income_tax_return",
+      "page": 19,
+      "tier": "상",
+      "reason": "세액감면·공제명세: 상하 표·병합 헤더",
+      "complexity_tags": [
+        "multiple_tables",
+        "merged_headers",
+        "small_text"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_income_tax_return__p21",
+      "source_id": "gov_income_tax_return",
+      "page": 21,
+      "tier": "상",
+      "reason": "가산세명세: 다단 행 그룹·세율·기준금액",
+      "complexity_tags": [
+        "hierarchical_rows",
+        "merged_cells",
+        "dense_numeric"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_local_assessment__p01",
+      "source_id": "gov_local_assessment",
+      "page": 1,
+      "tier": "상",
+      "reason": "지방세 세목별 과세증명: 한영 병기·세목별 내역",
+      "complexity_tags": [
+        "bilingual",
+        "repeating_rows",
+        "multi_section"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_local_assessment__p02",
+      "source_id": "gov_local_assessment",
+      "page": 2,
+      "tier": "상",
+      "reason": "재산세 토지 부표: 필지별 반복 블록·세액",
+      "complexity_tags": [
+        "repeated_blocks",
+        "merged_cells",
+        "dense_numeric"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_building_general__p01",
+      "source_id": "gov_building_general",
+      "page": 1,
+      "tier": "상",
+      "reason": "건축물대장 앞쪽: 가로 배치·면적·용도·소유자",
+      "complexity_tags": [
+        "landscape",
+        "merged_cells",
+        "multiple_tables"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "gov_building_general__p02",
+      "source_id": "gov_building_general",
+      "page": 2,
+      "tier": "상",
+      "reason": "건축물대장 계속면: 설비·인허가·변동 이력",
+      "complexity_tags": [
+        "landscape",
+        "multi_section",
+        "hierarchical_rows"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "hana_corporate_agreement__p01",
+      "source_id": "hana_corporate_agreement",
+      "page": 1,
+      "tier": "상",
+      "reason": "기업 여신 약정: 조건별 선택·금액·금리",
+      "complexity_tags": [
+        "choice_groups",
+        "long_text",
+        "merged_cells"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "hana_corporate_agreement__p02",
+      "source_id": "hana_corporate_agreement",
+      "page": 2,
+      "tier": "상",
+      "reason": "기업 여신 약정 계속: 긴 약관·상환 조건·선택지",
+      "complexity_tags": [
+        "dense_prose",
+        "choice_groups",
+        "small_text"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "hana_personal_agreement__p01",
+      "source_id": "hana_personal_agreement",
+      "page": 1,
+      "tier": "상",
+      "reason": "가계 대출 약정: 금리 유형·상환 방식·조건별 칸",
+      "complexity_tags": [
+        "choice_groups",
+        "multi_section",
+        "small_text"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "hana_official_413__p01",
+      "source_id": "hana_official_413",
+      "page": 1,
+      "tier": "상",
+      "reason": "법인 고객확인: 신원·대표자·연락처·업종",
+      "complexity_tags": [
+        "multi_section",
+        "choice_groups",
+        "merged_cells"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "hana_official_413__p02",
+      "source_id": "hana_official_413",
+      "page": 2,
+      "tier": "상",
+      "reason": "법인 실제소유자 확인: 반복 인적사항·판단 단계",
+      "complexity_tags": [
+        "repeated_blocks",
+        "hierarchical_rows",
+        "choice_groups"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "hana_official_428__p01",
+      "source_id": "hana_official_428",
+      "page": 1,
+      "tier": "상",
+      "reason": "법인 FATCA CRS: 분류 선택지·거주지국·납세번호",
+      "complexity_tags": [
+        "choice_groups",
+        "repeating_rows",
+        "small_text"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "hana_official_428__p02",
+      "source_id": "hana_official_428",
+      "page": 2,
+      "tier": "상",
+      "reason": "법인 FATCA 추가확인: 계층형 질문·다수 선택지",
+      "complexity_tags": [
+        "hierarchical_rows",
+        "choice_groups",
+        "dense_prose"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "hf174__p01",
+      "source_id": "hf174",
+      "page": 1,
+      "tier": "상",
+      "reason": "퇴직연금 계약이전 동의: 고밀도 목록·반복 체크",
+      "complexity_tags": [
+        "dense_table",
+        "check_matrix",
+        "small_text"
+      ],
+      "dpi": 160
+    },
+    {
+      "id": "hf038__p01",
+      "source_id": "hf038",
+      "page": 1,
+      "tier": "상",
+      "reason": "수표·어음 발행 확인: 많은 반복 셀·좁은 열",
+      "complexity_tags": [
+        "dense_table",
+        "repeating_rows",
+        "small_text"
+      ],
+      "dpi": 160
+    }
+  ],
+  "base": "gov-hana-hf-pilot-v1",
+  "base_dataset": "evalset/forms_candidates_v1",
+  "description": "기존 36쪽 보존 + 복합·고난도 본표 24쪽. 페이지별 입력이며 다중 페이지 문서 전체 생성 평가는 아님."
+}

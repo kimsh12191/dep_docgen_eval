@@ -2,6 +2,15 @@
 
 ## gov · hana · hf 원본 평가 후보
 
+**복합·고난도 확대 v2:** 기존 36쪽에 12개 소스 서식의 고난도 24쪽을 더한 48개 서식·60개 페이지 입력입니다. 근로·퇴직·연금소득 원천징수, 종합소득세 본표와 명세, 복합 금융 서식이 포함됩니다. [v2 후보](evalset/forms_candidates_v2/README.md)는 준비 워크플로가 테스트를 통과한 뒤 커밋합니다.
+
+```bash
+python -m http.server 8766 --bind 127.0.0.1 --directory evalset/forms_candidates_v2
+```
+
+선정 화면은 추가 고난도 24쪽부터 보여줍니다. 원본 PDF 페이지와 서식 안의 페이지를 구분하며, 같은 원본 계열은 family로 묶습니다. 다중 페이지 문서 전체 생성 평가가 아닌 페이지별 입력입니다. 기존 v1은 보존합니다. 재생성은 `build --selection evalset/selections/forms_complex_v2.json`으로 실행합니다. 기존 evaluate는 페이지 평균이므로 계열별 평균도 별도로 확인해야 합니다.
+
+
 [원본 후보 36종](evalset/forms_candidates_v1/README.md)을 추가했습니다. 전체 502개 서식의 출처·동일 계열을 조사하고 gov 12·hana 12·hf 12종의 단일 페이지 원본 PDF를 입력 이미지로 준비했습니다. **최종 선정 전이며 기준 HTML은 아직 없습니다.**
 
 로컬에서 `evalset/forms_candidates_v1/index.html`을 열어 채택/보류/제외를 기록하고 JSON으로 저장하세요. 원본 선정과 템플릿 승인은 별도 단계입니다. 자세한 절차는 후보 폴더 README에 있습니다.
