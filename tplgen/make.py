@@ -39,7 +39,8 @@ def feedback(folder: Path, result: dict) -> list[dict]:
 
 
 def rank(result: dict) -> tuple:
-    return (result["pass"], result["valid"], result["robust"], -result["leak"], result["layout"] or 0.0)
+    """회차를 고르는 순서. 닮음은 0.05 단위로만 본다 (그보다 작은 차이는 점수의 오차다 → 같으면 뒤 회차를 고른다)."""
+    return (result["pass"], result["valid"], result["robust"], -result["leak"], int((result["layout"] or 0.0) * 20))
 
 
 def make(image, out, m: dict, rounds: int = 0, renderer: Renderer | None = None) -> list[dict]:

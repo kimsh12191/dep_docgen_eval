@@ -34,12 +34,15 @@ JS = r"""
     if (e.scrollWidth > e.clientWidth + 2 || e.scrollHeight > e.clientHeight + 2)
       problems.push('clipped:' + (e.getAttribute('data-field') || e.tagName.toLowerCase() + (e.className ? '.' + String(e.className).split(' ')[0] : '')));
   }
+  const frags = els.map(e => [...e.getClientRects()].filter(r => r.width > 0 && r.height > 0));   // 줄이 넘어간 값은 줄 조각마다 본다
   for (let i = 0; i < els.length; i++) for (let j = i + 1; j < els.length; j++) {
     if (els[i].contains(els[j]) || els[j].contains(els[i])) continue;
-    const a = labels[i].box, b = labels[j].box;
-    const w = Math.min(a[0] + a[2], b[0] + b[2]) - Math.max(a[0], b[0]), h = Math.min(a[1] + a[3], b[1] + b[3]) - Math.max(a[1], b[1]);
-    const small = Math.min(a[2] * a[3], b[2] * b[3]);
-    if (w > 1 && h > 1 && small > 0 && w * h > 0.2 * small) problems.push('overlap:' + labels[i].field + '|' + labels[j].field);
+    let hit = false;
+    for (const a of frags[i]) for (const b of frags[j]) {
+      const w = Math.min(a.right, b.right) - Math.max(a.left, b.left), h = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+      if (w > 1 && h > 1 && w * h > 0.2 * Math.min(a.width * a.height, b.width * b.height)) hit = true;
+    }
+    if (hit) problems.push('overlap:' + labels[i].field + '|' + labels[j].field);
   }
   return {problems: [...new Set(problems)], labels, assets, width: Math.round(p.width), height: Math.round(p.height)};
 }

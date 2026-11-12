@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; background: #fff; }
+  .page { width: 794px; min-height: 1123px; box-sizing: border-box; padding: 8px 8px 20px; font-family: sans-serif; font-size: 11.5px; line-height: 14.5px; color: #111; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  th { text-align: left; vertical-align: top; padding: 9px 10px 8px; border-bottom: 1.5px solid #111; }
+  td { vertical-align: top; padding: 5px 10px 3.5px; word-break: break-word; }
+</style>
+</head>
+<body>
+<div class="page">
+  <table>
+    <colgroup><col style="width:13.7%"><col style="width:41.7%"><col style="width:14.5%"><col style="width:13.6%"><col style="width:16.5%"></colgroup>
+    <tr><th>Date</th><th>Transaction History</th><th>Ref ID</th><th>Transacted Amount</th><th>Running Balance</th></tr>
+    {% for row in transactions %}<tr>
+      <td data-field="transactions.{{ loop.index0 }}.date">{{ row.date }}</td>
+      <td data-field="transactions.{{ loop.index0 }}.description">{{ row.description }}</td>
+      <td data-field="transactions.{{ loop.index0 }}.ref_id">{{ row.ref_id }}</td>
+      <td data-field="transactions.{{ loop.index0 }}.amount">{{ row.amount }}</td>
+      <td data-field="transactions.{{ loop.index0 }}.balance">{{ row.balance }}</td>
+    </tr>{% endfor %}
+  </table>
+</div>
+</body>
+</html>

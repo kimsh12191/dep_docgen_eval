@@ -1,0 +1,34 @@
+{
+  "title": "매장 영수증 (카드 결제)",
+  "fields": [
+    {"name": "biz_no", "label": "사업자번호", "type": "idnum"},
+    {"name": "ceo", "label": "대표", "type": "name"},
+    {"name": "address", "label": "주소", "type": "address"},
+    {"name": "store", "label": "매장", "type": "company"},
+    {"name": "tel", "label": "TEL.", "type": "phone"},
+    {"name": "purchase_date", "label": "구매", "type": "date"},
+    {"name": "purchase_time", "label": "구매 시각", "type": "text"},
+    {"name": "txn_no", "label": "거래번호", "type": "text"},
+    {"name": "subtotal", "label": "소계", "type": "amount"},
+    {"name": "taxable", "label": "과세물품가액", "type": "amount"},
+    {"name": "vat", "label": "부가세", "type": "amount"},
+    {"name": "total", "label": "합계", "type": "amount"},
+    {"name": "card_paid", "label": "카드 결제액", "type": "amount"},
+    {"name": "card_name", "label": "카드 종류", "type": "text"},
+    {"name": "card_no", "label": "카드 번호", "type": "account"},
+    {"name": "approval_no", "label": "승인번호", "type": "number"},
+    {"name": "installment", "label": "할부", "type": "choice", "options": ["일시불", "3개월", "6개월"]},
+    {"name": "van", "label": "승인 VAN", "type": "text"},
+    {"name": "cashier_no", "label": "캐셔No", "type": "number"},
+    {"name": "cashier_store", "label": "캐셔 매장", "type": "company"},
+    {"name": "barcode_no", "label": "바코드 번호", "type": "number"}
+  ],
+  "tables": [
+    {"name": "items", "label": "구매 상품", "min_rows": 1, "max_rows": 30,
+     "columns": [
+       {"name": "name", "label": "상품명", "type": "text"},
+       {"name": "qty", "label": "수량", "type": "number"},
+       {"name": "amount", "label": "금액", "type": "amount"}
+     ]}
+  ]
+}

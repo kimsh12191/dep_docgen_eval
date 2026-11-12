@@ -1,0 +1,26 @@
+{
+  "biz_no": "104-81-91189",
+  "ceo": "최우제, 쿠와하라 타카오",
+  "address": "서울 강남구 영동대로 513 코엑스몰 D112",
+  "store": "유니클로",
+  "tel": "02-3453-5448",
+  "purchase_date": "2025-10-03",
+  "purchase_time": "16:47",
+  "txn_no": "1389-0015",
+  "subtotal": "60,000",
+  "taxable": "54,546",
+  "vat": "5,454",
+  "total": "60,000",
+  "card_paid": "60,000",
+  "card_name": "BeV카드",
+  "card_no": "55986996****800*",
+  "approval_no": "30020014",
+  "installment": "일시불",
+  "van": "KOCES_DOWN",
+  "cashier_no": "510001",
+  "cashier_store": "유니클로",
+  "barcode_no": "021200138920251003 0015",
+  "items": [
+    {"name": "유니클로(과세)", "qty": "1", "amount": "60,000"}
+  ]
+}

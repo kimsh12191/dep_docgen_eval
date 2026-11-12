@@ -1,7 +1,7 @@
 """꾸러미가 쓸 만한가. 정답 파일 없이, 꾸러미를 실제로 돌려 보고 잰다.
 
   valid    규칙대로이고 예시 값으로 그려지는가
-  layout   예시 값으로 그린 그림과 원본 이미지의 배치가 닮은 정도 (0~1). 글꼴이 달라도 되게 거칠게 본다
+  layout   예시 값으로 그린 그림과 원본 이미지가 위에서 아래로 같은 모양의 줄을 같은 순서로 갖는 정도 (0~1). 글꼴·간격 차이는 봐준다
   robust   값을 바꾸고 표 행을 바꿔 그려도 깨지지 않는 시험의 비율 (data.stress 의 시험들)
   leak     예시 값이 틀에 고정 글자로 박혀 있는 수 (값을 비워 그렸는데도 예시 값이 보이면 샌 것)
   fields · tables · columns · assets   개수 (참고)
@@ -18,41 +18,66 @@ from pathlib import Path
 from . import data as D, package as P
 from .render import Renderer
 
-PASS_RULE = {"robust": 1.0, "layout": 0.5}     # 유효 ∧ 샘 0 ∧ 아래 점수 이상 (임시)
-CELL = 12          # layout: 이 크기(px, 폭 794 기준)의 칸마다 잉크가 있는지만 본다
+PASS_RULE = {"robust": 1.0, "layout": 0.6}     # 유효 ∧ 샘 0 ∧ 아래 점수 이상 (임시)
+CELL = 8           # layout: 이 크기(px, 폭 794 기준)의 칸마다 잉크가 있는지만 본다
 
 
-def ink_grid(path, width: int = 794):
-    """그림 → 칸마다 잉크가 있는가 (2차원 bool). 종이색보다 뚜렷이 어두운 것을 잉크로 본다."""
+def paper(im):
+    """사진이면 종이 부분만 잘라 낸다: 밝은(종이색) 픽셀이 절반 넘게 차지하는 줄·칸의 범위. 스캔·렌더링은 그대로 나온다."""
+    import numpy as np
+    a = np.asarray(im).astype(float)
+    bright = a > np.percentile(a, 95) - 45
+    rows, cols = np.where(bright.mean(axis=1) > 0.3)[0], np.where(bright.mean(axis=0) > 0.3)[0]
+    if len(rows) < 10 or len(cols) < 10:
+        return im
+    return im.crop((int(cols[0]), int(rows[0]), int(cols[-1]) + 1, int(rows[-1]) + 1))
+
+
+def bands(path, width: int = 794):
+    """그림 → 위에서 아래로, 잉크가 있는 줄들 (줄마다 칸별 잉크 유무). 빈 줄은 뺀다 → 세로 간격 차이는 보지 않는다."""
     import numpy as np
     from PIL import Image
-    im = Image.open(path).convert("L")
+    im = paper(Image.open(path).convert("L"))
     im = im.resize((width, max(1, round(im.height * width / im.width))))
     a = np.asarray(im).astype(float)
-    dark = a < min(160.0, np.percentile(a, 50) - 60)
+    dark = a < min(160.0, np.percentile(a, 50) - 60)          # 종이색보다 뚜렷이 어두운 것이 잉크
     h, w = (dark.shape[0] // CELL) * CELL, (dark.shape[1] // CELL) * CELL
-    cells = dark[:h, :w].reshape(h // CELL, CELL, w // CELL, CELL).mean(axis=(1, 3))
-    return cells > 0.02
+    grid = dark[:h, :w].reshape(h // CELL, CELL, w // CELL, CELL).mean(axis=(1, 3)) > 0.02
+    return grid[grid.any(axis=1)]
 
 
 def layout_score(original, rendered) -> float:
-    """두 그림의 잉크 칸이 겹치는 정도 (F1). 이웃 칸까지는 같은 자리로 본다. 높이가 다르면 긴 쪽에 맞춘다."""
+    """두 그림이 위에서 아래로 같은 모양의 줄을 같은 순서로 갖는 정도 (0~1).
+    줄끼리의 닮음(가로로 이웃 칸까지 같은 자리로 봄)을 순서를 지키며 짝지은 합. 글꼴·행 높이·여백이 달라도 되고, 빠지거나 순서가 바뀌면 내려간다.
+    기준점 (hf153 에서 잰 것): 같은 문서 0.8 안팎, 스캔본과는 0.74, 전혀 다른 문서와는 0.4 안팎."""
     import numpy as np
-    a, b = ink_grid(original), ink_grid(rendered)
-    rows = max(a.shape[0], b.shape[0])
-    pad = lambda m: np.pad(m, ((0, rows - m.shape[0]), (0, 0)))
-    a, b = pad(a), pad(b)
-
-    def near(m):
-        out = m.copy()
-        for dy in (-1, 0, 1):
-            for dx in (-1, 0, 1):
-                out |= np.roll(np.roll(m, dy, 0), dx, 1)
-        return out
-    if not a.any() or not b.any():
+    a, b = bands(original), bands(rendered)
+    if not len(a) or not len(b):
         return 0.0
-    p, r = (b & near(a)).sum() / b.sum(), (a & near(b)).sum() / a.sum()
-    return round(float(2 * p * r / (p + r)) if p + r else 0.0, 3)
+    wide = lambda m: (m | np.roll(m, 1, 1) | np.roll(m, -1, 1)).astype(float)
+    p = (b.astype(float) @ wide(a).T).T / np.maximum(b.sum(1), 1)[None, :]     # [i, j] = 그림 줄 j 의 잉크 중 원본 줄 i 근처인 비율
+    q = (a.astype(float) @ wide(b).T) / np.maximum(a.sum(1), 1)[:, None]       # [i, j] = 원본 줄 i 의 잉크 중 그림 줄 j 근처인 비율
+    sim = np.where(p + q > 0, 2 * p * q / np.maximum(p + q, 1e-9), 0)
+    best = np.zeros((len(a) + 1, len(b) + 1))
+    for i in range(1, len(a) + 1):
+        for j in range(1, len(b) + 1):
+            best[i, j] = max(best[i - 1, j], best[i, j - 1], best[i - 1, j - 1] + sim[i - 1, j - 1])
+    return round(float(2 * best[-1, -1] / (len(a) + len(b))), 3)
+
+
+def fill_assets(png, shot: dict):
+    """그림 자리(로고·바코드·QR…)를 채운 사본을 만든다. 원본의 그 자리는 잉크로 차 있으므로, 비워 둔 것이 감점이 되지 않게."""
+    from PIL import Image, ImageDraw
+    if not shot["assets"]:
+        return png
+    im = Image.open(png).convert("L")
+    k, d = im.width / shot["width"], ImageDraw.Draw(im)
+    for a in shot["assets"]:
+        x, y, w, h = [v * k for v in a["box"]]
+        d.rectangle([x, y, x + w, y + h], fill=0)
+    out = str(png)[:-4] + "_filled.png"
+    im.save(out)
+    return out
 
 
 def leak_candidates(pkg: dict) -> set[str]:
@@ -92,7 +117,7 @@ def check(folder, image=None, out=None, renderer: Renderer | None = None) -> dic
                 if name == "sample":
                     result["assets"] = len(shot["assets"])
                     if image and shot["width"]:
-                        result["layout"] = layout_score(image, png)
+                        result["layout"] = layout_score(image, fill_assets(png, shot))
                 if name == "empty":   # 값을 비웠는데도 예시 값이 보이면 틀에 박힌 것
                     text = r._page.inner_text("body")
                     result["leak"] = sum(1 for v in leak_candidates(pkg) if v in text)

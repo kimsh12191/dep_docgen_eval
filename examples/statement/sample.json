@@ -1,0 +1,207 @@
+{
+ "transactions": [
+  {
+   "date": "07-Jan-2026",
+   "description": "Direct Debit Bill Payment Authorized to SCHWARTZ, MARTIN AND MYERS Utility Account Ref: 724379286",
+   "ref_id": "TXN391065",
+   "amount": "+697.97",
+   "balance": "15,183.77"
+  },
+  {
+   "date": "08-Jan-2026",
+   "description": "Direct Debit Bill Payment Authorized to WHEELER-SMITH Utility Account Ref: 929425109",
+   "ref_id": "TXN834055",
+   "amount": "+700.07",
+   "balance": "15,883.84"
+  },
+  {
+   "date": "08-Jan-2026",
+   "description": "Interbank Outward Transfer to RHONDA ESTRADA / Ref No: 911773 / Processing Route: 5989",
+   "ref_id": "TXN479854",
+   "amount": "-338.95",
+   "balance": "15,544.89"
+  },
+  {
+   "date": "09-Jan-2026",
+   "description": "Point of Sale Purchase Merchant: MARKS-WILLIAMS Retail Outlet - Card ending in 6226",
+   "ref_id": "TXN399636",
+   "amount": "+595.32",
+   "balance": "16,140.21"
+  },
+  {
+   "date": "09-Jan-2026",
+   "description": "Instant Incoming Payment Settled from JOHNSON-THOMAS - Transaction ID: 974415",
+   "ref_id": "TXN466286",
+   "amount": "-432.17",
+   "balance": "15,708.04"
+  },
+  {
+   "date": "09-Jan-2026",
+   "description": "Direct Debit Bill Payment Authorized to FULLER, KENNEDY AND SMITH Utility Account Ref: 528004412",
+   "ref_id": "TXN453806",
+   "amount": "-669.59",
+   "balance": "15,038.45"
+  },
+  {
+   "date": "10-Jan-2026",
+   "description": "Instant Incoming Payment Settled from GARCIA LLC - Transaction ID: 326857",
+   "ref_id": "TXN953039",
+   "amount": "+34.22",
+   "balance": "15,072.67"
+  },
+  {
+   "date": "10-Jan-2026",
+   "description": "Point of Sale Purchase Merchant: MARTIN INC Retail Outlet - Card ending in 3484",
+   "ref_id": "TXN349367",
+   "amount": "+574.75",
+   "balance": "15,647.42"
+  },
+  {
+   "date": "10-Jan-2026",
+   "description": "Point of Sale Purchase Merchant: FLORES LTD Retail Outlet - Card ending in 8122",
+   "ref_id": "TXN456037",
+   "amount": "+765.18",
+   "balance": "16,412.60"
+  },
+  {
+   "date": "11-Jan-2026",
+   "description": "Interbank Outward Transfer to MATTHEW PATTERSON / Ref No: 272077 / Processing Route: 4205",
+   "ref_id": "TXN186059",
+   "amount": "-80.75",
+   "balance": "16,331.85"
+  },
+  {
+   "date": "11-Jan-2026",
+   "description": "Point of Sale Purchase Merchant: ONEILL, MACDONALD AND CURTIS Retail Outlet - Card ending in 5734",
+   "ref_id": "TXN768406",
+   "amount": "-1,494.29",
+   "balance": "14,837.56"
+  },
+  {
+   "date": "12-Jan-2026",
+   "description": "Instant Incoming Payment Settled from MCCORMICK, COLON AND JENKINS - Transaction ID: 342088",
+   "ref_id": "TXN367668",
+   "amount": "+810.11",
+   "balance": "15,647.67"
+  },
+  {
+   "date": "12-Jan-2026",
+   "description": "Over-the-Counter Cash Deposit by Agent GREGORY PRICE at Corporate Counter - Tracker: 874407",
+   "ref_id": "TXN788668",
+   "amount": "-357.06",
+   "balance": "15,290.61"
+  },
+  {
+   "date": "12-Jan-2026",
+   "description": "Point of Sale Purchase Merchant: BARRY GROUP Retail Outlet - Card ending in 4351",
+   "ref_id": "TXN579117",
+   "amount": "-1,409.99",
+   "balance": "13,880.62"
+  },
+  {
+   "date": "12-Jan-2026",
+   "description": "Interbank Outward Transfer to MARY MURPHY / Ref No: 433166 / Processing Route: 4724",
+   "ref_id": "TXN655471",
+   "amount": "+794.68",
+   "balance": "14,675.30"
+  },
+  {
+   "date": "12-Jan-2026",
+   "description": "Interbank Outward Transfer to ROGER EDWARDS / Ref No: 631116 / Processing Route: 6416",
+   "ref_id": "TXN496959",
+   "amount": "+409.88",
+   "balance": "15,085.18"
+  },
+  {
+   "date": "12-Jan-2026",
+   "description": "Over-the-Counter Cash Deposit by Agent ANTHONY LEWIS at Corporate Counter - Tracker: 392074",
+   "ref_id": "TXN147500",
+   "amount": "-906.03",
+   "balance": "14,179.15"
+  },
+  {
+   "date": "13-Jan-2026",
+   "description": "Over-the-Counter Cash Deposit by Agent CHAD CHRISTIAN at Corporate Counter - Tracker: 831180",
+   "ref_id": "TXN490437",
+   "amount": "-353.69",
+   "balance": "13,825.46"
+  },
+  {
+   "date": "13-Jan-2026",
+   "description": "Direct Debit Bill Payment Authorized to STEVENS-ANDERSON Utility Account Ref: 857606858",
+   "ref_id": "TXN914929",
+   "amount": "-289.43",
+   "balance": "13,536.03"
+  },
+  {
+   "date": "13-Jan-2026",
+   "description": "Interbank Outward Transfer to PAULA JOHNSON / Ref No: 969365 / Processing Route: 5101",
+   "ref_id": "TXN762350",
+   "amount": "-1,445.81",
+   "balance": "12,090.22"
+  },
+  {
+   "date": "14-Jan-2026",
+   "description": "Point of Sale Purchase Merchant: STANLEY GROUP Retail Outlet - Card ending in 7775",
+   "ref_id": "TXN833330",
+   "amount": "-1,039.26",
+   "balance": "11,050.96"
+  },
+  {
+   "date": "14-Jan-2026",
+   "description": "Instant Incoming Payment Settled from MITCHELL-TAYLOR - Transaction ID: 396546",
+   "ref_id": "TXN858070",
+   "amount": "-328.89",
+   "balance": "10,722.07"
+  },
+  {
+   "date": "14-Jan-2026",
+   "description": "Interbank Outward Transfer to MARK MCCLURE / Ref No: 389873 / Processing Route: 8481",
+   "ref_id": "TXN335743",
+   "amount": "+506.57",
+   "balance": "11,228.64"
+  },
+  {
+   "date": "14-Jan-2026",
+   "description": "Over-the-Counter Cash Deposit by Agent MICHAEL MORRIS at Corporate Counter - Tracker: 587062",
+   "ref_id": "TXN270674",
+   "amount": "+715.40",
+   "balance": "11,944.04"
+  },
+  {
+   "date": "15-Jan-2026",
+   "description": "Interbank Outward Transfer to DEBRA WADE / Ref No: 590633 / Processing Route: 4340",
+   "ref_id": "TXN291768",
+   "amount": "+663.29",
+   "balance": "12,607.33"
+  },
+  {
+   "date": "15-Jan-2026",
+   "description": "Point of Sale Purchase Merchant: ALLEN AND SONS Retail Outlet - Card ending in 9435",
+   "ref_id": "TXN659504",
+   "amount": "+394.26",
+   "balance": "13,001.59"
+  },
+  {
+   "date": "15-Jan-2026",
+   "description": "Over-the-Counter Cash Deposit by Agent TINA MARTINEZ at Corporate Counter - Tracker: 582999",
+   "ref_id": "TXN511430",
+   "amount": "-225.82",
+   "balance": "12,775.77"
+  },
+  {
+   "date": "16-Jan-2026",
+   "description": "Direct Debit Bill Payment Authorized to MORGAN LLC Utility Account Ref: 413459099",
+   "ref_id": "TXN806357",
+   "amount": "-36.78",
+   "balance": "12,738.99"
+  },
+  {
+   "date": "16-Jan-2026",
+   "description": "Interbank Outward Transfer to DOUGLAS MCDONALD / Ref No: 827370 / Processing Route: 7987",
+   "ref_id": "TXN248462",
+   "amount": "-1,011.89",
+   "balance": "11,727.10"
+  }
+ ]
+}

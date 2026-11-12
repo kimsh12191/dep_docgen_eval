@@ -1,0 +1,39 @@
+{
+ "title": "Bank statement — transaction history",
+ "fields": [],
+ "tables": [
+  {
+   "name": "transactions",
+   "label": "Transaction History",
+   "min_rows": 1,
+   "max_rows": 60,
+   "columns": [
+    {
+     "name": "date",
+     "label": "Date",
+     "type": "date"
+    },
+    {
+     "name": "description",
+     "label": "Transaction History",
+     "type": "text"
+    },
+    {
+     "name": "ref_id",
+     "label": "Ref ID",
+     "type": "text"
+    },
+    {
+     "name": "amount",
+     "label": "Transacted Amount",
+     "type": "amount"
+    },
+    {
+     "name": "balance",
+     "label": "Running Balance",
+     "type": "amount"
+    }
+   ]
+  }
+ ]
+}

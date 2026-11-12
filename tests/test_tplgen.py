@@ -76,6 +76,16 @@ class Scores(unittest.TestCase):
         self.assertEqual((res["robust"], res["leak"], res["tables"], res["assets"]), (1.0, 0, 1, 2))
         self.assertEqual(set(res["tests"]), {"sample", "random", "long", "empty", "rows_1", "rows_many"})
 
+    def test_all_examples(self):
+        """본보기 셋: 깨끗한 서식 · 스캔처럼 만든 것 · 찍은 영수증 · 긴 표. 다른 문서의 이미지와는 닮지 않아야 한다."""
+        pairs = {"hf153": "hf153.png", "receipt_photo": "receipt_photo.jpg", "statement": "statement.jpg"}
+        for name, image in pairs.items():
+            res = check.check(ROOT / "examples" / name, ROOT / "samples" / image, renderer=self.r)
+            self.assertTrue(res["pass"], (name, check.brief(res)))
+        self.assertTrue(check.check(EXAMPLE, ROOT / "samples" / "hf153_scan.jpg", renderer=self.r)["pass"])
+        for other in ("hf138.png", "hf225.png", "statement.jpg", "receipt_photo.jpg"):
+            self.assertLess(check.check(EXAMPLE, ROOT / "samples" / other, renderer=self.r)["layout"], check.PASS_RULE["layout"], other)
+
     def test_broken_is_caught(self):
         t = lambda old, new: (lambda n, s: s.replace(old, new) if n == "template.html" else s)
         leak = self.run_check(t("{{ pledgor_name }}", "박찬연"))

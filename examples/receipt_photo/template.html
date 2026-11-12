@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; background: #fff; }
+  .page { width: 380px; box-sizing: border-box; padding: 86px 56px 44px 38px; font-family: monospace; font-size: 13px; line-height: 19px; color: #111; }
+  .asset { border: 1px dashed #bbb; box-sizing: border-box; margin: 0 auto; }
+  .center { text-align: center; }
+  .gap { margin-top: 19px; }
+  .row { display: flex; justify-content: space-between; gap: 8px; }
+  .row > :last-child { text-align: right; }
+  .head { border-top: 1px solid #111; border-bottom: 1px solid #111; margin-top: 16px; font-size: 11.4px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { font-weight: normal; border-bottom: 1px solid #111; }
+  th, td { padding: 0 2px; vertical-align: top; }
+  .n { text-align: right; white-space: nowrap; }
+  .dash { border-top: 1px dashed #111; margin: 6px 0; }
+  .b { font-weight: bold; }
+  .total { font-size: 17px; font-weight: bold; letter-spacing: 1px; }
+  .small { font-size: 9px; line-height: 12px; }
+  .big { font-size: 15px; letter-spacing: 2px; margin: 22px 0 16px; }
+  .foot { margin-top: 62px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="asset" data-asset="logo" style="width:140px; height:56px"></div>
+
+  <div class="gap">사업자번호: <span data-field="biz_no">{{ biz_no }}</span></div>
+  <div>대표: <span data-field="ceo">{{ ceo }}</span></div>
+  <div>주소: <span data-field="address">{{ address }}</span></div>
+  <div>매장: <span data-field="store">{{ store }}</span></div>
+  <div>TEL. <span data-field="tel">{{ tel }}</span></div>
+
+  <div class="gap">개정된 여신 전문 금융업 법에 따라<br>환불/교환/재결제를 원하는 경우는<br>결제하셨던 영수증 및 카드를 반드시<br>지참하셔야 합니다.(현금/상품권은<br>영수증만 지참, 타점 환불 불가)</div>
+
+  <div class="head">구매 <span data-field="purchase_date">{{ purchase_date }}</span> <span data-field="purchase_time">{{ purchase_time }}</span> 거래번호:<span data-field="txn_no">{{ txn_no }}</span></div>
+  <table>
+    <tr><th>상품명</th><th class="n">수량</th><th class="n">금액</th></tr>
+    {% for row in items %}<tr>
+      <td data-field="items.{{ loop.index0 }}.name">{{ row.name }}</td>
+      <td class="n" data-field="items.{{ loop.index0 }}.qty">{{ row.qty }}</td>
+      <td class="n" data-field="items.{{ loop.index0 }}.amount">{{ row.amount }}</td>
+    </tr>{% endfor %}
+  </table>
+
+  <div class="row gap b"><span style="padding-left:64px; letter-spacing:44px">소계</span><span data-field="subtotal">{{ subtotal }}</span></div>
+  <div class="row"><span style="letter-spacing:5px">과세물품가액</span><span data-field="taxable">{{ taxable }}</span></div>
+  <div class="row"><span style="letter-spacing:36px">부가세</span><span data-field="vat">{{ vat }}</span></div>
+  <div class="dash"></div>
+  <div class="row total"><span style="letter-spacing:60px">합계</span><span data-field="total">{{ total }}</span></div>
+  <div class="dash"></div>
+  <div class="row b"><span style="letter-spacing:5px">카드 결제액</span><span data-field="card_paid">{{ card_paid }}</span></div>
+  <div class="row"><span data-field="card_name">{{ card_name }}</span><span data-field="card_no">{{ card_no }}</span></div>
+  <div class="row"><span>승인번호</span><span data-field="approval_no">{{ approval_no }}</span><span data-field="installment">{{ installment }}</span></div>
+  <div class="row"><span>승인 VAN</span><span data-field="van">{{ van }}</span></div>
+  <div class="dash"></div>
+
+  <div class="center gap">캐셔No:<span data-field="cashier_no">{{ cashier_no }}</span> <span data-field="cashier_store">{{ cashier_store }}</span></div>
+  <div class="asset" data-asset="barcode" style="width:210px; height:36px"></div>
+  <div class="center small" data-field="barcode_no">{{ barcode_no }}</div>
+
+  <div class="center big">주차정산QR코드</div>
+  <div class="asset" data-asset="qr" style="width:126px; height:126px"></div>
+
+  <div class="foot">http://www.starfield.co.kr<br>스타필드코엑스를 방문해주셔서 감사합니다</div>
+</div>
+</body>
+</html>
