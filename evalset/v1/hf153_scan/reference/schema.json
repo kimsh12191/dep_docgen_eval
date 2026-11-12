@@ -1,0 +1,30 @@
+{
+  "title": "질권설정등록청구서",
+  "fields": [
+    {"name": "recipient", "label": "귀하", "type": "company"},
+    {"name": "date_year", "label": "년", "type": "year"},
+    {"name": "date_month", "label": "월", "type": "month"},
+    {"name": "date_day", "label": "일", "type": "day"},
+    {"name": "security_kind", "label": "위 본인명의의", "type": "choice", "options": ["주권", "사채권", "증권", "예금"]},
+    {"name": "pledge_amount", "label": "금 원정", "type": "amount"},
+    {"name": "set_year", "label": "년", "type": "year"},
+    {"name": "set_month", "label": "월", "type": "month"},
+    {"name": "set_day", "label": "일", "type": "day"},
+    {"name": "pledgor_address", "label": "질권설정자 주소", "type": "address"},
+    {"name": "pledgor_name", "label": "질권설정자 성명", "type": "name"},
+    {"name": "pledgor_seal", "label": "질권설정자 인", "type": "seal"},
+    {"name": "pledgee_address", "label": "질권자 주소", "type": "address"}
+  ],
+  "tables": [
+    {"name": "securities", "label": "질권 대상", "min_rows": 1, "max_rows": 20,
+     "columns": [
+       {"name": "kind", "label": "종류", "type": "text"},
+       {"name": "symbol", "label": "기호", "type": "text"},
+       {"name": "number", "label": "번호", "type": "text"},
+       {"name": "face_amount", "label": "액면금액", "type": "amount"},
+       {"name": "count", "label": "매수", "type": "number"},
+       {"name": "total_amount", "label": "총액", "type": "amount"},
+       {"name": "note", "label": "비고", "type": "text"}
+     ]}
+  ]
+}

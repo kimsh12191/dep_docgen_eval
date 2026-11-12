@@ -1,0 +1,24 @@
+{
+ "id": "invoice_handwritten",
+ "tier": "중",
+ "input": "잡음",
+ "structure": "단순",
+ "why": "인쇄된 장부에 손으로 쓴 값을 값으로 빼야 함",
+ "image": "image.jpg",
+ "source": "Hugging Face drew-ipp/invoice-extraction-benchmark (합성) handwritten-invoice-book-average-3",
+ "license": "CC-BY-4.0",
+ "reference": {
+  "made_by": "큰 모델(Claude)이 이미지를 보고 쓰고 셀프 고치기로 다듬은 것. 사람이 검수하지 않았다",
+  "check": {
+   "pass": true,
+   "layout": 0.822,
+   "missing": 0.012,
+   "robust": 1.0,
+   "leak": 0,
+   "fields": 9,
+   "tables": 1,
+   "columns": 4,
+   "assets": 0
+  }
+ }
+}

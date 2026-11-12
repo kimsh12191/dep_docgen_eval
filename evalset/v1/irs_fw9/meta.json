@@ -1,0 +1,24 @@
+{
+ "id": "irs_fw9",
+ "tier": "상",
+ "input": "깨끗함",
+ "structure": "복잡",
+ "why": "매우 빽빽한 서식, 한 칸 한 글자 번호 칸(SSN·EIN), 세로 글자, 두 단 본문",
+ "image": "image.png",
+ "source": "irs.gov/pub/irs-pdf/fw9.pdf 1쪽 (150dpi)",
+ "license": "미국 연방정부 저작물 (퍼블릭 도메인)",
+ "reference": {
+  "made_by": "큰 모델(Claude)이 이미지를 보고 쓰고 셀프 고치기로 다듬은 것. 사람이 검수하지 않았다",
+  "check": {
+   "pass": true,
+   "layout": 0.825,
+   "missing": 0.004,
+   "robust": 1.0,
+   "leak": 0,
+   "fields": 16,
+   "tables": 0,
+   "columns": 0,
+   "assets": 0
+  }
+ }
+}

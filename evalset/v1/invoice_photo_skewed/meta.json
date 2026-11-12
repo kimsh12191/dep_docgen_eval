@@ -1,0 +1,24 @@
+{
+ "id": "invoice_photo_skewed",
+ "tier": "상",
+ "input": "심함",
+ "structure": "단순",
+ "why": "심하게 비스듬히 찍은 사진 (원근 보정 없이는 평가도 안 됨)",
+ "image": "image.jpg",
+ "source": "Hugging Face drew-ipp/invoice-extraction-benchmark (합성) photo-perspective-severe",
+ "license": "CC-BY-4.0",
+ "reference": {
+  "made_by": "큰 모델(Claude)이 이미지를 보고 쓰고 셀프 고치기로 다듬은 것. 사람이 검수하지 않았다",
+  "check": {
+   "pass": true,
+   "layout": 0.716,
+   "missing": 0.035,
+   "robust": 1.0,
+   "leak": 0,
+   "fields": 17,
+   "tables": 1,
+   "columns": 4,
+   "assets": 0
+  }
+ }
+}

@@ -1,7 +1,7 @@
 """실행 설정 파일(json). 모델 목록 · vLLM 옵션 · 고치기 횟수를 한 파일에 둔다. 예: configs/example.json
 
 {
-  "images": "samples",                 bench 가 쓸 입력 이미지 폴더 (*.png, *.jpg)
+  "images": "evalset/v1",              bench 가 쓸 평가 세트 (항목 폴더마다 image.* · meta.json) 또는 이미지만 든 폴더
   "out": "runs/exp1",                  bench 결과 폴더. <out>/<모델 name>/<이미지 이름>/
   "rounds": 2,                         셀프 고치기 횟수. 0 = 한 번만 생성
   "defaults": {...},                   모든 모델에 공통인 호출 옵션
@@ -9,7 +9,7 @@
 }
 모델 항목: name · endpoint · model · max_tokens · temperature · timeout · api_key_env(키가 든 환경변수 이름)
           · extra(요청 본문에 그대로 더함: top_p, repetition_penalty, chat_template_kwargs 등)
-          · mock(모델 없이 길 검사: 회차마다 답으로 쓸 파일 경로를 쉼표로. 모자라면 마지막을 반복)
+          · mock(모델 없이 길 검사: 회차마다 답으로 쓸 파일 경로를 쉼표로, 모자라면 마지막을 반복. "reference" 면 평가 세트의 기준 꾸러미)
 """
 from __future__ import annotations
 
@@ -43,7 +43,7 @@ def load(path_or_dict) -> dict:
     names = [m["name"] for m in models]
     if not models or len(set(names)) != len(names):
         raise SystemExit("models 가 비었거나 name 이 겹칩니다")
-    return {"images": raw.get("images", "samples"), "out": raw.get("out", "runs/exp"), "rounds": int(raw.get("rounds", 0)), "models": models}
+    return {"images": raw.get("images", "evalset/v1"), "out": raw.get("out", "runs/exp"), "rounds": int(raw.get("rounds", 0)), "models": models}
 
 
 def api_key(m: dict) -> str | None:

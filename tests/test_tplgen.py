@@ -12,7 +12,10 @@ from tplgen import bench, check, config, data, gen, make, package
 from tplgen.render import Renderer
 
 ROOT = Path(__file__).resolve().parents[1]
-EXAMPLE, IMAGE = ROOT / "examples" / "hf153", ROOT / "samples" / "hf153.png"
+SET = ROOT / "evalset" / "v1"
+EXAMPLE, IMAGE = SET / "hf153" / "reference", SET / "hf153" / "image.png"
+ref = lambda name: SET / name / "reference"
+img = lambda name: next((SET / name).glob("image.*"))
 
 
 def answer(edit=lambda name, text: text) -> str:
@@ -63,7 +66,7 @@ class Rules(unittest.TestCase):
         """비스듬히 찍은 사진은 종이를 펴서 본다: 편 종이는 배경색이 거의 없다."""
         import numpy as np
         from PIL import Image
-        im = Image.open(ROOT / "samples" / "invoice_photo_skewed.jpg").convert("L")
+        im = Image.open(img("invoice_photo_skewed")).convert("L")
         flat = np.asarray(check.paper(im)).astype(float)
         self.assertLess((flat < 120).mean(), 0.03)
         self.assertEqual(check.paper(Image.open(IMAGE).convert("L")).size, Image.open(IMAGE).size)   # 스캔·렌더링은 그대로
@@ -98,28 +101,28 @@ class Scores(unittest.TestCase):
         self.assertEqual(set(res["tests"]), {"sample", "random", "long", "empty", "rows_1", "rows_many"})
 
     def test_all_examples(self):
-        """본보기 셋: 깨끗한 서식 · 스캔처럼 만든 것 · 찍은 영수증 · 긴 표. 다른 문서의 이미지와는 닮지 않아야 한다."""
-        pairs = {"hf153": "hf153.png", "receipt_photo": "receipt_photo.jpg", "statement": "statement.jpg", "irs_f8949": "irs_f8949.png",
-                 "irs_fw9": "irs_fw9.png", "invoice_photo_skewed": "invoice_photo_skewed.jpg", "invoice_handwritten": "invoice_handwritten.jpg"}
-        for name, image in pairs.items():
-            res = check.check(ROOT / "examples" / name, ROOT / "samples" / image, renderer=self.r)
-            self.assertTrue(res["pass"], (name, check.brief(res)))
-        self.assertTrue(check.check(EXAMPLE, ROOT / "samples" / "hf153_scan.jpg", renderer=self.r)["pass"])
-        for other in ("hf138.png", "hf225.png", "statement.jpg", "receipt_photo.jpg"):
-            self.assertLess(check.check(EXAMPLE, ROOT / "samples" / other, renderer=self.r)["layout"], check.PASS_RULE["layout"], other)
+        """평가 세트의 기준 꾸러미는 모두 쓸 만해야 하고, 다른 문서의 이미지와는 닮지 않아야 한다."""
+        for item in sorted(p.name for p in SET.iterdir() if p.is_dir()):
+            res = check.check(ref(item), img(item), renderer=self.r)
+            self.assertTrue(res["pass"], (item, check.brief(res)))
+            meta = json.loads((SET / item / "meta.json").read_text(encoding="utf-8"))
+            self.assertIn(meta["tier"], ("하", "중", "상"))
+            self.assertAlmostEqual(res["layout"], meta["reference"]["check"]["layout"], delta=0.02)   # meta 에 적은 점수가 지금과 맞는가
+        for other in ("hf138", "irs_fw9", "statement", "receipt_photo"):
+            self.assertLess(check.check(EXAMPLE, img(other), renderer=self.r)["layout"], check.PASS_RULE["layout"], other)
 
     def test_score_agrees_with_eye(self):
         """눈으로 본 순서와 점수: 그대로 > 글자 축소 > 표가 빠짐 > 다른 문서. 표가 빠지면 닮음이 높아도 빠짐으로 탈락한다."""
-        pkg = package.load(ROOT / "examples" / "hf153")
-        other = package.load(ROOT / "examples" / "irs_fw9")
+        pkg = package.load(ref("hf153"))
+        other = package.load(ref("irs_fw9"))
         css = {"good": "", "smaller": ".page > * { zoom: 0.8; }", "no_table": "table { display: none !important; }"}
         got = {}
         with tempfile.TemporaryDirectory() as d:
             for name, rule in css.items():
                 self.r.render(package.html(pkg, pkg["sample"]).replace("</style>", rule + "</style>", 1), Path(d) / f"{name}.png")
-                got[name] = check.layout(IMAGE.with_name("hf153.png"), Path(d) / f"{name}.png")
+                got[name] = check.layout(IMAGE, Path(d) / f"{name}.png")
             self.r.render(package.html(other, other["sample"]), Path(d) / "other.png")
-            got["other"] = check.layout(IMAGE.with_name("hf153.png"), Path(d) / "other.png")
+            got["other"] = check.layout(IMAGE, Path(d) / "other.png")
         ok = lambda s, g: s >= check.PASS_RULE["layout"] and g <= check.MAX_MISSING
         self.assertGreater(got["good"][0], got["smaller"][0])
         self.assertGreater(got["smaller"][0], got["other"][0])
@@ -164,8 +167,9 @@ class Harness(unittest.TestCase):
             a.write_text(answer(bad), encoding="utf-8")
             b.write_text(answer(), encoding="utf-8")
             images = Path(d) / "images"
-            images.mkdir()
-            (images / "hf153.png").write_bytes(IMAGE.read_bytes())
+            (images / "hf153").mkdir(parents=True)
+            (images / "hf153" / "image.png").write_bytes(IMAGE.read_bytes())
+            (images / "hf153" / "meta.json").write_text('{"tier": "중"}', encoding="utf-8")
             cfg = {"images": str(images), "out": str(Path(d) / "run"), "rounds": 2,
                    "models": [{"name": "fixes", "mock": f"{a},{b}"}, {"name": "breaks", "mock": f"{b},{a}"},
                               {"name": "junk", "mock": str(Path(d) / "junk.txt")}]}
@@ -175,9 +179,9 @@ class Harness(unittest.TestCase):
             self.assertEqual((picked("fixes")["round"], picked("fixes")["pass"]), (2, True))
             self.assertEqual((picked("breaks")["round"], picked("breaks")["pass"]), (0, True))   # 고치다 망가지면 앞의 것을 고른다
             self.assertFalse(picked("junk")["valid"])
-            self.assertIn("| fixes | 한 번만 생성 | 0/1", table)
-            self.assertIn("| fixes | 고치기 2회 중 고른 것 | 1/1", table)
-            self.assertIn("| junk | 한 번만 생성 | 0/1 | 0/1", table)
+            self.assertIn("| fixes | 한 번만 생성 | - | 0/1 | - | **0/1**", table)
+            self.assertIn("| fixes | 고치기 2회 중 고른 것 | - | 1/1 | - | **1/1**", table)
+            self.assertIn("| junk | 한 번만 생성 | - | 0/1 | - | **0/1**", table)
             before = (Path(d) / "run" / "fixes" / "results.jsonl").read_text(encoding="utf-8")
             bench.run(cfg)   # 이어하기: 다시 돌리지 않는다
             self.assertEqual((Path(d) / "run" / "fixes" / "results.jsonl").read_text(encoding="utf-8"), before)
@@ -215,6 +219,12 @@ class Harness(unittest.TestCase):
         finally:
             server.shutdown()
             server.server_close()
+
+    def test_reference_bench(self):
+        """길 검사: 평가 세트의 기준 꾸러미를 답으로 돌리면 난이도마다 모두 쓸 만하다."""
+        with tempfile.TemporaryDirectory() as d:
+            table = bench.run({"images": str(SET), "out": d, "rounds": 0, "models": [{"name": "reference", "mock": "reference"}]})
+            self.assertIn("| reference | 한 번만 생성 | 3/3 | 3/3 | 3/3 | **9/9**", table)
 
     def test_config(self):
         for bad in [{"models": []}, {"models": [{"name": "a"}]}, {"models": [{"name": "a b", "mock": "x"}]}, {"modles": []},

@@ -1,0 +1,6 @@
+{
+  "images": "evalset/v1",
+  "out": "runs/reference",
+  "rounds": 0,
+  "models": [{"name": "reference", "mock": "reference"}]
+}

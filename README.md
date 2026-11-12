@@ -23,17 +23,17 @@
 ## 쓰는 법
 ```bash
 # 1) 이미지 → 꾸러미 (모델 + 셀프 고치기 루프). 설정은 configs/example.json 을 복사해 고친다
-python -m tplgen make --config configs/local.json --name model_a --image samples/hf153.png --out out/hf153
+python -m tplgen make --config configs/local.json --name model_a --image evalset/v1/hf153/image.png --out out/hf153
 
 # 2) 꾸러미 + 값 → 이미지 + 라벨
 python -m tplgen render out/hf153/final --data my.json --out gen/0001        # 0001.png, 0001.json
 python -m tplgen vary   out/hf153/final --n 20 --out gen/                    # 값을 임의로 바꿔 20장
 
 # 3) 꾸러미가 쓸 만한가 (정답 없이 잰다)
-python -m tplgen check out/hf153/final --image samples/hf153.png
+python -m tplgen check out/hf153/final --image evalset/v1/hf153/image.png
 
-# 4) 여러 모델 × 여러 이미지 비교
-python -m tplgen bench configs/local.json
+# 4) 여러 모델 × 평가 세트(난이도 하·중·상) 비교
+python -m tplgen bench configs/local.json        # 길 검사: configs/reference.json → 9/9
 ```
 
 ## 잘 만들었는지 재는 법 (`check`)
@@ -69,19 +69,11 @@ python -m tplgen bench configs/local.json
 - **못 가리는 것**: 위쪽 세 개(그대로 · 글자 축소 · 간격 벌림) 사이의 순서. 세로 간격은 일부러 안 보므로 간격이 벌어져도 점수가 같거나 높다. 그 차이는 눈으로도 헷갈렸다 (hf153 에서 1·2위를 반대로 골랐다). 즉 **점수는 '쓸 만한가'를 가리는 데 쓰고, 통과한 것끼리의 미세한 순위로는 쓰지 않는다.**
 - 아슬아슬한 것: 8949 의 순서 뒤집힘이 0.599 로 겨우 탈락. 시험한 변형이 21개뿐이다.
 
+## 평가 세트
+[`evalset/v1`](evalset/v1/README.md): 이미지와 기준 HTML 꾸러미 9쌍, 난이도 하·중·상 각 3쌍 (은행 서식 · 거래내역서 · 스캔본 · 찍은 영수증 · 손글씨 장부 · 미국 세금 서식 2종 · 비스듬히 찍은 인보이스).
+기준 꾸러미는 **큰 모델 하나가 이미지를 보고 쓴 것이고 사람이 검수하지 않았다.** 기준 꾸러미로 돌리면 9/9 통과 (닮음 0.72~0.86, 빠짐 0.04 이하).
+
 ## 지금 상태
-본보기 꾸러미 셋은 모두 **큰 모델 하나가 이미지를 보고 쓴 것**이다 (사람이 쓴 것도, vLLM 모델이 쓴 것도 아니다).
-
-| 본보기 | 입력 | 닮음 (회차별) | 견딤 | 본 것 |
-|---|---|---|---|---|
-| [`hf153`](examples/hf153) | 깨끗한 은행 서식 (표 5행) | 0.63 → 0.86 (스캔본과는 0.76) | 1.0 | 표 행 1·5·20·40 으로 그려도 아래 내용이 밀리며 안 깨짐 |
-| [`receipt_photo`](examples/receipt_photo) | 찍은 영수증 사진 | 0.77 | 1.0 | 배경을 빼고 종이만 옮김. 로고·바코드·QR 은 자리만 |
-| [`statement`](examples/statement) | 합성 거래내역서 (표 29행) | 0.84 | 1.0 | 행 수 1~60 |
-| [`irs_f8949`](examples/irs_f8949) | 미국 세금 서식, 여러 단 머리글 표 | 0.81 → 0.86 | 1.0 | 머리글 rowspan/colspan, 합계 행, 체크 A~I |
-| [`irs_fw9`](examples/irs_fw9) | 빽빽한 미국 세금 서식 | 0.80 → 0.82 | 1.0 | 한 칸 한 글자 번호 칸(SSN·EIN), 두 단 본문 |
-| [`invoice_photo_skewed`](examples/invoice_photo_skewed) | 심하게 비스듬히 찍은 인보이스 | 0.59 → 0.72 | 1.0 | 원근 보정이 없을 때는 맞는 꾸러미도 0.26 이었다 (아래) |
-| [`invoice_handwritten`](examples/invoice_handwritten) | 손으로 채운 인쇄 장부 | 0.82 | 1.0 | 손글씨 값은 값으로 빼고, 손글씨처럼 꾸며 찍음 |
-
 | | |
 |---|---|
 | 확인함 | 점수가 망가진 꾸러미를 잡는가 (`tests/`): 값이 틀에 박힘 → 샘, 표 폭 고정 → 넘침, 칸 높이 고정 → 잘림, 행이 안 늘어나는 표 → 값 누락, 본문 빠짐 → 닮음 하락 |
@@ -100,8 +92,7 @@ python -m tplgen bench configs/local.json
 | | |
 |---|---|
 | `tplgen/` | `make` 생성·루프 · `package` 꾸러미 읽기·검사 · `render` 그리기·라벨 · `data` 값 만들기 · `check` 점수 · `bench` 모델 비교 · `llm` · `config` |
-| `examples/` | 본보기 꾸러미 |
-| `samples/` | 입력 예시 이미지와 출처 ([목록](samples/README.md)) |
+| `evalset/` | 평가 세트 ([v1](evalset/v1/README.md)) |
 | `tools/` | `scanify.py` 깨끗한 그림을 스캔처럼 |
 | `configs/` | 실행 설정 |
 

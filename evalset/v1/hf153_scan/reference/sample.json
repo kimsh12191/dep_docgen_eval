@@ -1,0 +1,18 @@
+{
+  "recipient": "",
+  "date_year": "2026", "date_month": "01", "date_day": "31",
+  "security_kind": "사채권",
+  "pledge_amount": "",
+  "set_year": "2026", "set_month": "1", "set_day": "31",
+  "pledgor_address": "",
+  "pledgor_name": "박찬연",
+  "pledgor_seal": "박찬연",
+  "pledgee_address": "",
+  "securities": [
+    {"kind": "하나 단기채 펀드", "symbol": "", "number": "9150-1354", "face_amount": "340,000", "count": "12", "total_amount": "32,610,000원", "note": ""},
+    {"kind": "", "symbol": "", "number": "", "face_amount": "", "count": "", "total_amount": "", "note": ""},
+    {"kind": "", "symbol": "", "number": "", "face_amount": "", "count": "", "total_amount": "", "note": ""},
+    {"kind": "", "symbol": "", "number": "", "face_amount": "", "count": "", "total_amount": "", "note": ""},
+    {"kind": "", "symbol": "", "number": "", "face_amount": "", "count": "", "total_amount": "", "note": ""}
+  ]
+}

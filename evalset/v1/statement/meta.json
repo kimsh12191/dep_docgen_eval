@@ -1,0 +1,24 @@
+{
+ "id": "statement",
+ "tier": "하",
+ "input": "깨끗함",
+ "structure": "단순",
+ "why": "열 5개의 표가 29행 이어짐 (행 수가 늘어나는 것의 기본)",
+ "image": "image.jpg",
+ "source": "Hugging Face Panhapich/bank-statement-structure-recognition (합성)",
+ "license": "MIT",
+ "reference": {
+  "made_by": "큰 모델(Claude)이 이미지를 보고 쓰고 셀프 고치기로 다듬은 것. 사람이 검수하지 않았다",
+  "check": {
+   "pass": true,
+   "layout": 0.838,
+   "missing": 0.015,
+   "robust": 1.0,
+   "leak": 0,
+   "fields": 0,
+   "tables": 1,
+   "columns": 5,
+   "assets": 0
+  }
+ }
+}

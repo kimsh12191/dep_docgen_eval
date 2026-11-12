@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; background: #fff; }
+  .page { width: 794px; min-height: 1123px; box-sizing: border-box; padding: 94px 76px 20px; position: relative;
+          font-family: sans-serif; font-size: 14px; color: #111; display: flex; flex-direction: column; }
+  .mark { position: absolute; width: 19px; height: 19px; background: #000; }
+  .title { text-align: center; font-size: 27px; font-weight: bold; letter-spacing: 1px; margin: 14px auto 0; padding: 0 24px 6px; border-bottom: 1.5px solid #000; }
+  .head { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 74px; }
+  .to { display: flex; align-items: flex-end; font-size: 16px; }
+  .to .line { display: inline-block; min-width: 210px; border-bottom: 1px solid #666; margin-right: 2px; padding: 0 4px 2px; }
+  .num { display: inline-block; min-width: 18px; text-align: center; }
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; table-layout: fixed; }
+  th, td { border: 1px solid #000; height: 25px; padding: 1px 5px; font-weight: normal; word-break: break-all; }
+  th { letter-spacing: 3px; text-align: center; white-space: nowrap; padding: 2px 0; }
+  td.r { text-align: right; } td.c { text-align: center; }
+  .note { margin-top: 14px; word-spacing: 4px; }
+  .pledge { display: flex; align-items: center; margin-top: 44px; gap: 10px; }
+  .kinds { border-left: 1px solid #000; border-right: 1px solid #000; padding: 0 16px; line-height: 19px; position: relative; letter-spacing: 3px; }
+  .grow { flex: 1; display: flex; align-items: center; gap: 6px; }
+  .amount { flex: 1; min-width: 120px; text-align: right; padding-right: 8px; }
+  .body { margin-top: 40px; line-height: 26px; word-spacing: 1px; font-size: 13.5px; text-align: justify; }
+  .party { margin-top: 78px; padding-left: 86px; }
+  .party .row { display: flex; align-items: center; min-height: 31px; }
+  .party .k { font-weight: bold; white-space: nowrap; }
+  .party .v { margin-left: 48px; flex: 1; }
+  .sign { font-style: italic; }
+  .seal { display: inline-block; min-width: 30px; padding: 7px 3px; border: 1.5px solid #c33; border-radius: 50%; color: #c33; font-size: 10px; text-align: center; margin-left: 90px; }
+  .bottom { display: flex; justify-content: space-between; margin-top: 36px; padding-left: 86px; }
+  .bank { text-align: right; padding-right: 60px; font-size: 16px; }
+  .bank b { font-size: 21px; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; padding-top: 30px; font-size: 7px; }
+  .asset { border: 1px dashed #bbb; box-sizing: border-box; }
+  .logo { font-size: 20px; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="mark" style="left:19px; top:94px"></div><div class="mark" style="right:19px; top:94px"></div>
+  <div class="mark" style="left:19px; bottom:19px"></div><div class="mark" style="right:19px; bottom:19px"></div>
+
+  <div class="title">질권설정등록청구서</div>
+
+  <div class="head">
+    <div class="to"><span class="line" data-field="recipient">{{ recipient }}</span>귀하</div>
+    <div>20<span class="num" data-field="date_year">{{ date_year[2:] }}</span>년 <span class="num" data-field="date_month">{{ date_month }}</span>월 <span class="num" data-field="date_day">{{ date_day }}</span>일</div>
+  </div>
+
+  <table>
+    <colgroup><col style="width:23.7%"><col style="width:8.2%"><col style="width:7.3%"><col style="width:20.9%"><col style="width:8%"><col style="width:21.1%"><col style="width:10.8%"></colgroup>
+    <tr><th>종류</th><th>기호</th><th>번호</th><th style="letter-spacing:0">액면금액</th><th>매수</th><th>총액</th><th>비고</th></tr>
+    {% for row in securities %}<tr>
+      <td data-field="securities.{{ loop.index0 }}.kind">{{ row.kind }}</td>
+      <td class="c" data-field="securities.{{ loop.index0 }}.symbol">{{ row.symbol }}</td>
+      <td class="c" style="font-size:8px; padding:1px 0" data-field="securities.{{ loop.index0 }}.number">{{ row.number }}</td>
+      <td class="r" data-field="securities.{{ loop.index0 }}.face_amount">{{ row.face_amount }}</td>
+      <td class="c" data-field="securities.{{ loop.index0 }}.count">{{ row.count }}</td>
+      <td class="r" data-field="securities.{{ loop.index0 }}.total_amount">{{ row.total_amount }}</td>
+      <td data-field="securities.{{ loop.index0 }}.note">{{ row.note }}</td>
+    </tr>{% endfor %}
+  </table>
+  <div class="note">(주) 예금의 경우에는 비고란에 발행일자 및 만기일을 기입함.</div>
+
+  <div class="pledge">
+    <span>위&nbsp; 본인명의의</span>
+    <span class="kinds" data-field="security_kind">
+      {{ "☑" if security_kind == "주권" else "☐" }} 주 &nbsp;권<br>
+      {{ "☑" if security_kind == "사채권" else "☐" }} 사채권<br>
+      {{ "☑" if security_kind == "증권" else "☐" }} 증 &nbsp;권<br>
+      {{ "☑" if security_kind == "예금" else "☐" }} 예 &nbsp;금
+    </span>
+    <span class="grow">금 <span class="amount" data-field="pledge_amount">{{ pledge_amount }}</span><b>원정</b>에 대하여</span>
+    <span><span class="num" data-field="set_year">{{ set_year }}</span>년 <span class="num" data-field="set_month">{{ set_month }}</span>월 <span class="num" data-field="set_day">{{ set_day }}</span>일</span>
+  </div>
+
+  <div class="body">주식회사 하나은행을 위하여 질권설정을 하였사오니 소정의 등록 절차를 밟아 주시기 바라오며, 동절차를 끝내시는대로 질권자에게 등록필의 뜻을 통지하여 주심을 질권자 연서로써 의뢰합니다.</div>
+
+  <div class="party">
+    <div class="row"><span class="k">질권설정자&nbsp;&nbsp; 주&nbsp;&nbsp; 소</span><span class="v" data-field="pledgor_address">{{ pledgor_address }}</span></div>
+    <div class="row"><span class="k" style="padding-left:80px">성&nbsp;&nbsp; 명</span><span class="v" style="flex:0 1 auto; margin-left:100px" data-field="pledgor_name">{{ pledgor_name }}</span><span class="seal" data-field="pledgor_seal">{{ pledgor_seal }}</span></div>
+  </div>
+
+  <div class="bottom">
+    <div class="party" style="margin:0; padding:0; flex:1"><div class="row"><span class="k">질권자&nbsp; 주소</span><span class="v" data-field="pledgee_address">{{ pledgee_address }}</span></div></div>
+    <div class="bank">주식회사 <b>하나은행</b><br>지점장</div>
+  </div>
+
+  <div class="foot">
+    <div>5-06-0457 (2015.12.30 개정)<br>(보존년한 : 완제일로부터 5년)</div>
+    <div class="asset" data-asset="barcode" style="width:214px; height:38px"></div>
+    <div style="display:flex; align-items:center; gap:4px"><div class="asset" data-asset="logo" style="width:36px; height:34px"></div><span class="logo">KEB 하나은행</span></div>
+  </div>
+</div>
+</body>
+</html>

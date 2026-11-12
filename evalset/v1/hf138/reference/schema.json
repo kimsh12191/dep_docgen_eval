@@ -1,0 +1,84 @@
+{
+ "title": "대출금 수령위임동의서",
+ "language": "ko",
+ "fields": [
+  {
+   "name": "borrower",
+   "label": "차주",
+   "type": "name"
+  },
+  {
+   "name": "purpose",
+   "label": "용도",
+   "type": "text"
+  },
+  {
+   "name": "amount_korean",
+   "label": "수령금액(금 원정)",
+   "type": "amount"
+  },
+  {
+   "name": "amount",
+   "label": "수령금액(₩)",
+   "type": "amount"
+  },
+  {
+   "name": "bank",
+   "label": "은행명",
+   "type": "company"
+  },
+  {
+   "name": "account",
+   "label": "계좌번호",
+   "type": "account"
+  },
+  {
+   "name": "holder",
+   "label": "예금주",
+   "type": "name"
+  },
+  {
+   "name": "relation",
+   "label": "차주와의 관계",
+   "type": "choice",
+   "options": [
+    "부동산담보대출의 경우 매도인",
+    "전세자금대출의 경우 임대인",
+    "차주를 대신하여 당타행 대출의 상환을 위임받은 자",
+    "공사대금 수령업체",
+    "상기 외 제3자"
+   ]
+  },
+  {
+   "name": "relation_note",
+   "label": "관계기재",
+   "type": "text"
+  },
+  {
+   "name": "year",
+   "label": "년",
+   "type": "year"
+  },
+  {
+   "name": "month",
+   "label": "월",
+   "type": "month"
+  },
+  {
+   "name": "day",
+   "label": "일",
+   "type": "day"
+  },
+  {
+   "name": "delegator",
+   "label": "수령위임인",
+   "type": "sign"
+  },
+  {
+   "name": "agent",
+   "label": "수령위임인의 대리인",
+   "type": "sign"
+  }
+ ],
+ "tables": []
+}

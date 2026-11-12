@@ -1,0 +1,24 @@
+{
+ "id": "hf138",
+ "tier": "하",
+ "input": "깨끗함",
+ "structure": "단순",
+ "why": "칸 몇 개와 체크 묶음 하나",
+ "image": "image.png",
+ "source": "하나은행 공개 서식(document_gen 저장소의 원본 서식)에 가짜 값을 채워 그린 것",
+ "license": "공개 서식",
+ "reference": {
+  "made_by": "큰 모델(Claude)이 이미지를 보고 쓰고 셀프 고치기로 다듬은 것. 사람이 검수하지 않았다",
+  "check": {
+   "pass": true,
+   "layout": 0.825,
+   "missing": 0.034,
+   "robust": 1.0,
+   "leak": 0,
+   "fields": 14,
+   "tables": 0,
+   "columns": 0,
+   "assets": 2
+  }
+ }
+}

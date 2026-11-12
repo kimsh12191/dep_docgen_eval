@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; background: #fff; }
+  .page { width: 794px; min-height: 1123px; box-sizing: border-box; padding: 108px 59px 20px; position: relative; font-family: sans-serif; font-size: 12.3px; line-height: 17px; color: #111; display: flex; flex-direction: column; }
+  .mark { position: absolute; width: 19px; height: 19px; background: #000; }
+  .hand { color: #1f3a99; font-style: italic; font-size: 15px; }
+  h1 { text-align: center; font-size: 27px; font-weight: 800; margin: 0 0 54px; letter-spacing: 1px; }
+  .to { font-weight: bold; margin-bottom: 24px; }
+  .lead { display: flex; margin-bottom: 40px; }
+  .lead .who { width: 148px; flex: none; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  td { border: 1px solid #000; min-height: 55px; height: 55px; padding: 4px 8px; }
+  td.k { width: 177px; text-align: center; }
+  .opts { line-height: 20px; padding: 6px 8px; }
+  .date { text-align: center; margin-top: 44px; word-spacing: 4px; }
+  .num { display: inline-block; min-width: 30px; text-align: center; }
+  .sig { margin-top: 44px; margin-left: auto; width: 360px; }
+  .sig .row { display: flex; align-items: baseline; min-height: 27px; }
+  .sig .k { width: 130px; text-align: right; padding-right: 10px; white-space: nowrap; }
+  .sig .v { flex: 1; }
+  .sig .g { color: #888; }
+  .sig .note { justify-content: flex-end; }
+  .notes { margin-top: 82px; line-height: 20px; font-size: 12px; letter-spacing: -0.2px; }
+  .notes .i1 { padding-left: 78px; } .notes .i2 { padding-left: 62px; }
+  .foot { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; font-size: 7px; line-height: 9px; padding: 0 26px 6px 0; }
+  .asset { border: 1px dashed #bbb; box-sizing: border-box; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="mark" style="left:19px; top:94px"></div><div class="mark" style="right:19px; top:94px"></div>
+  <div class="mark" style="left:19px; bottom:19px"></div><div class="mark" style="right:19px; bottom:19px"></div>
+  <h1>대출금 수령위임동의서</h1>
+  <div class="to">(주)하나은행 귀하</div>
+  <div class="lead"><span class="who">차주 <span class="hand" data-field="borrower">{{ borrower }}</span></span><span>이 귀행으로부터 수령할 대출금 중 아래의 금액을 대출금 수령 위임계좌로 입금하여 주시기 바랍니다.</span></div>
+  <table>
+    <tr><td class="k">용도</td><td class="hand" data-field="purpose">{{ purpose }}</td></tr>
+    <tr><td class="k">수령금액</td><td>금 <span class="hand" data-field="amount_korean" style="display:inline-block; min-width:170px; text-align:center">{{ amount_korean }}</span> 원정 (₩ <span class="hand" data-field="amount" style="display:inline-block; min-width:150px; text-align:center">{{ amount }}</span> )</td></tr>
+    <tr><td class="k">수령위임계좌</td><td>은행명 : <span class="hand" data-field="bank">{{ bank }}</span><br>계좌번호 : <span class="hand" data-field="account">{{ account }}</span></td></tr>
+    <tr><td class="k">예금주</td><td class="hand" data-field="holder">{{ holder }}</td></tr>
+    <tr><td class="k">차주와의 관계</td><td class="opts"><div data-field="relation">
+      {{ "☑" if relation == "부동산담보대출의 경우 매도인" else "☐" }} 부동산담보대출의 경우 매도인<br>
+      {{ "☑" if relation == "전세자금대출의 경우 임대인" else "☐" }} 전세자금대출의 경우 임대인<br>
+      {{ "☑" if relation == "차주를 대신하여 당타행 대출의 상환을 위임받은 자" else "☐" }} 차주를 대신하여 당타행 대출의 상환을 위임받은 자<br>
+      {{ "☑" if relation == "공사대금 수령업체" else "☐" }} 공사대금 수령업체<br>
+      {{ "☑" if relation == "상기 외 제3자" else "☐" }} 상기 외 제3자 (관계기재) :</div> <span class="hand" data-field="relation_note">{{ relation_note }}</span></td></tr>
+  </table>
+  <div class="date"><span class="num hand" data-field="year">{{ year }}</span> 년 <span class="num hand" data-field="month">{{ month }}</span> 월 <span class="num hand" data-field="day">{{ day }}</span> 일</div>
+  <div class="sig">
+    <div class="row"><span class="k">수령위임인 :</span><span class="v hand" data-field="delegator">{{ delegator }}</span><span class="g">(서명 또는 날인)</span></div>
+    <div class="row"><span class="k">수령위임인의 대리인 :</span><span class="v hand" data-field="agent">{{ agent }}</span><span class="g">(서명 또는 날인)</span></div>
+  </div>
+  <div style="text-align:right; margin-top:4px">(대리인이 작성시에는 수령위임인으로부터 위임장 필수징구)</div>
+  <div class="notes">*작성대상 : ① 수령위임계좌의 예금주가 법인/개인사업자인 경우(계좌관리가 직원 등 타인에 의해 이루어질 수 있는 경우) 중<br>
+    <span class="i1">대체로 실행하여 수령위임계좌로 입금하는 경우 (차주 통장에 입금 후 출금은 작성대상 아님)</span><br>
+    <span class="i2">② 수령위임계좌의 예금주가 공사(LH공사, SH공사 등), 지방자치단체, 국가인 경우 작성대상 아님</span><br>
+    <span class="i2">③ 중도금대출 등 협약에 의하여 입금내용이 고지가 된 건은 작성대상 아님</span></div>
+  <div class="foot"><div style="padding-left:28px">5-06-0741(1-1)(2015. 09. 01개정)<br>(보존년한 : 완제일로부터 5년)</div>
+    <div class="asset" data-asset="barcode" style="width:234px; height:40px"></div>
+    <div style="display:flex; align-items:center; gap:4px; font-size:15px; font-weight:bold"><div class="asset" data-asset="logo" style="width:24px; height:22px"></div>KEB 하나은행</div></div>
+</div>
+</body>
+</html>
