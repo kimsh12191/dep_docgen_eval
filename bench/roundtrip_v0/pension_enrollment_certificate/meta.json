@@ -1,0 +1,31 @@
+{
+ "id": "pension_enrollment_certificate",
+ "name": "국민연금 가입자 가입증명",
+ "group": "income",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 23,
+ "ref_issues": [],
+ "tier": "중",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 23,
+  "checks": 0,
+  "marks": 1,
+  "tables": 4,
+  "cells": 49,
+  "spans": 0,
+  "span_share": 0.0,
+  "chars": 240
+ },
+ "rule": "difficulty-v1"
+}

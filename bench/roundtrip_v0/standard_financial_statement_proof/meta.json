@@ -1,0 +1,31 @@
+{
+ "id": "standard_financial_statement_proof",
+ "name": "표준재무제표증명",
+ "group": "business",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 44,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 44,
+  "checks": 1,
+  "marks": 1,
+  "tables": 4,
+  "cells": 88,
+  "spans": 6,
+  "span_share": 0.068,
+  "chars": 518
+ },
+ "rule": "difficulty-v1"
+}

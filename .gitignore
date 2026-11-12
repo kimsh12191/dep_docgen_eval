@@ -1,4 +1,6 @@
-results/*/cache/
 __pycache__/
 *.pyc
 runs/
+drafts/
+bench/*/_cache/
+results/*/cache/

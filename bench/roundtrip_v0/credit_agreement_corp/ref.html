@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>여신거래약정서(기업용)</title>
+<style>
+:root {
+  --font: &#39;Nanum Gothic&#39;, &#39;Malgun Gothic&#39;, &#39;NanumBarunGothic&#39;, &#39;Noto Sans CJK KR&#39;, &#39;Gulim&#39;, &#39;Dotum&#39;, sans-serif;
+  --fs: 13.1px;
+  --title: 32px;
+  --lh: 1.48;
+  --border: #000;
+  --bw: 1px;
+  --label-bg: #eef2f7;
+  --accent: #0d4ea2;
+  --pad: 5px;
+  --page-pad: 61px;
+  --paper: #ffffff;
+  --seal: #d11;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+.art { font-weight: 700; margin: 5px 0 1px; }
+.stamp { border: 1px dashed #777; width: 64px; height: 56px; display: flex; align-items: center; justify-content: center; font-size: calc(var(--fs) - 3px); color: #666; text-align: center; line-height: 1.2; }
+</style>
+</head>
+<body>
+<div class="page a4 dense">
+<style>
+.page.a4 { padding-top: min(var(--page-pad), 44px); padding-bottom: min(var(--page-pad), 36px); }
+.bf-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--accent); padding-bottom: 4px; margin-bottom: 8px; }
+.bf-bank { font-size: calc(var(--fs) + 5px); font-weight: 800; color: var(--accent); letter-spacing: .04em; display: flex; align-items: center; gap: 6px; }
+.bf-bank .en { font-size: calc(var(--fs) - 3px); font-weight: 600; letter-spacing: .02em; margin-left: 2px; align-self: flex-end; }
+.bf-bank .mk { display: inline-block; width: 16px; height: 16px; border: 3px solid var(--accent); border-radius: 50%; }
+.bf-code { font-size: calc(var(--fs) - 3px); color: #444; text-align: right; line-height: 1.3; }
+.bf-titlerow { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 2px 0 6px; }
+.bf-sub { font-size: calc(var(--fs) + 1px); letter-spacing: .05em; font-weight: 400; color: #444; }
+.bf-titlerow h1.title { margin: 4px 0; text-align: left; flex: 1; }
+table.appr { width: auto; margin: 0; }
+table.appr th, table.appr td { padding: 1px 4px; font-size: calc(var(--fs) - 3px); text-align: center; }
+table.appr td { width: 50px; height: 40px; }
+.bf-sec { font-size: calc(var(--fs) + 0.5px); font-weight: 700; margin: 7px 0 2px; color: var(--accent); }
+.bf-sec::before { content: "■ "; }
+table.bf { margin: 3px 0; }
+table.bf th, table.bf td { padding: 3px 6px; }
+table.bf th { text-align: left; }
+table.bf table.compact th { text-align: center; }
+.bf-use { border: 1.5px dashed #777; padding: 4px 8px; margin-top: 12px; display: flex; flex-direction: column; }
+.bf-use .t { font-size: calc(var(--fs) - 2px); font-weight: 700; margin-bottom: 2px; }
+.bf-use table { margin: 0; }
+.bf-use th, .bf-use td { font-size: calc(var(--fs) - 2.5px); padding: 2px 4px; }
+.bf-use td { height: 30px; }
+.hand { font-family: 'NanumSquareRound', 'Nanum Gothic', sans-serif; color: #1c2c86; font-weight: 700; letter-spacing: .03em; display: inline-block; transform: rotate(-0.8deg); }
+.lead { margin: 4px 0; text-indent: .5em; }
+.notice { font-size: calc(var(--fs) - 2.5px); color: #333; margin: 3px 0; line-height: 1.35; }
+.notice p { margin: 1px 0; padding-left: 1em; text-indent: -1em; }
+.sig { display: flex; justify-content: flex-end; align-items: center; gap: 6px; margin-top: 6px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark > .seal { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.sig .who { min-width: 90px; text-align: center; font-size: calc(var(--fs) + 1px); }
+.corr { white-space: normal; } /* 긴 값(주소 등)의 정정이 칸을 넘지 않게 */
+</style>
+
+<div class="pg-repeat bf-cont"><span>기업은행</span><span>기업-2201 (4-1) (2025.04 개정) (보존기간 : 완제 후 10년)</span></div>
+<style>.bf-cont { display: none; } .bf-cont.pg-repeated { display: flex; justify-content: space-between; border-bottom: 1px solid var(--accent); font-size: calc(var(--fs) - 3px); color: #444; padding-bottom: 2px; margin-bottom: 8px; }</style>
+<div class="bf-head">
+  <div class="bf-bank"><span class="mk"></span><span class="fv" data-field="bank" data-label="은행명" data-type="text"></span><span class="en">IBK</span></div>
+  <div class="bf-code">기업-2201 (4-1) (2025.04 개정) (보존기간 : 완제 후 10년)<br>은 행 용</div>
+</div>
+<div class="between" style="align-items:flex-start">
+  <div class="stamp">수 입<br>인 지</div>
+  <h1 class="title" style="flex:1;margin:8px 0 4px">여신거래약정서 <span class="bf-sub">(기업용)</span></h1>
+  <table class="appr"><tbody><tr><th>담 당</th><th>책임자</th></tr><tr><td></td><td></td></tr></tbody></table>
+</div>
+<div style="margin:2px 0"><b><span class="fv" data-field="creditor" data-label="채권자" data-type="text"></span></b> 앞 &nbsp;<span class="small muted">(취급점: <span class="fv" data-field="branch" data-label="취급점" data-type="text"></span>)</span></div>
+<div class="box" style="margin:3px 0;padding:3px 8px"><div class="notice" style="margin:0"><p>■ 은행은 본인 및 담보제공자에게 이 약정서상의 중요한 내용을 설명하여야 하며, 은행여신거래기본약관(기업용)과 이 약정서의 사본을 교부하여야 합니다.</p></div></div>
+<p class="lead" style="margin:3px 0">본인은 중소기업은행(이하 "은행"이라 합니다)과의 여신거래에 있어 <b>은행여신거래기본약관(기업용)</b>이 적용됨을 승인하고 다음 각 조항을 확약합니다.</p>
+
+<table class="bf">
+<colgroup><col style="width:104px"><col><col style="width:96px"><col></colgroup>
+<tbody><tr><th>상호(법인명)</th><td colspan="3"><b><span class="fv" data-field="debtor.name" data-label="상호(법인명)" data-type="text"></span></b></td></tr>
+<tr><th>사업자등록번호</th><td><span class="fv" data-field="debtor.biz_no" data-label="사업자등록번호" data-type="text"></span></td><th>법인등록번호</th><td><span class="fv" data-field="debtor.corp_no" data-label="법인등록번호" data-type="text"></span></td></tr>
+<tr><th>대표이사</th><td><span class="fv" data-field="debtor.ceo" data-label="대표이사" data-type="text"></span></td><th>전화번호</th><td><span class="fv" data-field="debtor.phone" data-label="전화번호" data-type="text"></span></td></tr>
+<tr><th>본점 소재지</th><td colspan="3"><span class="fv" data-field="debtor.address" data-label="본점소재지" data-type="text"></span></td></tr>
+</tbody></table>
+
+<div class="art">제1조(여신거래조건)</div>
+<table class="bf">
+<colgroup><col style="width:104px"><col><col style="width:96px"><col></colgroup>
+<tbody><tr><th>여신과목</th><td><span class="fv" data-field="loan.subject" data-label="여신과목" data-type="text"></span></td><th>상 품 명</th><td><span class="fv" data-field="loan.product" data-label="상품명" data-type="text"></span></td></tr>
+<tr><th>거래방법</th><td><span data-field="loan.method" data-label="거래방법" data-type="checkbox" data-options="개별거래|한도거래"></span><span class="chk"><span class="cb">□</span> 개별거래</span><span class="chk"><span class="cb">□</span> 한도거래</span></td><th>여신계좌번호</th><td><span class="fv" data-field="loan.account_no" data-label="여신계좌번호" data-type="text"></span></td></tr>
+<tr><th>여신(한도)금액</th><td colspan="3"><b><span class="fv" data-field="loan.amount_korean" data-label="여신(한도)금액(한글)" data-type="amount"></span></b>&nbsp;&nbsp;(<span class="fv" data-field="loan.amount" data-label="여신(한도)금액" data-type="amount"></span>)</td></tr>
+<tr><th>여신개시일</th><td><span class="fv" data-field="loan.start_date" data-label="여신개시일" data-type="date"></span></td><th>여신기간만료일</th><td><span class="fv" data-field="loan.maturity" data-label="여신기간만료일" data-type="date"></span></td></tr>
+<tr><th>자금용도</th><td colspan="3"><span class="fv" data-field="loan.purpose" data-label="자금용도" data-type="text"></span></td></tr>
+</tbody></table>
+
+<div class="art">제2조(이자 등)</div>
+<table class="bf">
+<colgroup><col style="width:104px"><col><col style="width:96px"><col></colgroup>
+<tbody><tr><th>금리종류</th><td colspan="3"><span data-field="loan.rate_type" data-label="금리종류" data-type="checkbox" data-options="고정금리|변동금리"></span><span class="chk"><span class="cb">□</span> 고정금리</span><span class="chk"><span class="cb">□</span> 변동금리</span>&nbsp; 기준금리: <span class="fv" data-field="loan.base_rate_name" data-label="기준금리종류" data-type="text"></span></td></tr>
+<tr><td colspan="4" style="padding:0">
+  <table style="margin:0;border:0" class="compact"><tbody><tr><th style="border-top:0;border-left:0">기준금리</th><th style="border-top:0">가산금리</th><th style="border-top:0">우대금리(－)</th><th style="border-top:0;border-right:0">여신이자율</th></tr>
+  <tr><td class="c" style="border-left:0;border-bottom:0">연 <span class="fv" data-field="loan.base_rate" data-label="기준금리" data-type="number"></span></td><td class="c" style="border-bottom:0">＋ <span class="fv" data-field="loan.spread" data-label="가산금리" data-type="number"></span></td><td class="c" style="border-bottom:0">－ <span class="fv" data-field="loan.pref_rate" data-label="우대금리" data-type="number"></span></td><td class="c bold" style="border-right:0;border-bottom:0">＝ <span class="fv" data-field="loan.applied_rate" data-label="여신이자율" data-type="number"></span></td></tr></tbody></table>
+</td></tr>
+<tr><th>금리변동주기</th><td><span class="fv" data-field="loan.rate_reset" data-label="금리변동주기" data-type="text"></span></td><th>이자지급시기</th><td><span class="fv" data-field="loan.interest_pay" data-label="이자지급시기" data-type="text"></span></td></tr>
+<tr><th>이자계산방법</th><td colspan="3"><span class="fv" data-field="loan.interest_calc" data-label="이자계산방법" data-type="text"></span></td></tr>
+</tbody></table>
+
+<div class="art">제3조(상환방법 및 자동이체)</div>
+<table class="bf">
+<colgroup><col style="width:104px"><col></colgroup>
+<tbody><tr><th>상환방법</th><td><span class="fv" data-field="loan.repayment" data-label="상환방법" data-type="text"></span></td></tr>
+<tr><th>자동이체계좌</th><td><span class="fv" data-field="loan.debit_account" data-label="자동이체계좌" data-type="text"></span> <span class="tiny muted">(이자 및 분할상환금 자동이체 출금계좌)</span></td></tr>
+</tbody></table>
+<div class="art">제4조(중도상환해약금)</div>
+<div style="margin:0 0 0 8px"><span class="fv" data-field="loan.prepay_fee" data-label="중도상환해약금" data-type="text"></span></div>
+<div class="art">제5조(지연배상금)</div>
+<div class="small" style="margin:0 0 0 8px">이자 등을 그 기일에 지급하지 아니한 때에는 지급하여야 할 금액에 대하여, 이자를 지급하여야 할 때부터 계속하여 14일간 지체하여 기한의 이익을 상실한 때에는 여신금액 전액에 대하여 지연배상금률 <b><span class="fv" data-field="loan.late_rate" data-label="지연배상금률" data-type="text"></span></b> 로 계산한 지연배상금을 지급합니다.</div>
+<div class="art">제6조(인지세 부담)</div>
+<div class="small" style="margin:0 0 0 8px">이 약정서 작성에 따른 인지세는 각 50%씩 본인과 은행이 부담하며, 본인이 부담할 인지세를 은행이 대신 지급한 경우에는 곧 갚기로 합니다. 인지세: <b><span class="fv" data-field="stamp_tax" data-label="인지세" data-type="text"></span></b></div>
+
+<div class="box" style="margin:5px 0;padding:3px 8px">
+<div class="small">본인(대표이사)은 이 약정서 및 은행여신거래기본약관(기업용)의 중요 내용에 대하여 충분히 설명을 듣고 이해하였으며, 그 사본을 수령하였습니다. &nbsp;<span data-field="explained" data-label="설명이해확인" data-type="checkbox" data-options="예|아니오"></span><span class="chk"><span class="cb">□</span> 예</span><span class="chk"><span class="cb">□</span> 아니오</span></div>
+</div>
+
+<div class="between" style="margin-top:6px;align-items:center">
+  <div style="padding-left:12px"><span class="fv" data-field="contract_date" data-label="약정일" data-type="date"></span></div>
+  <div class="right" style="line-height:2.1">
+    본인(채무자) &nbsp;<span class="fv" data-field="debtor.name" data-label="상호(법인명)" data-type="text"></span><span class="inmark"></span><br>
+    대표이사 &nbsp;<span style="font-size:calc(var(--fs) + 1px)"><span class="fv" data-field="signature" data-label="대표이사" data-type="text"></span></span> &nbsp;<span class="inmark">(법인인감)<span data-field="seal.corp" data-label="법인인감" data-type="seal"></span></span>
+  </div>
+</div>
+
+<div class="bf-use">
+  <div class="t">※ 은행 사용란 (고객은 기재하지 마십시오)</div>
+  <table><tbody><tr><th>실명확인</th><th>약정내용 설명</th><th>인감 대조</th><th>담당자</th><th>책임자</th></tr>
+  <tr><td></td><td></td><td></td><td><span class="muted tiny">(인)</span></td><td><span class="muted tiny">(인)</span></td></tr></tbody></table>
+</div>
+</div>
+
+</body></html>

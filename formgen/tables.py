@@ -4,89 +4,34 @@
 1) html 의 <table> 을 격자로 편다: rowspan·colspan 을 풀어 칸마다 (시작 행, 끝 행, 시작 열, 끝 열) 을 준다.
    아무 칸도 쓰지 않는 격자선은 없앤다 (같은 모양을 더 촘촘한 격자로 적어도 같은 표로 본다).
 2) 칸의 글자 = 인쇄 문구. 값 자리(data-field 가 붙은 요소) 안의 글자는 빼고 '⟨칸⟩' 표시 하나로 바꾼다 (값은 서류마다 다르므로).
-3) 이웃 관계: 격자에서 맞닿은 두 칸마다 (왼쪽 글자, 오른쪽 글자, '→') 또는 (위 글자, 아래 글자, '↓') 를 하나씩 만든다.
+3) 연속으로 같은 꼴인 행 (합친 칸이 없고, 칸 나눔과 인쇄 문구가 바로 윗행과 같은 행: 빈 반복 행) 은 한 번만 남긴다.
+4) 이웃 관계: 격자에서 맞닿은 두 칸마다 (왼쪽 글자, 오른쪽 글자, '→') 또는 (위 글자, 아래 글자, '↓') 를 하나씩 만든다.
    합친 칸은 맞닿은 칸 모두와 관계를 갖는다. 그래서 합치기를 틀리면 관계가 달라진다.
-4) 표 구조 점수 = 정답과 만든 것의 이웃 관계 묶음(중복 허용)의 F1.
+5) 표 구조 점수 = 정답과 만든 것의 이웃 관계 묶음(중복 허용)의 F1.
    만든 칸의 글자는 정답 글자와 0.8 이상 비슷하면 같은 글자로 본다 (띄어쓰기·오타 한두 자).
-5) 합친 칸 재현율 = 정답의 합친 칸 (글자, 세로 합침 수, 가로 합침 수) 중 만든 것에도 있는 비율.
+6) 합친 칸 재현율 = 정답의 합친 칸 (글자, 세로 합침 수, 가로 합침 수) 중 만든 것에도 있는 비율.
+7) 표가 여럿이면 정답 표와 만든 표를 점수가 가장 높게 1:1 로 짝짓고, 관계 수를 모두 더해 한 점수로 낸다.
+   짝이 없는 정답 표는 모두 놓친 것, 짝이 없는 만든 표는 모두 틀린 것으로 센다.
 """
 from __future__ import annotations
 
 from collections import Counter
-from html.parser import HTMLParser
 
-from .match import label_sim, norm_label
+from .match import hungarian, label_sim, norm_label
 
 FIELD = "⟨칸⟩"
 SAME = 0.8
-VOID = {"br", "hr", "img", "input", "col", "meta", "link", "wbr"}
 
 
-class _Tables(HTMLParser):
-    def __init__(self):
-        super().__init__(convert_charrefs=True)
-        self.tables, self.stack = [], []      # stack: 열려 있는 표 [{rows, row, cell}]
-        self.field_depth, self.skip = [], 0   # 값 자리 안인가 (안의 글자는 버린다), script·style 안인가
-
-    def handle_starttag(self, tag, attrs):
-        a = dict(attrs)
-        if tag in ("script", "style"):
-            self.skip += 1
-        if tag == "table":
-            self.stack.append({"rows": [], "row": None, "cell": None})
-        elif self.stack:
-            t = self.stack[-1]
-            if tag == "tr":
-                t["row"], t["cell"] = [], None
-                t["rows"].append(t["row"])
-            elif tag in ("td", "th"):
-                if t["row"] is None:
-                    t["row"] = []
-                    t["rows"].append(t["row"])
-                t["cell"] = {"text": [], "fields": 0, "rowspan": _int(a.get("rowspan")), "colspan": _int(a.get("colspan")), "th": tag == "th"}
-                t["row"].append(t["cell"])
-        if "data-field" in a:
-            cell = self.stack[-1]["cell"] if self.stack else None
-            if cell is not None and not self.field_depth:
-                cell["fields"] += 1
-                cell["text"].append(FIELD)
-            if tag not in VOID:
-                self.field_depth.append(tag)
-        elif self.field_depth and tag not in VOID:
-            self.field_depth.append(tag)
-
-    def handle_endtag(self, tag):
-        if tag in ("script", "style") and self.skip:
-            self.skip -= 1
-        if self.field_depth and tag == self.field_depth[-1]:
-            self.field_depth.pop()
-        if not self.stack:
-            return
-        t = self.stack[-1]
-        if tag in ("td", "th"):
-            t["cell"] = None
-        elif tag == "tr":
-            t["row"], t["cell"] = None, None
-        elif tag == "table":
-            self.tables.append(_grid(self.stack.pop()["rows"]))
-
-    def handle_data(self, data):
-        if self.skip or self.field_depth or not self.stack:
-            return
-        cell = self.stack[-1]["cell"]
-        if cell is not None and data.strip():
-            cell["text"].append(data.strip())
-
-
-def _int(v, default=1):
+def to_int(v, default=1):
     try:
-        return max(1, int(v))
+        return max(1, min(int(v), 200))
     except (TypeError, ValueError):
         return default
 
 
-def _grid(rows):
-    """[{text, fields, r0, r1, c0, c1}] : rowspan·colspan 을 풀어 자리를 준다."""
+def grid(rows) -> list[dict]:
+    """파서가 모은 행 [[{text:[…], frefs:[…], rowspan, colspan}]] → 칸 [{text, nfields, frefs, r0, r1, c0, c1}]."""
     taken, cells = set(), []
     for r, row in enumerate(rows):
         c = 0
@@ -97,13 +42,14 @@ def _grid(rows):
             for i in range(r, r + rs):
                 for j in range(c, c + cs):
                     taken.add((i, j))
-            cells.append({"text": " ".join(cell["text"]), "fields": cell["fields"], "r0": r, "r1": r + rs - 1, "c0": c, "c1": c + cs - 1})
+            frefs = list(cell.get("frefs") or [])
+            cells.append({"text": " ".join(cell["text"]), "nfields": len(frefs), "frefs": frefs,
+                          "r0": r, "r1": r + rs - 1, "c0": c, "c1": c + cs - 1})
             c += cs
     return _minimal(cells)
 
 
 def _minimal(cells):
-    """아무 칸도 쓰지 않는 격자선을 없앤다. 같은 모양을 촘촘한 격자(예: 10열에 colspan 4·6)로 적어도 같은 표가 된다."""
     for lo, hi in (("r0", "r1"), ("c0", "c1")):
         cuts = sorted({c[lo] for c in cells} | {c[hi] + 1 for c in cells})
         index = {v: i for i, v in enumerate(cuts)}
@@ -112,11 +58,42 @@ def _minimal(cells):
     return cells
 
 
+def _static_key(text: str) -> str:
+    return norm_label(text.replace(FIELD, " "))
+
+
+def collapse_rows(cells):
+    """연속으로 같은 꼴인 행을 한 번만 남긴다. (남은 칸, 지워진 행에 있던 값 자리) 를 돌려준다.
+    지워진 행의 값 자리가 남긴 행의 같은 자리에 없으면 그 자리로 옮긴다 (빈 값이라 표시가 빠진 칸)."""
+    if not cells:
+        return cells, []
+    n_rows = max(c["r1"] for c in cells) + 1
+    by_row = {r: sorted((c for c in cells if c["r0"] == r), key=lambda c: c["c0"]) for r in range(n_rows)}
+    crossing = {r for c in cells if c["r1"] > c["r0"] for r in range(c["r0"], c["r1"] + 1)}
+    sig = lambda r: None if r in crossing or not by_row[r] else tuple((c["c0"], c["c1"], _static_key(c["text"])) for c in by_row[r])
+    keep, gone, kept_row = [], [], None
+    for r in range(n_rows):
+        s = sig(r)
+        if s is not None and kept_row is not None and s == sig(kept_row):
+            for kc, c in zip(by_row[kept_row], by_row[r]):
+                if c["frefs"] and not kc["frefs"]:
+                    kc["frefs"], kc["nfields"], kc["text"] = c["frefs"], c["nfields"], c["text"]
+                else:
+                    gone += c["frefs"]
+            continue
+        kept_row = r if s is not None else None
+        keep.append(r)
+    if len(keep) == n_rows:
+        return cells, []
+    alive = set(keep)
+    out = [c for c in cells if c["r0"] in alive]
+    return _minimal(out), gone
+
+
 def parse_tables(html: str) -> list[list[dict]]:
-    p = _Tables()
-    p.feed(html)
-    p.close()
-    return [t for t in p.tables if t]
+    from .htmldoc import parse
+
+    return parse(html)["tables"]
 
 
 def _key(text: str) -> str:
@@ -124,7 +101,6 @@ def _key(text: str) -> str:
 
 
 def relations(cells: list[dict], canon=None) -> Counter:
-    """맞닿은 칸끼리의 관계 묶음."""
     name = [(_key(c["text"]) if canon is None else canon[i]) for i, c in enumerate(cells)]
     out = Counter()
     for i, a in enumerate(cells):
@@ -139,17 +115,30 @@ def relations(cells: list[dict], canon=None) -> Counter:
 
 
 def _canon(gt_cells, pred_cells):
-    """만든 칸의 글자를, 충분히 비슷한 정답 글자로 바꿔 부른다."""
     names = sorted({_key(c["text"]) for c in gt_cells})
-    out = []
+    cache, out = {}, []
     for c in pred_cells:
         k = _key(c["text"])
-        if k in names or not k:
-            out.append(k)
-            continue
-        best = max(names, key=lambda n: label_sim(n, k), default=None)
-        out.append(best if best and label_sim(best, k) >= SAME else k)
+        if k not in cache:
+            if k in names or not k:
+                cache[k] = k
+            else:
+                best = max(names, key=lambda n: label_sim(n, k), default=None)
+                cache[k] = best if best and label_sim(best, k) >= SAME else k
+        out.append(cache[k])
     return out
+
+
+def _spans(cells, names) -> Counter:
+    return Counter((n, c["r1"] - c["r0"] + 1, c["c1"] - c["c0"] + 1) for c, n in zip(cells, names) if c["r1"] > c["r0"] or c["c1"] > c["c0"])
+
+
+def _counts(gt_cells, pred_cells):
+    """(겹친 관계 수, 만든 관계 수, 정답 관계 수, 겹친 합친 칸 수, 정답 합친 칸 수)"""
+    canon = _canon(gt_cells, pred_cells)
+    a, b = relations(gt_cells), relations(pred_cells, canon)
+    sg, sp = _spans(gt_cells, [_key(c["text"]) for c in gt_cells]), _spans(pred_cells, canon)
+    return sum((a & b).values()), sum(b.values()), sum(a.values()), sum((sg & sp).values()), sum(sg.values())
 
 
 def _f1(tp, n_pred, n_gt):
@@ -159,17 +148,36 @@ def _f1(tp, n_pred, n_gt):
 
 
 def table_score(gt_cells: list[dict], pred_cells: list[dict]) -> dict:
-    canon = _canon(gt_cells, pred_cells)
-    a, b = relations(gt_cells), relations(pred_cells, canon)
-    p, r, f = _f1(sum((a & b).values()), sum(b.values()), sum(a.values()))
-    span = lambda cells, names: Counter((n, c["r1"] - c["r0"] + 1, c["c1"] - c["c0"] + 1) for c, n in zip(cells, names)
-                                        if c["r1"] > c["r0"] or c["c1"] > c["c0"])
-    sg, sp = span(gt_cells, [_key(c["text"]) for c in gt_cells]), span(pred_cells, canon)
-    n_span = sum(sg.values())
+    """표 하나끼리."""
+    tp, n_pred, n_gt, stp, sn = _counts(gt_cells, pred_cells)
+    p, r, f = _f1(tp, n_pred, n_gt)
     return {"table_f1": round(f, 4), "table_p": round(p, 4), "table_r": round(r, 4),
-            "span_recall": round(sum((sg & sp).values()) / n_span, 4) if n_span else None,
-            "cells_gt": len(gt_cells), "cells_pred": len(pred_cells), "spans_gt": n_span, "spans_pred": sum(sp.values()),
-            "fields_gt": sum(c["fields"] for c in gt_cells), "fields_pred": sum(c["fields"] for c in pred_cells)}
+            "span_recall": round(stp / sn, 4) if sn else None,
+            "cells_gt": len(gt_cells), "cells_pred": len(pred_cells), "spans_gt": sn,
+            "spans_pred": sum(1 for c in pred_cells if c["r1"] > c["r0"] or c["c1"] > c["c0"]),
+            "fields_gt": sum(c["nfields"] for c in gt_cells), "fields_pred": sum(c["nfields"] for c in pred_cells)}
+
+
+def tables_score(gt_tables: list[list[dict]], pred_tables: list[list[dict]]) -> dict:
+    """문서 전체: 표를 1:1 로 짝짓고 관계 수를 더한다. 정답에 관계가 하나도 없으면 table_f1 은 None (해당 없음)."""
+    rel = lambda cells: sum(relations(cells).values())
+    n_gt, n_pred = sum(rel(t) for t in gt_tables), sum(rel(t) for t in pred_tables)
+    sn = sum(sum(_spans(t, [_key(c["text"]) for c in t]).values()) for t in gt_tables)
+    out = {"tables_gt": len(gt_tables), "tables_pred": len(pred_tables), "spans_gt": sn,
+           "spans_pred": sum(1 for t in pred_tables for c in t if c["r1"] > c["r0"] or c["c1"] > c["c0"])}
+    if not n_gt:
+        out.update(table_f1=None, table_p=None, table_r=None, span_recall=None)
+        return out
+    tp = stp = 0
+    if gt_tables and pred_tables:
+        counts = [[_counts(g, p) for p in pred_tables] for g in gt_tables]
+        cost = [[1 - _f1(c[0], c[1], c[2])[2] for c in row] for row in counts]
+        for i, j in hungarian(cost):
+            tp += counts[i][j][0]
+            stp += counts[i][j][3]
+    p, r, f = _f1(tp, n_pred, n_gt)
+    out.update(table_f1=round(f, 4), table_p=round(p, 4), table_r=round(r, 4), span_recall=round(stp / sn, 4) if sn else None)
+    return out
 
 
 def shape(cells: list[dict]) -> dict:

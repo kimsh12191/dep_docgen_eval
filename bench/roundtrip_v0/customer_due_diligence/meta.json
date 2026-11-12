@@ -1,0 +1,31 @@
+{
+ "id": "customer_due_diligence",
+ "name": "고객확인서(개인)",
+ "group": "bank_form",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 32,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "checks"
+ ],
+ "features": {
+  "fields": 30,
+  "checks": 11,
+  "marks": 3,
+  "tables": 8,
+  "cells": 70,
+  "spans": 8,
+  "span_share": 0.114,
+  "chars": 1187
+ },
+ "rule": "difficulty-v1"
+}

@@ -1,0 +1,31 @@
+{
+ "id": "corporate_customer_due_diligence",
+ "name": "고객확인서(법인·단체)",
+ "group": "bank_form",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 40,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 35,
+  "checks": 8,
+  "marks": 3,
+  "tables": 10,
+  "cells": 86,
+  "spans": 3,
+  "span_share": 0.035,
+  "chars": 1055
+ },
+ "rule": "difficulty-v1"
+}

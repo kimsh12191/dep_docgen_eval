@@ -1,0 +1,31 @@
+{
+ "id": "pay_stub",
+ "name": "급여명세서",
+ "group": "income",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 60,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 42,
+  "checks": 0,
+  "marks": 0,
+  "tables": 4,
+  "cells": 77,
+  "spans": 8,
+  "span_share": 0.104,
+  "chars": 215
+ },
+ "rule": "difficulty-v1"
+}

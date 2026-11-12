@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>근로소득 원천징수영수증</title>
+<style>
+:root {
+  --font: &#39;Noto Sans CJK KR&#39;, &#39;Malgun Gothic&#39;, &#39;Nanum Gothic&#39;, &#39;NanumBarunGothic&#39;, &#39;Gulim&#39;, &#39;Dotum&#39;, sans-serif;
+  --fs: 13.8px;
+  --title: 24px;
+  --lh: 1.41;
+  --border: #333;
+  --bw: 1px;
+  --label-bg: #eef2f7;
+  --accent: #7a1f2b;
+  --pad: 6px;
+  --page-pad: 58px;
+  --paper: #ffffff;
+  --seal: #b22222;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+.page.a4.dense { font-size: calc(var(--fs) - 2.5px); line-height: 1.25; }
+table.wr { margin: 0; border: 2px solid var(--border); }
+table.wr + table.wr { border-top: 0; }
+table.wr th, table.wr td { padding: 1.5px 4px; }
+table.wr th { font-weight: 500; text-align: left; }
+table.wr th.c { text-align: center; }
+table.wr th.v { width: 24px; white-space: normal; line-height: 1.15; font-weight: 700; text-align: center; }
+table.wr td.opt { font-size: calc(var(--fs) - 4px); white-space: nowrap; }
+.wr-title { font-size: calc(var(--title) - 9px); font-weight: 700; letter-spacing: .03em; line-height: 1.4; text-align: left; display: inline-block; }
+.form-no { font-size: 10px; color: #333; margin-bottom: 2px; display: flex; justify-content: space-between; }
+.foot { display: flex; flex-direction: column; margin-top: 0; line-height: 1.35; border: 2px solid var(--border); border-top: 0; padding: 4px 10px; }
+.foot p { margin: 3px 0; }
+</style>
+</head>
+<body>
+<div class="page a4 dense">
+<div class="form-no"><span>■ 소득세법 시행규칙 [별지 제24호서식(1)] &lt;개정 2024. 3. 22.&gt;</span><span>(8쪽 중 제1쪽)</span></div>
+<table class="wr">
+  <colgroup><col style="width:7%"><col style="width:45%"><col style="width:26%"><col></colgroup>
+  <tbody><tr>
+    <td rowspan="9" class="c tiny">관리<br>번호</td>
+    <td rowspan="9" class="c">
+      <div class="wr-title">[✔]근로소득 원천징수영수증<br>[&nbsp;&nbsp;]근로소득 지급명세서</div>
+      <div class="small" style="margin-top:6px">(<span data-field="copy_type" data-label="보관용구분" data-type="checkbox" data-options="소득자 보관용|발행자 보관용|발행자 보고용"></span><span class="chk"><span class="cb">□</span> 소득자 보관용</span><span class="chk"><span class="cb">□</span> 발행자 보관용</span><span class="chk"><span class="cb">□</span> 발행자 보고용</span>)</div>
+      <div class="small" style="margin-top:6px">귀속연도 : <span class="fv" data-field="year" data-label="귀속연도" data-type="number"></span>년</div>
+    </td>
+    <th>거주구분</th><td class="opt"><span data-field="resident" data-label="거주구분" data-type="checkbox" data-options="거주자1|비거주자2"></span><span class="chk"><span class="cb">□</span> 거주자1</span><span class="chk"><span class="cb">□</span> 비거주자2</span></td>
+  </tr>
+  <tr><th>거주지국</th><td class="opt">대한민국 &nbsp; 거주지국코드 KR</td></tr>
+  <tr><th>내·외국인</th><td class="opt"><span data-field="nationality" data-label="내·외국인" data-type="checkbox" data-options="내국인1|외국인9"></span><span class="chk"><span class="cb">□</span> 내국인1</span><span class="chk"><span class="cb">□</span> 외국인9</span></td></tr>
+  <tr><th>외국인단일세율적용</th><td class="opt">[ ]여 1 &nbsp;[✔]부 2</td></tr>
+  <tr><th>외국법인소속 파견근로자 여부</th><td class="opt">[ ]여 1 &nbsp;[✔]부 2</td></tr>
+  <tr><th>종교관련종사자 여부</th><td class="opt">[ ]여 1 &nbsp;[✔]부 2</td></tr>
+  <tr><th>국적</th><td class="opt">대한민국 &nbsp; 국적코드 KR</td></tr>
+  <tr><th>세대주 여부</th><td class="opt"><span data-field="household_head" data-label="세대주여부" data-type="checkbox" data-options="세대주1|세대원2"></span><span class="chk"><span class="cb">□</span> 세대주1</span><span class="chk"><span class="cb">□</span> 세대원2</span></td></tr>
+  <tr><th>연말정산 구분</th><td class="opt"><span data-field="settlement_type" data-label="연말정산구분" data-type="checkbox" data-options="계속근로1|중도퇴사2"></span><span class="chk"><span class="cb">□</span> 계속근로1</span><span class="chk"><span class="cb">□</span> 중도퇴사2</span></td></tr>
+</tbody></table>
+<table class="wr">
+  <colgroup><col style="width:24px"><col style="width:19%"><col style="width:27%"><col style="width:19%"><col></colgroup>
+  <tbody><tr><th rowspan="4" class="v">징<br>수<br>의<br>무<br>자</th>
+    <th>① 법인명(상　호)</th><td><span class="fv" data-field="payer.name" data-label="법인명(상호)" data-type="text"></span></td><th>② 대 표 자(성 명)</th><td><span class="fv" data-field="payer.ceo" data-label="대표자(성명)" data-type="text"></span></td></tr>
+  <tr><th>③ 사업자등록번호</th><td><span class="fv" data-field="payer.biz_no" data-label="사업자등록번호" data-type="text"></span></td><th>④ 주 민 등 록 번 호</th><td></td></tr>
+  <tr><th>③-1 사업자단위과세자 여부</th><td class="opt">[ ]여 1 &nbsp;[✔]부 2</td><th>③-2 종사업장 일련번호</th><td></td></tr>
+  <tr><th>⑤ 소 재 지(주소)</th><td colspan="3"><span class="fv" data-field="payer.address" data-label="소재지(주소)" data-type="text"></span></td></tr>
+  <tr><th rowspan="2" class="v">소<br>득<br>자</th>
+    <th>⑥ 성　　명</th><td><span class="fv" data-field="earner.name" data-label="성명" data-type="text"></span></td><th>⑦ 주 민 등 록 번 호<br><span class="tiny">(외국인등록번호)</span></th><td><span class="fv" data-field="earner.rrn" data-label="주민등록번호" data-type="text"></span></td></tr>
+  <tr><th>⑧ 주　　소</th><td colspan="3"><span class="fv" data-field="earner.address" data-label="주소" data-type="text"></span></td></tr>
+</tbody></table>
+<table class="wr">
+  <colgroup><col style="width:24px"><col style="width:27%"><col style="width:19%"><col style="width:11%"><col style="width:11%"><col style="width:11%"><col></colgroup>
+  <tbody><tr><th rowspan="13" class="v">Ⅰ<br><br>근<br>무<br>처<br>별<br>소<br>득<br>명<br>세</th>
+    <th class="c">구　　분</th><th class="c">주(현)</th><th class="c">종(전)</th><th class="c">종(전)</th><th class="c">⑯-1 납세조합</th><th class="c">합　계</th></tr>
+  <tr><th>⑨ 근 무 처 명</th><td class="c"><span class="fv" data-field="work.company" data-label="근무처명" data-type="text"></span></td><td class="c tiny"></td><td></td><td></td><td></td></tr>
+  <tr><th>⑩ 사업자등록번호</th><td class="c"><span class="fv" data-field="work.biz_no" data-label="사업자등록번호" data-type="text"></span></td><td class="c tiny"></td><td></td><td></td><td></td></tr>
+  <tr><th>⑪ 근 무 기 간</th><td class="c tiny"><span class="fv" data-field="work.period" data-label="근무기간" data-type="text"></span></td><td class="c tiny">~</td><td class="c">~</td><td class="c">~</td><td></td></tr>
+  <tr><th>⑫ 감 면 기 간</th><td class="c tiny">~</td><td class="c">~</td><td class="c">~</td><td class="c">~</td><td></td></tr>
+  <tr><th>⑬ 급　　여</th><td class="num"><span class="fv" data-field="work.salary" data-label="급여" data-type="amount"></span></td><td class="num"></td><td></td><td></td><td class="num">40,800,000</td></tr>
+  <tr><th>⑭ 상　　여</th><td class="num"><span class="fv" data-field="work.bonus" data-label="상여" data-type="amount"></span></td><td class="num"></td><td></td><td></td><td class="num">7,770,000</td></tr>
+  <tr><th>⑮ 인 정 상 여</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>⑮-1 주식매수선택권 행사이익</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>⑮-2 우리사주조합인출금</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>⑮-3 임원 퇴직소득금액 한도초과액</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>⑮-4 직무발명보상금</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>⑯ 계</th><td class="num bold"><span class="fv" data-field="work.total" data-label="계" data-type="amount"></span></td><td class="num bold"></td><td></td><td></td><td class="num bold">48,570,000</td></tr>
+  <tr><th rowspan="8" class="v">Ⅱ<br><br>비<br>과<br>세<br>및<br>감<br>면<br>소<br>득<br>명<br>세</th>
+    <th>⑱ 국외근로　　　　M0X</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>⑱-1 야간근로수당　O0X</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>⑱-2 출산·보육수당　Q0X</th><td class="num"></td><td></td><td></td><td></td><td class="num"></td></tr>
+  <tr><th>⑱-4 연구보조비　　H0X</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>식사대 등　　　　P01</th><td class="num"><span class="fv" data-field="nontax.meal" data-label="식사대" data-type="number"></span></td><td class="num"></td><td></td><td></td><td class="num">2,400,000</td></tr>
+  <tr><th>⑲ 수련보조수당　　Y22</th><td></td><td></td><td></td><td></td><td></td></tr>
+  <tr><th>⑳ 비과세소득 계</th><td class="num"><span class="fv" data-field="nontax.total" data-label="비과세소득계" data-type="amount"></span></td><td></td><td></td><td></td><td class="num">2,400,000</td></tr>
+  <tr><th>⑳-1 감면소득 계</th><td class="num"></td><td></td><td></td><td></td><td class="num"></td></tr>
+</tbody></table>
+<table class="wr">
+  <colgroup><col style="width:24px"><col style="width:13%"><col style="width:20%"><col style="width:17%"><col style="width:20%"><col style="width:13%"><col></colgroup>
+  <tbody><tr><th rowspan="7" class="v">Ⅲ<br><br>세<br>액<br>명<br>세</th>
+    <th colspan="3" class="c">구　　　분</th><th class="c">소 득 세</th><th class="c">지방소득세</th><th class="c">농어촌특별세</th></tr>
+  <tr><th colspan="3">(72) 결　정　세　액</th><td class="num"><span class="fv" data-field="tax.final_income" data-label="결정세액" data-type="amount"></span></td><td class="num"><span class="fv" data-field="tax.final_local" data-label="결정세액" data-type="number"></span></td><td class="num">0</td></tr>
+  <tr><th rowspan="2" class="c">기납부<br>세　액</th><th>(73) 종(전)근무지<br><span class="tiny">(결정세액란의 세액을 적습니다)</span></th><th class="tiny">사업자<br>등록번호</th>
+    <td class="num"></td><td class="num"></td><td></td></tr>
+  <tr><th colspan="2">(74) 주(현)근무지</th><td class="num"><span class="fv" data-field="tax.prepaid_income" data-label="주(현)근무지" data-type="amount"></span></td><td class="num"><span class="fv" data-field="tax.prepaid_local" data-label="주(현)근무지" data-type="number"></span></td><td class="num">0</td></tr>
+  <tr><th colspan="3">(75) 납부특례세액</th><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+  <tr><th colspan="3" class="bold">(76) 차 감 징 수 세 액((72)-(73)-(74)-(75))</th><td class="num bold"><span class="fv" data-field="tax.diff_income" data-label="차감징수세액" data-type="amount"></span></td><td class="num bold"><span class="fv" data-field="tax.diff_local" data-label="차감징수세액" data-type="number"></span></td><td class="num">0</td></tr>
+  <tr><th colspan="3">실효세율(%) ((72)/㉑)×100</th><td class="num" colspan="3"><span class="fv" data-field="tax.effective_rate" data-label="실효세율(%)" data-type="number"></span>%</td></tr>
+</tbody></table>
+<div class="foot">
+  <p>위의 원천징수액(근로소득)을 정히 영수(지급)합니다.</p>
+  <p class="right"><span class="fv" data-field="issue_date" data-label="발급일" data-type="date"></span></p>
+  <p class="right" style="position:relative">징수(보고)의무자&nbsp;&nbsp;<b>주식회사 태평양무역</b>&nbsp;&nbsp;(서명 또는 인) <span data-field="seal.payer" data-label="징수의무자" data-type="seal"></span></p>
+  <p class="bold" style="font-size:calc(var(--fs) + 2px)"><span class="fv" data-field="tax_office" data-label="세무서장" data-type="text"></span> 귀하</p>
+</div>
+</div>
+
+</body></html>

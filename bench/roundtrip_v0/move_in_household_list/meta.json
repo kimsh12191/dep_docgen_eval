@@ -1,0 +1,32 @@
+{
+ "id": "move_in_household_list",
+ "name": "전입세대확인서",
+ "group": "real_estate",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 20,
+ "ref_issues": [],
+ "tier": "중",
+ "why": [
+  "fields",
+  "spans"
+ ],
+ "features": {
+  "fields": 20,
+  "checks": 0,
+  "marks": 1,
+  "tables": 5,
+  "cells": 37,
+  "spans": 7,
+  "span_share": 0.189,
+  "chars": 374
+ },
+ "rule": "difficulty-v1"
+}

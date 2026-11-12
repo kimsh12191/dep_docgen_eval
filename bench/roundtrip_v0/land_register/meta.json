@@ -1,0 +1,31 @@
+{
+ "id": "land_register",
+ "name": "토지대장",
+ "group": "real_estate",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 54,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 39,
+  "checks": 0,
+  "marks": 1,
+  "tables": 4,
+  "cells": 67,
+  "spans": 10,
+  "span_share": 0.149,
+  "chars": 314
+ },
+ "rule": "difficulty-v1"
+}

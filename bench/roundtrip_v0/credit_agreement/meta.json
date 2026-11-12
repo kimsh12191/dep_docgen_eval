@@ -1,0 +1,31 @@
+{
+ "id": "credit_agreement",
+ "name": "대출거래약정서(가계용)",
+ "group": "bank_form",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 36,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 35,
+  "checks": 4,
+  "marks": 1,
+  "tables": 7,
+  "cells": 57,
+  "spans": 6,
+  "span_share": 0.105,
+  "chars": 914
+ },
+ "rule": "difficulty-v1"
+}

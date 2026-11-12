@@ -1,0 +1,31 @@
+{
+ "id": "overseas_remittance_application",
+ "name": "해외송금신청서",
+ "group": "bank_form",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 38,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 36,
+  "checks": 3,
+  "marks": 3,
+  "tables": 6,
+  "cells": 66,
+  "spans": 10,
+  "span_share": 0.152,
+  "chars": 885
+ },
+ "rule": "difficulty-v1"
+}

@@ -1,0 +1,31 @@
+{
+ "id": "basic_certificate",
+ "name": "기본증명서",
+ "group": "family",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 18,
+ "ref_issues": [],
+ "tier": "중",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 18,
+  "checks": 0,
+  "marks": 1,
+  "tables": 3,
+  "cells": 18,
+  "spans": 0,
+  "span_share": 0.0,
+  "chars": 240
+ },
+ "rule": "difficulty-v1"
+}

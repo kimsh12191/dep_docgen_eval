@@ -1,0 +1,31 @@
+{
+ "id": "shareholders_meeting_minutes",
+ "name": "임시주주총회의사록",
+ "group": "corporate",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 30,
+ "ref_issues": [],
+ "tier": "중",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 30,
+  "checks": 0,
+  "marks": 3,
+  "tables": 1,
+  "cells": 8,
+  "spans": 0,
+  "span_share": 0.0,
+  "chars": 260
+ },
+ "rule": "difficulty-v1"
+}

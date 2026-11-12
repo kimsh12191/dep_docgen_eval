@@ -1,0 +1,31 @@
+{
+ "id": "card_statement",
+ "name": "신용카드 이용대금명세서",
+ "group": "finance",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 124,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 36,
+  "checks": 0,
+  "marks": 0,
+  "tables": 4,
+  "cells": 53,
+  "spans": 2,
+  "span_share": 0.038,
+  "chars": 316
+ },
+ "rule": "difficulty-v1"
+}

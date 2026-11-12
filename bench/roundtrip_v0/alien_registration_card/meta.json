@@ -1,0 +1,29 @@
+{
+ "id": "alien_registration_card",
+ "name": "외국인등록증",
+ "group": "identity",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1080,
+  "height": 680,
+  "fill": "filled"
+ },
+ "label_fields": 8,
+ "ref_issues": [],
+ "tier": "하",
+ "why": [],
+ "features": {
+  "fields": 8,
+  "checks": 0,
+  "marks": 1,
+  "tables": 0,
+  "cells": 0,
+  "spans": 0,
+  "span_share": 0.0,
+  "chars": 102
+ },
+ "rule": "difficulty-v1"
+}

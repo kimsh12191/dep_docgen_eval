@@ -1,0 +1,32 @@
+{
+ "id": "resident_registration_abstract",
+ "name": "주민등록표 초본",
+ "group": "family",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 17,
+ "ref_issues": [],
+ "tier": "중",
+ "why": [
+  "fields",
+  "spans"
+ ],
+ "features": {
+  "fields": 17,
+  "checks": 0,
+  "marks": 1,
+  "tables": 2,
+  "cells": 16,
+  "spans": 4,
+  "span_share": 0.25,
+  "chars": 317
+ },
+ "rule": "difficulty-v1"
+}

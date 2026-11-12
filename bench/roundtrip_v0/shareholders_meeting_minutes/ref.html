@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>임시주주총회의사록</title>
+<style>
+:root {
+  --font: &#39;Nanum Gothic&#39;, &#39;Malgun Gothic&#39;, &#39;NanumBarunGothic&#39;, &#39;Noto Sans CJK KR&#39;, &#39;Gulim&#39;, &#39;Dotum&#39;, sans-serif;
+  --fs: 12.2px;
+  --title: 25px;
+  --lh: 1.36;
+  --border: #333;
+  --bw: 1.5px;
+  --label-bg: #eef2f7;
+  --accent: #00573f;
+  --pad: 6px;
+  --page-pad: 56px;
+  --paper: #fffffb;
+  --seal: #d11;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+h1.title { letter-spacing:.3em; margin-bottom:16px; }
+.it { display:flex; margin:3px 0; }
+.it .k { width:122px; flex:none; }
+.it .k2 { margin-left:36px; }
+.para { text-align:justify; margin:10px 0; line-height:1.6; text-indent:1em; }
+.agenda { font-weight:700; margin:14px 0 4px; }
+.detail { border:var(--bw) solid var(--border); padding:6px 14px; margin:6px 30px; }
+.signs { margin-top:10px; margin-left:auto; width:400px; }
+.signs .s { display:flex; align-items:center; height:48px; }
+table.att { width:92%; margin:2px auto 4px; } table.att th { width:22%; } table.att td { width:28%; }
+.signs .t { width:120px; letter-spacing:.05em; }
+.signs .n { width:100px; letter-spacing:.2em; }
+table.att2 { width:92%; margin:4px auto 8px; }
+.votes { margin:2px 30px 6px; font-weight:600; }
+.notary { border:2px solid #2a4fa0; color:#1d3a80; width:330px; margin:14px 0 0 auto; padding:8px 12px; line-height:1.5; transform:rotate(-1deg); position:relative; }
+.notary .h { text-align:center; font-weight:700; letter-spacing:.6em; font-size:calc(var(--fs) + 2px); }
+.corp { text-align:right; margin-top:14px; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="page a4 dense">
+<h1 class="title"><span class="fv" data-field="meeting_title" data-label="의사록종류" data-type="text"></span></h1>
+<div class="it"><span class="k">1. 일　　　시 :</span><span><span class="fv" data-field="datetime" data-label="일시" data-type="text"></span></span></div>
+<div class="it"><span class="k">2. 장　　　소 :</span><span><span class="fv" data-field="venue" data-label="장소" data-type="text"></span></span></div>
+<div class="it"><span class="k">3. 출 석 상 황 :</span></div>
+<table class="att compact">
+  <tbody><tr><th>주주의 총수</th><td><span class="fv" data-field="shareholders_total" data-label="주주의총수" data-type="text"></span></td><th>발행주식의 총수<br><span class="tiny">(의결권 있는 주식)</span></th><td><span class="fv" data-field="issued_shares" data-label="발행주식의총수" data-type="text"></span></td></tr>
+  <tr><th>출석주주의 수</th><td><span class="fv" data-field="shareholders_present" data-label="출석주주의수" data-type="text"></span></td><th>출석주주의 주식수</th><td><span class="fv" data-field="shares_present" data-label="출석주주의주식수" data-type="text"></span> (<span class="fv" data-field="present_ratio" data-label="출석비율" data-type="number"></span>)</td></tr>
+</tbody></table>
+
+<div class="para">의장인 대표이사 <span class="fv" data-field="chair" data-label="의장" data-type="text"></span>은(는) 정관 규정에 따라 의장석에 등단하여 위와 같이 법정수에 달하는 주주가 출석하였으므로 본 총회가 적법하게 성립되었음을 알리고 개회를 선언한 후, 다음의 의안을 부의하고 심의를 구하다.</div>
+
+<div class="agenda pg-keep-with-next"><span class="fv" data-field="agendas.0.no" data-label="의안번호" data-type="text"></span> : <span class="fv" data-field="agendas.0.title" data-label="의안" data-type="text"></span></div>
+<div class="para"><span class="fv" data-field="agendas.0.body" data-label="결의내용" data-type="text"></span></div>
+<div class="detail"><span class="fv" data-field="agendas.0.detail" data-label="세부내용" data-type="text"></span></div><div class="agenda pg-keep-with-next"><span class="fv" data-field="agendas.1.no" data-label="의안번호" data-type="text"></span> : <span class="fv" data-field="agendas.1.title" data-label="의안" data-type="text"></span></div>
+<div class="para"><span class="fv" data-field="agendas.1.body" data-label="결의내용" data-type="text"></span></div>
+<div class="detail"><span class="fv" data-field="agendas.1.detail" data-label="세부내용" data-type="text"></span></div>
+<div class="para">의장은 이상으로써 회의 목적인 의안 전부의 심의를 종료하였으므로 폐회한다고 선언하다. (회의 종료시각 <span class="fv" data-field="end_time" data-label="종료시각" data-type="text"></span>)</div>
+<div class="para">위 의사의 경과요령과 그 결과를 명백히 하기 위하여 이 의사록을 작성하고 의장과 출석한 이사가 아래와 같이 기명날인 또는 서명하다.</div>
+
+<div class="pg-keep">
+<div class="center bold" style="margin-top:12px"><span class="fv" data-field="minutes_date" data-label="작성일" data-type="date"></span></div>
+<div class="corp"><span class="fv" data-field="company_name" data-label="상호" data-type="text"></span><br><span class="small"><span class="fv" data-field="head_office" data-label="본점" data-type="text"></span></span></div>
+<div class="signs">
+  <div class="s"><span class="t"><span class="fv" data-field="signers.0.title" data-label="자격" data-type="text"></span></span><span class="n"><span class="fv" data-field="signers.0.name" data-label="성명" data-type="text"></span></span><span style="margin-left:-8px"><span data-field="seal.corp" data-label="법인인감" data-type="seal"></span><svg class="cseal" width="52" height="52" viewBox="0 0 120 120" style="display:inline-block;vertical-align:middle;opacity:.84;transform:rotate(-8deg);overflow:visible">
+  <defs><path id="csp-sm" d="M 60,60 m -42,0 a 42,42 0 1,1 84,0 a 42,42 0 1,1 -84,0"></path></defs>
+  <circle cx="60" cy="60" r="57" style="fill:none;stroke:var(--seal);stroke-width:3.6"></circle>
+  <circle cx="60" cy="60" r="30" style="fill:none;stroke:var(--seal);stroke-width:2"></circle>
+  <text style="fill:var(--seal);font-size:15px;font-weight:700;font-family:'Nanum Myeongjo','Noto Serif CJK KR',serif">
+    <textPath href="#csp-sm" textLength="250" lengthAdjust="spacing">주식회사 유니온무역</textPath></text>
+  <text x="60" y="56.5" text-anchor="middle" style="fill:var(--seal);font-size:16px;font-weight:700;font-family:'Nanum Myeongjo','Noto Serif CJK KR',serif">대표</text>
+  <text x="60" y="73.5" text-anchor="middle" style="fill:var(--seal);font-size:14px;font-weight:700;font-family:'Nanum Myeongjo','Noto Serif CJK KR',serif">이사인</text>
+</svg></span></div>
+  <div class="s"><span class="t"><span class="fv" data-field="signers.1.title" data-label="자격" data-type="text"></span></span><span class="n"><span class="fv" data-field="signers.1.name" data-label="성명" data-type="text"></span></span><span data-field="seal.signer2" data-label="서명인2" data-type="seal"></span></div>
+  <div class="s"><span class="t"><span class="fv" data-field="signers.2.title" data-label="자격" data-type="text"></span></span><span class="n"><span class="fv" data-field="signers.2.name" data-label="성명" data-type="text"></span></span><span data-field="seal.signer3" data-label="서명인3" data-type="seal"></span></div>
+</div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>건강보험 자격득실확인서</title>
+<style>
+:root {
+  --font: &#39;NanumBarunGothic&#39;, &#39;Malgun Gothic&#39;, &#39;Nanum Gothic&#39;, &#39;Noto Sans CJK KR&#39;, &#39;Gulim&#39;, &#39;Dotum&#39;, sans-serif;
+  --fs: 13.4px;
+  --title: 32px;
+  --lh: 1.56;
+  --border: #222;
+  --bw: 1.5px;
+  --label-bg: #f2f2f2;
+  --accent: #1f3a68;
+  --pad: 5px;
+  --page-pad: 69px;
+  --paper: #fffffb;
+  --seal: #e0312b;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+.keep { display: flex; flex-direction: column; } /* 맺음말·발급기관·직인은 한 덩어리 (쪽 나눔에서 쪼개지 않음) */
+</style>
+</head>
+<body>
+<div class="page a4">
+<div class="docno pg-repeat">발급번호 : <span class="fv" data-field="issue_no" data-label="발급번호" data-type="text"></span></div>
+<h1 class="title">건강보험 자격득실 확인서</h1>
+<table class="kv ">
+<colgroup><col style="width:110px"><col><col style="width:110px"><col></colgroup><tbody><tr>
+<th data-label="person.name">성　　명</th><td><span class="fv" data-field="person.name" data-label="성명" data-type="text"></span></td>
+<th data-label="person.rrn">주민등록번호</th><td><span class="fv" data-field="person.rrn" data-label="주민등록번호" data-type="text"></span></td>
+</tr>
+</tbody></table>
+<table class="hq mt">
+  <colgroup><col style="width:7%"><col style="width:19%"><col style="width:34%"><col style="width:20%"><col></colgroup>
+  <tbody><tr><th>번호</th><th>가입자구분</th><th>사업장 명칭</th><th>자격취득일</th><th>자격상실일</th></tr>
+  <tr>
+    <td class="c">1</td>
+    <td class="c"><span class="fv" data-field="rows.0.kind" data-label="가입자구분" data-type="text"></span></td>
+    <td class="c"><span class="fv" data-field="rows.0.workplace" data-label="사업장명칭" data-type="text"></span></td>
+    <td class="c"><span class="fv" data-field="rows.0.start" data-label="자격취득일" data-type="date"></span></td>
+    <td class="c"></td>
+  </tr>
+  <tr>
+    <td class="c">2</td>
+    <td class="c"><span class="fv" data-field="rows.1.kind" data-label="가입자구분" data-type="text"></span></td>
+    <td class="c"><span class="fv" data-field="rows.1.workplace" data-label="사업장명칭" data-type="text"></span></td>
+    <td class="c"><span class="fv" data-field="rows.1.start" data-label="자격취득일" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.1.end" data-label="자격상실일" data-type="date"></span></td>
+  </tr>
+  <tr>
+    <td class="c">3</td>
+    <td class="c"><span class="fv" data-field="rows.2.kind" data-label="가입자구분" data-type="text"></span></td>
+    <td class="c"></td>
+    <td class="c"><span class="fv" data-field="rows.2.start" data-label="자격취득일" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.2.end" data-label="자격상실일" data-type="date"></span></td>
+  </tr>
+<tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td></tr></tbody></table>
+<table>
+  <colgroup><col style="width:110px"><col></colgroup>
+  <tbody><tr><th>용　　도</th><td><span class="fv" data-field="purpose" data-label="용도" data-type="text"></span></td></tr>
+</tbody></table>
+<ul class="note">
+  <li>가입자구분은 직장가입자, 지역가입자(세대주·세대원), 피부양자로 구분하며, 자격상실일이 없는 경우 현재 자격을 유지하고 있음을 의미합니다.</li>
+  <li>자격상실일은 퇴직일(또는 사유 발생일)의 다음날입니다.</li>
+  <li>본 확인서는 국민건강보험공단 홈페이지(www.nhis.or.kr)에서 발급번호로 진위 여부를 확인할 수 있습니다.</li>
+</ul>
+<div class="keep">
+<p class="center mt-l" style="font-size:calc(var(--fs) + 2px)">「국민건강보험법」 제11조에 따라 위와 같이 건강보험 자격의 취득·상실 사실을 확인합니다.</p>
+<div class="issuer">
+  <div class="date"><span class="fv" data-field="issue_date" data-label="발급일" data-type="date"></span></div>
+  <div class="org">국민건강보험공단 이사장<span data-field="seal.issuer" data-label="발급기관직인" data-type="seal"></span></div>
+</div>
+</div>
+</div>
+
+</body></html>

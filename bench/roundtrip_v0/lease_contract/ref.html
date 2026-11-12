@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>주택임대차표준계약서</title>
+<style>
+:root {
+  --font: &#39;Dotum&#39;, &#39;Malgun Gothic&#39;, &#39;Nanum Gothic&#39;, &#39;NanumBarunGothic&#39;, &#39;Noto Sans CJK KR&#39;, &#39;Gulim&#39;, sans-serif;
+  --fs: 13.3px;
+  --title: 24px;
+  --lh: 1.57;
+  --border: #222;
+  --bw: 1px;
+  --label-bg: #eeeeee;
+  --accent: #00573f;
+  --pad: 4px;
+  --page-pad: 53px;
+  --paper: #fffffb;
+  --seal: #c00;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+.page.a4.dense { padding: 20px 34px 10px; font-size: 11.5px; line-height: 1.33; }
+.lc-title { text-align: center; font-size: 22px; font-weight: 700; letter-spacing: .12em; margin: 0; }
+.lc-kind { text-align: center; margin-bottom: 4px; }
+.lc-h { font-weight: 700; margin: 5px 0 2px; }
+table.lc { margin: 2px 0; border: 1.5px solid var(--border); }
+table.lc th { padding: 2px 4px; font-size: 10.2px; }
+table.lc td { padding: 1px 5px; }
+table.lc th { padding-top: 1px; padding-bottom: 1px; }
+.cl { font-size: 9.4px; line-height: 1.28; margin: 2px 0; text-align: justify; }
+.cl p { margin: 1px 0; }
+.sp { border: 1.5px solid var(--border); padding: 3px 8px; font-size: 10.2px; }
+.sp .h { font-weight: 700; }
+.fx-box { display: flex; align-items: center; gap: 8px; }
+.fx-stamp { border: 2px solid #2a4fa8; color: #2a4fa8; padding: 2px 6px; transform: rotate(-4deg); font-size: 10.5px; line-height: 1.25; text-align: center; opacity: .85; }
+.in { color: #333; }
+.hand { font-family: 'NanumSquareRound', 'Nanum Gothic', sans-serif; color: #1c2c86; font-weight: 700; display: inline-block; transform: rotate(-0.6deg); font-size: 11px; }
+table.lc.bk td { font-size: 9.8px; line-height: 1.2; }
+</style>
+</head>
+<body>
+<div class="page a4 dense">
+
+<div class="lc-title">주택임대차표준계약서</div>
+<div class="lc-kind">□ 보증금 있는 월세 &nbsp;■ 전세 &nbsp;□ 월세</div>
+<div>임대인(<span class="fv" data-field="landlord_name" data-label="임대인" data-type="text"></span>)과 임차인(<span class="fv" data-field="tenant_name" data-label="임차인" data-type="text"></span>)은 아래와 같이 임대차 계약을 체결한다</div>
+<div class="lc-h">[임차주택의 표시]</div>
+<table class="lc">
+  <colgroup><col style="width:70px"><col style="width:78px"><col><col style="width:46px"><col style="width:110px"></colgroup>
+  <tbody><tr><th>소재지</th><td colspan="4">(도로명주소) <span class="fv" data-field="house.location" data-label="소재지" data-type="text"></span></td></tr>
+  <tr><th>토 지</th><th>지목</th><td><span class="fv" data-field="house.land_category" data-label="지목" data-type="text"></span></td><th>면적</th><td class="num"><span class="fv" data-field="house.land_area" data-label="토지면적" data-type="text"></span></td></tr>
+  <tr><th>건 물</th><th>구조·용도</th><td><span class="fv" data-field="house.structure_usage" data-label="구조·용도" data-type="text"></span></td><th>면적</th><td class="num"><span class="fv" data-field="house.building_area" data-label="건물면적" data-type="text"></span></td></tr>
+  <tr><th>임차할부분</th><td colspan="4">상세주소가 있는 경우 동·층·호 정확히 기재 &nbsp; <span class="fv" data-field="house.lease_part" data-label="임차할부분" data-type="text"></span></td></tr>
+</tbody></table>
+<table class="lc">
+  <colgroup><col style="width:70px"><col></colgroup>
+  <tbody><tr><th>계약의종류</th><td class="small"><span data-field="contract_type" data-label="계약의종류" data-type="checkbox" data-options="신규 계약|합의에 의한 재계약|「주택임대차보호법」 제6조의3의 계약갱신요구권 행사에 의한 갱신계약"></span><span class="chk"><span class="cb">□</span> 신규 계약</span><span class="chk"><span class="cb">□</span> 합의에 의한 재계약</span><span class="chk"><span class="cb">□</span> 「주택임대차보호법」 제6조의3의 계약갱신요구권 행사에 의한 갱신계약</span></td></tr>
+</tbody></table>
+<table class="lc">
+  <colgroup><col style="width:190px"><col style="width:190px"><col></colgroup>
+  <tbody><tr><th>미납 국세·지방세</th><th>선순위 확정일자 현황</th><th>확정일자 부여란</th></tr>
+  <tr><td class="small">■ <span class="fv" data-field="tax_arrears" data-label="미납국세·지방세" data-type="text"></span> <span class="tiny">(임대인 서명 또는 날인 ㊞)</span><br>□ 있음<span class="tiny">(중개대상물 확인·설명서 제2쪽 Ⅱ.⑨에 기재)</span></td>
+      <td class="small">■ <span class="fv" data-field="prior_fixed_date" data-label="선순위확정일자현황" data-type="text"></span> <span class="tiny">(임대인 서명 또는 날인 ㊞)</span><br>□ 있음<span class="tiny">(중개대상물 확인·설명서 제2쪽 Ⅱ.⑨에 기재)</span></td>
+      <td><div class="fx-box"><span class="tiny" style="flex:1;line-height:1.2">※ 주택임대차계약서를 제출하고 임대차 신고의 접수를 완료한 경우에는 별도로 확정일자 부여를 신청할 필요가 없습니다.</span>
+        <div class="fx-stamp">확정일자 <span class="fv" data-field="fixed_date.date" data-label="확정일자" data-type="date"></span><br>제 <span class="fv" data-field="fixed_date.no" data-label="확정일자번호" data-type="text"></span> 호<br><span class="fv" data-field="fixed_date.office" data-label="확정일자부여기관" data-type="text"></span></div></div></td></tr>
+</tbody></table>
+<div class="lc-h">[계약내용]</div>
+<div class="cl" style="font-size:10.2px">제1조(보증금과 차임) 위 부동산의 임대차에 관하여 임대인과 임차인은 합의에 의하여 보증금 및 차임을 아래와 같이 지불하기로 한다.</div>
+<table class="lc">
+  <colgroup><col style="width:80px"><col></colgroup>
+  <tbody><tr><th>보증금</th><td><b><span class="corr"><s class="corr-old">금 삼억육천만원정 (₩360,500,000)</s> <span class="fv" data-field="deposit" data-label="보증금" data-type="amount"></span><span class="seal sm corr-seal">박찬연</span></span></b></td></tr>
+  <tr><th>계약금</th><td><span class="fv" data-field="down_payment" data-label="계약금" data-type="amount"></span> 은 계약시에 지불하고 영수함. <span style="float:right">영수자 (인)</span></td></tr>
+  <tr><th>중도금</th><td class="in">금 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 원정(₩ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)은 &nbsp;&nbsp;&nbsp;&nbsp; 년 &nbsp;&nbsp; 월 &nbsp;&nbsp; 일에 지불하며</td></tr>
+  <tr><th>잔 금</th><td><span class="fv" data-field="balance" data-label="잔금" data-type="amount"></span> 은 <span class="fv" data-field="balance_date" data-label="잔금지급일" data-type="date"></span>에 지불한다</td></tr>
+  <tr><th>차임(월세)</th><td class="in">금 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 원정은 매월 &nbsp;&nbsp; 일에 지불한다(입금계좌: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</td></tr>
+  <tr><th>관리비</th><td class="small"><span class="in">(정액인 경우) 총액 금 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 원정</span><br>(정액이 아닌 경우) 관리비의 항목 및 산정방식: <span class="fv" data-field="management_fee" data-label="관리비" data-type="text"></span></td></tr>
+</tbody></table>
+<div class="cl">
+<p style="font-size:10.2px">제2조(임대차기간) 임대인은 임차주택을 임대차 목적대로 사용·수익할 수 있는 상태로 <b><span class="fv" data-field="handover_date" data-label="인도일" data-type="date"></span></b>까지 임차인에게 인도하고, 임대차기간은 인도일로부터 <b><span class="fv" data-field="end_date" data-label="임대차종료일" data-type="date"></span></b>까지로 한다.</p>
+<p>제3조(입주 전 수리) 임대인과 임차인은 임차주택의 수리가 필요한 시설물 및 비용부담에 관하여 다음과 같이 합의한다. (수리 필요 시설: ■ 없음)</p>
+<p>제4조(임차주택의 사용·관리·수선) ① 임차인은 임대인의 동의 없이 임차주택의 구조변경 및 전대나 임차권 양도를 할 수 없으며, 주거 이외의 용도로 사용할 수 없다. ② 임대인은 계약 존속 중 임차주택을 사용·수익에 필요한 상태로 유지하여야 한다.</p>
+<p>제5조(계약의 해제) 임차인이 임대인에게 중도금(중도금이 없을 때는 잔금)을 지급하기 전까지, 임대인은 계약금의 배액을 상환하고, 임차인은 계약금을 포기하고 이 계약을 해제할 수 있다.</p>
+<p>제6조(채무불이행과 손해배상) 당사자 일방이 채무를 이행하지 아니하는 때에는 상대방은 상당한 기간을 정하여 그 이행을 최고하고 계약을 해제할 수 있으며, 그로 인한 손해배상을 청구할 수 있다.</p>
+<p>제7조(계약의 해지) ① 임차인은 본인의 과실 없이 임차주택의 일부가 멸실 기타 사유로 사용할 수 없는 경우 계약을 해지할 수 있다. ② 임대인은 임차인이 제4조 제1항을 위반한 경우 계약을 해지할 수 있다.</p>
+<p>제8조(갱신요구와 거절) 임차인은 임대차기간이 끝나기 6개월 전부터 2개월 전까지 계약갱신을 요구할 수 있으며, 임대인은 정당한 사유 없이 거절하지 못한다.</p>
+<p>제9조(계약의 종료) 임대차계약이 종료된 경우에 임차인은 임차주택을 원래의 상태로 복구하여 임대인에게 반환하고, 이와 동시에 임대인은 보증금을 임차인에게 반환하여야 한다.</p>
+<p>제10조(비용의 정산) ① 임차인은 계약종료 시 공과금과 관리비를 정산하여야 한다. ② 임차인은 이미 납부한 관리비 중 장기수선충당금을 소유자에게 반환 청구할 수 있다. 다만, 관리사무소 등 관리주체가 장기수선충당금을 정산하는 경우에는 그 관리주체에게 청구할 수 있다.</p>
+<p>제11조(분쟁의 해결) 임대인과 임차인은 본 임대차계약과 관련한 분쟁이 발생하는 경우, 당사자 간의 협의 또는 주택임대차분쟁조정위원회의 조정을 통해 해결하기 위해 노력한다.</p>
+<p>제12조(중개보수 등) 중개보수는 관련 법령에 따른 요율 한도 내에서 임대인과 임차인이 각각 부담한다.</p>
+<p>제13조(중개대상물확인·설명서 교부) 개업공인중개사는 중개대상물 확인·설명서를 작성하고 업무보증관계증서(공제증서 등) 사본을 첨부하여 임대인과 임차인에게 각각 교부한다.</p>
+</div>
+<div class="sp">
+  <div class="h">[특약사항]</div>
+<div><span class="fv" data-field="specials.0" data-label="특약사항" data-type="text"></span></div><div><span class="fv" data-field="specials.1" data-label="특약사항" data-type="text"></span></div><div><span class="fv" data-field="specials.2" data-label="특약사항" data-type="text"></span></div><div><span class="fv" data-field="specials.3" data-label="특약사항" data-type="text"></span></div></div>
+<div class="small" style="margin:4px 0 2px">본 계약을 증명하기 위하여 계약 당사자가 이의 없음을 확인하고 각각 서명·날인 후 임대인, 임차인, 개업공인중개사는 매 장마다 간인하여, 각각 1통씩 보관한다. <b style="float:right"><span class="fv" data-field="contract_date" data-label="계약일" data-type="date"></span></b></div>
+<table class="lc">
+  <colgroup><col style="width:52px"><col style="width:84px"><col style="width:140px"><col style="width:40px"><col style="width:108px"><col style="width:40px"><col></colgroup>
+  <tbody><tr><th rowspan="3">임 대 인</th><th>주 소</th><td colspan="5"><span class="fv" data-field="landlord.address" data-label="주소" data-type="text"></span></td></tr>
+  <tr><th>주민등록번호</th><td class="c"><span class="fv" data-field="landlord.rrn" data-label="주민등록번호" data-type="text"></span></td><th>전 화</th><td class="c"><span class="fv" data-field="landlord.phone" data-label="전화" data-type="text"></span></td>
+      <th>성 명</th><td><span class="fv" data-field="landlord.name" data-label="성명" data-type="text"></span> <span style="float:right" class="small"><span class="inmark" data-mark2="sign.landlord">서명 또는 날인 ㊞<span data-field="seal.landlord" data-label="임대인" data-type="seal"></span></span></span></td></tr>
+  <tr><th>대 리 인</th><td colspan="2" class="in small">주소</td><td colspan="2" class="in small">주민등록번호</td><td class="in small">성명</td></tr>
+  <tr><th rowspan="3">임 차 인</th><th>주 소</th><td colspan="5"><span class="fv" data-field="tenant.address" data-label="주소" data-type="text"></span></td></tr>
+  <tr><th>주민등록번호</th><td class="c"><span class="fv" data-field="tenant.rrn" data-label="주민등록번호" data-type="text"></span></td><th>전 화</th><td class="c"><span class="fv" data-field="tenant.phone" data-label="전화" data-type="text"></span></td>
+      <th>성 명</th><td><span class="fv" data-field="tenant.name" data-label="성명" data-type="text"></span> <span style="float:right" class="small"><span data-field="seal.tenant" data-label="임차인" data-type="seal"></span><span class="inmark">서명 또는 날인 ㊞<span data-field="sign.tenant" data-label="임차인" data-type="signature"></span></span></span></td></tr>
+  <tr><th>대 리 인</th><td colspan="2" class="in small">주소</td><td colspan="2" class="in small">주민등록번호</td><td class="in small">성명</td></tr>
+</tbody></table>
+<table class="lc bk">
+  <colgroup><col style="width:52px"><col style="width:84px"><col><col style="width:84px"><col></colgroup>
+  <tbody><tr><th rowspan="5">개업<br>공인<br>중개사</th><th>사무소소재지</th><td><span class="fv" data-field="brokers.0.office_address" data-label="사무소소재지" data-type="text"></span></td><th>사무소소재지</th><td><span class="fv" data-field="brokers.1.office_address" data-label="사무소소재지" data-type="text"></span></td></tr>
+  <tr><th>사무소명칭</th><td><span class="fv" data-field="brokers.0.office_name" data-label="사무소명칭" data-type="text"></span></td><th>사무소명칭</th><td><span class="fv" data-field="brokers.1.office_name" data-label="사무소명칭" data-type="text"></span></td></tr>
+  <tr><th>대 표</th><td><span class="fv" data-field="brokers.0.representative" data-label="대표" data-type="text"></span> <span class="small" style="float:right">서명 및 날인 ㊞</span></td><th>대 표</th><td><span class="fv" data-field="brokers.1.representative" data-label="대표" data-type="text"></span> <span class="small" style="float:right">서명 및 날인 ㊞</span></td></tr>
+  <tr><th>등록번호</th><td><span class="fv" data-field="brokers.0.reg_no" data-label="등록번호" data-type="text"></span> <span style="float:right">전화 <span class="fv" data-field="brokers.0.phone" data-label="전화" data-type="text"></span></span></td><th>등록번호</th><td><span class="fv" data-field="brokers.1.reg_no" data-label="등록번호" data-type="text"></span> <span style="float:right">전화 <span class="fv" data-field="brokers.1.phone" data-label="전화" data-type="text"></span></span></td></tr>
+  <tr><th>소속공인중개사</th><td> <span class="small" style="float:right">서명 및 날인 ㊞</span></td><th>소속공인중개사</th><td> <span class="small" style="float:right">서명 및 날인 ㊞</span></td></tr>
+</tbody></table>
+</div>
+
+</body></html>

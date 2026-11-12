@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>혼인관계증명서</title>
+<style>
+:root {
+  --font: &#39;Gulim&#39;, &#39;Malgun Gothic&#39;, &#39;Nanum Gothic&#39;, &#39;NanumBarunGothic&#39;, &#39;Noto Sans CJK KR&#39;, &#39;Dotum&#39;, sans-serif;
+  --fs: 12.9px;
+  --title: 28px;
+  --lh: 1.49;
+  --border: #222;
+  --bw: 1px;
+  --label-bg: #f2f2f2;
+  --accent: #00573f;
+  --pad: 5px;
+  --page-pad: 72px;
+  --paper: #ffffff;
+  --seal: #d11;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+.fm-form { font-size: calc(var(--fs) - 3px); color: #444; }
+h1.title.fm { letter-spacing: .12em; margin: 26px 0 20px; }
+table.fm th { background: var(--label-bg); }
+table.fm td { text-align: center; }
+table.fm td.l { text-align: left; }
+.fm-base th { width: 110px; }
+.fm-sec { font-weight: 700; margin: 16px 0 2px; letter-spacing: .1em; }
+.fm-stmt { text-align: center; margin: 34px 0 6px; font-size: calc(var(--fs) + 1px); }
+.fm-meta { font-size: calc(var(--fs) - 1px); margin-top: 26px; line-height: 1.7; }
+.fm-meta .l { display: inline-block; width: 90px; }
+.fm-foot { position: absolute; left: var(--page-pad); right: var(--page-pad); bottom: calc(var(--page-pad) - 16px); border-top: 1px solid #888; padding-top: 6px; font-size: calc(var(--fs) - 2.5px); color: #333; }
+.fm-foot p { margin: 2px 0; }
+.fm-close { display: flex; flex-direction: column; }
+.fm-foot.flow { position: static; margin-top: 22px; }
+.page.a4 { padding-bottom: calc(var(--page-pad) + 52px); }
+table.fm .st { margin-left: 6px; font-weight: 700; }
+table.fm .nat { display: block; font-size: calc(var(--fs) - 2px); }</style>
+</head>
+<body>
+<div class="page a4">
+<h1 class="title fm">혼인관계증명서(<span class="fv" data-field="cert_type" data-label="증명서종류" data-type="text"></span>)</h1>
+<table class="fm fm-base"><tbody><tr><th>등록기준지</th><td class="l"><span class="fv" data-field="reg_base" data-label="등록기준지" data-type="text"></span></td></tr></tbody></table>
+<div style="height:8px"></div>
+<table class="fm">
+  <colgroup><col style="width:70px"><col style="width:170px"><col style="width:140px"><col><col style="width:50px"><col style="width:66px"></colgroup>
+  <tbody><tr><th>구분</th><th>성　명</th><th>출생연월일</th><th>주민등록번호</th><th>성별</th><th>본</th></tr>
+  <tr>
+    <td><span class="fv" data-field="self.relation" data-label="구분" data-type="text"></span></td>
+    <td><span class="fv" data-field="self.name" data-label="성명" data-type="text"></span>(<span class="fv" data-field="self.name_hanja" data-label="성명(한자)" data-type="text"></span>)</td>
+    <td><span class="fv" data-field="self.birth" data-label="출생연월일" data-type="date"></span></td>
+    <td><span class="fv" data-field="self.rrn" data-label="주민등록번호" data-type="text"></span></td>
+    <td><span class="fv" data-field="self.gender" data-label="성별" data-type="text"></span></td>
+    <td><span class="fv" data-field="self.bon" data-label="본" data-type="text"></span></td>
+  </tr>
+</tbody></table>
+<div class="fm-close">
+<p class="fm-stmt">위 혼인관계증명서(일반)는 가족관계등록부의 기록사항과 틀림없음을 증명합니다.</p>
+<div class="issuer" style="margin-top:14px">
+  <div class="date"><span class="fv" data-field="issue_date" data-label="발급일" data-type="date"></span></div>
+  <div class="org"><span class="fv" data-field="issuer" data-label="발급기관" data-type="text"></span><span data-field="seal.issuer" data-label="발급기관직인" data-type="seal"></span></div>
+</div>
+<div class="fm-meta">
+  <div><span class="l">발급시각 :</span><span class="fv" data-field="issue_time" data-label="발급시각" data-type="text"></span></div>
+  <div><span class="l">발급담당자 :</span><span class="fv" data-field="officer" data-label="발급담당자" data-type="text"></span></div>
+  <div><span class="l">☎ :</span><span class="fv" data-field="officer_phone" data-label="전화" data-type="text"></span></div>
+  <div><span class="l">신청인 :</span><span class="fv" data-field="applicant" data-label="신청인" data-type="text"></span></div>
+</div>
+</div>
+<div class="fm-foot">
+  <p>※ 위 증명서는 「가족관계의 등록 등에 관한 법률」 제15조제2항에 따른 등록사항을 현출한 일반증명서입니다.</p>
+  <p>※ 이 증명서는 위·변조 방지를 위하여 특수용지를 사용하였습니다.</p>
+</div>
+</div>
+
+</body></html>

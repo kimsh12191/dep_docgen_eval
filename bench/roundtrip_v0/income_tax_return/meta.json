@@ -1,0 +1,31 @@
+{
+ "id": "income_tax_return",
+ "name": "종합소득세 과세표준확정신고 및 납부계산서",
+ "group": "tax",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 38,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 38,
+  "checks": 2,
+  "marks": 3,
+  "tables": 5,
+  "cells": 106,
+  "spans": 4,
+  "span_share": 0.038,
+  "chars": 703
+ },
+ "rule": "difficulty-v1"
+}

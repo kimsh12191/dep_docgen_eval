@@ -1,0 +1,33 @@
+{
+ "id": "auto_transfer_application",
+ "name": "자동이체 신청서",
+ "group": "bank_form",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 30,
+ "ref_issues": [],
+ "tier": "중",
+ "why": [
+  "fields",
+  "checks",
+  "chars"
+ ],
+ "features": {
+  "fields": 29,
+  "checks": 5,
+  "marks": 3,
+  "tables": 6,
+  "cells": 58,
+  "spans": 1,
+  "span_share": 0.017,
+  "chars": 765
+ },
+ "rule": "difficulty-v1"
+}

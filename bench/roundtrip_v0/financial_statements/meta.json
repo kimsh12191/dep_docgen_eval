@@ -1,0 +1,32 @@
+{
+ "id": "financial_statements",
+ "name": "재무제표(재무상태표·손익계산서)",
+ "group": "corporate",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 148,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields",
+  "spans"
+ ],
+ "features": {
+  "fields": 38,
+  "checks": 0,
+  "marks": 0,
+  "tables": 2,
+  "cells": 41,
+  "spans": 13,
+  "span_share": 0.317,
+  "chars": 43
+ },
+ "rule": "difficulty-v1"
+}

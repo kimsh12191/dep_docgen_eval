@@ -1,178 +1,119 @@
-"""채점기 자체 검증 (가설 H1: 채점기가 맞다). 모델 없이 돌린다.
+"""채점기 자체 검증 (가설 H1: 채점기가 맞다). 모델도 브라우저도 없이 돌린다.
 
-정답을 아는 입력을 넣어 점수가 기대대로 나오는지 본다.
-  T1 같은 것        정답 = 만든 것                         → 1.0
-  T2 다시 그리기    같은 서식을 다른 seed 로 (값이 바뀜)             → 1.0 에 가까워야 (채점기의 잡음 바닥)
-                    구조가 고정된 서식(html 서식)만 오라클이다. 코드 서식은 seed 마다 칸 구성이 달라져
-                    (예: 통장사본 8칸 ↔ 13칸) 같은 서식이어도 다른 문서가 된다 → 따로 적고 판정에 쓰지 않는다.
-  T3 칸 절반        칸을 하나 걸러 지움                     → 재현율 ≈ 0.5, 정밀도 1.0
-  T4 빈 것          칸·글자 없음                           → 0
-  T5 다른 서식      다른 서식을 만든 것으로 넣음             → 0 에 가까워야 (변별력)
-  T6 밀림·흔들림    전체를 밀기 / 칸마다 조금·많이 흔들기      → 밀림·작은 흔들림은 유지, 큰 흔들림은 하락
-  T7 갈래 바꿈      체크 칸을 값 칸으로                     → 체크 칸 비율만큼 하락
-  T8 초안 폴더      초안 폴더(template.html.j2 + form.json) 를 그려 채점하는 길이 도는가
-허용 거리(tol)는 T2 는 높고 T5 는 낮은 값으로 고른다.
+평가 항목의 정답 html 을 일부러 망가뜨려 넣고, 점수가 기대대로 나오는지 본다.
+  T1 그대로               → 모든 점수 1.0
+  T2 값을 채움            값 자리 안에 값 글자를 넣음           → 그대로 1.0 (값은 채점하지 않는다)
+  T3 값 자리 절반         표시를 하나 걸러 지움                 → 값 자리 재현율 ≈ 0.5, 정밀도 1.0
+  T4 빈 문서              → 유효하지 않음, 0
+  T5 다른 서식            다른 항목의 정답을 넣음               → 0 에 가까워야 (변별력)
+  T6 글자 오타            인쇄 글자 50자에 1자꼴로 바꿈          → 조금만 하락
+  T7 갈래 바꿈            체크 칸을 값 칸으로                   → 체크 칸 비율만큼 하락
+  T8 합치기 버림          rowspan·colspan 을 모두 지움          → 합친 칸 재현율 0, 표 점수 하락 (합친 칸이 있는 항목만)
+  T9 표시 없음            data-field 를 모두 지움               → 유효하지 않음 (no_fields)
+  T10 잘린 출력           뒤 40% 를 자름                        → 점수 하락 (닫히지 않은 표면 유효하지 않음)
+
+실행: python -m formgen selftest --items bench/roundtrip_v0 --out results/selftest_html
 """
 from __future__ import annotations
 
 import argparse
-import copy
 import json
 import random
+import re
 import statistics as st
-import time
 from pathlib import Path
 
-from .bridge import Renderer
-from .score import TOL, field_score, score
-from .sheet import first_page, from_label
+from . import htmldoc
+from .score import score_docs
 
-TOLS = (0.01, 0.02, 0.03, 0.05, 0.08)
-
-
-def _shift(sheet, dx, dy):
-    s = copy.deepcopy(sheet)
-    for f in s["fields"]:
-        b = f["box"]
-        f["box"] = [b[0] + dx, b[1] + dy, b[2] + dx, b[3] + dy]
-    return s
+MARK = re.compile(r'(<span\b[^>]*\bdata-field="[^"]*"[^>]*>)(</span>)')
+ATTR_FIELD = re.compile(r'\sdata-field="[^"]*"')
+SPAN_ATTR = re.compile(r'\s(?:rowspan|colspan)="\d+"')
+TEXT_NODE = re.compile(r">([^<>]+)<")
+KEYS = ("field_f1", "field_f1_strict", "table_f1", "span_recall", "text_f1")
 
 
-def _jitter(sheet, sigma, rng):
-    s = copy.deepcopy(sheet)
-    for f in s["fields"]:
-        dx, dy = rng.gauss(0, sigma), rng.gauss(0, sigma)
-        b = f["box"]
-        f["box"] = [b[0] + dx, b[1] + dy, b[2] + dx, b[3] + dy]
-    return s
+def fill_values(html):
+    return MARK.sub(lambda m: m.group(1) + "홍길동 1,234,000" + m.group(2), html)
+
+
+def drop_half(html):
+    n = [0]
+
+    def rep(m):
+        n[0] += 1
+        return ATTR_FIELD.sub("", m.group(0), count=1) if n[0] % 2 == 0 else m.group(0)
+    return re.sub(r'<span\b[^>]*\bdata-field="[^"]*"[^>]*>', rep, html)
+
+
+def typos(html, rng, rate=0.02):
+    head, body = html[:html.find("<body")], html[html.find("<body"):]
+
+    def rep(m):
+        s = list(m.group(1))
+        for i, ch in enumerate(s):
+            if not ch.isspace() and rng.random() < rate:
+                s[i] = "가"
+        return ">" + "".join(s) + "<"
+    return head + TEXT_NODE.sub(rep, body)
 
 
 def _stats(xs):
-    xs = [x for x in xs if x is not None]
+    xs = sorted(x for x in xs if x is not None)
     if not xs:
         return None
-    xs = sorted(xs)
-    return {"n": len(xs), "mean": round(st.fmean(xs), 4), "median": round(xs[len(xs) // 2], 4), "min": round(xs[0], 4),
-            "p10": round(xs[int(0.1 * (len(xs) - 1))], 4), "max": round(xs[-1], 4)}
+    return {"n": len(xs), "mean": round(st.fmean(xs), 4), "median": xs[len(xs) // 2], "min": xs[0], "max": xs[-1]}
 
 
-def run(ids: list[str], out: Path, seeds=(1, 2, 3, 4, 5, 6), example: Path | None = None, fixed: set[str] | None = None) -> dict:
-    fixed = fixed or set()
+def run(items_dir: Path, out: Path) -> dict:
     out.mkdir(parents=True, exist_ok=True)
     rng = random.Random(0)
-    rows, skipped = [], []
-    t0 = time.time()
-    with Renderer(out / "cache") as R:
-        base = {}
-        for doc_id in ids:
-            try:
-                label = R.form(doc_id, 0)
-            except Exception as e:
-                skipped.append((doc_id, f"render: {type(e).__name__}"))
-                continue
-            if len(label["images"]) != 1:
-                skipped.append((doc_id, f"{len(label['images'])}쪽"))
-                continue
-            sheet = first_page(from_label(label))
-            if not sheet["fields"]:
-                skipped.append((doc_id, "칸 없음"))
-                continue
-            base[doc_id] = (sheet, (label.get("template_variant") or {}).get("id"))
-        order = list(base)
-        for n, doc_id in enumerate(order):
-            gt, variant = base[doc_id]
-            rec = {"id": doc_id, "fixed": doc_id in fixed, "fields": len(gt["fields"]), "texts": len(gt["texts"]),
-                   "checks": sum(f["kind"] == "check" for f in gt["fields"])}
-            s = score(gt, gt)
-            rec["t1"] = [s["field_f1"], s["text_f1"]]
-            half = copy.deepcopy(gt)
-            half["fields"] = half["fields"][::2]
-            s = field_score(gt, half)
-            rec["t3"] = {"p": s["field_p"], "r": s["field_r"], "expect_r": round(len(half["fields"]) / len(gt["fields"]), 4)}
-            empty = dict(gt, fields=[], texts=[])
-            s = score(gt, empty)
-            rec["t4"] = [s["field_f1"], s["text_f1"]]
-            s = field_score(gt, _shift(gt, 0.03, 0.02))
-            rec["t6_shift"] = {"f1": s["field_f1"], "pos_err": s["pos_err"], "no_align": field_score(gt, _shift(gt, 0.03, 0.02), align=False)["field_f1"]}
-            rec["t6_small"] = field_score(gt, _jitter(gt, 0.004, rng))["field_f1"]
-            rec["t6_large"] = field_score(gt, _jitter(gt, 0.06, rng))["field_f1"]
-            swapped = copy.deepcopy(gt)
-            for f in swapped["fields"]:
-                if f["kind"] == "check":
-                    f["kind"], f["type"] = "value", "text"
-            rec["t7"] = {"f1": field_score(gt, swapped)["field_f1"], "expect": round(1 - rec["checks"] / len(gt["fields"]), 4)}
-            # T2 다시 그리기: 같은 레이아웃 변형, 한 쪽인 seed 만
-            rec["t2"] = {str(t): [] for t in TOLS}
-            rec["t2_text"], rec["t2_label"], rec["t2_type"], rec["t2_pos"], rec["t2_f1_label"] = [], [], [], [], []
-            for seed in seeds:
-                try:
-                    lab = R.form(doc_id, seed)
-                except Exception:
-                    continue
-                if len(lab["images"]) != 1 or (lab.get("template_variant") or {}).get("id") != variant:
-                    continue
-                other = first_page(from_label(lab))
-                for t in TOLS:
-                    rec["t2"][str(t)].append(field_score(gt, other, tol=t)["field_f1"])
-                full = score(gt, other)
-                rec["t2_text"].append(full["text_f1"])
-                rec["t2_f1_label"].append(full["field_f1_label"])
-                rec["t2_label"].append(full["label_acc"])
-                rec["t2_type"].append(full["type_acc"])
-                rec["t2_pos"].append(full["pos_err"])
-            # T5 다른 서식 (목록의 다음 서식)
-            wrong = base[order[(n + 1) % len(order)]][0]
-            rec["t5"] = {str(t): field_score(gt, wrong, tol=t)["field_f1"] for t in TOLS}
-            full = score(gt, wrong)
-            rec["t5_text"], rec["t5_label"] = full["text_f1"], full["field_f1_label"]
-            rows.append(rec)
-            print(f"[{n + 1}/{len(order)}] {doc_id} reseed@{TOL}={_stats(rec['t2'][str(TOL)]) and _stats(rec['t2'][str(TOL)])['mean']} wrong@{TOL}={rec['t5'][str(TOL)]}", flush=True)
-        t8 = None
-        if example and example.is_dir():
-            try:
-                a = first_page(from_label(R.draft(example, 0)))
-                t8 = {"fields": len(a["fields"]), "rows": a["rows"], "seeds": []}
-                for seed in seeds:
-                    s = score(a, first_page(from_label(R.draft(example, seed))))
-                    t8["seeds"].append({"valid": s["valid"], "field_f1": s["field_f1"], "field_f1_label": s["field_f1_label"], "text_f1": s["text_f1"],
-                                        "by_tol": {str(t): field_score(a, first_page(from_label(R.draft(example, seed))), tol=t)["field_f1"] for t in TOLS}})
-            except Exception as e:
-                t8 = {"error": f"{type(e).__name__}: {e}"[:300]}
-    fx, var = [r for r in rows if r["fixed"]], [r for r in rows if not r["fixed"]]
-    flat = lambda rs, key: [x for r in rs for x in r[key]]
+    ids = sorted(p.name for p in items_dir.iterdir() if (p / "ref.html").is_file())
+    refs = {i: (items_dir / i / "ref.html").read_text(encoding="utf-8") for i in ids}
+    docs = {i: htmldoc.parse(h) for i, h in refs.items()}
+    pick = lambda s: {k: s.get(k) for k in KEYS} | {"valid": s["valid"], "why": s["invalid_why"]}
+    rows = []
+    for n, i in enumerate(ids):
+        ref, gt = refs[i], docs[i]
+        sc = lambda html: score_docs(gt, htmldoc.parse(html))
+        nf, nchk = len(gt["fields"]), sum(f["kind"] == "check" for f in gt["fields"])
+        half_html = drop_half(ref)
+        half = sc(half_html)
+        swap = sc(ref.replace('data-type="checkbox"', 'data-type="text"'))
+        rec = {"id": i, "fields": nf, "checks": nchk, "spans": sum(1 for t in gt["tables"] for c in t if c["r1"] > c["r0"] or c["c1"] > c["c0"]),
+               "t1": pick(sc(ref)), "t2": pick(sc(fill_values(ref))),
+               "t3": {"p": half["field_p"], "r": half["field_r"], "expect_r": round(len(htmldoc.parse(half_html)["fields"]) / nf, 4)},
+               "t4": pick(sc("")), "t5": pick(score_docs(gt, docs[ids[(n + 1) % len(ids)]])),
+               "t6": pick(sc(typos(ref, rng))),
+               "t7": {"f1": swap["field_f1"], "expect": round(1 - nchk / nf, 4)},
+               "t8": pick(sc(SPAN_ATTR.sub("", ref))), "t9": pick(sc(ATTR_FIELD.sub("", ref))),
+               "t10": pick(sc(ref[:int(len(ref) * 0.6)]))}
+        rows.append(rec)
+    col = lambda t, k: [r[t][k] for r in rows]
+    all1 = lambda t: all(all(r[t][k] in (1.0, None) for k in KEYS) and r[t]["valid"] for r in rows)
+    spans = [r for r in rows if r["spans"]]
     summary = {
-        "forms": len(rows), "fixed_structure": len(fx), "varying_structure": len(var), "skipped": skipped, "seconds": round(time.time() - t0),
-        "T1_identity_all_1": all(r["t1"] == [1.0, 1.0] for r in rows),
-        "T3_half": {"precision": _stats([r["t3"]["p"] for r in rows]), "recall_minus_expect": _stats([round(r["t3"]["r"] - r["t3"]["expect_r"], 4) for r in rows])},
-        "T4_empty_all_0": all(r["t4"] == [0.0, 0.0] for r in rows),
-        "T6_shift_f1": _stats([r["t6_shift"]["f1"] for r in rows]), "T6_shift_f1_without_align": _stats([r["t6_shift"]["no_align"] for r in rows]),
-        "T6_small_jitter_f1": _stats([r["t6_small"] for r in rows]), "T6_large_jitter_f1": _stats([r["t6_large"] for r in rows]),
+        "items": len(rows),
+        "T1_same_all_1": all1("t1"), "T2_values_filled_all_1": all1("t2"),
+        "T3_half": {"precision": _stats(col("t3", "p")), "recall_minus_expect": _stats([round(r["t3"]["r"] - r["t3"]["expect_r"], 4) for r in rows])},
+        "T4_empty_all_invalid": all(not r["t4"]["valid"] and not r["t4"]["field_f1"] for r in rows),
+        "T5_wrong": {k: _stats(col("t5", k)) for k in KEYS},
+        "T6_typos": {k: _stats(col("t6", k)) for k in KEYS},
         "T7_kind_swap_f1_minus_expect": _stats([round(r["t7"]["f1"] - r["t7"]["expect"], 4) for r in rows]),
-        "T2_reseed_fixed_field_f1": {str(t): _stats([x for r in fx for x in r["t2"][str(t)]]) for t in TOLS},
-        "T2_reseed_fixed_field_f1_label": _stats(flat(fx, "t2_f1_label")), "T2_reseed_fixed_text_f1": _stats(flat(fx, "t2_text")),
-        "T2_reseed_varying_field_f1 (참고: 오라클 아님)": {str(t): _stats([x for r in var for x in r["t2"][str(t)]]) for t in TOLS},
-        "T5_wrong_field_f1": {str(t): _stats([r["t5"][str(t)] for r in rows]) for t in TOLS},
-        "T5_wrong_field_f1_label": _stats([r["t5_label"] for r in rows]), "T5_wrong_text_f1": _stats([r["t5_text"] for r in rows]),
-        "T8_draft_folder": t8,
+        "T8_no_spans (합친 칸이 있는 항목)": {"n": len(spans), **{k: _stats([r["t8"][k] for r in spans]) for k in ("span_recall", "table_f1", "field_f1", "field_f1_strict")}},
+        "T9_no_markers_all_invalid": all(not r["t9"]["valid"] and "no_fields" in r["t9"]["why"] for r in rows),
+        "T10_truncated": {"invalid_share": round(sum(not r["t10"]["valid"] for r in rows) / len(rows), 3), **{k: _stats(col("t10", k)) for k in ("field_f1", "text_f1")}},
     }
     (out / "selftest.json").write_text(json.dumps({"summary": summary, "rows": rows}, ensure_ascii=False, indent=1), encoding="utf-8")
     return summary
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(prog="formgen selftest", description="채점기 자체 검증 (모델 없이)")
-    ap.add_argument("--pool", required=True, help='서식 ID 목록 JSON: ["id", …] 또는 [{"id": …, "structure": "fixed"|"varies"}]')
-    ap.add_argument("--out", required=True)
-    ap.add_argument("--limit", type=int, default=0)
-    ap.add_argument("--example", default=str(Path(__file__).resolve().parents[1] / "examples" / "spec_example"))
+    ap = argparse.ArgumentParser(prog="formgen selftest", description="채점기 자체 검증 (모델·브라우저 없이)")
+    ap.add_argument("--items", default="bench/roundtrip_v0")
+    ap.add_argument("--out", default="results/selftest_html")
     a = ap.parse_args(argv)
-    pool = json.loads(Path(a.pool).read_text(encoding="utf-8"))
-    ids = [x["id"] if isinstance(x, dict) else x for x in pool]
-    fixed = {x["id"] for x in pool if isinstance(x, dict) and x.get("structure") == "fixed"}
-    if a.limit:
-        ids = ids[:a.limit]
-    summary = run(ids, Path(a.out), example=Path(a.example), fixed=fixed)
-    print(json.dumps(summary, ensure_ascii=False, indent=1))
+    print(json.dumps(run(Path(a.items), Path(a.out)), ensure_ascii=False, indent=1))
 
 
 if __name__ == "__main__":

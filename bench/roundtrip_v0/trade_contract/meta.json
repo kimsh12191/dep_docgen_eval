@@ -1,0 +1,31 @@
+{
+ "id": "trade_contract",
+ "name": "무역 매매계약서(Sales Contract)",
+ "group": "fx",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 43,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 42,
+  "checks": 0,
+  "marks": 3,
+  "tables": 2,
+  "cells": 49,
+  "spans": 2,
+  "span_share": 0.041,
+  "chars": 637
+ },
+ "rule": "difficulty-v1"
+}

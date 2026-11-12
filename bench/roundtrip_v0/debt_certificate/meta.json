@@ -1,0 +1,32 @@
+{
+ "id": "debt_certificate",
+ "name": "부채증명서",
+ "group": "finance",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 28,
+ "ref_issues": [],
+ "tier": "중",
+ "why": [
+  "fields",
+  "spans"
+ ],
+ "features": {
+  "fields": 21,
+  "checks": 1,
+  "marks": 1,
+  "tables": 3,
+  "cells": 34,
+  "spans": 6,
+  "span_share": 0.176,
+  "chars": 206
+ },
+ "rule": "difficulty-v1"
+}

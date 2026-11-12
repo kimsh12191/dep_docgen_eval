@@ -1,0 +1,67 @@
+{
+ "all": {
+  "n": 60,
+  "pass_rate": 0.2667,
+  "valid_rate": 1.0,
+  "field_f1": 0.9961,
+  "field_f1_strict": 0.869,
+  "table_f1": 0.8869,
+  "span_recall": 0.0,
+  "text_f1": 1.0,
+  "failures": {
+   "low_merged_cells": 44,
+   "ok": 16
+  },
+  "seconds_mean": 0.0,
+  "completion_tokens_mean": 0.0
+ },
+ "by_tier": {
+  "하": {
+   "n": 3,
+   "pass_rate": 1.0,
+   "valid_rate": 1.0,
+   "field_f1": 1.0,
+   "field_f1_strict": 1.0,
+   "table_f1": null,
+   "span_recall": null,
+   "text_f1": 1.0,
+   "failures": {
+    "ok": 3
+   },
+   "seconds_mean": 0.0,
+   "completion_tokens_mean": 0.0
+  },
+  "중": {
+   "n": 32,
+   "pass_rate": 0.3438,
+   "valid_rate": 1.0,
+   "field_f1": 0.997,
+   "field_f1_strict": 0.8785,
+   "table_f1": 0.9101,
+   "span_recall": 0.0,
+   "text_f1": 1.0,
+   "failures": {
+    "low_merged_cells": 21,
+    "ok": 11
+   },
+   "seconds_mean": 0.0,
+   "completion_tokens_mean": 0.0
+  },
+  "상": {
+   "n": 25,
+   "pass_rate": 0.08,
+   "valid_rate": 1.0,
+   "field_f1": 0.9946,
+   "field_f1_strict": 0.841,
+   "table_f1": 0.8569,
+   "span_recall": 0.0,
+   "text_f1": 1.0,
+   "failures": {
+    "low_merged_cells": 23,
+    "ok": 2
+   },
+   "seconds_mean": 0.0,
+   "completion_tokens_mean": 0.0
+  }
+ }
+}

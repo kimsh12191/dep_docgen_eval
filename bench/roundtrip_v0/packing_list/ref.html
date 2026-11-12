@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>포장명세서(Packing List)</title>
+<style>
+:root {
+  --font: &#39;Gulim&#39;, &#39;Malgun Gothic&#39;, &#39;Nanum Gothic&#39;, &#39;NanumBarunGothic&#39;, &#39;Noto Sans CJK KR&#39;, &#39;Dotum&#39;, sans-serif;
+  --fs: 13.5px;
+  --title: 29px;
+  --lh: 1.57;
+  --border: #444;
+  --bw: 1.5px;
+  --label-bg: #f7f3ea;
+  --accent: #00573f;
+  --pad: 5px;
+  --page-pad: 58px;
+  --paper: #ffffff;
+  --seal: #e0312b;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+.page { font-family: 'Times New Roman', var(--font); font-size: calc(var(--fs) - 1.5px); padding: 44px 46px; }
+.pl-title { text-align: center; font-size: 24px; font-weight: 700; letter-spacing: .15em; margin: 0 0 10px; text-decoration: underline; }
+table.ci { border: 2px solid var(--border); margin: 0; table-layout: fixed; }
+table.ci td { vertical-align: top; padding: 3px 6px; }
+.lb { font-size: calc(var(--fs) - 4px); color: #333; display: block; margin-bottom: 1px; }
+.v { font-weight: 600; }
+.rm { font-size: calc(var(--fs) - 2.5px); line-height: 1.35; }
+table.gd { border: 2px solid var(--border); border-top: 0; margin: 0; table-layout: fixed; }
+table.gd th { font-size: calc(var(--fs) - 4px); padding: 3px 3px; background: var(--label-bg); white-space: normal; }
+table.gd td { border-top: 0; border-bottom: 0; vertical-align: top; padding: 3px 4px; font-size: calc(var(--fs) - 2.5px); }
+table.gd tr.tot td { border-top: 1.5px solid var(--border); border-bottom: 1.5px solid var(--border); font-weight: 700; }
+table.gd tr.ch td { border-top: 1px solid var(--border); font-weight: 700; padding-top: 4px; font-size: calc(var(--fs) - 3px); }
+table.gd tr.st td { border-top: 1px dashed #666; font-style: italic; }
+.marks { white-space: nowrap; font-size: calc(var(--fs) - 3.5px); }
+.sign { margin-top: 26px; margin-left: auto; width: 300px; }
+.sign .line { border-bottom: 1px solid #000; height: 40px; position: relative; }
+.sign .sig { position: absolute; left: 20px; bottom: 4px; font-style: italic; font-family: 'Liberation Serif', serif; font-size: 20px; color: #1a2c6b; }
+.cont-hd { display: none; }
+.cont-hd.pg-repeated { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1.5px solid var(--border);
+  padding-bottom: 3px; margin-bottom: 8px; font-size: calc(var(--fs) - 2px); }
+.cont-hd .t { font-weight: 700; letter-spacing: .08em; font-size: calc(var(--fs) + 1px); }
+</style>
+</head>
+<body>
+<div class="page a4">
+<div class="cont-hd pg-repeat"><span class="t">PACKING LIST</span><span>Invoice No. MGJ-2512-054</span><span>30 DEC 2025</span></div>
+<div class="pl-title">PACKING LIST</div>
+<table class="ci">
+  <colgroup><col style="width:28%"><col style="width:27%"><col style="width:45%"></colgroup>
+  <tbody><tr>
+    <td colspan="2"><span class="lb">① Shipper/Exporter</span><span class="v"><span class="fv" data-field="shipper.name" data-label="Shipper/Exporter" data-type="text"></span></span><br><span class="fv" data-field="shipper.address" data-label="ShipperAddress" data-type="text"></span></td>
+    <td><span class="lb">⑧ No. &amp; date of invoice</span><span class="v"><span class="fv" data-field="invoice_no" data-label="InvoiceNo" data-type="text"></span></span><br><span class="fv" data-field="invoice_date" data-label="InvoiceDate" data-type="date"></span></td>
+  </tr>
+  <tr>
+    <td colspan="2"><span class="lb">② For account &amp; risk of Messrs. (Consignee)</span><span class="v"><span class="fv" data-field="consignee.name" data-label="Consignee" data-type="text"></span></span><br><span class="fv" data-field="consignee.address" data-label="ConsigneeAddress" data-type="text"></span></td>
+    <td rowspan="4"><span class="lb">⑨ Remarks</span><div class="rm">
+Contract No.: <span class="fv" data-field="contract_no" data-label="ContractNo" data-type="text"></span><br>      &nbsp;</div></td>
+  </tr>
+  <tr><td colspan="2"><span class="lb">③ Notify party</span><span class="fv" data-field="notify" data-label="NotifyParty" data-type="text"></span></td></tr>
+  <tr>
+    <td><span class="lb">④ Port of loading</span><span class="fv" data-field="port_of_loading" data-label="PortofLoading" data-type="text"></span></td>
+    <td><span class="lb">⑤ Final destination</span><span class="fv" data-field="final_destination" data-label="FinalDestination" data-type="text"></span></td>
+  </tr>
+  <tr>
+    <td><span class="lb">⑥ Carrier</span><span class="fv" data-field="carrier" data-label="Carrier" data-type="text"></span></td>
+    <td><span class="lb">⑦ Sailing on or about</span><span class="fv" data-field="sailing_date" data-label="Sailingonorabout" data-type="date"></span></td>
+  </tr>
+</tbody></table>
+<table class="gd">
+  <tbody><tr><th style="width:17%">⑩ Marks and numbers of PKGS</th><th style="width:9%">C/T No.</th><th style="width:24%">⑪ Description of goods</th><th style="width:10%">Packages</th><th style="width:11%">⑫ Quantity</th><th style="width:10%">⑬ Net weight (KGS)</th><th style="width:10%">⑭ Gross weight (KGS)</th><th style="width:9%">⑮ Measure­ment (CBM)</th></tr>
+  <tr>
+    <td class="marks"><span class="fv" data-field="marks" data-label="MarksandNumbers" data-type="text"></span></td>
+    <td class="c"><span class="fv" data-field="items.0.ctn_no" data-label="C/TNo" data-type="text"></span></td>
+    <td><span class="fv" data-field="items.0.description" data-label="DescriptionofGoods" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="items.0.packages" data-label="Packages" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="items.0.quantity" data-label="Quantity" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="items.0.net_weight" data-label="NetWeight" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="items.0.gross_weight" data-label="GrossWeight" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="items.0.measurement" data-label="Measurement" data-type="number"></span></td>
+  </tr>
+  <tr>
+    <td class="marks"></td>
+    <td class="c"><span class="fv" data-field="items.1.ctn_no" data-label="C/TNo" data-type="text"></span></td>
+    <td><span class="fv" data-field="items.1.description" data-label="DescriptionofGoods" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="items.1.packages" data-label="Packages" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="items.1.quantity" data-label="Quantity" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="items.1.net_weight" data-label="NetWeight" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="items.1.gross_weight" data-label="GrossWeight" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="items.1.measurement" data-label="Measurement" data-type="number"></span></td>
+  </tr>
+  <tr>
+    <td class="marks"></td>
+    <td class="c"><span class="fv" data-field="items.2.ctn_no" data-label="C/TNo" data-type="text"></span></td>
+    <td><span class="fv" data-field="items.2.description" data-label="DescriptionofGoods" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="items.2.packages" data-label="Packages" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="items.2.quantity" data-label="Quantity" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="items.2.net_weight" data-label="NetWeight" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="items.2.gross_weight" data-label="GrossWeight" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="items.2.measurement" data-label="Measurement" data-type="number"></span></td>
+  </tr>
+<tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>  <tr class="tot"><td colspan="3" class="right">TOTAL</td><td class="num"><span class="fv" data-field="total.packages" data-label="TotalPackages" data-type="text"></span></td><td></td>
+    <td class="num"><span class="fv" data-field="total.net_weight" data-label="TotalNetWeight" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="total.gross_weight" data-label="TotalGrossWeight" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="total.measurement" data-label="TotalMeasurement" data-type="text"></span></td></tr>
+</tbody></table>
+<div class="sign">
+  <div>Signed by</div>
+  <div class="bold"><span class="fv" data-field="signed_by" data-label="Signedby" data-type="text"></span></div>
+  <div class="line"><span class="sig">Nguyen Van An</span></div>
+  <div><span class="fv" data-field="signer" data-label="Signer" data-type="text"></span></div>
+</div>
+</div>
+
+</body></html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>주민등록증</title>
+<style>
+:root {
+  --font: &#39;Noto Sans CJK KR&#39;, &#39;Malgun Gothic&#39;, &#39;Nanum Gothic&#39;, &#39;NanumBarunGothic&#39;, &#39;Gulim&#39;, &#39;Dotum&#39;, sans-serif;
+  --fs: 12.9px;
+  --title: 28px;
+  --lh: 1.43;
+  --border: #444;
+  --bw: 1.5px;
+  --label-bg: #ffffff;
+  --accent: #3d3d3d;
+  --pad: 6px;
+  --page-pad: 65px;
+  --paper: #fcfcfa;
+  --seal: #d11;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+.page.card { background: linear-gradient(135deg, #eef6fb 0%, #f9fbf4 45%, #f3eefa 100%); border: 1px solid #b9c6d3; }
+.idc-title { font-size: 26px; font-weight: 800; letter-spacing: .35em; margin: 4px 0 14px; color: #1b2b48; }
+.idc-type { font-size: 15px; font-weight: 700; letter-spacing: .2em; margin-left: 14px; color: #8a1c1c; border: 1.5px solid #8a1c1c; padding: 1px 2px 1px 6px; vertical-align: 4px; }
+.idc-name { font-size: 22px; font-weight: 700; letter-spacing: .15em; }
+.idc-name .hj { font-size: 15px; font-weight: 400; letter-spacing: .05em; margin-left: 4px; }
+.idc-rrn { font-size: 20px; letter-spacing: .08em; margin: 6px 0 10px; }
+.idc-addr { font-size: 13px; line-height: 1.45; width: 330px; }
+.idc-photo { position: absolute; right: 26px; top: 56px; width: 118px; height: 150px; }
+.idc-foot { position: absolute; left: 0; right: 0; bottom: 18px; text-align: center; }
+.idc-foot .d { font-size: 14px; letter-spacing: .1em; }
+.idc-foot .o { font-size: 18px; font-weight: 700; letter-spacing: .15em; position: relative; display: inline-block; padding-right: 28px; }
+</style>
+</head>
+<body>
+<div class="page card">
+<div class="idc-title">주민등록증</div>
+<div class="idc-name"><span class="fv" data-field="name" data-label="성명" data-type="text"></span><span class="hj">(<span class="fv" data-field="name_hanja" data-label="한자성명" data-type="text"></span>)</span></div>
+<div class="idc-rrn"><span class="fv" data-field="rrn" data-label="주민등록번호" data-type="text"></span></div>
+<div class="idc-addr"><span class="fv" data-field="address" data-label="주소" data-type="text"></span></div>
+<div class="photo idc-photo"></div>
+<div class="idc-foot">
+  <div class="d"><span class="fv" data-field="issue_date" data-label="발급일" data-type="date"></span></div>
+  <div class="o"><span class="fv" data-field="issuer" data-label="발급기관" data-type="text"></span><span data-field="seal.issuer" data-label="발급기관직인" data-type="seal"></span></div>
+</div>
+<div class="sample-mark">견본 SAMPLE</div></div>
+
+</body></html>

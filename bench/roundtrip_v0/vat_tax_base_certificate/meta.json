@@ -1,0 +1,32 @@
+{
+ "id": "vat_tax_base_certificate",
+ "name": "부가가치세 과세표준증명",
+ "group": "tax",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 40,
+ "ref_issues": [],
+ "tier": "중",
+ "why": [
+  "fields",
+  "spans"
+ ],
+ "features": {
+  "fields": 19,
+  "checks": 0,
+  "marks": 1,
+  "tables": 4,
+  "cells": 35,
+  "spans": 7,
+  "span_share": 0.2,
+  "chars": 328
+ },
+ "rule": "difficulty-v1"
+}

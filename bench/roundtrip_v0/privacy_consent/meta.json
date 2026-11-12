@@ -1,0 +1,31 @@
+{
+ "id": "privacy_consent",
+ "name": "개인(신용)정보 수집·이용·제공·조회 동의서",
+ "group": "bank_form",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1588,
+  "height": 2246,
+  "fill": "filled"
+ },
+ "label_fields": 31,
+ "ref_issues": [],
+ "tier": "상",
+ "why": [
+  "chars"
+ ],
+ "features": {
+  "fields": 19,
+  "checks": 8,
+  "marks": 2,
+  "tables": 5,
+  "cells": 32,
+  "spans": 0,
+  "span_share": 0.0,
+  "chars": 1799
+ },
+ "rule": "difficulty-v1"
+}

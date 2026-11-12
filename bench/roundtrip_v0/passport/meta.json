@@ -1,0 +1,31 @@
+{
+ "id": "passport",
+ "name": "여권",
+ "group": "identity",
+ "source": "docgen-roundtrip",
+ "docgen_commit": "1727485",
+ "seed": 0,
+ "layout": "default",
+ "image": {
+  "width": 1440,
+  "height": 1000,
+  "fill": "filled"
+ },
+ "label_fields": 15,
+ "ref_issues": [],
+ "tier": "중",
+ "why": [
+  "fields"
+ ],
+ "features": {
+  "fields": 15,
+  "checks": 0,
+  "marks": 0,
+  "tables": 0,
+  "cells": 0,
+  "spans": 0,
+  "span_share": 0.0,
+  "chars": 228
+ },
+ "rule": "difficulty-v1"
+}

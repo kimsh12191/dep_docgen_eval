@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>해외송금신청서</title>
+<style>
+:root {
+  --font: &#39;Nanum Gothic&#39;, &#39;Malgun Gothic&#39;, &#39;NanumBarunGothic&#39;, &#39;Noto Sans CJK KR&#39;, &#39;Gulim&#39;, &#39;Dotum&#39;, sans-serif;
+  --fs: 13.3px;
+  --title: 24px;
+  --lh: 1.57;
+  --border: #222;
+  --bw: 1px;
+  --label-bg: #eeeeee;
+  --accent: #0d4ea2;
+  --pad: 7px;
+  --page-pad: 63px;
+  --paper: #fcfcfa;
+  --seal: #d11;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+.page.a4 { padding: calc(var(--page-pad) * .55) calc(var(--page-pad) * .62); }
+.bf-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--accent); padding-bottom: 3px; margin-bottom: 6px; }
+.bf-bank { color: var(--accent); font-weight: 800; font-size: calc(var(--fs) + 5px); letter-spacing: .04em; }
+.bf-bank .en { font-size: calc(var(--fs) - 3.5px); font-weight: 600; letter-spacing: .02em; margin-left: 6px; }
+.bf-bank .mk { display: inline-block; width: 15px; height: 15px; border: 3px solid var(--accent); border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.bf-meta { font-size: calc(var(--fs) - 3.5px); color: #444; text-align: right; line-height: 1.3; }
+h1.title { margin: 2px 0 6px; font-size: calc(var(--title) - 5px); letter-spacing: .12em; }
+h1.title .sub { font-size: calc(var(--fs) - 1px); margin-top: 1px; letter-spacing: .02em; }
+.bf-sec { font-weight: 700; margin: 6px 0 1px; font-size: calc(var(--fs) + .5px); }
+.bf-sec .n { display: inline-block; background: var(--accent); color: #fff; padding: 0 6px; margin-right: 6px; font-size: calc(var(--fs) - 1px); }
+.bf-sec .en { font-weight: 400; font-size: calc(var(--fs) - 2.5px); color: #555; margin-left: 4px; }
+table.bf { margin: 2px 0 3px; border: 1.5px solid var(--border); }
+table.bf th, table.bf td { padding: 2px 6px; }
+table.bf th { font-weight: 600; }
+table.bf td.q { text-align: left; }
+table.bf th.l { text-align: left; }
+th .en, td .en { display: block; font-weight: 400; font-size: calc(var(--fs) - 4px); color: #555; line-height: 1.1; }
+.bf-note { font-size: calc(var(--fs) - 3px); color: #333; line-height: 1.35; margin: 2px 0; }
+.bf-note p { margin: 1px 0; }
+.bf-box { border: 1px solid var(--border); padding: 4px 8px; margin: 4px 0; }
+.bf-agree { text-align: right; margin: 2px 0 4px; }
+.bf-agree .req { color: var(--accent); font-weight: 700; margin-right: 6px; }
+.bf-sign { display: flex; justify-content: flex-end; align-items: center; gap: 18px; margin: 6px 0 2px; }
+.bf-sign .who { min-width: 90px; display: inline-block; text-align: center; font-weight: 600; }
+.bf-use { border: 2px solid var(--border); margin-top: 6px; padding: 0; display: flex; flex-direction: column; } /* 쪽 나눔 시 한 덩어리 */
+.bf-use .cap { background: var(--label-bg); border-bottom: 1px solid var(--border); padding: 1px 8px; font-weight: 700; font-size: calc(var(--fs) - 1px); }
+.bf-use .body { display: flex; gap: 8px; padding: 4px 6px; align-items: stretch; }
+.bf-use .body > table { margin: 0; }
+table.stamp { width: auto; margin: 0; }
+table.stamp th { padding: 1px 10px; font-size: calc(var(--fs) - 2px); }
+table.stamp td { width: 64px; height: 48px; text-align: center; padding: 2px; }
+.seal.staff { transform: rotate(-5deg); font-family: var(--font); }
+.seal.staff.long { font-size: 8px; letter-spacing: -.03em; }
+.pw { display: inline-block; width: 20px; height: 20px; border: 1px solid var(--border); margin-right: 2px; vertical-align: middle; }
+.chk { margin-right: 8px; }
+.bf-foot { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 4px); color: #555; margin-top: 3px; }
+.bf-page { position: relative; }
+.corr { white-space: normal; } /* 긴 값(주소 등)의 정정이 칸을 넘지 않게 */
+table.orm th { width: 112px; }
+table.orm td { font-variant-numeric: tabular-nums; }
+.amt { font-weight: 700; font-size: calc(var(--fs) + 2px); letter-spacing: .02em; }
+</style>
+</head>
+<body>
+<div class="page a4 dense">
+
+<div class="bf-head">
+  <div class="bf-bank"><span class="mk"></span><span class="fv" data-field="bank.name" data-label="은행명" data-type="text"></span></div>
+  <div class="bf-meta">(2-1) 외환 · 당발송금<br>(보존년한: 처리일로부터 5년)</div>
+</div>
+<h1 class="title">외화송금신청서<span class="sub">APPLICATION FOR OUTWARD REMITTANCE</span></h1>
+<div class="bf-note">※ 수취인·수취은행 정보는 영문 대문자로 정확히 작성하여 주십시오.</div>
+
+<div class="bf-sec"><span class="n">1</span>신청인(송금인)<span class="en">Applicant</span></div>
+<table class="bf orm">
+<tbody><tr><th>성명<span class="en">Name</span></th><td><span class="fv" data-field="remitter.name" data-label="송금인성명" data-type="text"></span></td><th>영문명<span class="en">English Name</span></th><td><span class="fv" data-field="remitter.name_en" data-label="송금인영문명" data-type="text"></span></td></tr>
+<tr><th>실명번호<span class="en">ID No.</span></th><td><span class="fv" data-field="remitter.rrn" data-label="실명번호" data-type="text"></span></td><th>전화번호<span class="en">Tel No.</span></th><td><span class="fv" data-field="remitter.phone" data-label="전화번호" data-type="text"></span></td></tr>
+<tr><th>주소<span class="en">Address</span></th><td colspan="3"><span class="fv" data-field="remitter.address" data-label="송금인주소" data-type="text"></span></td></tr>
+<tr><th>상호(사업자번호)<span class="en">Company</span></th><td colspan="3"><span class="fv" data-field="remitter.company" data-label="상호(사업자번호)" data-type="text"></span></td></tr></tbody></table>
+
+<div class="bf-sec"><span class="n">2</span>수취인<span class="en">Beneficiary</span></div>
+<table class="bf orm">
+<tbody><tr><th>성명(상호)<span class="en">Name</span></th><td colspan="3"><span class="fv" data-field="beneficiary.name" data-label="수취인성명" data-type="text"></span></td></tr>
+<tr><th>주소<span class="en">Address</span></th><td colspan="3"><span class="fv" data-field="beneficiary.address" data-label="수취인주소" data-type="text"></span></td></tr>
+<tr><th>국가<span class="en">Country</span></th><td><span class="fv" data-field="beneficiary.country" data-label="수취인국가" data-type="text"></span></td><th>신청인과의 관계<span class="en">Relationship</span></th><td><span class="fv" data-field="beneficiary.relationship" data-label="신청인과의관계" data-type="text"></span></td></tr>
+</tbody></table>
+
+<div class="bf-sec"><span class="n">3</span>수취은행<span class="en">Beneficiary's Bank</span></div>
+<table class="bf orm">
+<tbody><tr><th>SWIFT BIC</th><td><span class="fv" data-field="beneficiary.swift" data-label="SWIFTBIC" data-type="text"></span></td><th>은행코드<span class="en">ABA / Sort Code</span></th><td><span class="tiny muted">(해당 시 / If any)</span></td></tr>
+<tr><th>은행명<span class="en">Bank Name</span></th><td><span class="fv" data-field="beneficiary.bank_name" data-label="수취은행명" data-type="text"></span></td><th>중계은행<span class="en">Intermediary Bank</span></th><td><span class="tiny muted">(해당 시 / If any)</span></td></tr>
+<tr><th>지점 및 주소<span class="en">Branch &amp; Address</span></th><td colspan="3"><span class="fv" data-field="beneficiary.bank_address" data-label="수취은행주소" data-type="text"></span></td></tr>
+<tr><th>수취인 계좌번호<span class="en">Account No. / IBAN</span></th><td colspan="3" class="bold"><span class="fv" data-field="beneficiary.account_no" data-label="수취인계좌번호" data-type="text"></span></td></tr>
+</tbody></table>
+
+<div class="bf-sec"><span class="n">4</span>송금 내용<span class="en">Remittance Details</span></div>
+<table class="bf orm">
+<tbody><tr><th>송금통화<span class="en">Currency</span></th><td class="amt"><span class="fv" data-field="remittance.currency" data-label="송금통화" data-type="text"></span></td><th>송금금액<span class="en">Amount</span></th><td class="amt"><span class="fv" data-field="remittance.amount" data-label="송금금액" data-type="amount"></span></td></tr>
+<tr><th>송금사유<span class="en">Purpose of Payment</span></th><td colspan="3"><span data-field="remittance.purpose" data-label="송금사유" data-type="checkbox" data-options="수입대금|유학생경비|해외체재비|증여성송금|해외이주비|국내보수송금|기타"></span><span class="chk"><span class="cb">□</span> 수입대금</span><span class="chk"><span class="cb">□</span> 유학생경비</span><span class="chk"><span class="cb">□</span> 해외체재비</span><span class="chk"><span class="cb">□</span> 증여성송금</span><span class="chk"><span class="cb">□</span> 해외이주비</span><span class="chk"><span class="cb">□</span> 국내보수송금</span><span class="chk"><span class="cb">□</span> 기타</span>
+  &nbsp;&nbsp;지급사유코드 <span class="u"><span class="fv" data-field="remittance.purpose_code" data-label="지급사유코드" data-type="number"></span></span></td></tr>
+<tr><th>수수료 부담<span class="en">Charges</span></th><td><span data-field="remittance.charge" data-label="수수료부담" data-type="checkbox" data-options="OUR|SHA|BEN"></span><span class="chk"><span class="cb">□</span> OUR</span><span class="chk"><span class="cb">□</span> SHA</span><span class="chk"><span class="cb">□</span> BEN</span></td>
+    <th>송금방법<span class="en">Method</span></th><td><span data-field="remittance.method" data-label="송금방법" data-type="checkbox" data-options="전신송금(T/T)|송금수표(D/D)"></span><span class="chk"><span class="cb">□</span> 전신송금(T/T)</span><span class="chk"><span class="cb">□</span> 송금수표(D/D)</span></td></tr>
+<tr><th>송금메시지<span class="en">Message to Beneficiary</span></th><td colspan="3"><span class="fv" data-field="remittance.message" data-label="송금메시지" data-type="text"></span></td></tr>
+<tr><th>지급증빙서류<span class="en">Documents</span></th><td colspan="3"><span class="fv" data-field="remittance.documents" data-label="지급증빙서류" data-type="text"></span></td></tr>
+</tbody></table>
+
+<div class="bf-box bf-note" style="margin-top:5px">
+  <p>1. 본인은 「외국환거래법」 등 관계 법령을 준수하며, 위 송금이 자금세탁 등 불법거래와 무관함을 확인합니다.</p>
+  <p>2. 기재 오류 또는 중계·수취은행 사정으로 송금이 지연·반환될 수 있으며, 이로 인한 수수료와 환차손은 신청인이 부담합니다.</p>
+  <p>3. OUR: 국내외 수수료 송금인 부담 / SHA: 국내 수수료 송금인, 해외 수수료 수취인 부담 / BEN: 모든 수수료 수취인 부담</p>
+  <p>4. 지급증빙서류 미제출 송금은 연간 미화 10만불 상당액 이내에서만 가능합니다.</p>
+</div>
+<div class="bf-sign">
+  <span>신청일 <span class="fv" data-field="date" data-label="신청일" data-type="date"></span></span>
+  <span>신청인 <span class="who"><span class="fv" data-field="signature" data-label="신청인" data-type="text"></span></span> <span class="inmark" data-mark2="sign.applicant">(서명 또는 인)<span data-field="seal.applicant" data-label="신청인" data-type="seal"></span></span></span>
+</div>
+<div class="right bold"><span class="fv" data-field="bank.name" data-label="은행명" data-type="text"></span> 앞</div>
+
+<div class="bf-use">
+  <div class="cap">은행 사용란 (For Bank Use Only)</div>
+  <div class="body">
+    <table class="bf orm" style="flex:1">
+      <tbody><tr><th style="width:92px">참조번호</th><td><span class="fv" data-field="bank_use.ref_no" data-label="참조번호" data-type="text"></span></td><th style="width:92px">취급 영업점</th><td><span class="fv" data-field="bank_use.branch" data-label="취급영업점" data-type="text"></span></td></tr>
+      <tr><th>적용환율</th><td><span class="fv" data-field="bank_use.rate" data-label="적용환율" data-type="number"></span></td><th>원화환산액</th><td class="num"><span class="fv" data-field="bank_use.krw_amount" data-label="원화환산액" data-type="amount"></span></td></tr>
+      <tr><th>송금수수료</th><td class="num"><span class="fv" data-field="bank_use.fee" data-label="송금수수료" data-type="amount"></span></td><th>전신료</th><td class="num"><span class="fv" data-field="bank_use.cable_fee" data-label="전신료" data-type="amount"></span></td></tr>
+      <tr><th>합계(원)</th><td colspan="3" class="num bold"><span class="fv" data-field="bank_use.total" data-label="합계" data-type="amount"></span></td></tr>
+    </tbody></table>
+    <table class="bf stamp">
+<tbody><tr><th>실명확인</th><th>담당자</th><th>결재권자</th></tr>
+<tr><td></td><td><span data-field="seal.staff.clerk" data-label="담당자" data-type="seal"></span></td><td><span data-field="seal.staff.manager" data-label="결재권자" data-type="seal"></span></td></tr>
+</tbody></table>
+  </div>
+</div>
+<div class="bf-foot"><span>[지급신청서 겸용]</span><span>외환-0131 (210×297) 모조 100g</span></div>
+</div>
+
+</body></html>

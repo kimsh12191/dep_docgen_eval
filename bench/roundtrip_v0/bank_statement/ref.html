@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8">
+<title>거래내역확인서</title>
+<style>
+:root {
+  --font: &#39;Gulim&#39;, &#39;Malgun Gothic&#39;, &#39;Nanum Gothic&#39;, &#39;NanumBarunGothic&#39;, &#39;Noto Sans CJK KR&#39;, &#39;Dotum&#39;, sans-serif;
+  --fs: 13.8px;
+  --title: 26px;
+  --lh: 1.37;
+  --border: #333;
+  --bw: 1px;
+  --label-bg: #eef2f7;
+  --accent: #1f3a68;
+  --pad: 4px;
+  --page-pad: 53px;
+  --paper: #fffffb;
+  --seal: #b22222;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; }
+.page {
+  position: relative; overflow: hidden; background: var(--paper); color: #111;
+  font-family: var(--font); font-size: var(--fs); line-height: var(--lh);
+  width: 794px; height: 1123px; padding: var(--page-pad);
+}
+.page.a4_landscape { width: 1123px; height: 794px; }
+.page.card { width: 540px; height: 340px; padding: 20px 24px; border-radius: 18px; }
+.page.passport { width: 720px; height: 500px; padding: 22px 28px; }
+.page.a4.dense { font-size: calc(var(--fs) - 1.5px); line-height: 1.35; }
+
+h1.title { text-align: center; font-size: var(--title); letter-spacing: .25em; margin: 6px 0 22px; font-weight: 700; }
+h1.title.box { border: 2px solid var(--border); padding: 8px; }
+h1.title .sub { display: block; font-size: 13px; letter-spacing: .05em; font-weight: 400; color: #444; margin-top: 4px; }
+h2.sec { font-size: calc(var(--fs) + 2px); margin: 16px 0 6px; padding-left: 8px; border-left: 4px solid var(--accent); }
+h3.sec { font-size: calc(var(--fs) + 1px); margin: 12px 0 4px; }
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td { border: var(--bw) solid var(--border); padding: var(--pad) calc(var(--pad) + 3px); vertical-align: middle; }
+th { background: var(--label-bg); font-weight: 600; text-align: center; white-space: nowrap; }
+td.num, .num { text-align: right; font-variant-numeric: tabular-nums; }
+td.c, .c { text-align: center; }
+table.plain th, table.plain td { border: 0; padding: 2px 4px; background: none; text-align: left; }
+table.outer { border: 2px solid var(--border); }
+table.compact th, table.compact td { padding: 3px 5px; font-size: calc(var(--fs) - 1px); }
+
+.row { display: flex; gap: 12px; align-items: flex-start; }
+.between { display: flex; justify-content: space-between; align-items: flex-end; }
+.right { text-align: right; } .center { text-align: center; } .bold { font-weight: 700; }
+.small { font-size: calc(var(--fs) - 2px); } .tiny { font-size: calc(var(--fs) - 3.5px); }
+.muted { color: #555; } .accent { color: var(--accent); }
+.box { border: var(--bw) solid var(--border); padding: 10px 12px; margin: 8px 0; }
+.note { font-size: calc(var(--fs) - 2px); color: #333; margin: 6px 0; }
+.note li { margin: 2px 0; }
+.mt { margin-top: 18px; } .mb { margin-bottom: 18px; } .mt-l { margin-top: 36px; }
+.spacer { flex: 1; }
+.u { border-bottom: 1px solid #333; padding: 0 6px; }
+ol.clauses { padding-left: 1.4em; margin: 6px 0; }
+ol.clauses li { margin: 3px 0; }
+
+.issuer { text-align: center; margin-top: 28px; }
+.issuer .date { margin-bottom: 18px; letter-spacing: .05em; }
+.issuer .org { font-size: calc(var(--fs) + 8px); font-weight: 700; letter-spacing: .2em; position: relative; display: inline-block; padding-right: 18px; }
+.seal {
+  display: inline-flex; align-items: center; justify-content: center; text-align: center;
+  width: 64px; height: 64px; border: 3px solid var(--seal); color: var(--seal);
+  border-radius: 50%; font-size: 13px; line-height: 1.1; font-weight: 700;
+  transform: rotate(-7deg); opacity: .82; vertical-align: middle; letter-spacing: 0;
+  font-family: 'Nanum Myeongjo', 'Noto Serif CJK KR', serif; word-break: keep-all;
+}
+.seal.square { border-radius: 4px; }
+.seal.img { border: none; } .seal.img img { width: 100%; height: 100%; object-fit: contain; }
+.seal.sm { width: 40px; height: 40px; font-size: 10px; border-width: 2px; }
+.seal.lg { width: 84px; height: 84px; font-size: 15px; }
+.seal.over { position: absolute; right: -40px; top: -18px; }
+.signline { display: inline-block; min-width: 120px; }
+.inmark { position: relative; display: inline-block; min-width: 34px; text-align: center; }
+.inmark .seal.onmark { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-8deg); margin: 0; }
+.inmark .scribble { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -55%); pointer-events: none; }
+.corr { white-space: normal; }
+.corr-old, .corr .fv { white-space: nowrap; }
+.corr-old { text-decoration: line-through double; text-decoration-color: #c00; color: inherit; }
+.seal.corr-seal { width: 22px; height: 22px; font-size: 7px; border-width: 1.5px; margin-left: 2px; vertical-align: -4px; }
+.seal-missing { display: inline-block; width: 64px; height: 64px; vertical-align: middle; }
+.seal-missing.sm { width: 40px; height: 40px; } .seal-missing.lg { width: 84px; height: 84px; }
+.pg-keep { break-inside: avoid; }
+.scribble svg { display: block; overflow: visible; }
+.chk { white-space: nowrap; margin-right: 10px; }
+.photo {
+  background: linear-gradient(#e8e8e8, #d0d0d0); border: 1px solid #aaa; position: relative; overflow: hidden;
+}
+.photo::after {
+  content: ""; position: absolute; left: 50%; top: 22%; width: 42%; height: 36%; transform: translateX(-50%);
+  background: #b8b8b8; border-radius: 50%; box-shadow: 0 60px 0 30px #b8b8b8;
+}
+.sample-mark {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(-24deg);
+  font-size: 64px; font-weight: 900; color: rgba(220, 20, 20, .16); letter-spacing: .2em;
+  white-space: nowrap; pointer-events: none; font-family: sans-serif; z-index: 10;
+}
+.page.card .sample-mark { font-size: 44px; }
+.docno { font-size: calc(var(--fs) - 2px); color: #333; }
+.gov-head { display: flex; justify-content: space-between; font-size: calc(var(--fs) - 2px); color: #333; margin-bottom: 6px; }
+.keep { display: flex; flex-direction: column; } /* 맺음말·발급기관·직인은 한 덩어리 (쪽 나눔에서 쪼개지 않음) */
+table.tx th, table.tx td { padding: 3px 5px; font-size: calc(var(--fs) - 1.5px); }
+table.tx td.memo { text-align: left; }
+table.tx tr.sum td, table.tx tr.sum th { background: var(--label-bg); font-weight: 700; }
+.acct-line:not(.pg-repeated) { display: none; }
+.acct-line.pg-repeated { margin-bottom: 4px; }
+td.neg { color: #c00; }
+</style>
+</head>
+<body>
+<div class="page a4">
+<div class="docno pg-repeat">발급번호 : <span class="fv" data-field="issue_no" data-label="발급번호" data-type="text"></span></div>
+<h1 class="title">거 래 내 역 확 인 서</h1>
+<table class="kv ">
+<colgroup><col style="width:120px"><col><col style="width:120px"><col></colgroup><tbody><tr>
+<th data-label="holder">예 금 주</th><td><span class="fv" data-field="holder" data-label="예금주" data-type="text"></span></td>
+<th data-label="birth">생년월일</th><td><span class="fv" data-field="birth" data-label="생년월일" data-type="date"></span></td>
+</tr>
+<tr>
+<th data-label="account_no">계좌번호</th><td><span class="fv" data-field="account_no" data-label="계좌번호" data-type="text"></span></td>
+<th data-label="product">상 품 명</th><td><span class="fv" data-field="product" data-label="상품명" data-type="text"></span></td>
+</tr>
+<tr>
+<th data-label="period">조회기간</th><td><span class="fv" data-field="period" data-label="조회기간" data-type="text"></span></td>
+<th data-label="opening_balance">조회기간 전 잔액</th><td><span class="fv" data-field="opening_balance" data-label="조회기간전잔액" data-type="amount"></span></td>
+</tr>
+</tbody></table>
+<div class="docno pg-repeat acct-line">계좌번호 : 171-760452-29-611&nbsp;&nbsp;&nbsp;예금주 : 박찬연&nbsp;&nbsp;&nbsp;조회기간 : 2025.10.29 ~ 2026.01.30</div>
+<table class="tx mt">
+  <colgroup><col style="width:19%"><col style="width:11%"><col style="width:19%"><col style="width:13%"><col style="width:13%"><col></colgroup>
+  <tbody><tr><th>거래일시</th><th>적요</th><th>기재내용</th><th>찾으신금액</th><th>맡기신금액</th><th>거래후잔액</th></tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.0.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.0.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.0.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="rows.0.out" data-label="찾으신금액" data-type="number"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.0.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.1.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.1.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.1.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="rows.1.out" data-label="찾으신금액" data-type="number"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.1.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.2.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.2.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.2.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.2.in" data-label="맡기신금액" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="rows.2.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.3.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.3.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.3.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="rows.3.out" data-label="찾으신금액" data-type="number"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.3.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.4.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.4.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.4.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="rows.4.out" data-label="찾으신금액" data-type="number"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.4.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.5.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.5.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.5.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="rows.5.out" data-label="찾으신금액" data-type="number"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.5.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.6.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.6.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.6.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="rows.6.out" data-label="찾으신금액" data-type="number"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.6.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.7.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.7.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.7.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.7.in" data-label="맡기신금액" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="rows.7.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.8.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.8.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.8.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.8.in" data-label="맡기신금액" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="rows.8.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.9.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.9.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.9.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="rows.9.out" data-label="찾으신금액" data-type="number"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.9.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.10.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.10.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.10.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"><span class="fv" data-field="rows.10.out" data-label="찾으신금액" data-type="number"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.10.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr>
+    <td class="c"><span class="fv" data-field="rows.11.datetime" data-label="거래일시" data-type="date"></span></td>
+    <td class="c"><span class="fv" data-field="rows.11.type" data-label="적요" data-type="text"></span></td>
+    <td class="memo"><span class="fv" data-field="rows.11.memo" data-label="기재내용" data-type="text"></span></td>
+    <td class="num"></td>
+    <td class="num"><span class="fv" data-field="rows.11.in" data-label="맡기신금액" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="rows.11.balance" data-label="거래후잔액" data-type="amount"></span></td>
+  </tr>
+  <tr class="sum"><td class="c">합계</td><td class="c"><span class="fv" data-field="summary.count" data-label="거래건수" data-type="text"></span></td><td></td>
+    <td class="num"><span class="fv" data-field="summary.out" data-label="찾으신금액합계" data-type="number"></span></td><td class="num"><span class="fv" data-field="summary.in" data-label="맡기신금액합계" data-type="number"></span></td>
+    <td class="num"><span class="fv" data-field="summary.balance" data-label="최종잔액" data-type="amount"></span></td></tr>
+</tbody></table>
+<p class="note">※ 본 확인서는 조회기간 중 위 계좌의 거래내역을 확인하기 위한 것으로 다른 용도로 사용할 수 없습니다.<br>※ 금액 단위 : 원</p>
+<div class="keep">
+<p class="center mt" style="font-size:calc(var(--fs) + 1px)">위와 같이 거래내역을 확인합니다.</p>
+<div class="issuer" style="margin-top:10px">
+  <div class="date"><span class="fv" data-field="issue_date" data-label="발급일" data-type="date"></span></div>
+  <div class="org"><span class="fv" data-field="issuer" data-label="발급점" data-type="text"></span><span data-field="seal.issuer" data-label="발급기관직인" data-type="seal"></span></div>
+</div>
+</div>
+</div>
+
+</body></html>
