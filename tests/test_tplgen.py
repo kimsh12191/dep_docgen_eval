@@ -47,6 +47,27 @@ class Rules(unittest.TestCase):
                 issues = package.load(folder(d, answer(edit)))["issues"]
                 self.assertTrue(any(i.startswith(want) for i in issues), (want, issues))
 
+    def test_formats_and_language(self):
+        self.assertEqual(data.fmt_amount(13032.62, "R # ###,##"), "R 13 032,62")
+        self.assertEqual(data.fmt_amount(3658.63, "K #,###.##"), "K 3,658.63")
+        self.assertEqual(data.fmt_amount(1234567, "#,###원"), "1,234,567원")
+        self.assertEqual(data.fmt_date(2025, 10, 9, "DD/MM/YYYY"), "09/10/2025")
+        schema = {"language": "en", "fields": [{"name": "n", "type": "text", "format": "IN#######"}, {"name": "c", "type": "company"},
+                                                {"name": "a", "type": "amount", "format": "$#,###.##"}], "tables": []}
+        d = data.make(schema, random.Random(0))
+        self.assertRegex(d["n"], r"^IN\d{7}$")
+        self.assertRegex(d["a"], r"^\$[\d,]+\.\d\d$")
+        self.assertTrue(d["c"].isascii())
+
+    def test_photo_is_flattened(self):
+        """비스듬히 찍은 사진은 종이를 펴서 본다: 편 종이는 배경색이 거의 없다."""
+        import numpy as np
+        from PIL import Image
+        im = Image.open(ROOT / "samples" / "invoice_photo_skewed.jpg").convert("L")
+        flat = np.asarray(check.paper(im)).astype(float)
+        self.assertLess((flat < 120).mean(), 0.03)
+        self.assertEqual(check.paper(Image.open(IMAGE).convert("L")).size, Image.open(IMAGE).size)   # 스캔·렌더링은 그대로
+
     def test_data(self):
         schema = package.load(EXAMPLE)["schema"]
         for seed in range(20):
@@ -78,7 +99,8 @@ class Scores(unittest.TestCase):
 
     def test_all_examples(self):
         """본보기 셋: 깨끗한 서식 · 스캔처럼 만든 것 · 찍은 영수증 · 긴 표. 다른 문서의 이미지와는 닮지 않아야 한다."""
-        pairs = {"hf153": "hf153.png", "receipt_photo": "receipt_photo.jpg", "statement": "statement.jpg"}
+        pairs = {"hf153": "hf153.png", "receipt_photo": "receipt_photo.jpg", "statement": "statement.jpg", "irs_f8949": "irs_f8949.png",
+                 "irs_fw9": "irs_fw9.png", "invoice_photo_skewed": "invoice_photo_skewed.jpg", "invoice_handwritten": "invoice_handwritten.jpg"}
         for name, image in pairs.items():
             res = check.check(ROOT / "examples" / name, ROOT / "samples" / image, renderer=self.r)
             self.assertTrue(res["pass"], (name, check.brief(res)))

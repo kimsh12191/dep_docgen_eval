@@ -1,0 +1,142 @@
+{
+ "title": "Tax invoice (single page)",
+ "fields": [
+  {
+   "name": "invoice_number",
+   "label": "Invoice Number",
+   "type": "text",
+   "format": "IN#######"
+  },
+  {
+   "name": "invoice_date",
+   "label": "Date",
+   "type": "date",
+   "format": "DD/MM/YYYY"
+  },
+  {
+   "name": "due_date",
+   "label": "Due Date",
+   "type": "date",
+   "format": "DD/MM/YYYY"
+  },
+  {
+   "name": "po_number",
+   "label": "PO Number",
+   "type": "text",
+   "format": "PO-#####"
+  },
+  {
+   "name": "terms",
+   "label": "Terms",
+   "type": "choice",
+   "options": [
+    "7 days",
+    "14 days",
+    "30 days"
+   ]
+  },
+  {
+   "name": "supplier_name",
+   "label": "Supplier",
+   "type": "company"
+  },
+  {
+   "name": "supplier_address",
+   "label": "Supplier address",
+   "type": "address"
+  },
+  {
+   "name": "supplier_tel",
+   "label": "Tel",
+   "type": "phone"
+  },
+  {
+   "name": "supplier_email",
+   "label": "Supplier email",
+   "type": "email"
+  },
+  {
+   "name": "supplier_vat",
+   "label": "Supplier VAT No",
+   "type": "number",
+   "format": "##########"
+  },
+  {
+   "name": "customer_name",
+   "label": "Bill to",
+   "type": "company"
+  },
+  {
+   "name": "customer_address",
+   "label": "Bill to address",
+   "type": "address"
+  },
+  {
+   "name": "customer_vat",
+   "label": "Bill to VAT No",
+   "type": "number",
+   "format": "##########"
+  },
+  {
+   "name": "subtotal",
+   "label": "Subtotal",
+   "type": "amount",
+   "format": "R # ###,##"
+  },
+  {
+   "name": "vat_rate",
+   "label": "VAT rate",
+   "type": "choice",
+   "options": [
+    "15%",
+    "10%",
+    "0%"
+   ]
+  },
+  {
+   "name": "vat",
+   "label": "VAT",
+   "type": "amount",
+   "format": "R # ###,##"
+  },
+  {
+   "name": "total",
+   "label": "TOTAL",
+   "type": "amount",
+   "format": "R # ###,##"
+  }
+ ],
+ "tables": [
+  {
+   "name": "items",
+   "label": "Line items",
+   "min_rows": 1,
+   "max_rows": 30,
+   "columns": [
+    {
+     "name": "description",
+     "label": "Description",
+     "type": "text"
+    },
+    {
+     "name": "qty",
+     "label": "Qty",
+     "type": "number"
+    },
+    {
+     "name": "unit_price",
+     "label": "Unit Price",
+     "type": "amount",
+     "format": "# ###,##"
+    },
+    {
+     "name": "amount",
+     "label": "Amount",
+     "type": "amount",
+     "format": "# ###,##"
+    }
+   ]
+  }
+ ],
+ "language": "en"
+}

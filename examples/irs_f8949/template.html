@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; background: #fff; }
+  .page { width: 816px; min-height: 1056px; box-sizing: border-box; padding: 46px 47px 30px 47px; font-family: sans-serif; font-size: 12.5px; line-height: 15px; color: #000; }
+  .top { display: flex; border-bottom: 1px solid #000; }
+  .top .l { width: 118px; border-right: 1px solid #000; padding-bottom: 4px; font-size: 8px; line-height: 11px; }
+  .top .l b { font-size: 26px; line-height: 30px; }
+  .top .m { flex: 1; text-align: center; padding: 6px 6px 4px; }
+  .top .m h1 { font-size: 16px; margin: 0 0 8px; }
+  .top .m p { margin: 0; font-size: 9.5px; font-weight: bold; line-height: 13px; }
+  .top .r { width: 118px; border-left: 1px solid #000; padding-left: 8px; font-size: 8px; line-height: 10px; }
+  .top .r .yr { font-size: 22px; line-height: 26px; font-weight: bold; padding: 2px 0 0 18px; }
+  .who { display: flex; border-bottom: 1px solid #000; min-height: 32px; font-size: 8px; }
+  .who > div { padding: 2px 3px; }
+  .who .name { flex: 1; border-right: 1px solid #000; }
+  .who .ssn { width: 255px; font-weight: bold; }
+  .who .v { display: block; font-size: 11px; font-weight: normal; padding-top: 3px; }
+  .lead { font-style: italic; margin: 4px 0 2px; font-size: 11.6px; line-height: 14.5px; }
+  .part { display: flex; gap: 20px; font-size: 12.6px; line-height: 15px; }
+  .part .tag { background: #000; color: #fff; font-weight: bold; padding: 0 8px; height: 15px; white-space: nowrap; }
+  .part p { margin: 0 0 6px; }
+  .must { margin: 4px 0 2px; font-size: 11.6px; line-height: 14.5px; }
+  .boxes { padding-left: 20px; font-size: 11.6px; line-height: 16px; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 8.8px; line-height: 11px; }
+  th { font-weight: normal; border-left: 1px solid #000; border-bottom: 1px solid #000; vertical-align: middle; text-align: center; padding: 2px; }
+  th:first-child { border-left: none; text-align: center; }
+  td { border-left: 1px solid #000; border-bottom: 1px solid #000; min-height: 30px; height: 30px; padding: 1px 3px; font-size: 10px; word-break: break-word; }
+  td:first-child { border-left: none; }
+  td.n { text-align: right; }
+  .head-top { border-top: 1px solid #000; }
+  .totals td { height: auto; vertical-align: top; }
+  .totals .label { font-size: 11px; line-height: 13.5px; padding: 4px 4px 2px 14px; }
+  .shade { background: #c0c0c0; }
+  .note { font-size: 10px; line-height: 12.5px; margin: 4px 0; }
+  .foot { display: flex; justify-content: space-between; font-size: 9px; border-top: 2px solid #000; padding-top: 3px; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="l">Form <b>8949</b><br>Department of the Treasury<br>Internal Revenue Service</div>
+    <div class="m"><h1>Sales and Other Dispositions of Capital Assets</h1>
+      <p>File with your Schedule D to list your transactions for lines 1b, 2, 3, 8b, 9, and 10 of Schedule D.</p>
+      <p>Go to <i>www.irs.gov/Form8949</i> for instructions and the latest information.</p></div>
+    <div class="r">OMB No. 1545-0074<div class="yr">2025</div>Attachment<br>Sequence No. <b style="font-size:11px">12A</b></div>
+  </div>
+  <div class="who">
+    <div class="name">Name(s) shown on return<span class="v" data-field="name">{{ name }}</span></div>
+    <div class="ssn">Social security number or taxpayer identification number<span class="v" data-field="ssn">{{ ssn }}</span></div>
+  </div>
+  <div class="lead">Before you check Box A, B, C, G, H, or I below, see whether you received any Form(s) 1099-B, Form(s) 1099-DA, or substitute statement(s) from your broker. A substitute statement will have the same information as Form 1099-B or Form 1099-DA. They will show whether your basis (usually your cost) was reported to the IRS by your broker and may even tell you which box to check.</div>
+  <div class="part"><span class="tag">Part I</span><div>
+    <p><b>Short-Term.</b> Transactions involving capital assets you held 1 year or less are generally short-term (see instructions). For long-term transactions, see page 2.</p>
+    <p><b>Note:</b> You may aggregate all short-term transactions reported on Form(s) 1099-B and Form(s) 1099-DA showing basis was reported to the IRS and for which no adjustments or codes are required. Enter the totals directly on Schedule D, line 1a; you aren’t required to report these transactions on Form 8949 (see instructions).</p></div></div>
+  <div class="must"><b>You <i>must</i> check Box A, B, C, G, H, or I below. Check only one box.</b> If more than one box applies for your short-term transactions, complete a separate Form 8949, page 1, for each applicable box. If you have more short-term transactions than will fit on this page for one or more of the boxes, complete as many forms with the same box checked as you need.</div>
+  <div class="boxes" data-field="box">
+    {{ "☑" if box == "A" else "☐" }} <b>(A)</b> Short-term transactions reported on <b>Form(s) 1099-B</b> showing basis <b>was</b> reported to the IRS (see <b>Note</b> above)<br>
+    {{ "☑" if box == "B" else "☐" }} <b>(B)</b> Short-term transactions reported on <b>Form(s) 1099-B</b> showing basis <b>was not</b> reported to the IRS<br>
+    {{ "☑" if box == "C" else "☐" }} <b>(C)</b> Short-term transactions, other than digital asset transactions, not reported to you on <b>Form 1099-B</b> or <b>Form 1099-DA</b><br>
+    {{ "☑" if box == "G" else "☐" }} <b>(G)</b> Short-term transactions reported on <b>Form(s) 1099-DA</b> showing basis <b>was</b> reported to the IRS (see <b>Note</b> above)<br>
+    {{ "☑" if box == "H" else "☐" }} <b>(H)</b> Short-term transactions reported on <b>Form(s) 1099-DA</b> showing basis <b>was not</b> reported to the IRS<br>
+    {{ "☑" if box == "I" else "☐" }} <b>(I)</b> Short-term digital asset transactions not reported to you on <b>Form 1099-DA</b> or <b>Form 1099-B</b>
+  </div>
+  <table>
+    <colgroup><col style="width:25.4%"><col style="width:9.3%"><col style="width:9.4%"><col style="width:12%"><col style="width:12%"><col style="width:8%"><col style="width:12%"><col style="width:11.9%"></colgroup>
+    <tr class="head-top"><th rowspan="2" style="text-align:left; vertical-align:top"><b style="font-size:11px">1</b><div style="text-align:center; padding-top:10px"><b>(a)</b><br>Description of property<br>(Example: 100 sh. XYZ Co.)</div></th>
+      <th rowspan="2"><b>(b)</b><br>Date acquired<br>(Mo., day, yr.)</th><th rowspan="2"><b>(c)</b><br>Date sold or disposed of<br>(Mo., day, yr.)</th>
+      <th rowspan="2"><b>(d)</b><br>Proceeds<br>(sales price)<br>(see instructions)</th><th rowspan="2"><b>(e)</b><br>Cost or other basis See the <b>Note</b> below and see <i>Column (e)</i> in the separate instructions.</th>
+      <th colspan="2"><b>Adjustment, if any, to gain or loss</b><br>If you enter an amount in column (g), enter a code in column (f).<br><b>See the separate instructions.</b></th>
+      <th rowspan="2"><b>(h)</b><br><b>Gain or (loss)</b><br>Subtract column (e) from column (d) and combine the result with column (g).</th></tr>
+    <tr><th><b>(f)</b><br>Code(s) from instructions</th><th><b>(g)</b><br>Amount of adjustment</th></tr>
+    {% for row in rows %}<tr>
+      <td data-field="rows.{{ loop.index0 }}.description">{{ row.description }}</td>
+      <td data-field="rows.{{ loop.index0 }}.acquired">{{ row.acquired }}</td>
+      <td data-field="rows.{{ loop.index0 }}.sold">{{ row.sold }}</td>
+      <td class="n" data-field="rows.{{ loop.index0 }}.proceeds">{{ row.proceeds }}</td>
+      <td class="n" data-field="rows.{{ loop.index0 }}.cost">{{ row.cost }}</td>
+      <td data-field="rows.{{ loop.index0 }}.code">{{ row.code }}</td>
+      <td class="n" data-field="rows.{{ loop.index0 }}.adjustment">{{ row.adjustment }}</td>
+      <td class="n" data-field="rows.{{ loop.index0 }}.gain">{{ row.gain }}</td>
+    </tr>{% endfor %}
+    <tr class="totals"><td colspan="3" class="label"><b>2 Totals.</b> Add the amounts in columns (d), (e), (g), and (h) (subtract negative amounts). Enter each total here and include on your Schedule D, <b>line 1b</b> (if <b>Box A</b> or <b>Box G</b> above is checked), <b>line 2</b> (if <b>Box B</b> or <b>Box H</b> above is checked), or <b>line 3</b> (if <b>Box C</b> or <b>Box I</b> above is checked)</td>
+      <td class="n" data-field="total_proceeds">{{ total_proceeds }}</td><td class="n" data-field="total_cost">{{ total_cost }}</td><td class="shade"></td>
+      <td class="n" data-field="total_adjustment">{{ total_adjustment }}</td><td class="n" data-field="total_gain">{{ total_gain }}</td></tr>
+  </table>
+  <div class="note"><b>Note:</b> If you checked Box A or Box G above but the basis reported to the IRS was incorrect, enter in column (e) the basis as reported to the IRS, and enter an adjustment in column (g) to correct the basis. See <i>Column (g)</i> in the separate instructions for how to figure the amount of the adjustment.</div>
+  <div class="foot"><b>For Paperwork Reduction Act Notice, see your tax return instructions.</b><span>Cat. No. 37768Z</span><span>Form <b>8949</b> (2025) Created 5/5/25</span></div>
+</div>
+</body>
+</html>

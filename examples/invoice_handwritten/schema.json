@@ -1,0 +1,90 @@
+{
+ "title": "Cash invoice book (pre-printed, filled by hand)",
+ "language": "en",
+ "fields": [
+  {
+   "name": "invoice_no",
+   "label": "No.",
+   "type": "number",
+   "format": "####"
+  },
+  {
+   "name": "invoice_date",
+   "label": "Date",
+   "type": "date",
+   "format": "DD/MM/YYYY"
+  },
+  {
+   "name": "due_date",
+   "label": "Due Date",
+   "type": "date",
+   "format": "DD/MM/YYYY"
+  },
+  {
+   "name": "customer_name",
+   "label": "Bill to",
+   "type": "company"
+  },
+  {
+   "name": "customer_address",
+   "label": "Bill to address",
+   "type": "address"
+  },
+  {
+   "name": "customer_tpin",
+   "label": "TPIN",
+   "type": "number",
+   "format": "##########"
+  },
+  {
+   "name": "subtotal",
+   "label": "Subtotal",
+   "type": "amount",
+   "format": "K #,###.##"
+  },
+  {
+   "name": "vat",
+   "label": "VAT 16%",
+   "type": "amount",
+   "format": "K #,###.##"
+  },
+  {
+   "name": "total",
+   "label": "TOTAL",
+   "type": "amount",
+   "format": "K #,###.##"
+  }
+ ],
+ "tables": [
+  {
+   "name": "items",
+   "label": "Line items",
+   "min_rows": 1,
+   "max_rows": 15,
+   "columns": [
+    {
+     "name": "description",
+     "label": "Description",
+     "type": "text"
+    },
+    {
+     "name": "qty",
+     "label": "Qty",
+     "type": "number"
+    },
+    {
+     "name": "unit_price",
+     "label": "Unit Price",
+     "type": "amount",
+     "format": "#,###.##"
+    },
+    {
+     "name": "amount",
+     "label": "Amount",
+     "type": "amount",
+     "format": "#,###.##"
+    }
+   ]
+  }
+ ]
+}

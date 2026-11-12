@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; background: #fff; }
+  .page { width: 794px; min-height: 1123px; box-sizing: border-box; padding: 52px 50px 24px 51px; font-family: sans-serif; font-size: 11.5px; line-height: 14px; color: #111; display: flex; flex-direction: column; }
+  .red { color: #7b1b2a; }
+  .hand { color: #3a4290; font-family: cursive, sans-serif; font-style: italic; font-size: 14px; }
+  .head { display: flex; justify-content: space-between; }
+  .co { font-size: 18.5px; font-weight: bold; line-height: 24px; margin-bottom: 4px; }
+  .title { font-size: 26px; font-weight: bold; text-align: right; line-height: 30px; margin-bottom: 10px; }
+  .meta { display: grid; grid-template-columns: 70px 160px; row-gap: 1px; color: #555; text-align: right; }
+  .meta .v { text-align: right; }
+  .bill { margin-top: 30px; }
+  .bill .cap { font-weight: bold; }
+  .bill .hand { line-height: 15px; white-space: pre-line; }
+  table { width: 100%; border-collapse: collapse; margin-top: 26px; }
+  th, td { border: 1px solid #111; padding: 3px 5px; }
+  th { text-align: right; font-size: 11px; }
+  th:first-child { text-align: left; }
+  td { height: 18px; } td.r { text-align: right; }
+  .totals { margin: 18px 0 0 auto; width: 260px; font-size: 12.5px; }
+  .totals .row { display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; padding: 4px 0; }
+  .totals .row > :first-child { text-align: right; padding-right: 30px; }
+  .totals .row > :last-child { text-align: right; }
+  .totals .grand { border-top: 1px solid #7b1b2a; font-weight: bold; font-size: 14px; padding-top: 6px; }
+  .foot { margin-top: auto; text-align: right; color: #666; font-size: 10px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <div><div class="co red">Kafue Office Supplies Limited</div>168 Obote Avenue<br>Kitwe, 10101<br>Tel +260 18 555 149 | billing@kafueofficesupplie.co.zm<br>TPIN: 1071880273</div>
+    <div><div class="title red">CASH INVOICE</div>
+      <div class="meta"><span>No.:</span><span class="v hand" data-field="invoice_no">{{ invoice_no }}</span>
+        <span>Date:</span><span class="v hand" data-field="invoice_date">{{ invoice_date }}</span>
+        <span>Due Date:</span><span class="v hand" data-field="due_date">{{ due_date }}</span></div></div>
+  </div>
+  <div class="bill"><div class="cap red">BILL TO</div>
+    <div class="hand" data-field="customer_name">{{ customer_name }}</div>
+    <div class="hand" data-field="customer_address">{{ customer_address }}</div>
+    <div class="hand">TPIN: <span data-field="customer_tpin">{{ customer_tpin }}</span></div></div>
+  <table>
+    <tr><th>Description</th><th style="width:85px">Qty</th><th style="width:140px">Unit Price</th><th style="width:150px">Amount</th></tr>
+    {% for row in items %}<tr>
+      <td class="hand" data-field="items.{{ loop.index0 }}.description">{{ row.description }}</td>
+      <td class="r hand" data-field="items.{{ loop.index0 }}.qty">{{ row.qty }}</td>
+      <td class="r hand" data-field="items.{{ loop.index0 }}.unit_price">{{ row.unit_price }}</td>
+      <td class="r hand" data-field="items.{{ loop.index0 }}.amount">{{ row.amount }}</td>
+    </tr>{% endfor %}
+  </table>
+  <div class="totals">
+    <div class="row"><span>Subtotal</span><span class="hand" data-field="subtotal">{{ subtotal }}</span></div>
+    <div class="row"><span>VAT 16%</span><span class="hand" data-field="vat">{{ vat }}</span></div>
+    <div class="row grand"><span>TOTAL</span><span class="hand" data-field="total">{{ total }}</span></div>
+  </div>
+  <div class="foot">Page 1 of 1</div>
+</div>
+</body>
+</html>

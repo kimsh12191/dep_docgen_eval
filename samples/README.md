@@ -7,4 +7,9 @@
 | `receipt_photo.jpg` | 실제로 찍은 한국어 영수증 사진 (배경·구김 있음) | Hugging Face `HumynLabs/Korean_Receipts_Dataset` 의 첫 장 · CC-BY-4.0 · 올린 쪽이 익명화했다고 밝힘 |
 | `statement.jpg` | 합성 은행 거래내역서 (거래 표가 길게 이어짐) | Hugging Face `Panhapich/bank-statement-structure-recognition` 의 첫 장 · MIT · 합성 데이터 |
 
+| `irs_f8949.png` | 미국 국세청 Form 8949 1쪽 (여러 단 머리글의 14행 표, 체크 A~I) | irs.gov/pub/irs-pdf/f8949.pdf 를 150dpi 로 그림 · 미국 연방정부 저작물(퍼블릭 도메인) |
+| `irs_fw9.png` | 미국 국세청 Form W-9 1쪽 (빽빽한 서식, 한 칸 한 글자 번호 칸, 두 단 본문) | irs.gov/pub/irs-pdf/fw9.pdf · 퍼블릭 도메인 |
+| `invoice_photo_skewed.jpg` | 심하게 비스듬히 찍은 인보이스 사진 | Hugging Face `drew-ipp/invoice-extraction-benchmark` 의 `photo-perspective-severe` · CC-BY-4.0 · 합성 |
+| `invoice_handwritten.jpg` | 인쇄된 현금 인보이스 장부에 손으로 쓴 것 | 같은 데이터셋의 `handwritten-invoice-book-average-3` · CC-BY-4.0 · 합성 |
+
 실제 스캔본(사람이 스캐너로 뜬 관공서·기관 문서)은 아직 없다. 실서류는 여기 넣지 않는다.

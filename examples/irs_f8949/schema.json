@@ -1,0 +1,109 @@
+{
+ "title": "Form 8949 Sales and Other Dispositions of Capital Assets (page 1)",
+ "fields": [
+  {
+   "name": "name",
+   "label": "Name(s) shown on return",
+   "type": "name"
+  },
+  {
+   "name": "ssn",
+   "label": "Social security number or taxpayer identification number",
+   "type": "idnum"
+  },
+  {
+   "name": "box",
+   "label": "Check only one box",
+   "type": "choice",
+   "options": [
+    "A",
+    "B",
+    "C",
+    "G",
+    "H",
+    "I"
+   ]
+  },
+  {
+   "name": "total_proceeds",
+   "label": "2 Totals (d)",
+   "type": "amount",
+   "format": "#,###.##"
+  },
+  {
+   "name": "total_cost",
+   "label": "2 Totals (e)",
+   "type": "amount",
+   "format": "#,###.##"
+  },
+  {
+   "name": "total_adjustment",
+   "label": "2 Totals (g)",
+   "type": "amount",
+   "format": "#,###.##"
+  },
+  {
+   "name": "total_gain",
+   "label": "2 Totals (h)",
+   "type": "amount",
+   "format": "#,###.##"
+  }
+ ],
+ "tables": [
+  {
+   "name": "rows",
+   "label": "1 transactions",
+   "min_rows": 1,
+   "max_rows": 40,
+   "columns": [
+    {
+     "name": "description",
+     "label": "Description of property",
+     "type": "text"
+    },
+    {
+     "name": "acquired",
+     "label": "Date acquired",
+     "type": "date",
+     "format": "MM/DD/YYYY"
+    },
+    {
+     "name": "sold",
+     "label": "Date sold or disposed of",
+     "type": "date",
+     "format": "MM/DD/YYYY"
+    },
+    {
+     "name": "proceeds",
+     "label": "Proceeds (sales price)",
+     "type": "amount",
+     "format": "#,###.##"
+    },
+    {
+     "name": "cost",
+     "label": "Cost or other basis",
+     "type": "amount",
+     "format": "#,###.##"
+    },
+    {
+     "name": "code",
+     "label": "Code(s) from instructions",
+     "type": "text"
+    },
+    {
+     "name": "adjustment",
+     "label": "Amount of adjustment",
+     "type": "amount",
+     "format": "#,###.##"
+    },
+    {
+     "name": "gain",
+     "label": "Gain or (loss)",
+     "type": "amount",
+     "format": "#,###.##"
+    }
+   ]
+  }
+ ],
+ "language": "en"
+}

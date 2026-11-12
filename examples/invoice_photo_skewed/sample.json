@@ -1,0 +1,45 @@
+{
+ "invoice_number": "IN0084778",
+ "invoice_date": "02/08/2025",
+ "due_date": "16/08/2025",
+ "po_number": "PO-41258",
+ "terms": "14 days",
+ "supplier_name": "Suidkus Workshop Supplies (Pty) Ltd",
+ "supplier_address": "206 Rivonia Road\nCape Town, 8001",
+ "supplier_tel": "+27 62 555 0257",
+ "supplier_email": "admin@suidkusworkshopsup.co.za",
+ "supplier_vat": "4653373498",
+ "customer_name": "Drakensig Industrial Supply (Pty) Ltd",
+ "customer_address": "530 Church Street\nUpington, 8801",
+ "customer_vat": "4809535264",
+ "subtotal": "R 11 332,71",
+ "vat_rate": "15%",
+ "vat": "R 1 699,91",
+ "total": "R 13 032,62",
+ "items": [
+  {
+   "description": "Toner cartridge, black, high yield",
+   "qty": "2",
+   "unit_price": "1 269,54",
+   "amount": "2 539,08"
+  },
+  {
+   "description": "Stretch wrap film 500mm x 300m",
+   "qty": "23",
+   "unit_price": "166,75",
+   "amount": "3 835,25"
+  },
+  {
+   "description": "LED work lamp 24V",
+   "qty": "7",
+   "unit_price": "309,66",
+   "amount": "2 167,62"
+  },
+  {
+   "description": "Angle grinder discs 115mm (10)",
+   "qty": "14",
+   "unit_price": "199,34",
+   "amount": "2 790,76"
+  }
+ ]
+}

@@ -23,14 +23,35 @@ CELL = 8           # layout: 이 크기(px, 폭 794 기준)의 칸마다 잉크�
 
 
 def paper(im):
-    """사진이면 종이 부분만 잘라 낸다: 밝은(종이색) 픽셀이 절반 넘게 차지하는 줄·칸의 범위. 스캔·렌더링은 그대로 나온다."""
+    """사진이면 종이 부분만 펴서 꺼낸다: 밝은(종이색) 영역의 네 모서리를 찾아 직사각형으로 편다 (원근 보정).
+    종이가 그림 전체인 스캔·렌더링은 그대로 나온다."""
     import numpy as np
-    a = np.asarray(im).astype(float)
-    bright = a > np.percentile(a, 95) - 45
-    rows, cols = np.where(bright.mean(axis=1) > 0.3)[0], np.where(bright.mean(axis=0) > 0.3)[0]
-    if len(rows) < 10 or len(cols) < 10:
+    from PIL import Image, ImageFilter
+    small = im.copy()
+    small.thumbnail((600, 600))
+    k = im.width / small.width
+    a = np.asarray(small).astype(float)
+    mask = np.asarray(Image.fromarray(((a > np.percentile(a, 95) - 45) * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(5))) > 0
+    ys, xs = np.nonzero(mask)
+    if len(xs) < 100:
         return im
-    return im.crop((int(cols[0]), int(rows[0]), int(cols[-1]) + 1, int(rows[-1]) + 1))
+    s, d = xs + ys, xs - ys
+    quad = [(xs[s.argmin()], ys[s.argmin()]), (xs[d.argmax()], ys[d.argmax()]), (xs[s.argmax()], ys[s.argmax()]), (xs[d.argmin()], ys[d.argmin()])]
+    quad = [(x * k, y * k) for x, y in quad]                                  # 왼위, 오른위, 오른아래, 왼아래
+    (x0, y0), (x1, y1), (x2, y2), (x3, y3) = quad
+    w = round((np.hypot(x1 - x0, y1 - y0) + np.hypot(x2 - x3, y2 - y3)) / 2)
+    h = round((np.hypot(x3 - x0, y3 - y0) + np.hypot(x2 - x1, y2 - y1)) / 2)
+    if w < 50 or h < 50:
+        return im
+    if w * h > 0.97 * im.width * im.height:                                   # 종이가 그림 전체 → 손대지 않는다
+        return im
+    dst = [(0, 0), (w, 0), (w, h), (0, h)]
+    rows, rhs = [], []
+    for (X, Y), (u, v) in zip(dst, quad):                                     # 출력 (X, Y) → 입력 (u, v) 의 투영 변환 계수
+        rows += [[X, Y, 1, 0, 0, 0, -u * X, -u * Y], [0, 0, 0, X, Y, 1, -v * X, -v * Y]]
+        rhs += [u, v]
+    coeffs = np.linalg.solve(np.array(rows, float), np.array(rhs, float))
+    return im.transform((w, h), Image.PERSPECTIVE, tuple(coeffs), Image.BICUBIC, fillcolor=255)
 
 
 def bands(path, width: int = 794):

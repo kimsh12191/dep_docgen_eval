@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; background: #fff; }
+  .page { width: 794px; min-height: 1123px; box-sizing: border-box; padding: 52px 52px 30px 56px; font-family: sans-serif; font-size: 12.5px; line-height: 15.5px; color: #111; display: flex; flex-direction: column; }
+  .green { color: #1d5e45; }
+  .head { display: flex; justify-content: space-between; }
+  h1 { font-size: 31px; line-height: 34px; margin: 0 0 12px; }
+  .meta { display: grid; grid-template-columns: 150px auto; row-gap: 2px; }
+  .meta .k { color: #666; }
+  .meta .v { font-weight: bold; }
+  .from { text-align: right; padding-top: 34px; line-height: 17px; }
+  .from .name { font-size: 19px; font-weight: bold; margin-bottom: 8px; }
+  .bill { margin-top: 26px; line-height: 17px; }
+  .bill .cap { font-weight: bold; margin-bottom: 2px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 34px; border-bottom: 1px solid #111; font-size: 12.5px; }
+  th { background: #ececec; text-align: left; padding: 6px 6px; font-size: 12px; }
+  td { padding: 4px 6px; }
+  tr:nth-child(odd) td { background: #f6f6f6; }
+  .r { text-align: right; } .c { text-align: center; }
+  .totals { margin: 14px 0 0 auto; width: 330px; font-size: 13.5px; }
+  .totals .row { display: flex; justify-content: space-between; padding: 4px 6px; }
+  .totals .grand { border-top: 1px solid #1d5e45; font-weight: bold; font-size: 15px; padding-top: 8px; }
+  .foot { margin-top: auto; text-align: right; color: #777; font-size: 9px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <div><h1 class="green">INVOICE</h1>
+      <div class="meta">
+        <span class="k">Invoice Number:</span><span class="v" data-field="invoice_number">{{ invoice_number }}</span>
+        <span class="k">Date:</span><span class="v" data-field="invoice_date">{{ invoice_date }}</span>
+        <span class="k">Due Date:</span><span class="v" data-field="due_date">{{ due_date }}</span>
+        <span class="k">PO Number:</span><span class="v" data-field="po_number">{{ po_number }}</span>
+        <span class="k">Terms:</span><span class="v" data-field="terms">{{ terms }}</span>
+      </div></div>
+    <div class="from"><div class="name green" data-field="supplier_name">{{ supplier_name }}</div>
+      <div data-field="supplier_address" style="white-space:pre-line">{{ supplier_address }}</div>
+      <div>Tel <span data-field="supplier_tel">{{ supplier_tel }}</span> | <span data-field="supplier_email">{{ supplier_email }}</span></div>
+      <div>VAT No: <span data-field="supplier_vat">{{ supplier_vat }}</span></div></div>
+  </div>
+  <div class="bill"><div class="cap green">BILL TO</div>
+    <div style="font-weight:bold" data-field="customer_name">{{ customer_name }}</div>
+    <div data-field="customer_address" style="white-space:pre-line">{{ customer_address }}</div>
+    <div>VAT No: <span data-field="customer_vat">{{ customer_vat }}</span></div></div>
+  <table>
+    <tr><th>Description</th><th class="c" style="width:60px">Qty</th><th class="r" style="width:110px">Unit Price</th><th class="r" style="width:110px">Amount</th></tr>
+    {% for row in items %}<tr>
+      <td data-field="items.{{ loop.index0 }}.description">{{ row.description }}</td>
+      <td class="c" data-field="items.{{ loop.index0 }}.qty">{{ row.qty }}</td>
+      <td class="r" data-field="items.{{ loop.index0 }}.unit_price">{{ row.unit_price }}</td>
+      <td class="r" data-field="items.{{ loop.index0 }}.amount">{{ row.amount }}</td>
+    </tr>{% endfor %}
+  </table>
+  <div class="totals">
+    <div class="row"><span>Subtotal</span><span data-field="subtotal">{{ subtotal }}</span></div>
+    <div class="row"><span>VAT <span data-field="vat_rate">{{ vat_rate }}</span></span><span data-field="vat">{{ vat }}</span></div>
+    <div class="row grand"><span>TOTAL</span><span data-field="total">{{ total }}</span></div>
+  </div>
+  <div class="foot">Page 1 of 1</div>
+</div>
+</body>
+</html>

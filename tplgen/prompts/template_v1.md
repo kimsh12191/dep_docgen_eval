@@ -34,7 +34,7 @@
 
 ## schema.json
 ```
-{"title": "문서 이름",
+{"title": "문서 이름", "language": "ko",
  "fields": [{"name": "applicant_name", "label": "성명", "type": "name"}, ...],
  "tables": [{"name": "items", "label": "거래내역", "min_rows": 1, "max_rows": 30,
              "columns": [{"name": "name", "label": "종류", "type": "text"}, ...]}]}
@@ -43,6 +43,9 @@
 - label: 문서에 인쇄된 항목명.
 - type: text, name, company, date, year, month, day, amount, number, phone, account, idnum, address, email, bool, choice, sign, seal 중 하나.
   choice 는 `"options": ["신고", "취하"]` 를 함께 쓴다. bool 은 체크 하나.
+- language: 문서의 언어 (ko, en …). 임의 값을 그 언어로 만든다.
+- 값의 꼴이 원본에 보이면 `"format"` 을 단다. 날짜는 `"DD/MM/YYYY"` 처럼, 금액은 숫자 자리를 # 로 `"K #,###.##"`·`"R # ###,##"`·`"#,###원"` 처럼.
+- 번호의 꼴이 정해져 있으면 `"format": "###-##-####"` (# 는 숫자 하나). 한 칸에 한 글자씩 쓰는 칸이면 template 에서 `{{ ssn[0:1] }}` 처럼 잘라 칸마다 넣는다.
 - 날짜가 년/월/일 칸으로 나뉘어 있으면 year, month, day 세 개로 나눈다. 인쇄된 "20" 뒤에 두 자리만 적는 칸이어도 year 로 두고 값은 네 자리(2026)로 받아 template 에서 `{{ date_year[2:] }}` 처럼 자른다.
 - 표가 없으면 `"tables": []`.
 

@@ -1,0 +1,25 @@
+{
+ "invoice_no": "3738",
+ "invoice_date": "29/10/2025",
+ "due_date": "28/11/2025",
+ "customer_name": "Luangwa Security Services Limited",
+ "customer_address": "281 Kafue Road\nLusaka, 10101",
+ "customer_tpin": "1016538403",
+ "subtotal": "K 3,658.63",
+ "vat": "K 585.38",
+ "total": "K 4,244.01",
+ "items": [
+  {
+   "description": "Stretch wrap film 500mm x 300m",
+   "qty": "21",
+   "unit_price": "136.91",
+   "amount": "2,875.11"
+  },
+  {
+   "description": "Ratchet straps 50mm x 9m (4)",
+   "qty": "2",
+   "unit_price": "391.76",
+   "amount": "783.52"
+  }
+ ]
+}

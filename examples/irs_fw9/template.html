@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  body { margin: 0; background: #fff; }
+  .page { width: 816px; min-height: 1056px; box-sizing: border-box; padding: 46px 47px 26px 47px; font-family: sans-serif; font-size: 10px; line-height: 12.5px; color: #000; }
+  .top { display: flex; border-bottom: 1px solid #000; }
+  .top .l { width: 116px; border-right: 1px solid #000; font-size: 8.5px; line-height: 11px; padding-bottom: 3px; }
+  .top .l b { font-size: 28px; line-height: 28px; }
+  .top .m { flex: 1; text-align: center; padding-top: 2px; }
+  .top .m h1 { font-size: 17px; line-height: 20px; margin: 0 0 6px; }
+  .top .m p { margin: 0; font-size: 9.5px; font-weight: bold; }
+  .top .r { width: 112px; border-left: 1px solid #000; padding: 10px 0 0 10px; font-size: 11.5px; line-height: 14px; font-weight: bold; }
+  .begin { border-bottom: 1px solid #000; padding: 2px 0; }
+  .body { display: flex; }
+  .side { width: 28px; border-right: 1px solid #000; writing-mode: vertical-rl; transform: rotate(180deg); text-align: center; font-size: 9.5px; line-height: 12px; }
+  .lines { flex: 1; }
+  .ln { border-bottom: 1px solid #000; padding: 3px 4px 2px 6px; min-height: 30px; font-size: 8.8px; line-height: 11px; }
+  .ln .v { display: block; font-size: 11px; line-height: 14px; padding: 2px 0 0 18px; min-height: 14px; }
+  .no { display: inline-block; width: 16px; font-weight: bold; }
+  .row3 { display: flex; border-bottom: 1px solid #000; }
+  .row3 .a { flex: 1; border-right: 1px solid #000; padding: 2px 6px; font-size: 8.8px; line-height: 11px; }
+  .row3 .b { width: 160px; padding: 2px 4px; font-size: 8.8px; line-height: 11px; }
+  .opts { padding: 6px 0 4px 22px; font-size: 9.5px; line-height: 16px; }
+  .opts .gap { display: inline-block; width: 16px; }
+  .small { font-size: 8.5px; line-height: 10.5px; padding-left: 22px; }
+  .blank { display: inline-block; min-width: 60px; border-bottom: 1px solid #000; padding: 0 3px; font-size: 10px; }
+  .addr { display: flex; border-bottom: 1px solid #000; }
+  .addr .a { flex: 1; border-right: 1px solid #000; }
+  .addr .a .ln:last-child { border-bottom: none; }
+  .addr .b { width: 310px; padding: 2px 4px; font-size: 8.8px; }
+  .addr .b .v { display: block; font-size: 11px; line-height: 14px; padding-top: 3px; white-space: pre-line; }
+  .part { display: flex; gap: 30px; font-size: 12.5px; font-weight: bold; border-bottom: 1px solid #000; margin-top: 3px; }
+  .part .tag { background: #000; color: #fff; padding: 0 8px; white-space: nowrap; }
+  .tin { display: flex; gap: 24px; padding: 4px 0; }
+  .tin .txt { flex: 1; font-size: 10.6px; line-height: 13px; }
+  .tin .txt p { margin: 0 0 8px; }
+  .tin .nums { width: 210px; font-size: 8.5px; }
+  .cap { border: 1px solid #000; border-bottom: none; font-weight: bold; padding: 1px 6px; }
+  .digits { display: flex; align-items: center; border: 1px solid #000; height: 28px; margin-bottom: 2px; }
+  .d { width: 18px; height: 28px; border-right: 1px solid #000; box-sizing: border-box; text-align: center; line-height: 28px; font-size: 12px; }
+  .dash { width: 18px; text-align: center; font-weight: bold; font-size: 12px; border-right: 1px solid #000; height: 28px; line-height: 28px; box-sizing: border-box; }
+  .cert { font-size: 10.6px; line-height: 13px; }
+  .cert p { margin: 3px 0; }
+  .cert ol { margin: 2px 0; padding-left: 18px; }
+  .cert li { margin-bottom: 3px; }
+  .sign { display: flex; border-top: 1px solid #000; border-bottom: 2px solid #000; margin-top: 4px; align-items: stretch; }
+  .sign .h { width: 76px; font-size: 14px; font-weight: bold; line-height: 15px; padding: 3px 0; border-right: 1px solid #000; }
+  .sign .s { flex: 1; font-size: 9px; font-weight: bold; padding: 3px 6px; display: flex; gap: 12px; align-items: flex-end; }
+  .sign .sv { flex: 1; font-style: italic; font-size: 14px; font-weight: normal; }
+  .sign .dv { width: 260px; display: flex; gap: 10px; }
+  .gi { display: flex; gap: 44px; margin-top: 6px; font-size: 10.6px; line-height: 12.5px; }
+  .gi > div { flex: 1; }
+  .gi h2 { font-size: 20px; margin: 4px 0 6px; }
+  .gi h3 { font-size: 16px; margin: 8px 0 4px; }
+  .gi p { margin: 0 0 6px; }
+  .foot { display: flex; justify-content: space-between; border-top: 1px solid #000; margin-top: 10px; padding-top: 6px; font-size: 9px; }
+  .foot b { font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div class="l">Form <b>W-9</b><br>(Rev. March 2024)<br>Department of the Treasury<br>Internal Revenue Service</div>
+    <div class="m"><h1>Request for Taxpayer<br>Identification Number and Certification</h1><p>Go to <i>www.irs.gov/FormW9</i> for instructions and the latest information.</p></div>
+    <div class="r">Give form to the requester. Do not send to the IRS.</div>
+  </div>
+  <div class="begin"><b>Before you begin.</b> For guidance related to the purpose of Form W-9, see <i>Purpose of Form</i>, below.</div>
+  <div class="body">
+    <div class="side"><b>Print or type.</b><br>See <b><i>Specific Instructions</i></b> on page 3.</div>
+    <div class="lines">
+      <div class="ln"><span class="no">1</span>Name of entity/individual. An entry is required. (For a sole proprietor or disregarded entity, enter the owner’s name on line 1, and enter the business/disregarded entity’s name on line 2.)<span class="v" data-field="name">{{ name }}</span></div>
+      <div class="ln"><span class="no">2</span>Business name/disregarded entity name, if different from above.<span class="v" data-field="business_name">{{ business_name }}</span></div>
+      <div class="row3">
+        <div class="a"><span class="no">3a</span>Check the appropriate box for federal tax classification of the entity/individual whose name is entered on line 1. Check only <b>one</b> of the following seven boxes.
+          <div class="opts" data-field="tax_class">
+            {{ "☑" if tax_class == "Individual/sole proprietor" else "☐" }} Individual/sole proprietor<span class="gap"></span>
+            {{ "☑" if tax_class == "C corporation" else "☐" }} C corporation<span class="gap"></span>
+            {{ "☑" if tax_class == "S corporation" else "☐" }} S corporation<span class="gap"></span>
+            {{ "☑" if tax_class == "Partnership" else "☐" }} Partnership<span class="gap"></span>
+            {{ "☑" if tax_class == "Trust/estate" else "☐" }} Trust/estate<br>
+            {{ "☑" if tax_class == "LLC" else "☐" }} LLC. Enter the tax classification (C = C corporation, S = S corporation, P = Partnership) . . . . <span class="blank" data-field="llc_code">{{ llc_code }}</span>
+          </div>
+          <div class="small"><b>Note:</b> Check the “LLC” box above and, in the entry space, enter the appropriate code (C, S, or P) for the tax classification of the LLC, unless it is a disregarded entity. A disregarded entity should instead check the appropriate box for the tax classification of its owner.</div>
+          <div class="opts" style="padding-top:3px">{{ "☑" if tax_class == "Other" else "☐" }} Other (see instructions) <span class="blank" style="min-width:420px" data-field="other_class">{{ other_class }}</span></div>
+        </div>
+        <div class="b"><b>4</b> Exemptions (codes apply only to certain entities, not individuals; see instructions on page 3):<br><br>Exempt payee code (if any) <span class="blank" style="min-width:50px" data-field="exempt_payee">{{ exempt_payee }}</span><br><br>Exemption from Foreign Account Tax Compliance Act (FATCA) reporting code (if any) <span class="blank" style="min-width:60px" data-field="fatca_code">{{ fatca_code }}</span></div>
+      </div>
+      <div class="row3">
+        <div class="a"><span class="no">3b</span>If on line 3a you checked “Partnership” or “Trust/estate,” or checked “LLC” and entered “P” as its tax classification, and you are providing this form to a partnership, trust, or estate in which you have an ownership interest, check this box if you have any foreign partners, owners, or beneficiaries. See instructions . . . . . . . . . <span data-field="foreign_partners">{{ "☑" if foreign_partners else "☐" }}</span></div>
+        <div class="b" style="text-align:center; font-style:italic; padding-top:8px">(Applies to accounts maintained outside the United States.)</div>
+      </div>
+      <div class="addr">
+        <div class="a">
+          <div class="ln"><span class="no">5</span>Address (number, street, and apt. or suite no.). See instructions.<span class="v" data-field="address">{{ address }}</span></div>
+          <div class="ln"><span class="no">6</span>City, state, and ZIP code<span class="v" data-field="city">{{ city }}</span></div>
+        </div>
+        <div class="b">Requester’s name and address (optional)<span class="v" data-field="requester">{{ requester }}</span></div>
+      </div>
+      <div class="ln" style="border-bottom:none"><span class="no">7</span>List account number(s) here (optional)<span class="v" data-field="accounts">{{ accounts }}</span></div>
+    </div>
+  </div>
+  <div class="part" style="border-top:1px solid #000"><span class="tag">Part I</span>Taxpayer Identification Number (TIN)</div>
+  <div class="tin">
+    <div class="txt"><p>Enter your TIN in the appropriate box. The TIN provided must match the name given on line 1 to avoid backup withholding. For individuals, this is generally your social security number (SSN). However, for a resident alien, sole proprietor, or disregarded entity, see the instructions for Part I, later. For other entities, it is your employer identification number (EIN). If you do not have a number, see <i>How to get a TIN</i>, later.</p>
+      <p><b>Note:</b> If the account is in more than one name, see the instructions for line 1. See also <i>What Name and Number To Give the Requester</i> for guidelines on whose number to enter.</p></div>
+    <div class="nums">
+      <div class="cap">Social security number</div>
+      <div class="digits" data-field="ssn"><span class="d">{{ ssn[0:1] }}</span><span class="d">{{ ssn[1:2] }}</span><span class="d">{{ ssn[2:3] }}</span><span class="dash">–</span><span class="d">{{ ssn[4:5] }}</span><span class="d">{{ ssn[5:6] }}</span><span class="dash">–</span><span class="d">{{ ssn[7:8] }}</span><span class="d">{{ ssn[8:9] }}</span><span class="d">{{ ssn[9:10] }}</span><span class="d" style="border-right:none">{{ ssn[10:11] }}</span></div>
+      <b style="font-size:11px">or</b>
+      <div class="cap" style="width:186px">Employer identification number</div>
+      <div class="digits" style="width:188px" data-field="ein"><span class="d">{{ ein[0:1] }}</span><span class="d">{{ ein[1:2] }}</span><span class="dash">–</span><span class="d">{{ ein[3:4] }}</span><span class="d">{{ ein[4:5] }}</span><span class="d">{{ ein[5:6] }}</span><span class="d">{{ ein[6:7] }}</span><span class="d">{{ ein[7:8] }}</span><span class="d">{{ ein[8:9] }}</span><span class="d" style="border-right:none">{{ ein[9:10] }}</span></div>
+    </div>
+  </div>
+  <div class="part" style="border-top:1px solid #000"><span class="tag">Part II</span>Certification</div>
+  <div class="cert">
+    <p>Under penalties of perjury, I certify that:</p>
+    <ol>
+      <li>The number shown on this form is my correct taxpayer identification number (or I am waiting for a number to be issued to me); and</li>
+      <li>I am not subject to backup withholding because (a) I am exempt from backup withholding, or (b) I have not been notified by the Internal Revenue Service (IRS) that I am subject to backup withholding as a result of a failure to report all interest or dividends, or (c) the IRS has notified me that I am no longer subject to backup withholding; and</li>
+      <li>I am a U.S. citizen or other U.S. person (defined below); and</li>
+      <li>The FATCA code(s) entered on this form (if any) indicating that I am exempt from FATCA reporting is correct.</li>
+    </ol>
+    <p><b>Certification instructions.</b> You must cross out item 2 above if you have been notified by the IRS that you are currently subject to backup withholding because you have failed to report all interest and dividends on your tax return. For real estate transactions, item 2 does not apply. For mortgage interest paid, acquisition or abandonment of secured property, cancellation of debt, contributions to an individual retirement arrangement (IRA), and, generally, payments other than interest and dividends, you are not required to sign the certification, but you must provide your correct TIN. See the instructions for Part II, later.</p>
+  </div>
+  <div class="sign"><div class="h">Sign<br>Here</div>
+    <div class="s"><span>Signature of<br>U.S. person</span><span class="sv" data-field="signature">{{ signature }}</span>
+      <span class="dv">Date <span data-field="date" style="font-weight:normal; font-size:11px">{{ date }}</span></span></div></div>
+  <div class="gi">
+    <div><h2>General Instructions</h2>
+      <p>Section references are to the Internal Revenue Code unless otherwise noted.</p>
+      <p><b>Future developments</b>. For the latest information about developments related to Form W-9 and its instructions, such as legislation enacted after they were published, go to <i>www.irs.gov/FormW9</i>.</p>
+      <h3>What’s New</h3>
+      <p>Line 3a has been modified to clarify how a disregarded entity completes this line. An LLC that is a disregarded entity should check the appropriate box for the tax classification of its owner. Otherwise, it should check the “LLC” box and enter its appropriate tax classification.</p></div>
+    <div><p>&nbsp;&nbsp;&nbsp; New line 3b has been added to this form. A flow-through entity is required to complete this line to indicate that it has direct or indirect foreign partners, owners, or beneficiaries when it provides the Form W-9 to another flow-through entity in which it has an ownership interest. This change is intended to provide a flow-through entity with information regarding the status of its indirect foreign partners, owners, or beneficiaries, so that it can satisfy any applicable reporting requirements. For example, a partnership that has any indirect foreign partners may be required to complete Schedules K-2 and K-3. See the Partnership Instructions for Schedules K-2 and K-3 (Form 1065).</p>
+      <h3>Purpose of Form</h3>
+      <p>An individual or entity (Form W-9 requester) who is required to file an information return with the IRS is giving you this form because they</p></div>
+  </div>
+  <div class="foot"><span></span><span>Cat. No. 10231X</span><span>Form <b>W-9</b> (Rev. 3-2024)</span></div>
+</div>
+</body>
+</html>

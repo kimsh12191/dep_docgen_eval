@@ -1,0 +1,105 @@
+{
+ "title": "Form W-9 Request for Taxpayer Identification Number and Certification",
+ "fields": [
+  {
+   "name": "name",
+   "label": "1 Name of entity/individual",
+   "type": "name"
+  },
+  {
+   "name": "business_name",
+   "label": "2 Business name/disregarded entity name",
+   "type": "company"
+  },
+  {
+   "name": "tax_class",
+   "label": "3a Federal tax classification",
+   "type": "choice",
+   "options": [
+    "Individual/sole proprietor",
+    "C corporation",
+    "S corporation",
+    "Partnership",
+    "Trust/estate",
+    "LLC",
+    "Other"
+   ]
+  },
+  {
+   "name": "llc_code",
+   "label": "LLC tax classification (C, S, P)",
+   "type": "choice",
+   "options": [
+    "",
+    "C",
+    "S",
+    "P"
+   ]
+  },
+  {
+   "name": "other_class",
+   "label": "Other (see instructions)",
+   "type": "text"
+  },
+  {
+   "name": "exempt_payee",
+   "label": "Exempt payee code",
+   "type": "text"
+  },
+  {
+   "name": "fatca_code",
+   "label": "FATCA reporting code",
+   "type": "text"
+  },
+  {
+   "name": "foreign_partners",
+   "label": "3b foreign partners, owners, or beneficiaries",
+   "type": "bool"
+  },
+  {
+   "name": "address",
+   "label": "5 Address",
+   "type": "address"
+  },
+  {
+   "name": "city",
+   "label": "6 City, state, and ZIP code",
+   "type": "address"
+  },
+  {
+   "name": "requester",
+   "label": "Requester\u2019s name and address",
+   "type": "address"
+  },
+  {
+   "name": "accounts",
+   "label": "7 Account number(s)",
+   "type": "account"
+  },
+  {
+   "name": "ssn",
+   "label": "Social security number",
+   "type": "idnum",
+   "format": "###-##-####"
+  },
+  {
+   "name": "ein",
+   "label": "Employer identification number",
+   "type": "idnum",
+   "format": "##-#######"
+  },
+  {
+   "name": "signature",
+   "label": "Signature of U.S. person",
+   "type": "sign"
+  },
+  {
+   "name": "date",
+   "label": "Date",
+   "type": "date",
+   "format": "MM/DD/YYYY"
+  }
+ ],
+ "tables": [],
+ "language": "en"
+}
