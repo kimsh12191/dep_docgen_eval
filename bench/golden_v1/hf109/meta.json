@@ -1,0 +1,14 @@
+{
+  "id": "hf109",
+  "name": "전자채권사고신고(취하)서",
+  "class": "대출",
+  "tier": "중",
+  "tier_reason": "값 자리 15",
+  "fields": 15,
+  "checkbox_groups": 1,
+  "text_chars": 369,
+  "source": "document_gen@1727485 docgen/forms/hf109 (하나은행 공개 서식 No.109)",
+  "seed": 0,
+  "image": "docgen 이 가짜 값을 채워 그린 1쪽",
+  "reviewed_by_human": false
+}

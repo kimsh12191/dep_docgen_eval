@@ -1,0 +1,14 @@
+{
+  "id": "hf011",
+  "name": "예금(신탁)잔액증명 의뢰서",
+  "class": "예금",
+  "tier": "상",
+  "tier_reason": "값 자리 37",
+  "fields": 37,
+  "checkbox_groups": 9,
+  "text_chars": 1108,
+  "source": "document_gen@1727485 docgen/forms/hf011 (하나은행 공개 서식 No.11)",
+  "seed": 0,
+  "image": "docgen 이 가짜 값을 채워 그린 1쪽",
+  "reviewed_by_human": false
+}

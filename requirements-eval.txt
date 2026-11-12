@@ -1,6 +1,0 @@
-# 평가 세트를 만들 때·예전 html 평가에서만 쓰는 패키지. svg 생성·채점·벤치마크는 표준 라이브러리만 쓴다.
-playwright>=1.40,<2
-Pillow>=10,<13
-PyMuPDF>=1.24,<2
-Jinja2>=3.1,<4
-beautifulsoup4>=4.12,<5

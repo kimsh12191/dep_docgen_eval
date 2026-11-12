@@ -1,0 +1,14 @@
+{
+  "id": "hf420",
+  "name": "비대면 계좌개설 안심차단 서비스 신청서",
+  "class": "기타",
+  "tier": "중",
+  "tier_reason": "값 자리 16, 체크 묶음 3, 인쇄 문자 1002",
+  "fields": 16,
+  "checkbox_groups": 3,
+  "text_chars": 1002,
+  "source": "document_gen@1727485 docgen/forms/hf420 (하나은행 공개 서식 No.420)",
+  "seed": 0,
+  "image": "docgen 이 가짜 값을 채워 그린 1쪽",
+  "reviewed_by_human": false
+}

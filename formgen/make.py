@@ -36,7 +36,7 @@ def dump(path, value) -> None:
     Path(path).write_text(json.dumps(value, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def make(image, out, endpoint: str = "", model: str = "", max_tokens: int = 16000, api_key: str | None = None,
+def make(image, out, endpoint: str = "", model: str = "", max_tokens: int = 32000, api_key: str | None = None,
          temperature: float = 0.0, mock: str | None = None, timeout: float = 1800) -> dict:
     """make.json 내용을 돌려준다. mock 을 주면 모델을 부르지 않고 그 글을 모델의 답으로 쓴다 (길 검사용)."""
     out = Path(out)
@@ -69,7 +69,7 @@ def main(argv=None):
     ap.add_argument("--out", required=True)
     ap.add_argument("--endpoint", required=True, help="OpenAI 호환 주소, /v1 까지 (예: http://host:8000/v1). 실서류는 사내 모델 주소만")
     ap.add_argument("--model", required=True)
-    ap.add_argument("--max-tokens", type=int, default=16000)
+    ap.add_argument("--max-tokens", type=int, default=32000)
     ap.add_argument("--api-key", default=None)
     a = ap.parse_args(argv)
     log = make(a.image, a.out, a.endpoint, a.model, a.max_tokens, a.api_key)

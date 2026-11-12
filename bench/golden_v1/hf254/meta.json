@@ -1,0 +1,14 @@
+{
+  "id": "hf254",
+  "name": "금전의 대차계약 신고서",
+  "class": "외환",
+  "tier": "중",
+  "tier_reason": "값 자리 20, 체크 묶음 4",
+  "fields": 20,
+  "checkbox_groups": 4,
+  "text_chars": 458,
+  "source": "document_gen@1727485 docgen/forms/hf254 (하나은행 공개 서식 No.254)",
+  "seed": 0,
+  "image": "docgen 이 가짜 값을 채워 그린 1쪽",
+  "reviewed_by_human": false
+}

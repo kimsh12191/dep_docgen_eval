@@ -1,8 +1,8 @@
 """가짜 vLLM 서버 (OpenAI 호환 /v1/chat/completions). 모델 없이 make·bench 의 HTTP 길을 확인할 때 쓴다.
 늘 --answer 파일의 내용을 답으로 준다. 이미지가 없는 요청은 400.
 
-  python tools/fake_vllm.py --port 8099 --answer bench/official_pilot_v1/gov_pension/ref.svg
-  python -m formgen make --image bench/official_pilot_v1/gov_pension/image.png --endpoint http://127.0.0.1:8099/v1 --model fake --out drafts/x
+  python tools/fake_vllm.py --port 8099 --answer bench/golden_v1/hf138/ref.svg
+  python -m formgen make --image bench/golden_v1/hf138/image.png --endpoint http://127.0.0.1:8099/v1 --model fake --out drafts/x
 """
 import argparse
 import json

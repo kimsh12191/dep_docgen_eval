@@ -1,31 +1,11 @@
-# Agent entry point (Codex / Claude / other LLMs)
+# 에이전트 안내 (Codex · Claude 등)
 
-Read `docs/STATE.json`, `docs/DECISIONS.md`, and `SVG_SPEC.md` before changing generation or evaluation.
-These describe current implementation, NOT a claim that the benchmark is complete.
-Read `목적.md` for product objectives and `docs/PURPOSE_AUDIT.md` for the current gap assessment.
-Current scope: benchmark selected models' SVG generation and report trustworthy model-by-difficulty pass rates.
-Document manual difficulty criteria and examples so the USER can compare new images and choose models.
-Automatic routing and automatic difficulty prediction are explicitly NOT required.
-Value filling, training-image generation and label export are deferred, not blockers for this milestone.
-Keep SVG field annotations for evaluation and the SAME generator for make and bench.
-Internal real documents must only be sent to internal model endpoints; external experiments use public blank forms or synthetic images.
+먼저 `README.md` 를 읽으세요. 목적은 하나입니다: **golden set 으로 여러 모델의 SVG 서식 생성 수준을 재서 비교한다.**
 
-- Current output direction: standalone SVG. Top-level commands are SVG: `python -m formgen make|bench|report|score|validate|stats|render|selftest`
-  `python -m formgen harness ...` = multi-endpoint P1/P2 generation; `python -m formgen svg ...` = experimental v2/v3 diagnostic CLI (formgen/svg_cli.py).
-- Layout: formgen/svg.py (contract, v1 score, render), make.py (THE generation function; bench, svg_cli and harness import it), bench.py (runs, aggregation, PASS_RULE), selftest.py, llm.py, match.py (shared matching/text),
-  svg_eval_v2.py / svg_eval_v3.py / svg_cli.py (diagnostic scorers), harness.py / harness_refine.py.
-- There are two bench paths (bench.py pass-rate table; svg_cli bench diagnostics). Do not add a third; extend bench.py for anything that must appear in the pass-rate table.
-- Several agents push to main. `git pull --rebase` (or merge) before pushing; never force-push; do not rename public functions other modules import (e.g. svg.tag, svg.parse, svg.score, svg.render, make.make) without grepping the repo.
-- HTML is legacy under formgen/html/ and `python -m formgen html ...`; docs in docs/legacy/. Do not silently change its score meaning.
-- Pass/fail exists only in bench aggregation as a provisional, versioned PASS_RULE; scores keep `final_pass:null`. Change the rule in one place and re-aggregate with `report`.
-- After any scorer change run `python -m formgen selftest`; it must stay all-expected.
-- Target runtime is an internet-disconnected internal network with limited pip installation.
-  Never make Playwright/Chromium, an online font fetch, or a browser download a default runtime dependency.
-- Core SVG generation/validation/scoring must work with `python -S`; rendering may lazily import `resvg_py`.
-- Record contract or metric changes in `docs/DECISIONS.md` and update `docs/STATE.json` in the same change.
-- Preserve official source PDF/image hashes and provenance. Never replace an input image with a render of the candidate answer.
-- `gold_approved:false` means candidate; self-score 1.0 does NOT establish gold quality.
-- `final_pass:null` means no calibrated overall decision. Do not report it as pass or fail.
-- Tests: `python -m unittest discover -s tests -v`. Stdlib-only: `python -S -m unittest tests.test_svg tests.test_bench -v` (render test may skip).
-- Never compare old HTML scores numerically with SVG scores as if they measured the same target.
-- User-facing docs (README.md, bench/README.md, docs/DIFFICULTY_GUIDE.md) are Korean; keep them in sync with behavior changes.
+- **간결하게 유지합니다.** 채점기 하나(`formgen/svg.py`), 벤치마크 하나(`formgen/bench.py`), 생성 함수 하나(`formgen/make.py`). 두 번째 것을 옆에 더하지 말고 있는 것을 고치세요.
+- 실행에 필요한 것은 파이썬 표준 라이브러리뿐이어야 합니다 (그리기만 `resvg-py`). 브라우저·온라인 내려받기를 실행 길에 넣지 않습니다.
+- 통과 기준은 `bench.PASS_RULE` 한 곳. 임시값이며 실제 모델 출력과 사람 판정 없이 확정하지 않습니다.
+- 채점 규칙을 바꾸면 `svg.SCORER` 를 올리고 `python -m formgen selftest` 가 전부 기대대로인지 확인합니다.
+- 평가 세트는 고치지 않고 새 이름(`golden_v2`)으로 더합니다. 실서류는 저장소에 넣지 않고, 사내 모델 주소에만 보냅니다.
+- 안 돌려 본 것을 된 것처럼 적지 않습니다. README 의 "지금 상태" 표를 사실대로 유지합니다.
+- 시험: `python -m unittest discover -s tests`. main 에 올리기 전에 pull 하고, 강제로 덮어쓰지 않습니다.

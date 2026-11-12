@@ -1,17 +1,17 @@
-"""SVG 서식 규격(svg-v1): 읽기·검사(parse), 채점(score), 그림으로 그리기(render).
+"""SVG 서식 규격(svg-v1): 읽기·검사(parse), 채점(score), 난이도 특징 세기(stats), 그림으로 그리기(render).
 
-읽기와 채점은 파이썬 표준 라이브러리만 쓴다. 그리기만 resvg_py 를 그때 불러온다 (브라우저 불필요).
-규격 설명은 SVG_SPEC.md.
+읽기와 채점은 파이썬 표준 라이브러리만 쓴다. 그리기만 resvg_py 를 그때 불러온다 (브라우저 불필요). 규격은 SVG_SPEC.md.
 
 채점 규칙 (같은 입력이면 늘 같은 점수)
-  값 자리 짝짓기   항목명이 비슷한(≥ LABEL_SAME) 것끼리만 짝이 될 수 있다.
-                   여러 짝이 가능하면 (1 − 항목명 비슷함) + (1 − 겹침 IoU) 가 가장 작게 1:1 로 짝짓는다.
-  typed_field_f1   짝 ∧ 종류(data-type)가 같음 ∧ 체크 보기(data-options)가 같음
-  located_field_f1 위 + 자리 겹침 IoU ≥ IOU_SAME   (좌표는 쪽 크기로 나눠 비교하므로 쪽 크기가 달라도 된다)
-  field_iou_mean   맞은 값 자리의 IoU 합 ÷ 정답 값 자리 수 (빠뜨린 것은 0)
+  짝짓기         정답 값 자리와 만든 값 자리를 **자리로** 1:1 짝짓는다 (겹침 IoU ≥ 0.1 이거나 한쪽 가운데가 다른 쪽 안).
+                 여럿이 가능하면 겹침이 큰 쪽으로. 좌표는 쪽 크기로 나눠 비교하므로 쪽 크기가 달라도 된다.
+  field_recall   짝이 있고 갈래(값 / 체크 / 도장·서명)가 같은 정답 값 자리의 비율          ← 통과 기준에 쓴다
+  field_precision 만든 값 자리 중 위와 같이 맞은 비율. 정답에 빠진 칸이 있을 수 있어 참고로만 본다.
+  label_acc      짝 중 항목명이 비슷한(≥ 0.8) 비율        type_acc  짝 중 종류(data-type)가 똑같은 비율
+  iou_mean       짝의 겹침 평균
   text_f1 · text_p · text_r   <text> 글자의 두 글자 묶음이 겹치는 정도 (그림을 OCR 하지 않는다)
-  valid            규격 검사 통과 여부. 보기에 쓸 만한지는 재지 않는다.
-숫자 0.8, 0.5 는 가설이다. final_pass 는 사람 판정으로 기준을 맞추기 전까지 늘 None 이다.
+  valid          규격 검사 통과 여부. 보기에 쓸 만한지는 재지 않는다.
+자리를 먼저 보는 까닭: 항목명은 모델마다 다르게 적어도 틀린 것이 아니고, 정답의 항목명도 자동으로 뽑은 것이라 완전하지 않다.
 """
 from __future__ import annotations
 
@@ -26,26 +26,15 @@ from .match import hungarian, label_sim, text_score
 NS = "http://www.w3.org/2000/svg"
 ET.register_namespace("", NS)
 
-VERSION = "svg-v1"
+VERSION = "svg-v1"          # 규격 버전
+SCORER = "score-1"         # 채점 규칙 버전
 TYPES = {"text", "number", "amount", "date", "checkbox", "seal", "signature"}
 ALLOWED = {"svg", "g", "rect", "line", "polyline", "polygon", "path", "circle", "ellipse", "text", "tspan", "title", "desc"}
 KEY = re.compile(r"^[a-z][a-z0-9_]*(\.[a-z0-9_]+)*$")
 MAX_SIDE = 5000
-LABEL_SAME = 0.8   # 항목명이 이만큼 비슷해야 짝이 될 수 있다 (가설)
-IOU_SAME = 0.5     # 자리가 이만큼 겹쳐야 맞은 자리로 본다 (가설)
+LABEL_SAME = 0.8   # 항목명이 이만큼 비슷하면 같은 이름으로 본다
+MATCH_IOU = 0.1    # 이만큼 겹치면 같은 자리 후보로 본다
 NO_MATCH = 1000
-
-LIMITATIONS = [
-    "Declared field rectangles are checked; actual text/line geometry is not fully checked",
-    "No browser layout, table topology or downstream OCR/KIE score",
-    "Field aliases and alternative date splitting are not implemented",
-]
-
-
-def tag(e) -> str:
-    """요소의 이름 (네임스페이스 뗀 것). svg_eval_v2 도 쓴다."""
-    return _name(e.tag)
-
 
 def _name(qualified: str) -> str:
     return qualified.split("}")[-1]
@@ -141,12 +130,23 @@ def parse(value: str) -> dict:
     return result
 
 
-def _iou(f: dict, doc: dict, g: dict, other: dict) -> float:
-    """쪽 크기로 나눈 두 상자의 겹침 비율."""
-    x, y, w, h = (f["bbox"][0] / doc["width"], f["bbox"][1] / doc["height"], f["bbox"][2] / doc["width"], f["bbox"][3] / doc["height"])
-    u, v, s, t = (g["bbox"][0] / other["width"], g["bbox"][1] / other["height"], g["bbox"][2] / other["width"], g["bbox"][3] / other["height"])
-    overlap = max(0, min(x + w, u + s) - max(x, u)) * max(0, min(y + h, v + t) - max(y, v))
-    return overlap / (w * h + s * t - overlap)
+KIND = {"checkbox": "check", "seal": "mark", "signature": "mark"}   # 그 밖은 "value"
+
+
+def _box(f: dict, doc: dict) -> tuple:
+    x, y, w, h = f["bbox"]
+    return x / doc["width"], y / doc["height"], w / doc["width"], h / doc["height"]
+
+
+def _iou(a: tuple, b: tuple) -> float:
+    overlap = max(0, min(a[0] + a[2], b[0] + b[2]) - max(a[0], b[0])) * max(0, min(a[1] + a[3], b[1] + b[3]) - max(a[1], b[1]))
+    return overlap / (a[2] * a[3] + b[2] * b[3] - overlap)
+
+
+def _inside(a: tuple, b: tuple) -> bool:
+    """a 의 가운데가 b 안에 있나."""
+    cx, cy = a[0] + a[2] / 2, a[1] + a[3] / 2
+    return b[0] <= cx <= b[0] + b[2] and b[1] <= cy <= b[1] + b[3]
 
 
 def score(reference: str, prediction: str) -> dict:
@@ -155,35 +155,35 @@ def score(reference: str, prediction: str) -> dict:
     if not ref["valid"]:
         raise ValueError("Invalid reference: " + ",".join(ref["issues"]))
     G, P = ref["fields"], pred["fields"]
-    iou = lambda i, j: _iou(G[i], ref, P[j], pred)
     pairs = []
     if G and P and pred["width"] and pred["height"]:
-        def cost(i, j):
-            sim = label_sim(G[i]["label"], P[j]["label"])
-            return 1 - sim + 1 - iou(i, j) if sim >= LABEL_SAME else NO_MATCH
-        costs = [[cost(i, j) for j in range(len(P))] for i in range(len(G))]
+        gb, pb = [_box(f, ref) for f in G], [_box(f, pred) for f in P]
+        iou = [[_iou(a, b) for b in pb] for a in gb]
+        near = lambda i, j: iou[i][j] >= MATCH_IOU or _inside(gb[i], pb[j]) or _inside(pb[j], gb[i])
+        costs = [[1 - iou[i][j] - 0.01 * label_sim(G[i]["label"], P[j]["label"]) if near(i, j) else NO_MATCH for j in range(len(P))] for i in range(len(G))]
         pairs = [(i, j) for i, j in hungarian(costs) if costs[i][j] < NO_MATCH]
-    typed = [(i, j) for i, j in pairs if G[i]["type"] == P[j]["type"] and set(G[i]["options"]) == set(P[j]["options"])]
-    located = [(i, j) for i, j in typed if iou(i, j) >= IOU_SAME]
-    total = len(G) + len(P)
-    return {"version": VERSION, "valid": pred["valid"], "issues": pred["issues"],
-            "fields_gt": len(G), "fields_pred": len(P),
-            "typed_field_f1": round(2 * len(typed) / total, 4),
-            "located_field_f1": round(2 * len(located) / total, 4),
-            "field_iou_mean": round(sum(iou(i, j) for i, j in typed) / len(G), 4),
-            **text_score(ref, pred), "final_pass": None,
-            "status": "diagnostic_uncalibrated", "geometry_threshold": IOU_SAME, "limitations": LIMITATIONS}
+    kind = lambda f: KIND.get(f["type"], "value")
+    right = [(i, j) for i, j in pairs if kind(G[i]) == kind(P[j])]
+    share = lambda xs: round(sum(xs) / len(xs), 4) if xs else None
+    recall = len(right) / len(G)
+    precision = len(right) / len(P) if P else 0.0
+    return {"scorer": SCORER, "valid": pred["valid"], "issues": pred["issues"],
+            "fields_gt": len(G), "fields_pred": len(P), "fields_matched": len(right),
+            "field_recall": round(recall, 4), "field_precision": round(precision, 4),
+            "field_f1": round(2 * recall * precision / (recall + precision), 4) if recall + precision else 0.0,
+            "label_acc": share([label_sim(G[i]["label"], P[j]["label"]) >= LABEL_SAME for i, j in right]),
+            "type_acc": share([G[i]["type"] == P[j]["type"] for i, j in right]),
+            "iou_mean": share([iou[i][j] for i, j in right]),
+            **text_score(ref["texts"], pred["texts"])}
 
 
 def stats(value: str) -> dict:
-    """svg 에서 셀 수 있는 난이도 특징 (docs/DIFFICULTY_GUIDE.md 의 수동 분류를 돕는 숫자).
-    합친 칸 수는 svg 에서 알 수 없어 사람이 원본을 보고 센다. 주석이 빠진 정답이면 값 자리 수는 실제보다 작다."""
+    """svg 에서 세는 난이도 특징: 값 자리 수, 체크 묶음 수, 인쇄 문자 수 (기준은 README 의 난이도 표)."""
     doc = parse(value)
     return {"valid": doc["valid"], "issues": doc["issues"], "fields": len(doc["fields"]),
             "checkbox_groups": sum(f["type"] == "checkbox" for f in doc["fields"]),
             "text_chars": sum(len("".join(t.split())) for t in doc["texts"]),
-            "types": {t: n for t in sorted(TYPES) if (n := sum(f["type"] == t for f in doc["fields"]))},
-            "merged_cells": None}
+            "types": {t: n for t in sorted(TYPES) if (n := sum(f["type"] == t for f in doc["fields"]))}}
 
 
 def render(value: str, output, font_files=None) -> dict:

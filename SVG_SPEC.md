@@ -1,88 +1,30 @@
-# SVG v1 — current preferred generation contract
+# SVG 서식 규격 (svg-v1)
 
-Status: implemented pilot; not calibrated production benchmark. The legacy HTML contract is docs/legacy/HTML_SPEC.md.
-Korean overview and usage: README.md. Code: formgen/svg.py (contract, scoring, rendering), formgen/make.py, formgen/bench.py.
-
-## Data model
-
-One page per SVG; root namespace `http://www.w3.org/2000/svg`, `viewBox="0 0 W H"`.
-Use A4 794×1123 by default, or the original aspect ratio. Positive finite dimensions ≤5000.
-Root and field rectangles must not use transforms. Field coordinates are root user units.
+모델이 내는 것과 정답(`ref.svg`)이 따르는 꼴입니다. 검사는 `python -m formgen validate x.svg`, 코드는 `formgen/svg.py`.
 
 ```xml
 <svg xmlns="http://www.w3.org/2000/svg" width="794" height="1123" viewBox="0 0 794 1123">
   <text x="30" y="60" font-size="16" font-family="Malgun Gothic">성명</text>
+  <rect x="100" y="40" width="200" height="30" fill="none" stroke="black"/>
   <rect data-field="applicant.name" data-label="성명" data-type="text"
         x="100" y="40" width="200" height="30" fill="none" stroke="none"/>
 </svg>
 ```
 
-The transparent rectangle declares a fillable region, not a visible form border. Draw visible borders separately.
-Every field must be a direct root child rect with unique lower-case dotted key, label, exact type and x/y/width/height.
-Types: text, number, amount, date, checkbox, seal, signature. Checkboxes require pipe-delimited data-options.
-Phone/account/identity numbers use text. Quantity uses number. Monetary amount uses amount.
-Fixed institution names/logos/statutory text stay fixed; document-specific values are fields.
+| 무엇 | 규칙 |
+|---|---|
+| 쪽 | SVG 하나 = 한 쪽. `viewBox="0 0 W H"` (A4 는 794×1123, 다른 비율이면 그 비율로). 한 변 5000 이하 |
+| 인쇄 문구 | `<text>` 로 적습니다. 글자를 선(path)으로 그리지 않습니다 |
+| 선·칸 | `rect` `line` `path` 등으로 그립니다 |
+| 값 자리 | 루트 바로 아래의 `<rect>`. 보이지 않는 표시이므로 칸의 테두리는 따로 그립니다. `transform` 금지, 쪽 안에 있어야 함 |
+| `data-field` | 문서 안에서 하나뿐인 키. 영문 소문자·숫자·밑줄, 점으로 나눈 경로 |
+| `data-label` | 서류에 인쇄된 항목명 |
+| `data-type` | `text` `number` `amount` `date` `checkbox` `seal` `signature`. 전화·계좌·식별번호는 `text` |
+| `data-options` | 체크 칸만. 보기를 `\|` 로 이음 (`신청\|미신청`). 보기 묶음 하나가 값 자리 하나 |
+| 채워진 값 | 이름·번호·금액·날짜·체크 표시·도장·서명은 지우고 값 자리로 표시합니다 |
+| 허용 요소 | `svg g rect line polyline polygon path circle ellipse text tspan title desc` |
+| 금지 | `script` `style` `image` `use` `foreignObject`, `href`·`style`·`class`·이벤트 속성, `url()`, DOCTYPE, 숨긴 내용 |
 
-Allowed: svg,g,rect,line,polyline,polygon,path,circle,ellipse,text,tspan,title,desc.
-No script/style/foreignObject/image/use, href, event handlers, CSS style/class, url(), DTD or entities.
-Use presentation attributes. Text must remain editable text; model outputs should not outline glyphs.
-Imported references have some inherited PDF glyph paths: a recorded exception, not permission for generated text to disappear from the text metric.
-The validator cannot determine whether an arbitrary path is a letter; visual/manual review remains necessary.
+유효하지 않은 것: XML 이 깨짐(잘림 포함), 값 자리 없음, `<text>` 없음, 위 금지 사항, 값 자리 속성이 빠지거나 틀림.
 
-## Commands
-
-`python -m formgen svg ...` is the separate diagnostic CLI (v2/v3 scorers, see the end of this file); generation is the same function.
-
-```bash
-# Generate using an INTERNAL image-capable OpenAI-compatible endpoint. No external pip dependency.
-python -m formgen make --image input.png --endpoint http://host:8000/v1 --model NAME --out runs/svg_one
-python -m formgen validate runs/svg_one/out.svg
-python -m formgen score ref.svg runs/svg_one/out.svg --out score.json
-python -m formgen stats ref.svg          # countable difficulty features for the manual guide
-
-# Render: only resvg-py and a usable Korean font are needed, no browser.
-python -m pip install -r requirements-svg.txt
-python -m formgen render ref.svg --out preview.png --font-file /path/to/korean-font.ttf
-
-# Benchmark. Candidates require an explicit diagnostic flag. Same --out resumes; different settings need a fresh --out.
-python -m formgen bench --items bench/official_pilot_v1 --endpoint http://host:8000/v1 --model NAME --out runs/NAME --repeat 3 --allow-candidates
-python -m formgen report runs/NAME       # rebuild summary/report from results.jsonl, no model calls
-
-# Scorer self-test and path check without a model
-python -m formgen selftest
-python -m formgen bench --items bench/official_pilot_v1 --out runs/mock --mock ref --allow-candidates
-```
-
-PNG sidecars record renderer version and SHA-256 of explicit font files. Without --font-file, system fonts are used and marked `system_unpinned`.
-Do not redistribute OS fonts without confirming rights. For repeatable Linux/Windows runs, supply the same permitted Korean font file and record its hash.
-Internal installation can use an approved package mirror or matching wheels:
-`python -m pip install --no-index --find-links wheels -r requirements-svg.txt`.
-Prepare wheels for the target OS, architecture and Python version on a compatible connected machine; the tested Windows wheel does not prove availability on the unknown internal target.
-
-## Metrics
-
-- Label similarity ≥0.8 + normalized region IoU chooses one-to-one field matches.
-- typed_field_f1 requires exact type and checkbox options.
-- located_field_f1 additionally requires IoU ≥0.5 (provisional).
-- field_iou_mean sums typed matches' IoU over ALL reference fields; missing fields contribute zero.
-- text_f1 uses text bigrams, not OCR of the render.
-- valid checks the restricted XML contract, NOT visual usability.
-- final_pass in a score is null pending annotation review and human calibration. No v1 table_f1 is synthesized from SVG paths.
-
-## Benchmark aggregation (formgen/bench.py)
-
-- results.jsonl stores raw scores per (item, repeat). Pass/fail is computed only at aggregation time from `PASS_RULE`.
-- `PASS_RULE` = pass-provisional-0: valid ∧ typed_field_f1 ≥ 0.8 ∧ located_field_f1 ≥ 0.8 ∧ text_r ≥ 0.8. A hypothesis, not calibrated.
-  text_r (recall) is used instead of text_f1 because candidate references keep some glyphs as outlines, so correct model text lowers precision.
-- Failure type, first match: request_error, truncated, invalid:<issues>, low_fields, low_position, low_text.
-- Per tier: unique images, attempts, attempt pass count, image pass count (an image passes when more than half of its attempts pass)
-  with a Wilson 95% interval, images whose repeats disagree, mean scores, seconds and output tokens.
-- A run containing unapproved candidates is labelled diagnostic in report.md.
-
-Not yet implemented: renderer-based whole-page overlap/overflow evaluation, constrained field-value filling,
-per-option checkbox placement, table topology, multi-page model input, retries/P2, calibrated pass/fail, multi-model comparison table.
-
-## Scoring v2 / v3 diagnostics (experimental, `python -m formgen svg ...`)
-
-`python -m formgen svg score` and `svg bench` use `svg-eval-v2`: independent field detection/label/type/location, explicit text-anchor localization, and optional raster ink/edge agreement (`--visual --source-image IMAGE --font-file FONT`). Old metrics remain under `legacy_svg_v1`. Render comparison requires the optional `requirements-svg-visual.txt`; `final_pass` is still null. See [docs/SCORER_V2.md](docs/SCORER_V2.md) and [docs/SCORER_V3.md](docs/SCORER_V3.md).
-`python -m formgen bench` (pass-rate table) stores the stdlib v2 field/text-position numbers next to the v1 scores in results.jsonl, so a later pass rule can use them without rerunning models.
+모델에 주는 지시문은 `formgen/prompts/svg_v1.md` 입니다. 지시문을 바꾸면 새 파일(`svg_v2.md`)로 두고 `formgen/make.py` 의 `PROMPT_VERSION` 을 바꿉니다.

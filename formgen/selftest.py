@@ -1,24 +1,23 @@
-"""채점기 자체 검증 (가설: svg 채점기가 틀린 답을 틀렸다고 한다). 모델 없이 돌린다.
+"""채점기 자체 검증: 채점기가 틀린 답을 틀렸다고 하는가. 모델 없이 돌린다.
 
-평가 항목의 정답 svg 를 일부러 망가뜨려 넣고, 점수가 기대한 대로 움직이는지 본다. 기대와 다르면 실패로 끝난다.
-  same        그대로                       → 모든 점수 1.0, 유효
-  drop_half   값 자리를 하나 걸러 지움      → 값 자리 F1 ≈ 0.67 (재현 절반, 정밀 1), 문구 1.0
-  shift_small 값 자리를 5 만큼 옮김         → 값 자리·위치 그대로 1.0, 겹침만 조금 하락
-  shift_far   값 자리를 쪽 너비의 30% 옮김   → 값 자리 1.0, 위치 점수는 크게 하락
-  retype      종류 text → amount           → text 값 자리 비율만큼 값 자리 점수 하락
-  half_text   <text> 를 하나 걸러 지움      → 값 자리 그대로, 문구 재현 하락
-  no_text     <text> 를 모두 지움           → 유효하지 않음 (no_editable_text), 문구 0
-  no_fields   값 자리 표시를 모두 지움      → 유효하지 않음 (no_fields), 값 자리 0
-  other_form  다른 항목의 정답을 넣음       → 모든 점수가 낮아야 (변별력)
-  truncated   앞 절반만                    → 유효하지 않음, 0
-  empty       빈 답                        → 유효하지 않음, 0
+golden set 의 정답 svg 를 일부러 망가뜨려 넣고 점수가 기대대로 움직이는지 본다. 기대와 다르면 실패로 끝난다.
+  same        그대로                          → 모두 1.0
+  drop_half   값 자리를 하나 걸러 지움         → 재현 ≈ 0.5, 정밀 1.0
+  extra       값 자리를 빈 곳에 그만큼 더 넣음  → 재현 1.0, 정밀 ≈ 0.5
+  nudge       값 자리를 3 만큼 옮김            → 재현 1.0 (조금 어긋난 것은 봐준다), 겹침만 하락
+  far         값 자리를 쪽 밖 가까이로 모음     → 재현이 크게 하락
+  relabel     항목명을 모두 바꿈               → 재현 1.0, 항목명 0  (이름이 달라도 자리가 맞으면 찾은 것)
+  rekind      체크 칸을 값 칸으로              → 체크 칸 비율만큼 재현 하락
+  half_text   <text> 를 하나 걸러 지움         → 값 자리 그대로, 문구 하락
+  no_fields   값 자리를 모두 지움              → 유효하지 않음
+  other_form  다른 항목의 정답                 → 모두 낮아야
+  truncated   앞 절반만 / empty 빈 답          → 유효하지 않음, 0
 
-실행: python -m formgen selftest --items bench/official_pilot_v1 --out results/selftest_svg
+실행: python -m formgen selftest [--items bench/golden_v1]
 """
 from __future__ import annotations
 
 import argparse
-import json
 import re
 from pathlib import Path
 
@@ -26,7 +25,7 @@ from . import svg
 
 FIELD = re.compile(r"<rect\b[^>]*\bdata-field=[^>]*/>")
 TEXT = re.compile(r"<text\b.*?</text>", re.S)
-SHOW = ("valid", "typed_field_f1", "located_field_f1", "field_iou_mean", "text_f1", "text_r")
+SHOW = ("field_recall", "field_precision", "label_acc", "iou_mean", "text_f1")
 
 
 def _every_other(pattern, s):
@@ -38,97 +37,84 @@ def _every_other(pattern, s):
     return pattern.sub(keep, s)
 
 
-def _shift(s, dx):
-    move = lambda m: re.sub(r'\bx="([-\d.]+)"', lambda q: f'x="{float(q.group(1)) + dx}"', m.group(), count=1)
-    return FIELD.sub(move, s)
+def _attr(rect: str, name: str, value) -> str:
+    return re.sub(rf'\b{name}="[^"]*"', f'{name}="{value}"', rect, count=1)
 
 
 def cases(ref: str, other: str) -> dict:
-    width = svg.parse(ref)["width"]
-    fields = svg.parse(ref)["fields"]
-    room = min(width - f["bbox"][0] - f["bbox"][2] for f in fields)   # 쪽 밖으로 나가지 않게 왼쪽으로 옮긴다
-    far = -0.3 * width if min(f["bbox"][0] for f in fields) > 0.3 * width else (0.3 * width if room > 0.3 * width else None)
-    out = {"same": ref, "drop_half": _every_other(FIELD, ref), "shift_small": _shift(ref, -5),
-           "retype": ref.replace('data-type="text"', 'data-type="amount"'),
-           "half_text": _every_other(TEXT, ref), "no_text": TEXT.sub("", ref), "no_fields": FIELD.sub("", ref),
-           "other_form": other, "truncated": ref[:len(ref) // 2], "empty": ""}
-    if far is not None:
-        out["shift_far"] = _shift(ref, far)
-    return out
+    n = [0]
+
+    def corner(m):   # 값 자리를 왼쪽 위 구석에 작은 상자로 줄지어 놓는다 (정답 자리와 겹치지 않게)
+        n[0] += 1
+        r = m.group()
+        for name, value in (("x", 1 + 3 * (n[0] % 20)), ("y", 1 + 3 * (n[0] // 20)), ("width", 2), ("height", 2)):
+            r = _attr(r, name, value)
+        return r
+
+    def extra(m):
+        n[0] += 1
+        return m.group() + _attr(corner(m), "data-field", f"extra{n[0]}")
+
+    nudge = lambda m: _attr(m.group(), "x", float(re.search(r'\bx="([-\d.]+)"', m.group()).group(1)) - 3)
+    return {"same": ref, "drop_half": _every_other(FIELD, ref), "extra": FIELD.sub(extra, ref), "nudge": FIELD.sub(nudge, ref),
+            "far": FIELD.sub(corner, ref), "relabel": re.sub(r'data-label="[^"]*"', 'data-label="가나다라"', ref),
+            "rekind": re.sub(r'data-type="checkbox" data-options="[^"]*"', 'data-type="text"', ref),
+            "half_text": _every_other(TEXT, ref), "no_fields": FIELD.sub("", ref),
+            "other_form": other, "truncated": ref[:len(ref) // 2], "empty": ""}
 
 
-def expect(case: str, r: dict, ref_stats: dict) -> list[str]:
-    """기대와 다른 점 목록 (비면 통과)."""
-    bad = []
-    need = lambda ok, why: bad.append(why) if not ok else None
-    f, loc, iou, tf, tr = (r[k] for k in SHOW[1:])
-    n = ref_stats["fields"]
-    if case == "same":
-        need(r["valid"] and f == loc == iou == tf == 1, "그대로인데 1.0 이 아님")
-    elif case == "drop_half":
-        kept = (n + 1) // 2
-        need(abs(f - 2 * kept / (n + kept)) < 1e-3 and tf == 1, "값 자리 절반: F1 이 기대와 다름")
-    elif case == "shift_small":
-        need(f == 1 and loc == 1 and iou < 1, "조금 옮김: 값 자리·위치는 1.0, 겹침은 1 미만이어야")
-    elif case == "shift_far":
-        need(f == 1 and loc < 0.5, "멀리 옮김: 위치 점수가 크게 떨어져야")
-    elif case == "retype":
-        text_share = ref_stats["types"].get("text", 0) / n
-        need(abs(f - (1 - text_share)) < 1e-3, "종류 바꿈: 바꾼 비율만큼 떨어져야")
-    elif case == "half_text":
-        need(f == 1 and tr < 0.9 and tf < 0.95, "문구 절반: 값 자리 그대로, 문구 하락")
-    elif case == "no_text":
-        need(not r["valid"] and tf == 0, "문구 없음: 유효하지 않아야")
-    elif case == "no_fields":
-        need(not r["valid"] and f == 0, "값 자리 없음: 유효하지 않아야")
-    elif case == "other_form":
-        need(f < 0.5 and loc < 0.3 and tf < 0.5, "다른 서식: 점수가 낮아야")
-    elif case in ("truncated", "empty"):
-        need(not r["valid"] and f == 0 and tf == 0, "잘림·빈 답: 유효하지 않고 0 이어야")
-    return bad
+def expect(case: str, r: dict, ref_stats: dict) -> str:
+    """기대와 다르면 그 까닭 (기대대로면 빈 글)."""
+    rec, prec, lab, tf = r["field_recall"], r["field_precision"], r["label_acc"], r["text_f1"]
+    n, checks = ref_stats["fields"], ref_stats["checkbox_groups"]
+    ok = {"same": r["valid"] and rec == prec == tf == 1 and lab == 1,
+          "drop_half": abs(rec - ((n + 1) // 2) / n) < 0.01 and prec == 1 and tf == 1,
+          "extra": rec == 1 and abs(prec - 0.5) < 0.01,
+          "nudge": rec == 1 and r["iou_mean"] < 1,
+          "far": rec < 0.2,
+          "relabel": rec == 1 and lab == 0,
+          "rekind": abs(rec - (n - checks) / n) < 0.01,
+          "half_text": rec == 1 and tf < 0.95,
+          "no_fields": not r["valid"] and rec == 0,
+          "other_form": rec < 0.5 and tf < 0.5,
+          "truncated": not r["valid"] and rec == 0 and tf == 0,
+          "empty": not r["valid"] and rec == 0 and tf == 0}[case]
+    return "" if ok else "기대와 다름"
 
 
-def run(items: str | Path) -> dict:
-    items = Path(items)
-    refs = {p.name: (p / "ref.svg").read_text(encoding="utf-8-sig") for p in sorted(items.iterdir()) if (p / "ref.svg").is_file()}
+def run(items) -> dict:
+    refs = {p.name: (p / "ref.svg").read_text(encoding="utf-8-sig") for p in sorted(Path(items).iterdir()) if (p / "ref.svg").is_file()}
     if len(refs) < 2:
         raise SystemExit(f"ref.svg 가 있는 항목이 둘 이상 필요합니다: {items}")
-    names, rows, failed = list(refs), [], []
+    names, rows = list(refs), []
     for k, name in enumerate(names):
         ref, other = refs[name], refs[names[(k + 1) % len(names)]]
-        ref_stats = svg.stats(ref)
         for case, value in cases(ref, other).items():
             r = svg.score(ref, value)
-            bad = expect(case, r, ref_stats)
-            rows.append({"id": name, "case": case, **{key: r[key] for key in SHOW}, "issues": r["issues"], "unexpected": bad})
-            failed += [f"{name}/{case}: {b}" for b in bad]
-    return {"version": svg.VERSION, "items": str(items), "n_items": len(names), "rows": rows, "failed": failed, "ok": not failed}
+            rows.append({"id": name, "case": case, "valid": r["valid"], **{key: r[key] for key in SHOW}, "bad": expect(case, r, svg.stats(ref))})
+    return {"rows": rows, "failed": [f"{r['id']}/{r['case']}" for r in rows if r["bad"]]}
 
 
 def table(result: dict) -> str:
-    lines = ["| 항목 | 망가뜨린 방법 | 유효 | 값 자리 | 값 자리+위치 | 겹침 | 문구 F1 | 문구 재현 | 기대대로 |", "|---|---|---|---|---|---|---|---|---|"]
-    for r in result["rows"]:
-        lines.append(f"| {r['id']} | {r['case']} | {'예' if r['valid'] else '아니오'} | " + " | ".join(f"{r[k]:.2f}" for k in SHOW[1:])
-                     + f" | {'예' if not r['unexpected'] else '아니오: ' + '; '.join(r['unexpected'])} |")
+    """망가뜨린 방법마다 항목 전체의 평균."""
+    fmt = lambda xs: "-" if not xs else f"{sum(xs) / len(xs):.2f}"
+    lines = ["| 망가뜨린 방법 | 유효 | 값 자리 재현 | 값 자리 정밀 | 항목명 | 겹침 | 문구 | 기대대로 |", "|---|---|---|---|---|---|---|---|"]
+    for case in dict.fromkeys(r["case"] for r in result["rows"]):
+        rs = [r for r in result["rows"] if r["case"] == case]
+        lines.append(f"| {case} | {sum(r['valid'] for r in rs)}/{len(rs)} | " + " | ".join(fmt([r[k] for r in rs if r[k] is not None]) for k in SHOW)
+                     + f" | {sum(not r['bad'] for r in rs)}/{len(rs)} |")
     return "\n".join(lines) + "\n"
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="python -m formgen selftest", description="svg 채점기 자체 검증 (모델 없이)")
-    ap.add_argument("--items", default="bench/official_pilot_v1")
-    ap.add_argument("--out", default=None, help="selftest.json · selftest.md 를 쓸 폴더")
+    ap.add_argument("--items", default="bench/golden_v1")
     a = ap.parse_args(argv)
     result = run(a.items)
-    text = table(result)
-    if a.out:
-        out = Path(a.out)
-        out.mkdir(parents=True, exist_ok=True)
-        (out / "selftest.json").write_text(json.dumps(result, ensure_ascii=False, indent=1), encoding="utf-8")
-        (out / "selftest.md").write_text(f"# svg 채점기 자체 검증 ({result['version']}, {result['items']})\n\n" + text, encoding="utf-8")
-    print(text)
-    print("통과" if result["ok"] else "실패:\n" + "\n".join(result["failed"]))
-    if not result["ok"]:
-        raise SystemExit(1)
+    print(table(result))
+    if result["failed"]:
+        raise SystemExit("실패: " + ", ".join(result["failed"]))
+    print("통과")
 
 
 if __name__ == "__main__":
